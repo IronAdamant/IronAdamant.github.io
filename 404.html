@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artifact Not Found - TrazynCache</title>
+    <meta name="description" content="The artifact you seek has not been catalogued in the TrazynCache archives.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/accessibility.css">
+    <style>
+        .error-404 {
+            min-height: calc(100vh - 100px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .error-content {
+            max-width: 600px;
+        }
+        
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-shadow: 0 0 30px rgba(0, 255, 157, 0.6);
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+        }
+        
+        .error-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+        
+        .error-message {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        .error-glyph {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 2rem;
+            opacity: 0.6;
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body>
+    <!-- Unified Background Element -->
+    <div class="unified-background"></div>
+    
+    <!-- Necron Glyphs Background Elements -->
+    <div class="necron-glyph circuit-circle" style="top: 20%; left: 5%;"></div>
+    <div class="necron-glyph circuit-circle" style="top: 70%; left: 90%;"></div>
+    <div class="necron-glyph connected-nodes" style="top: 40%; left: 85%;">
+        <div class="node node-1"></div>
+        <div class="node node-2"></div>
+        <div class="node node-3"></div>
+        <div class="node node-4"></div>
+        <div class="node node-5"></div>
+    </div>
+    
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    
+    <main id="main-content" tabindex="-1">
+        <div class="error-404">
+            <div class="error-content">
+                <div class="error-glyph">⚡</div>
+                <div class="error-code">404</div>
+                <h1 class="error-title">Artifact Not Found</h1>
+                <p class="error-message">
+                    The artifact you seek has not been catalogued in my archives. 
+                    Perhaps it was lost during the Great Sleep, or it resides in a timeline yet to be discovered.
+                    Return to the main chamber to browse the existing collection.
+                </p>
+                <div class="cta-buttons">
+                    <a href="index.html" class="btn btn-primary">Return to Archives</a>
+                    <a href="projects.html" class="btn btn-secondary">Browse Collection</a>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>&copy; M3.025 TrazynCache. Collection curated across dimensions.</p>
+        </div>
+    </footer>
+    
+    <script src="js/combined.js"></script>
+    <script src="js/sw-register.js"></script>
+</body>
+</html>

@@ -1,0 +1,193 @@
+/* RADICAL SOLUTION - Completely separates layout concerns with absolute positioning */
+/* This approach ensures the hero content is perfectly positioned with no gaps */
+
+/* Override specific styles only while preserving the overall theme */
+/* No need for a full reset as we're focusing only on layout concerns */
+
+/* Force all Necron patterns to background */
+.necron-glyph,
+.necron-complex-glyph,
+.bright-path,
+.connection-line,
+.circuit-rect,
+.energy-column,
+.circuit-board,
+.unified-background,
+.diagonal-bright,
+.pulsing-node,
+.triangular-circuit,
+.circuit-circle,
+.connected-nodes {
+    position: fixed !important; /* Force fixed positioning */
+    z-index: -10 !important; /* Force to background */
+    pointer-events: none !important; /* Ensure clicks pass through */
+}
+
+/* Header styling - clean, minimal */
+header {
+    position: fixed !important; /* Fixed at top, use !important to override */
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 1000 !important;
+    background: rgba(5, 5, 5, 0.95) !important;
+    backdrop-filter: blur(10px) !important;
+    -webkit-backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4) !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3) !important;
+    height: 40px !important; /* Fixed height */
+    display: flex !important;
+    align-items: center !important;
+}
+
+header .container {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: flex-end;
+    height: 100%;
+}
+
+/* Navigation styling */
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 5px;
+    height: 100%;
+    align-items: center;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 4px 15px;
+    transition: all 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 4px;
+    letter-spacing: 1px;
+    margin: 0 3px;
+    position: relative;
+}
+
+nav a:hover, nav a.active {
+    color: var(--text);
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* HERO SECTION - Absolute positioning */
+.hero {
+    position: absolute !important; /* Absolute positioning with !important to override */
+    top: 60px !important; /* Position directly below header */
+    left: 0 !important;
+    right: 0 !important;
+    z-index: 5 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    overflow: visible !important;
+}
+
+/* Default hero container styling */
+.hero .container {
+    position: relative !important;
+    max-width: 1000px !important;
+    width: calc(100% - 40px) !important; /* Adjust for margins */
+    margin: 0 auto !important;
+    padding: 2rem !important;
+    text-align: center !important;
+    background: transparent !important; /* Transparent background for index page */
+    border-radius: 8px !important;
+    box-shadow: none !important; /* No shadow for transparent containers */
+    border: none !important; /* No border for transparent containers */
+    z-index: 10 !important;
+}
+
+/* Hero content */
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.6), 0 0 3px rgba(0, 0, 0, 0.9);
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin: 0 auto 1rem;
+    color: var(--text);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero .cta-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin: 1.5rem 0 0.5rem;
+}
+
+/* Main content positioning */
+main {
+    padding-top: 40px; /* Space for fixed header */
+}
+
+/* Featured projects section positioning */
+.featured-projects {
+    position: relative !important;
+    margin-top: 300px !important; /* Position below hero section */
+    padding: 2rem 0 !important;
+    z-index: 5 !important;
+    background: transparent !important; /* Transparent background for index page */
+}
+
+/* Make projects thinner horizontally */
+.project-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)) !important; /* Thinner card width */
+    gap: 2rem !important;
+    max-width: 1200px !important;
+    margin: 0 auto !important;
+    padding: 1rem !important;
+}
+
+.project-card {
+    width: 100% !important;
+    max-width: 320px !important; /* Maximum width for each card */
+    margin: 0 auto !important;
+    background: rgba(5, 5, 5, 0.4) !important; /* Very subtle background */
+    border-radius: 6px !important;
+    padding: 1rem !important;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Make About section transparent */
+.section-title, .section-text {
+    background: transparent !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8) !important; /* Add text shadow for readability */
+}
+
+/* Content pages (projects, contact) */
+.projects-page, .contact-page {
+    padding-top: 60px; /* Account for fixed header */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .hero {
+        top: 50px;
+    }
+    
+    .hero .container {
+        padding: 1.5rem;
+    }
+    
+    .hero-title {
+        font-size: 2.5rem;
+    }
+    
+    .featured-projects {
+        top: 300px;
+    }
+}

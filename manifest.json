@@ -1,0 +1,13 @@
+{
+  "name": "Necron Portfolio - TrazynCache",
+  "short_name": "TrazynCache",
+  "description": "A digital architect who has embraced the ancient wisdom of the Necron dynasties",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#000000",
+  "theme_color": "#00ff9d",
+  "categories": ["portfolio", "developer", "technology"],
+  "related_applications": [],
+  "prefer_related_applications": false
+}

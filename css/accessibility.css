@@ -1,0 +1,259 @@
+/* Accessibility Enhancements */
+
+/* Skip link styles */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--primary);
+    color: var(--bg-darker);
+    padding: 8px 16px;
+    z-index: 100;
+    transition: top 0.3s;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+    outline: 3px solid var(--primary-light);
+}
+
+/* Focus styles */
+a:focus,
+button:focus,
+input:focus,
+select:focus,
+textarea:focus,
+[tabindex]:focus {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* Hide focus styles for mouse users */
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+/* Show focus styles for keyboard navigation */
+:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+}
+
+/* High contrast mode */
+@media (forced-colors: active) {
+    :root {
+        --primary: #00ff9d;
+        --bg-dark: #000000;
+        --text: #ffffff;
+    }
+    
+    .btn {
+        border: 2px solid transparent;
+    }
+    
+    .btn:focus {
+        outline: 2px solid #ffffff;
+        outline-offset: 2px;
+    }
+    
+    /* Ensure text is readable in high contrast mode */
+    body {
+        -ms-high-contrast-adjust: none;
+    }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .scarab-container,
+    .scarab,
+    .scarab-body,
+    .scarab-wings,
+    .scarab-legs {
+        animation: none !important;
+        transition: none !important;
+    }
+    
+    /* Disable parallax and other motion effects */
+    [style*="animation"],
+    [style*="transition"] {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* Print styles */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    
+    body {
+        background: #fff !important;
+        color: #000 !important;
+        font-size: 12pt !important;
+        line-height: 1.5 !important;
+    }
+    
+    a {
+        text-decoration: underline !important;
+        color: #0000ff !important;
+    }
+    
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 0.8em;
+        font-weight: normal;
+        color: #666;
+    }
+    
+    .project-links,
+    .filter-buttons,
+    .scroll-indicator {
+        display: none !important;
+    }
+    
+    .project-item {
+        break-inside: avoid;
+        page-break-inside: avoid;
+    }
+    
+    /* Ensure enough contrast for printed text */
+    h1, h2, h3, h4, h5, h6 {
+        color: #000 !important;
+    }
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* Focus ring for interactive elements */
+.focus-ring {
+    position: relative;
+}
+
+.focus-ring:focus {
+    outline: none;
+}
+
+.focus-ring:focus::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    border: 2px solid var(--primary);
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --text: #e0e0e0;
+        --text-secondary: #aaa;
+        --bg-dark: #0a0a0a;
+        --bg-darker: #050505;
+    }
+}
+
+/* Ensure interactive elements are easily tappable on mobile */
+button,
+a,
+[role="button"],
+[tabindex] {
+    min-height: 44px;
+    min-width: 44px;
+}
+
+/* Improve form field visibility */
+input,
+select,
+textarea {
+    background-color: var(--bg-dark);
+    color: var(--text);
+    border: 1px solid var(--text-secondary);
+    padding: 0.75rem;
+    border-radius: var(--border-radius);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 2px var(--primary-light);
+}
+
+/* Error states */
+.error {
+    color: var(--error);
+    border-color: var(--error);
+}
+
+.error-message {
+    color: var(--error);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Success states */
+.success {
+    color: var(--success);
+    border-color: var(--success);
+}
+
+.success-message {
+    color: var(--success);
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+}
+
+/* Loading states */
+[aria-busy="true"] {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+[aria-busy="true"]::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 1.5em;
+    height: 1.5em;
+    margin: -0.75em 0 0 -0.75em;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    border-right-color: transparent;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
