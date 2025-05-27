@@ -199,8 +199,31 @@ const initApp = () => {
         
         // Initialize character count
         if (messageInput && messageCount) {
+            // Track when form becomes interactive (for spam detection)
+            window.formLoadTime = performance.now();
+            
             updateCharacterCount();
             messageInput.addEventListener('input', updateCharacterCount);
+        }
+        
+        // Function to show fake success to bots (honeypot triggered)
+        function showFakeSuccess() {
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+            buttonText.textContent = 'Transmit Message';
+            
+            // Show fake success without actually sending
+            const fakeSuccess = document.createElement('div');
+            fakeSuccess.style.cssText = 'margin-top: 1rem; padding: 1rem; background: #00ff9d; color: #000; border-radius: 4px;';
+            fakeSuccess.textContent = 'Message sent successfully!';
+            form.appendChild(fakeSuccess);
+            form.reset();
+            
+            setTimeout(() => {
+                if (fakeSuccess.parentNode) {
+                    fakeSuccess.remove();
+                }
+            }, 3000);
         }
         
         // Form submission handler
@@ -388,39 +411,156 @@ const initApp = () => {
         
         // Form submission
         async function submitForm() {
+            // ANTI-SPAM CHECKS (user-friendly)
+            const formStartTime = performance.now();
+            const timeTaken = formStartTime - (window.formLoadTime || formStartTime - 2000);
+            
+            // 1. Time-based spam check (too fast = likely bot)
+            if (timeTaken < 3000) { // Less than 3 seconds is suspicious
+                console.log('Submission too fast, likely bot');
+                await new Promise(resolve => setTimeout(resolve, 2000)); // Slow down bots
+            }
+            
+            // 2. Content spam detection
+            const messageText = messageInput.value.toLowerCase();
+            const spamKeywords = ['crypto', 'bitcoin', 'investment', 'earn money', 'guaranteed', 'click here', 'free money', 'viagra', 'casino'];
+            const spamScore = spamKeywords.filter(keyword => messageText.includes(keyword)).length;
+            
+            if (spamScore >= 2) {
+                // Instead of blocking, add extra verification
+                const extraVerify = confirm('Your message contains content that might be flagged as spam. Are you sure you want to send this message?');
+                if (!extraVerify) return;
+            }
+            
+            // 3. Honeypot check (invisible field bots might fill)
+            const honeypot = document.getElementById('website'); // We'll add this field
+            if (honeypot && honeypot.value !== '') {
+                console.log('Honeypot triggered - likely bot');
+                // Silently fail for bots
+                await new Promise(resolve => setTimeout(resolve, 3000));
+                showFakeSuccess();
+                return;
+            }
+            
             // Disable submit button
             submitButton.disabled = true;
             submitButton.setAttribute('aria-busy', 'true');
             buttonText.textContent = submitButton.getAttribute('data-loading-text');
             
             try {
-                // Simulate API call (replace with actual form submission)
-                await new Promise(resolve => setTimeout(resolve, 1500));
+                // Method 1: Try EmailJS first (if configured)
+                if (typeof emailjs !== 'undefined') {
+                    // Prepare form data for EmailJS
+                    const formData = {
+                        from_name: nameInput.value.trim(),
+                        from_email: emailInput.value.trim(),
+                        subject: subjectInput.value.trim(),
+                        message: messageInput.value.trim(),
+                        to_email: 'trazyncache@gmail.com', // Your email address
+                        user_agent: navigator.userAgent, // Help identify bots
+                        timestamp: new Date().toISOString(),
+                        form_load_time: Math.round(timeTaken / 1000) + ' seconds'
+                    };
+                    
+                    // Send email using EmailJS
+                    const response = await emailjs.send(
+                        'service_f33annn', // EmailJS service ID
+                        'template_tzf6es6',  // EmailJS template ID
+                        formData,
+                        '9PZKLXOs8AbeVUAdZ'    // EmailJS public key
+                    );
+                    
+                    if (response.status === 200) {
+                        // Show success message
+                        formSuccess.hidden = false;
+                        form.reset();
+                        
+                        // Announce success to screen readers
+                        const successMessage = formSuccess.textContent.trim();
+                        const liveRegion = document.createElement('div');
+                        liveRegion.setAttribute('role', 'alert');
+                        liveRegion.setAttribute('aria-live', 'polite');
+                        liveRegion.className = 'sr-only';
+                        liveRegion.textContent = successMessage;
+                        document.body.appendChild(liveRegion);
+                        
+                        // Remove after announcement
+                        setTimeout(() => {
+                            document.body.removeChild(liveRegion);
+                        }, 1000);
+                        
+                        // Focus on success message for screen readers
+                        formSuccess.focus();
+                        return; // Success, exit function
+                    }
+                }
                 
-                // Show success message
-                formSuccess.hidden = false;
-                form.reset();
+                // Method 2: Fallback to Formspree (simpler setup)
+                const formData = new FormData();
+                formData.append('name', nameInput.value.trim());
+                formData.append('email', emailInput.value.trim());
+                formData.append('subject', subjectInput.value.trim());
+                formData.append('message', messageInput.value.trim());
                 
-                // Announce success to screen readers
-                const successMessage = formSuccess.textContent.trim();
-                const liveRegion = document.createElement('div');
-                liveRegion.setAttribute('role', 'alert');
-                liveRegion.setAttribute('aria-live', 'polite');
-                liveRegion.className = 'sr-only';
-                liveRegion.textContent = successMessage;
-                document.body.appendChild(liveRegion);
+                const response = await fetch('https://formspree.io/f/meogbbow', {
+                    method: 'POST',
+                    body: formData,
+                    headers: {
+                        'Accept': 'application/json'
+                    }
+                });
                 
-                // Remove after announcement
-                setTimeout(() => {
-                    document.body.removeChild(liveRegion);
-                }, 1000);
-                
-                // Focus on success message for screen readers
-                formSuccess.focus();
+                if (response.ok) {
+                    // Show success message
+                    formSuccess.hidden = false;
+                    form.reset();
+                    
+                    // Announce success to screen readers
+                    const successMessage = formSuccess.textContent.trim();
+                    const liveRegion = document.createElement('div');
+                    liveRegion.setAttribute('role', 'alert');
+                    liveRegion.setAttribute('aria-live', 'polite');
+                    liveRegion.className = 'sr-only';
+                    liveRegion.textContent = successMessage;
+                    document.body.appendChild(liveRegion);
+                    
+                    // Remove after announcement
+                    setTimeout(() => {
+                        document.body.removeChild(liveRegion);
+                    }, 1000);
+                    
+                    // Focus on success message for screen readers
+                    formSuccess.focus();
+                } else {
+                    throw new Error('Both email services failed');
+                }
                 
             } catch (error) {
                 // Show error message
-                const errorMessage = 'There was an error submitting the form. Please try again.';
+                console.error('Form submission error:', error);
+                
+                // If both methods fail, show helpful error message
+                const errorMessage = `Unable to send your message at this time. Please email me directly at trazyncache@gmail.com or try again later.`;
+                
+                // Show error in the UI
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'error-message';
+                errorDiv.style.marginTop = '1rem';
+                errorDiv.style.padding = '1rem';
+                errorDiv.style.backgroundColor = '#ff4444';
+                errorDiv.style.color = 'white';
+                errorDiv.style.borderRadius = '4px';
+                errorDiv.textContent = errorMessage;
+                
+                // Remove any existing error messages
+                const existingError = form.querySelector('.error-message');
+                if (existingError) {
+                    existingError.remove();
+                }
+                
+                form.appendChild(errorDiv);
+                
+                // Announce error to screen readers
                 const liveRegion = document.createElement('div');
                 liveRegion.setAttribute('role', 'alert');
                 liveRegion.setAttribute('aria-live', 'assertive');
@@ -431,15 +571,16 @@ const initApp = () => {
                 // Remove after announcement
                 setTimeout(() => {
                     document.body.removeChild(liveRegion);
-                }, 1000);
-                
-                console.error('Form submission error:', error);
+                    if (errorDiv.parentNode) {
+                        errorDiv.remove();
+                    }
+                }, 5000);
                 
             } finally {
                 // Re-enable submit button
                 submitButton.disabled = false;
                 submitButton.removeAttribute('aria-busy');
-                buttonText.textContent = 'Send Message';
+                buttonText.textContent = 'Transmit Message';
             }
         }
         
