@@ -226,6 +226,12 @@
                 <div class="contact-form">
                     <h2>Send a Transmission</h2>
                     <form id="contactForm" novalidate>
+                        <!-- Honeypot field (hidden from users, visible to bots) -->
+                        <div style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;" aria-hidden="true">
+                            <label for="website">Website (leave blank)</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+                        
                         <div class="form-group">
                             <label for="name">
                                 Your Name
@@ -334,6 +340,7 @@
     </footer>
 
     <!-- Deferred scripts for better performance -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
     <script src="js/combined.js" defer></script>
     <script src="js/resource-optimizer.js" defer></script>
     <script src="js/sw-register.js" defer></script>
