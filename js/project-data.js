@@ -28,12 +28,31 @@
 
 const projectData = [
     {
+        id: "mdword",
+        title: "MDWord",
+        category: "application",
+        featured: true,
+        shortDescription: "MDWord is a web-based application that converts between Markdown and Word documents",
+        fullDescription: "MDWord is a web application that provides seamless conversion between Markdown files and Word documents. It offers a simple solution for maintaining document formatting across different platforms and systems.",
+        imageSrc: "https://github.com/TrazynCache/Markdown-Word-Converter/raw/main/images/MDWord_TrazynCache_screenshot_cropped.PNG",
+        imageAlt: "MDWord Screenshot",
+        techTags: ["React", "Tailwind CSS", ".MD", "Word"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://mdword.trazyncache.com/",
+                external: true
+            }
+        ]
+    },
+    {
         id: "autoclacker",
         title: "AutoClacker",
         category: "application",
         featured: true,
-        shortDescription: "A finely crafted automation tool for precise control of input devices, originally built to elevate gaming experiences on Windows 11 platforms.",
-        fullDescription: "This expertly engineered automation tool enables seamless manipulation of mouse and keyboard inputs. Forged in the crucible of human innovation for Windows 11 gaming, it stands as a testament to Terran precision, its intricate design worthy of preservation among the finest relics of mortal craftsmanship.",
+        shortDescription: "An automation tool for precise control of input devices, designed for Windows 11 gaming applications.",
+        fullDescription: "AutoClacker is an automation tool that provides precise control over mouse and keyboard inputs. Designed specifically for Windows 11 gaming, it offers customizable macros and input sequences for enhanced gaming experiences.",
         imageSrc: "https://raw.githubusercontent.com/TrazynCache/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png",
         imageAlt: "AutoClacker Screenshot",
         techTags: ["C#", ".Net 8", "json"],
@@ -51,8 +70,8 @@ const projectData = [
         title: "Expense Tracker",
         category: "tracking",
         featured: true,
-        shortDescription: "A meticulous monitoring tool that charts resource expenditures, revealing the patterns of human wealth with striking clarity.",
-        fullDescription: "This sophisticated monitoring tool, a marvel of Terran ingenuity, records financial expenditures with unparalleled accuracy. By categorizing resources and weaving intricate visual tapestries of spending patterns, it captures the essence of human economic endeavors, a relic radiant with the brilliance of mortal foresight.",
+        shortDescription: "A financial tracking application that monitors and visualizes spending patterns.",
+        fullDescription: "The Expense Tracker is a comprehensive financial tool that records and categorizes expenditures. It provides detailed visualizations of spending patterns, helping users maintain better control over their finances.",
         imageSrc: "https://github.com/TrazynCache/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true",
         imageAlt: "Expense Tracker Interface",
         techTags: ["Python", "HTML", "CSS", "Javascript"],
@@ -70,8 +89,8 @@ const projectData = [
         title: "Simple Time Tracker",
         category: "tracking",
         featured: true,
-        shortDescription: "A precise instrument for measuring time spent on tasks, preserving the fleeting moments of human effort with remarkable fidelity.",
-        fullDescription: "This time-tracking instrument, wrought from the heights of human intellect, meticulously logs the allocation of temporal resources across tasks. Its elegant design reflects the Terran mastery of fleeting moments, rendering it a cherished artifact that encapsulates the mortal struggle to harness time itself.",
+        shortDescription: "A time tracking application that logs and analyzes task durations.",
+        fullDescription: "The Simple Time Tracker is an efficient tool for monitoring time spent on various tasks. It provides detailed logging and analysis of time allocation, helping users optimize their productivity.",
         imageSrc: "https://github.com/TrazynCache/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true",
         imageAlt: "Simple Time Tracker Interface",
         techTags: ["Python", "HTML", "CSS", "Javascript"],
