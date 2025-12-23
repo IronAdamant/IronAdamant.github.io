@@ -1,14 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="build-version" content="2025-07-03T06:11:13.043Z">
+    <meta name="build-version" content="2025-12-23T18:58:13.464Z">
     
-    <title>Artifact Not Found - IronAdamant</title>
-    <meta name="description" content="The artifact you seek has not been catalogued in the IronAdamant archives.">
-    <link rel="stylesheet" href="css/styles.css?v=1751523073120">
-    <link rel="stylesheet" href="css/accessibility.css?v=1751523073120">
+
+    <title>Page Not Found - Iron_Adamant</title>
+    <meta name="description" content="The page you're looking for couldn't be found.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <link rel="stylesheet" href="css/styles.css?v=1766516293482">
+    <link rel="stylesheet" href="css/accessibility.css?v=1766516293482">
+    <link rel="stylesheet" href="css/mobile-nav.css?v=1766516293482">
     <style>
         .error-404 {
             min-height: calc(100vh - 100px);
@@ -18,11 +25,11 @@
             text-align: center;
             padding: 2rem;
         }
-        
+
         .error-content {
             max-width: 600px;
         }
-        
+
         .error-code {
             font-size: 6rem;
             font-weight: 700;
@@ -31,20 +38,20 @@
             margin-bottom: 1rem;
             letter-spacing: 3px;
         }
-        
+
         .error-title {
             font-size: 2rem;
             margin-bottom: 1rem;
             color: var(--text);
         }
-        
+
         .error-message {
             font-size: 1.1rem;
             color: var(--text-muted);
             margin-bottom: 2rem;
             line-height: 1.6;
         }
-        
+
         .error-glyph {
             font-size: 3rem;
             color: var(--primary);
@@ -54,10 +61,11 @@
         }
     </style>
 </head>
+
 <body>
     <!-- Unified Background Element -->
     <div class="unified-background"></div>
-    
+
     <!-- Necron Glyphs Background Elements -->
     <div class="necron-glyph circuit-circle" style="top: 20%; left: 5%;"></div>
     <div class="necron-glyph circuit-circle" style="top: 70%; left: 90%;"></div>
@@ -68,7 +76,7 @@
         <div class="node node-4"></div>
         <div class="node node-5"></div>
     </div>
-    
+
     <header>
         <div class="container">
             <nav aria-label="Main navigation">
@@ -77,37 +85,52 @@
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
         </div>
     </header>
-    
+
+    <!-- Mobile Navigation -->
+    <div class="nav-overlay"></div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
     <main id="main-content" tabindex="-1">
         <div class="error-404">
             <div class="error-content">
-                <div class="error-glyph">⚡</div>
+                <div class="error-glyph">🔍</div>
                 <div class="error-code">404</div>
-                <h1 class="error-title">Artifact Not Found</h1>
+                <h1 class="error-title">Page Not Found</h1>
                 <p class="error-message">
-                    The artifact you seek has not been catalogued in my archives. 
-                    Perhaps it was lost during the Great Sleep, or it resides in a timeline yet to be discovered.
-                    Return to the main chamber to browse the existing collection.
+                    The page you're looking for doesn't exist or has been moved.
+                    Check the URL or return to the homepage to explore my projects.
                 </p>
                 <div class="cta-buttons">
-                    <a href="index.html" class="btn btn-primary">Return to Archives</a>
-                    <a href="projects.html" class="btn btn-secondary">Browse Collection</a>
+                    <a href="index.html" class="btn btn-primary">Go to Homepage</a>
+                    <a href="projects.html" class="btn btn-secondary">View Projects</a>
                 </div>
             </div>
         </div>
     </main>
-    
+
     <footer>
         <div class="container">
-            <p>&copy; M3.025 IronAdamant. Collection curated across dimensions.</p>
+            <p>&copy; 2025 Iron_Adamant. All rights reserved.</p>
         </div>
     </footer>
-    
-    <script src="js/combined.js?v=1751523073120"></script>
-    <script src="js/sw-register.js?v=1751523073120"></script>
-    <script src="js/version-check.js?v=1751523073120"></script>
+
+    <script src="js/combined.js?v=1766516293482"></script>
+    <script src="js/sw-register.js?v=1766516293482"></script>
+    <script src="js/version-check.js?v=1766516293482"></script>
 </body>
+
 </html>

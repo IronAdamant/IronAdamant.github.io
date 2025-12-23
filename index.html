@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Preloader script (runs immediately) -->
-    <script src="js/page-preloader.js?v=1751523073071"></script>
+    <script src="js/page-preloader.js?v=1766516293479"></script>
     <!-- Critical CSS for immediate background color - prevents white flash -->
     <style>
-        html, body {
+        html,
+        body {
             background-color: #050505 !important;
             margin: 0;
             padding: 0;
             color: #e0e0e0;
         }
+
         .page-transition {
             position: fixed;
             top: 0;
@@ -27,174 +30,157 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="build-version" content="2025-07-03T06:11:13.043Z">
+    <meta name="build-version" content="2025-12-23T18:58:13.464Z">
     
+
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="theme-color" content="#050505">
     <meta name="format-detection" content="telephone=no">
-    
+
     <!-- Resource hints for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.cdnfonts.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com">
-    
+
     <!-- Preload critical fonts for faster loading -->
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap" as="style" onload="this.rel='stylesheet'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"></noscript>
-    
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"
+        as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap">
+    </noscript>
+
     <title>Iron_Adamant - Portfolio</title>
-    <meta name="description" content="Iron_Adamant - A digital archivist portfolio showcasing exceptional web artifacts crafted with ancient Necron precision and modern AI scarab technology. Explore my collection of digital relics.">
-    
+    <meta name="description"
+        content="Iron_Adamant - A software developer portfolio showcasing practical tools and applications built with AI-assisted development.">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
     <!-- Preload critical resources -->
-    <link rel="preload" href="css/styles.css?v=1751523073071" as="style">
-    <link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1751523073071" as="style" onload="this.rel='stylesheet'">
-    
+    <link rel="preload" href="css/styles.css?v=1766516293479" as="style">
+    <link rel="preload"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1766516293479"
+        as="style" onload="this.rel='stylesheet'">
+
     <!-- Load non-critical CSS asynchronously -->
-    <link rel="stylesheet" href="css/styles.css?v=1751523073071" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/accessibility.css?v=1751523073071" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/radical-solution.css?v=1751523073071" media="all"><!-- RADICAL SOLUTION -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1751523073071" media="print" onload="this.media='all'">
-    
+    <link rel="stylesheet" href="css/styles.css?v=1766516293479" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/accessibility.css?v=1766516293479" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/radical-solution.css?v=1766516293479" media="all"><!-- RADICAL SOLUTION -->
+    <link rel="stylesheet" href="css/mobile-nav.css?v=1766516293479" media="all">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1766516293479"
+        media="print" onload="this.media='all'">
+
     <!-- Fallback if JavaScript is disabled -->
     <noscript>
-        <link rel="stylesheet" href="css/styles.css?v=1751523073071">
-        <link rel="stylesheet" href="css/accessibility.css?v=1751523073071">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1751523073071">
+        <link rel="stylesheet" href="css/styles.css?v=1766516293479">
+        <link rel="stylesheet" href="css/accessibility.css?v=1766516293479">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1766516293479">
     </noscript>
-    
+
     <!-- Web App Manifest for PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#00ff9d">
-    
+
     <!-- Inline Critical CSS for faster initial render -->
     <style>
-        :root{--bg-dark:#000;--bg-darker:#050505;--primary:#00ff9d;--primary-light:#33ffb5;--primary-dark:#00cc7d;--text:#e0e0e0;--text-secondary:#b8b8b8;--text-muted:#999;--border:#1a1a1a;--header-bg:rgba(0,0,0,.95)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Orbitron,monospace;background-color:var(--bg-darker);color:var(--text);min-height:100vh}header{position:fixed;top:0;width:100%;background-color:var(--header-bg);backdrop-filter:blur(10px);z-index:1000;padding:.75rem 0;height:40px}.container{max-width:1200px;margin:0 auto;padding:0 2rem}.hero{position:relative;z-index:10;display:flex;align-items:center;padding-top:1rem;min-height:auto}img{max-width:100%;height:auto}@font-face{font-family:Orbitron;font-display:swap;src:local('Orbitron')}
+        :root {
+            --bg-dark: #000;
+            --bg-darker: #050505;
+            --primary: #00ff9d;
+            --primary-light: #33ffb5;
+            --primary-dark: #00cc7d;
+            --text: #e0e0e0;
+            --text-secondary: #b8b8b8;
+            --text-muted: #999;
+            --border: #1a1a1a;
+            --header-bg: rgba(0, 0, 0, .95)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Orbitron, monospace;
+            background-color: var(--bg-darker);
+            color: var(--text);
+            min-height: 100vh
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: .75rem 0;
+            height: 40px
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem
+        }
+
+        .hero {
+            position: relative;
+            z-index: 10;
+            display: flex;
+            align-items: center;
+            padding-top: 1rem;
+            min-height: auto
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+
+        @font-face {
+            font-family: Orbitron;
+            font-display: swap;
+            src: local('Orbitron')
+        }
     </style>
-    
+
     <!-- DNS Prefetch for faster external resource loading -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://github.com">
     <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
-    
+
     <!-- Preload project images for faster loading -->
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/IronAdamant/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png">
-    <link rel="preload" as="image" href="https://github.com/IronAdamant/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/IronAdamant/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true">
+    <link rel="preload" as="image"
+        href="https://raw.githubusercontent.com/IronAdamant/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png">
+    <link rel="preload" as="image"
+        href="https://github.com/IronAdamant/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true">
+    <link rel="preload" as="image"
+        href="https://github.com/IronAdamant/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true">
 </head>
+
 <body>
-    <!-- Unified Background Element -->
+    <!-- Tech Circuit Background Elements -->
     <div class="unified-background"></div>
-    
-    <!-- Necron Glyphs Background Elements -->
-    <div class="necron-glyph circuit-circle" style="top: 20%; left: 5%;"></div>
-    <div class="necron-glyph circuit-circle" style="top: 70%; left: 90%;"></div>
-    <div class="necron-glyph connected-nodes" style="top: 40%; left: 85%;">
-        <div class="node node-1"></div>
-        <div class="node node-2"></div>
-        <div class="node node-3"></div>
-        <div class="node node-4"></div>
-        <div class="node node-5"></div>
-    </div>
-    <div class="necron-glyph connected-nodes" style="top: 85%; left: 15%;">
-        <div class="node node-1"></div>
-        <div class="node node-2"></div>
-        <div class="node node-3"></div>
-        <div class="node node-4"></div>
-        <div class="node node-5"></div>
-    </div>
-    <div class="necron-glyph vertical-circuit" style="top: 30%; left: 15%;">
-        <div class="circuit-node circuit-node-1"></div>
-        <div class="circuit-node circuit-node-2"></div>
-        <div class="circuit-node circuit-node-3"></div>
-        <div class="circuit-node circuit-node-4"></div>
-        <div class="circuit-branch branch-left" style="top: 33%;"></div>
-        <div class="circuit-branch branch-right" style="top: 66%;"></div>
-    </div>
-    <div class="necron-glyph vertical-circuit" style="top: 50%; left: 80%;">
-        <div class="circuit-node circuit-node-1"></div>
-        <div class="circuit-node circuit-node-2"></div>
-        <div class="circuit-node circuit-node-3"></div>
-        <div class="circuit-node circuit-node-4"></div>
-        <div class="circuit-branch branch-left" style="top: 33%;"></div>
-        <div class="circuit-branch branch-right" style="top: 66%;"></div>
-    </div>
-    
-    <!-- Advanced Necron Circuit Patterns -->
-    <div class="necron-complex-glyph diagonal-circuit" style="top: 25%; left: 10%;"></div>
-    <div class="necron-complex-glyph diagonal-circuit" style="top: 65%; left: 60%; transform: rotate(-45deg);"></div>
-    <div class="necron-complex-glyph hexagon-pattern" style="top: 35%; left: 30%;">
-        <div class="hexagon"></div>
-        <div class="hexagon-inner"></div>
-        <div class="hex-center"></div>
-    </div>
-    <div class="necron-complex-glyph hexagon-pattern" style="top: 70%; left: 75%;">
-        <div class="hexagon"></div>
-        <div class="hexagon-inner"></div>
-        <div class="hex-center"></div>
-    </div>
-    <div class="connection-line" style="top: 45%; left: 20%; transform: rotate(30deg);"></div>
-    <div class="connection-line" style="top: 65%; left: 60%; transform: rotate(-15deg);"></div>
-    <div class="circuit-rect" style="top: 55%; left: 45%;"></div>
-    <div class="energy-column" style="top: 20%; left: 75%;"></div>
-    <div class="energy-column" style="top: 40%; left: 25%;"></div>
-    
-    <!-- Intricate Circuit Patterns -->
-    <div class="bright-path" style="top: 15%; left: 40%; width: 180px; transform: rotate(25deg);"></div>
-    <div class="bright-path" style="top: 80%; left: 35%; width: 150px; transform: rotate(-15deg);"></div>
-    <div class="dim-path" style="top: 30%; left: 55%; width: 200px; transform: rotate(-35deg);"></div>
-    <div class="dim-path" style="top: 60%; left: 15%; width: 120px; transform: rotate(10deg);"></div>
-    <div class="dim-path" style="top: 40%; left: 70%; width: 180px; transform: rotate(65deg);"></div>
-    
-    <div class="circuit-grid" style="top: 25%; left: 65%;"></div>
-    <div class="circuit-grid" style="top: 75%; left: 25%;"></div>
-    
-    <div class="micro-circuit" style="top: 55%; left: 80%;">
-        <div class="micro-path path-1"></div>
-        <div class="micro-path path-2"></div>
-        <div class="micro-node node-1"></div>
-        <div class="micro-node node-2"></div>
-        <div class="micro-node node-3"></div>
-        <div class="micro-node node-4"></div>
-        <div class="micro-node node-5"></div>
-        <div class="vertical-connector conn-1"></div>
-        <div class="vertical-connector conn-2"></div>
-    </div>
-    
-    <div class="circuit-board" style="top: 15%; left: 20%;">
-        <div class="circuit-line horizontal-line line-1"></div>
-        <div class="circuit-line horizontal-line line-2"></div>
-        <div class="circuit-line horizontal-line line-3"></div>
-        <div class="circuit-line vertical-line line-1"></div>
-        <div class="circuit-line vertical-line line-2"></div>
-        <div class="circuit-line vertical-line line-3"></div>
-        <div class="circuit-dot dot-1"></div>
-        <div class="circuit-dot dot-2"></div>
-        <div class="circuit-dot dot-3"></div>
-        <div class="circuit-dot dot-4"></div>
-        <div class="circuit-dot dot-5"></div>
-        <div class="circuit-dot dot-6"></div>
-        <div class="circuit-dot dot-7"></div>
-        <div class="circuit-dot dot-8"></div>
-        <div class="circuit-dot dot-9"></div>
-    </div>
-    
-    <div class="pulsing-node" style="top: 45%; left: 45%;"></div>
-    <div class="pulsing-node" style="top: 65%; left: 85%;"></div>
-    
-    <div class="diagonal-bright" style="top: 35%; left: 50%; transform: rotate(35deg);"></div>
-    
-    <div class="triangular-circuit" style="top: 80%; left: 65%;">
-        <div class="triangle"></div>
-        <div class="triangle-inner"></div>
-        <div class="triangle-center"></div>
-    </div>
-    
+
+    <!-- Simplified circuit patterns (tech aesthetic) -->
+    <div class="circuit-grid" style="top: 25%; left: 10%;"></div>
+    <div class="circuit-grid" style="top: 65%; left: 85%;"></div>
+    <div class="pulsing-node" style="top: 35%; left: 45%;"></div>
+    <div class="pulsing-node" style="top: 75%; left: 70%;"></div>
+    <div class="bright-path" style="top: 20%; left: 30%; width: 150px; transform: rotate(25deg);"></div>
+    <div class="dim-path" style="top: 50%; left: 60%; width: 180px; transform: rotate(-20deg);"></div>
+
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <header>
         <div class="container">
             <nav aria-label="Main navigation">
@@ -203,65 +189,75 @@
                     <li><a href="projects.html">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
         </div>
     </header>
-    
+
+    <!-- Mobile Navigation -->
+    <div class="nav-overlay"></div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
     <main id="main-content" tabindex="-1">
         <section class="hero">
-            <!-- Added Necron patterns inside the hero section with reduced opacity -->
-            <div class="necron-glyph circuit-circle" style="top: 30%; right: 15%; opacity: 0.3;"></div>
-            <div class="necron-glyph connected-nodes" style="bottom: 20%; left: 10%; opacity: 0.35;">
-                <div class="node node-1"></div>
-                <div class="node node-2"></div>
-                <div class="node node-3"></div>
-                <div class="node node-4"></div>
-                <div class="node node-5"></div>
-            </div>
-            <div class="necron-complex-glyph hexagon-pattern" style="top: 15%; left: 8%; transform: scale(0.8); opacity: 0.3;"></div>
-            <div class="necron-complex-glyph diagonal-circuit" style="bottom: 25%; right: 10%; transform: rotate(30deg); opacity: 0.25;"></div>
-            
             <div class="container">
                 <h1 class="hero-title">Iron_Adamant</h1>
-                <p class="hero-subtitle">I sculpt code artifacts, using AI to preserve human creativity.</p>
+                <p class="hero-subtitle">I build practical software tools, combining AI with human creativity.</p>
                 <div class="cta-buttons">
-                    <a href="projects.html" class="btn btn-primary">View My Tomes</a>
-                    <a href="contact.html" class="btn btn-secondary">Initiate Transmission</a>
+                    <a href="projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
         </section>
-        
+
         <section class="featured-projects">
             <div class="container">
                 <h2 class="section-title">About <span class="highlight">the Developer</span></h2>
                 <p class="section-text"><!-- About text will be loaded dynamically from project-data.js --></p>
-                
-                <h2>Recent Acquisitions</h2>
+
+                <h2>Featured Projects</h2>
                 <div class="project-grid">
                     <!-- Projects will be dynamically loaded here -->
                 </div>
             </div>
         </section>
+    </main>
 
-        <footer>
-            <div class="container">
-                <p>&copy; M3.025 Iron_Adamant. All specimens preserved in perpetuity.</p>
-                <div class="social-links">
-                    <a href="https://github.com/IronAdamant" target="_blank"><i class="fab fa-github"></i></a>
-                    <a href="https://x.com/Iron_Adamant" target="_blank" title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i class="fab fa-twitter"></i></a>
-                    <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://buymeacoffee.com/ironadamant" target="_blank"><i class="fas fa-coffee"></i></a>
-                </div>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Iron_Adamant. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer"
+                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-coffee"></i></a>
             </div>
-        </footer>
+        </div>
+    </footer>
 
-        <!-- Deferred scripts for better performance -->
-        <script src="js/project-data.js?v=1.1" defer></script>
-        <script src="js/project-loader.js?v=1.1" defer></script>
-        <script src="js/combined.js?v=1.1" defer></script>
-        <script src="js/resource-optimizer.js?v=1.1" defer></script>
-        <script src="js/sw-register.js?v=1.1" defer></script>
-        <script src="js/performance-monitor.js?v=1.1" defer></script>
-        <script src="js/version-check.js?v=1751523073071"></script>
-    </body>
+    <!-- Deferred scripts for better performance -->
+    <script src="js/project-data.js?v=1.1" defer></script>
+    <script src="js/project-loader.js?v=1.1" defer></script>
+    <script src="js/combined.js?v=1.1" defer></script>
+    <script src="js/resource-optimizer.js?v=1.1" defer></script>
+    <script src="js/sw-register.js?v=1.1" defer></script>
+    <script src="js/performance-monitor.js?v=1.1" defer></script>
+    <script src="js/version-check.js?v=1766516293479"></script>
+</body>
+
 </html>

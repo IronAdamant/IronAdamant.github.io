@@ -1,7 +1,7 @@
 {
-  "name": "Necron Portfolio - IronAdamant",
-  "short_name": "IronAdamant",
-  "description": "A digital architect who has embraced the ancient wisdom of the Necron dynasties",
+  "name": "Iron_Adamant - Developer Portfolio",
+  "short_name": "Iron_Adamant",
+  "description": "Software developer building practical tools with AI-assisted development",
   "start_url": "/",
   "display": "standalone",
   "orientation": "portrait-primary",
@@ -14,6 +14,6 @@
   ],
   "related_applications": [],
   "prefer_related_applications": false,
-  "version": "1.0.4",
-  "build_timestamp": "2025-07-03T06:11:13.043Z"
+  "version": "1.0.5",
+  "build_timestamp": "2025-12-23T18:58:13.464Z"
 }

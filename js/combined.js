@@ -1,5 +1,5 @@
 /**
- * Combined JavaScript for the Necron Portfolio
+ * Combined JavaScript for Iron_Adamant Portfolio
  * Consolidates main.js, image-expand.js, contact-form.js, project-data.js, project-loader.js, and lazy-load.js
  */
 
@@ -24,8 +24,9 @@ const initApp = () => {
     };
 
     // Initialize smooth scrolling
+    // Note: Cannot use passive:true here because we call preventDefault()
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', handleSmoothScroll, passiveOptions);
+        anchor.addEventListener('click', handleSmoothScroll);
     });
 
     // Project filtering
@@ -34,7 +35,7 @@ const initApp = () => {
 
     if (filterButtons.length > 0) {
         filterButtons.forEach(button => {
-            button.addEventListener('click', function() {
+            button.addEventListener('click', function () {
                 // Remove active class from all buttons
                 filterButtons.forEach(btn => btn.classList.remove('active'));
 
@@ -102,6 +103,45 @@ const initApp = () => {
         }
     }
 
+    // ====== MOBILE NAVIGATION ======
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.mobile-nav');
+    const navOverlay = document.querySelector('.nav-overlay');
+
+    if (hamburger && mobileNav && navOverlay) {
+        const toggleMobileNav = () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            navOverlay.classList.toggle('active');
+
+            // Update ARIA
+            const isExpanded = hamburger.classList.contains('active');
+            hamburger.setAttribute('aria-expanded', isExpanded);
+
+            // Prevent body scroll when nav is open
+            document.body.style.overflow = isExpanded ? 'hidden' : '';
+        };
+
+        hamburger.addEventListener('click', toggleMobileNav);
+        navOverlay.addEventListener('click', toggleMobileNav);
+
+        // Close on escape key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
+                toggleMobileNav();
+            }
+        });
+
+        // Close when clicking a nav link
+        mobileNav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                if (mobileNav.classList.contains('active')) {
+                    toggleMobileNav();
+                }
+            });
+        });
+    }
+
     // ====== IMAGE EXPANSION FUNCTIONALITY ======
     // Add expand hint to all project images
     const projectImages = document.querySelectorAll('.project-image');
@@ -111,15 +151,15 @@ const initApp = () => {
         expandHint.className = 'expand-hint';
         expandHint.textContent = 'Click to expand';
         container.appendChild(expandHint);
-        
+
         // Add click event to expand image
-        container.addEventListener('click', function() {
+        container.addEventListener('click', function () {
             const img = this.querySelector('img');
             if (!this.classList.contains('expanded')) {
                 // Create expanded view
                 this.classList.add('expanded');
                 this.style.zIndex = '1000';
-                
+
                 // Add close hint
                 const closeHint = document.createElement('span');
                 closeHint.className = 'close-hint';
@@ -133,10 +173,10 @@ const initApp = () => {
                 closeHint.style.borderRadius = '4px';
                 closeHint.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
                 this.appendChild(closeHint);
-                
+
                 // Disable page scrolling
                 document.body.style.overflow = 'hidden';
-                
+
                 // Add escape key functionality
                 document.addEventListener('keydown', closeOnEscape);
             } else {
@@ -144,7 +184,7 @@ const initApp = () => {
             }
         });
     });
-    
+
     // Function to close expanded image with escape key
     function closeOnEscape(e) {
         if (e.key === 'Escape') {
@@ -155,18 +195,18 @@ const initApp = () => {
             document.removeEventListener('keydown', closeOnEscape);
         }
     }
-    
+
     // Function to close expanded image
     function closeExpandedImage(element) {
         element.classList.remove('expanded');
         element.style.zIndex = '';
-        
+
         // Remove close hint if it exists
         const closeHint = element.querySelector('.close-hint');
         if (closeHint) {
             closeHint.remove();
         }
-        
+
         // Re-enable page scrolling
         document.body.style.overflow = '';
     }
@@ -184,11 +224,11 @@ const initApp = () => {
         const buttonText = submitButton.querySelector('.button-text');
         const buttonSpinner = submitButton.querySelector('.button-spinner');
         const formSuccess = document.getElementById('form-success');
-        
+
         // Regular expressions for validation
         const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         const nameRegex = /^[a-zA-Z\s'-]+$/;
-        
+
         // Character limits
         const CHAR_LIMITS = {
             name: { min: 2, max: 100 },
@@ -196,46 +236,46 @@ const initApp = () => {
             subject: { min: 5, max: 200 },
             message: { min: 10, max: 2000 }
         };
-        
+
         // Initialize character count
         if (messageInput && messageCount) {
             // Track when form becomes interactive (for spam detection)
             window.formLoadTime = performance.now();
-            
+
             updateCharacterCount();
             messageInput.addEventListener('input', updateCharacterCount);
         }
-        
+
         // Function to show fake success to bots (honeypot triggered)
         function showFakeSuccess() {
             submitButton.disabled = false;
             submitButton.removeAttribute('aria-busy');
             buttonText.textContent = 'Transmit Message';
-            
+
             // Show fake success without actually sending
             const fakeSuccess = document.createElement('div');
             fakeSuccess.style.cssText = 'margin-top: 1rem; padding: 1rem; background: #00ff9d; color: #000; border-radius: 4px;';
             fakeSuccess.textContent = 'Message sent successfully!';
             form.appendChild(fakeSuccess);
             form.reset();
-            
+
             setTimeout(() => {
                 if (fakeSuccess.parentNode) {
                     fakeSuccess.remove();
                 }
             }, 3000);
         }
-        
+
         // Form submission handler
-        form.addEventListener('submit', async function(e) {
+        form.addEventListener('submit', async function (e) {
             e.preventDefault();
-            
+
             // Validate all fields
             const isNameValid = validateField(nameInput, validateName);
             const isEmailValid = validateField(emailInput, validateEmail);
             const isSubjectValid = validateField(subjectInput, validateSubject);
             const isMessageValid = validateField(messageInput, validateMessage);
-            
+
             if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
                 await submitForm();
             } else {
@@ -246,21 +286,21 @@ const initApp = () => {
                 }
             }
         });
-        
+
         // Real-time validation on blur
         [nameInput, emailInput, subjectInput, messageInput].forEach(input => {
             if (input) {
                 input.addEventListener('blur', () => {
                     validateOnBlur(input);
                 });
-                
+
                 // Clear error on input
                 input.addEventListener('input', () => {
                     clearError(input);
                 });
             }
         });
-        
+
         // Validation functions
         function validateName(value) {
             if (!value.trim()) return 'Name is required';
@@ -269,34 +309,34 @@ const initApp = () => {
             if (!nameRegex.test(value)) return 'Name contains invalid characters';
             return '';
         }
-        
+
         function validateEmail(value) {
             if (!value.trim()) return 'Email is required';
             if (!emailRegex.test(value)) return 'Please enter a valid email address';
             return '';
         }
-        
+
         function validateSubject(value) {
             if (!value.trim()) return 'Subject is required';
             if (value.length < CHAR_LIMITS.subject.min) return `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
             if (value.length > CHAR_LIMITS.subject.max) return `Subject must be less than ${CHAR_LIMITS.subject.max} characters`;
             return '';
         }
-        
+
         function validateMessage(value) {
             if (!value.trim()) return 'Message is required';
             if (value.length < CHAR_LIMITS.message.min) return `Message must be at least ${CHAR_LIMITS.message.min} characters`;
             if (value.length > CHAR_LIMITS.message.max) return `Message must be less than ${CHAR_LIMITS.message.max} characters`;
             return '';
         }
-        
+
         // Field validation
         function validateField(input, validationFn) {
             if (!input) return true; // Skip if element doesn't exist
-            
+
             const errorElement = document.getElementById(`${input.id}-error`);
             const errorMessage = validationFn(input.value);
-            
+
             if (errorMessage) {
                 showError(input, errorElement, errorMessage);
                 return false;
@@ -305,16 +345,16 @@ const initApp = () => {
                 return true;
             }
         }
-        
+
         // Validate on blur with debounce
         let blurTimeout;
         function validateOnBlur(input) {
             clearTimeout(blurTimeout);
-            
+
             blurTimeout = setTimeout(() => {
                 // Determine which validation function to use
                 let validationFn;
-                switch(input.id) {
+                switch (input.id) {
                     case 'name':
                         validationFn = validateName;
                         break;
@@ -328,23 +368,23 @@ const initApp = () => {
                         validationFn = validateMessage;
                         break;
                 }
-                
+
                 if (validationFn) {
                     validateField(input, validationFn);
                 }
             }, 200);
         }
-        
+
         // Show error message
         function showError(input, errorElement, message) {
             if (!input || !errorElement) return;
-            
+
             input.classList.add('error');
             input.setAttribute('aria-invalid', 'true');
-            
+
             errorElement.textContent = message;
             errorElement.classList.add('visible');
-            
+
             // Announce error to screen readers
             const liveRegion = document.createElement('div');
             liveRegion.setAttribute('role', 'alert');
@@ -352,38 +392,38 @@ const initApp = () => {
             liveRegion.className = 'sr-only';
             liveRegion.textContent = message;
             document.body.appendChild(liveRegion);
-            
+
             // Remove after announcement
             setTimeout(() => {
                 document.body.removeChild(liveRegion);
             }, 1000);
         }
-        
+
         // Clear error message
         function clearError(input, errorElement) {
             if (!input) return;
-            
+
             input.classList.remove('error');
             input.setAttribute('aria-invalid', 'false');
-            
+
             const error = errorElement || document.getElementById(`${input.id}-error`);
             if (error) {
                 error.textContent = '';
                 error.classList.remove('visible');
             }
         }
-        
+
         // Update character count
         function updateCharacterCount() {
             if (!messageInput || !messageCount) return;
-            
+
             const currentLength = messageInput.value.length;
             messageCount.textContent = currentLength;
-            
+
             // Update visual feedback
             const maxLength = CHAR_LIMITS.message.max;
             const limitPercentage = currentLength / maxLength;
-            
+
             if (limitPercentage > 0.9) {
                 messageCount.style.color = 'var(--error)';
             } else if (limitPercentage > 0.7) {
@@ -391,7 +431,7 @@ const initApp = () => {
             } else {
                 messageCount.style.color = 'var(--text-secondary)';
             }
-            
+
             // Announce to screen readers when approaching limit
             if (currentLength === maxLength - 100 || currentLength === maxLength - 50 || currentLength === maxLength - 10) {
                 const countMessage = `You have ${maxLength - currentLength} characters remaining.`;
@@ -401,37 +441,37 @@ const initApp = () => {
                 liveRegion.className = 'sr-only';
                 liveRegion.textContent = countMessage;
                 document.body.appendChild(liveRegion);
-                
+
                 // Remove after announcement
                 setTimeout(() => {
                     document.body.removeChild(liveRegion);
                 }, 1000);
             }
         }
-        
+
         // Form submission
         async function submitForm() {
             // ANTI-SPAM CHECKS (user-friendly)
             const formStartTime = performance.now();
             const timeTaken = formStartTime - (window.formLoadTime || formStartTime - 2000);
-            
+
             // 1. Time-based spam check (too fast = likely bot)
             if (timeTaken < 3000) { // Less than 3 seconds is suspicious
                 console.log('Submission too fast, likely bot');
                 await new Promise(resolve => setTimeout(resolve, 2000)); // Slow down bots
             }
-            
+
             // 2. Content spam detection
             const messageText = messageInput.value.toLowerCase();
             const spamKeywords = ['crypto', 'bitcoin', 'investment', 'earn money', 'guaranteed', 'click here', 'free money', 'viagra', 'casino'];
             const spamScore = spamKeywords.filter(keyword => messageText.includes(keyword)).length;
-            
+
             if (spamScore >= 2) {
                 // Instead of blocking, add extra verification
                 const extraVerify = confirm('Your message contains content that might be flagged as spam. Are you sure you want to send this message?');
                 if (!extraVerify) return;
             }
-            
+
             // 3. Honeypot check (invisible field bots might fill)
             const honeypot = document.getElementById('website'); // We'll add this field
             if (honeypot && honeypot.value !== '') {
@@ -441,12 +481,12 @@ const initApp = () => {
                 showFakeSuccess();
                 return;
             }
-            
+
             // Disable submit button
             submitButton.disabled = true;
             submitButton.setAttribute('aria-busy', 'true');
             buttonText.textContent = submitButton.getAttribute('data-loading-text');
-            
+
             try {
                 // Use Formspree for form submission
                 const formData = new FormData();
@@ -454,7 +494,7 @@ const initApp = () => {
                 formData.append('email', emailInput.value.trim());
                 formData.append('subject', subjectInput.value.trim());
                 formData.append('message', messageInput.value.trim());
-                
+
                 const response = await fetch('https://formspree.io/f/xjkrzwlq', {
                     method: 'POST',
                     body: formData,
@@ -462,12 +502,12 @@ const initApp = () => {
                         'Accept': 'application/json'
                     }
                 });
-                
+
                 if (response.ok) {
                     // Show success message
                     formSuccess.hidden = false;
                     form.reset();
-                    
+
                     // Enhanced success message
                     formSuccess.innerHTML = `
                         <i class="fas fa-check-circle" aria-hidden="true"></i>
@@ -475,7 +515,7 @@ const initApp = () => {
                         <small>Thank you for reaching out. I personally read every message and typically respond within 24-48 hours on business days. 
                         You'll receive my response at the email address you provided.</small>
                     `;
-                    
+
                     // Announce success to screen readers
                     const successMessage = formSuccess.textContent.trim();
                     const liveRegion = document.createElement('div');
@@ -484,25 +524,25 @@ const initApp = () => {
                     liveRegion.className = 'sr-only';
                     liveRegion.textContent = successMessage;
                     document.body.appendChild(liveRegion);
-                    
+
                     // Remove after announcement
                     setTimeout(() => {
                         document.body.removeChild(liveRegion);
                     }, 1000);
-                    
+
                     // Focus on success message for screen readers
                     formSuccess.focus();
                 } else {
                     throw new Error('Both email services failed');
                 }
-                
+
             } catch (error) {
                 // Show error message
                 console.error('Form submission error:', error);
-                
+
                 // If both methods fail, show helpful error message
-                const errorMessage = `Unable to send your message at this time. Please email me directly at miko.amos@proton.me or try again later.`;
-                
+                const errorMessage = `Unable to send your message at this time. Please email me directly at aron.amos@ironadamant.com or try again later.`;
+
                 // Show error in the UI
                 const errorDiv = document.createElement('div');
                 errorDiv.className = 'error-message';
@@ -512,15 +552,15 @@ const initApp = () => {
                 errorDiv.style.color = 'white';
                 errorDiv.style.borderRadius = '4px';
                 errorDiv.textContent = errorMessage;
-                
+
                 // Remove any existing error messages
                 const existingError = form.querySelector('.error-message');
                 if (existingError) {
                     existingError.remove();
                 }
-                
+
                 form.appendChild(errorDiv);
-                
+
                 // Announce error to screen readers
                 const liveRegion = document.createElement('div');
                 liveRegion.setAttribute('role', 'alert');
@@ -528,7 +568,7 @@ const initApp = () => {
                 liveRegion.className = 'sr-only';
                 liveRegion.textContent = errorMessage;
                 document.body.appendChild(liveRegion);
-                
+
                 // Remove after announcement
                 setTimeout(() => {
                     document.body.removeChild(liveRegion);
@@ -536,7 +576,7 @@ const initApp = () => {
                         errorDiv.remove();
                     }
                 }, 5000);
-                
+
             } finally {
                 // Re-enable submit button
                 submitButton.disabled = false;
@@ -544,7 +584,7 @@ const initApp = () => {
                 buttonText.textContent = 'Transmit Message';
             }
         }
-        
+
         // Initialize form with ARIA attributes
         function initForm() {
             // Add ARIA attributes to form controls
@@ -554,7 +594,7 @@ const initApp = () => {
                     input.setAttribute('aria-required', 'true');
                 }
             });
-            
+
             // Add loading state styles
             const style = document.createElement('style');
             style.textContent = `
@@ -584,7 +624,7 @@ const initApp = () => {
             `;
             document.head.appendChild(style);
         }
-        
+
         // Initialize the form
         initForm();
     }
@@ -594,16 +634,16 @@ const initApp = () => {
 // Page transition handling
 const handlePageTransition = (e) => {
     // Only handle internal links that aren't anchors
-    if (e.target.tagName === 'A' && 
+    if (e.target.tagName === 'A' &&
         e.target.href &&
         e.target.href.startsWith(window.location.origin) &&
         !e.target.href.includes('#') &&
         e.target.target !== '_blank') {
         e.preventDefault();
-        
+
         // Save target URL before manipulating the DOM
         const targetUrl = e.target.href;
-        
+
         // Create and inject black background style first
         const styleTag = document.createElement('style');
         styleTag.textContent = `
@@ -613,10 +653,10 @@ const handlePageTransition = (e) => {
             }
         `;
         document.head.appendChild(styleTag);
-        
+
         // Force reflow to apply the styles immediately
         void document.documentElement.offsetWidth;
-        
+
         // Create transition overlay if it doesn't exist
         let transitionOverlay = document.querySelector('.page-transition');
         if (!transitionOverlay) {
@@ -626,43 +666,43 @@ const handlePageTransition = (e) => {
             const spinner = document.createElement('div');
             spinner.className = 'loader-spinner';
             transitionOverlay.appendChild(spinner);
-            
+
             // Add loading text
             const loadingText = document.createElement('div');
             loadingText.className = 'loading-text';
             loadingText.textContent = 'LOADING';
             transitionOverlay.appendChild(loadingText);
-            
+
             document.body.appendChild(transitionOverlay);
         }
-        
+
         // Set background colors explicitly
         document.documentElement.style.backgroundColor = '#050505';
         document.body.style.backgroundColor = '#050505';
-        
+
         // Force reflow to ensure the element is in the DOM
         void transitionOverlay.offsetWidth;
-        
+
         // Show the transition overlay
         transitionOverlay.style.opacity = '1';
         transitionOverlay.style.visibility = 'visible';
-        
+
         // Immediately attach a state-saving object to the window
         // This survives across page transitions in many browsers
         try {
-            window.name = JSON.stringify({transitioning: true});
+            window.name = JSON.stringify({ transitioning: true });
             localStorage.setItem('pageTransitioning', 'true');
             sessionStorage.setItem('pageTransitioning', 'true');
         } catch (e) {
             // Ignore storage errors
         }
-        
+
         // Try to preload the target page
         const prefetch = document.createElement('link');
         prefetch.rel = 'prefetch';
         prefetch.href = targetUrl;
         document.head.appendChild(prefetch);
-        
+
         // Navigate after a brief delay to allow CSS to take effect
         setTimeout(() => {
             window.location.href = targetUrl;
@@ -705,24 +745,24 @@ function handlePageLoad() {
                 wasTransitioning = state.transitioning === true;
                 // Reset window.name
                 window.name = '';
-            } catch (e) {}
+            } catch (e) { }
         }
-        
+
         if (!wasTransitioning && localStorage.getItem('pageTransitioning') === 'true') {
             wasTransitioning = true;
             localStorage.removeItem('pageTransitioning');
         }
-        
+
         if (!wasTransitioning && sessionStorage.getItem('pageTransitioning') === 'true') {
             wasTransitioning = true;
             sessionStorage.removeItem('pageTransitioning');
         }
-    } catch (e) {}
-    
+    } catch (e) { }
+
     // Set background colors immediately to ensure no white flash
     document.documentElement.style.backgroundColor = '#050505';
     document.body.style.backgroundColor = '#050505';
-    
+
     // Create a style tag to set initial page background with high priority
     const style = document.createElement('style');
     style.textContent = `
@@ -732,7 +772,7 @@ function handlePageLoad() {
         }
     `;
     document.head.insertBefore(style, document.head.firstChild);
-    
+
     // Create transition overlay immediately if coming from another page
     let transitionOverlay = document.querySelector('.page-transition');
     if (!transitionOverlay && wasTransitioning) {
@@ -740,32 +780,32 @@ function handlePageLoad() {
         transitionOverlay.className = 'page-transition';
         transitionOverlay.style.opacity = '1';
         transitionOverlay.style.visibility = 'visible';
-        
+
         // Add loading spinner to the overlay
         const spinner = document.createElement('div');
         spinner.className = 'loader-spinner';
         transitionOverlay.appendChild(spinner);
-        
+
         // Add loading text
         const loadingText = document.createElement('div');
         loadingText.className = 'loading-text';
         loadingText.textContent = 'LOADING';
         transitionOverlay.appendChild(loadingText);
-        
+
         document.body.appendChild(transitionOverlay);
     }
-    
+
     // Handle existing transition overlay
     if (transitionOverlay) {
         // Ensure overlay is visible before fading out for smoother transition
         if (getComputedStyle(transitionOverlay).opacity === '0') {
             transitionOverlay.style.opacity = '1';
             transitionOverlay.style.visibility = 'visible';
-            
+
             // Force reflow
             void transitionOverlay.offsetWidth;
         }
-        
+
         // Fade out the transition overlay after styles have been applied
         setTimeout(() => {
             // Allow transitions now that page is loaded
@@ -774,7 +814,7 @@ function handlePageLoad() {
                     background-color: #050505 !important;
                 }
             `;
-            
+
             transitionOverlay.style.opacity = '0';
             // Remove the overlay after the fade out completes
             setTimeout(() => {
@@ -804,35 +844,35 @@ function initImagesAndModal() {
     // Immediately set src for all images without waiting for preload
     const images = document.querySelectorAll('img[data-src]');
     const projectImages = document.querySelectorAll('.project-image img');
-    
+
     // IMMEDIATE LOADING: Apply src directly without waiting for preload event
     // This ensures images start loading as soon as possible
     images.forEach(img => {
         // Set a loading placeholder
         img.classList.add('loading');
-        
+
         // Set priority fetch hint for critical images
         img.fetchPriority = 'high';
-        
+
         // Set src immediately instead of waiting for preload
         if (img.dataset.src) {
             img.src = img.dataset.src;
-            
+
             // Add onload handler directly to the image
-            img.onload = function() {
+            img.onload = function () {
                 img.classList.remove('loading');
                 img.classList.add('loaded');
                 img.removeAttribute('data-src');
             };
-            
-            img.onerror = function() {
+
+            img.onerror = function () {
                 img.classList.remove('loading');
                 img.classList.add('error');
                 img.alt = 'Failed to load image';
             };
         }
     });
-    
+
     // Only create modal if it doesn't exist yet
     if (!document.querySelector('.image-modal')) {
         // Create modal for expanded images
@@ -846,44 +886,44 @@ function initImagesAndModal() {
             </div>
         `;
         document.body.appendChild(modal);
-        
+
         const modalImage = modal.querySelector('.modal-image');
         const modalCaption = modal.querySelector('.modal-caption');
         const modalClose = modal.querySelector('.modal-close');
-        
+
         // Add click handlers to all project images
         projectImages.forEach(img => {
             img.style.cursor = 'pointer';
             img.title = 'Click to expand';
-            
-            img.addEventListener('click', function() {
+
+            img.addEventListener('click', function () {
                 modal.style.display = 'flex';
                 modalImage.src = this.src;
                 modalCaption.textContent = this.alt || 'Project Image';
                 document.body.style.overflow = 'hidden'; // Prevent background scrolling
             });
         });
-        
+
         // Close modal handlers
         modalClose.addEventListener('click', closeModal);
-        modal.addEventListener('click', function(e) {
+        modal.addEventListener('click', function (e) {
             if (e.target === modal) {
                 closeModal();
             }
         });
-        
+
         // ESC key to close modal
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape' && modal.style.display === 'flex') {
                 closeModal();
             }
         });
-        
+
         function closeModal() {
             modal.style.display = 'none';
             document.body.style.overflow = ''; // Restore scrolling
         }
-        
+
         // Add CSS for the modal if not already added
         if (!document.querySelector('style#modal-styles')) {
             const modalStyles = document.createElement('style');
@@ -992,11 +1032,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Check if we're on the index or projects page
     const isIndexPage = document.querySelector('.featured-projects .project-grid');
     const isProjectsPage = document.querySelector('.project-list');
-    
+
     if (isIndexPage) {
         renderFeaturedProjects();
     }
-    
+
     if (isProjectsPage) {
         renderProjectsList();
         initializeProjectFilters();

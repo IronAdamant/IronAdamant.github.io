@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- Preloader script (runs immediately) -->
-    <script src="js/page-preloader.js?v=1751523073087"></script>
+    <script src="js/page-preloader.js?v=1766516293480"></script>
     <!-- Critical CSS for immediate background color - prevents white flash -->
     <style>
-        html, body {
+        html,
+        body {
             background-color: #050505 !important;
             margin: 0;
             padding: 0;
             color: #e0e0e0;
         }
+
         .page-transition {
             position: fixed;
             top: 0;
@@ -27,162 +30,132 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="build-version" content="2025-07-03T06:11:13.043Z">
+    <meta name="build-version" content="2025-12-23T18:58:13.464Z">
     
+
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
     <meta http-equiv="Expires" content="0">
     <meta name="theme-color" content="#050505">
     <meta name="format-detection" content="telephone=no">
-    <meta name="description" content="Projects - Iron_Adamant Archives. Browse my collection of digital artifacts: web applications, game prototypes, and AI constructs, each preserved with meticulous Necron craftsmanship.">
+    <meta name="description"
+        content="Projects - Iron_Adamant Portfolio. Browse my collection of tools and applications: desktop utilities, web apps, and productivity software.">
     <title>Projects - Iron_Adamant</title>
-    
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
     <!-- Resource hints for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.cdnfonts.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com">
-    <link rel="stylesheet" href="css/styles.css?v=1751523073087" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/accessibility.css?v=1751523073087" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/radical-solution.css?v=1751523073087" media="all"><!-- RADICAL SOLUTION -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1751523073087" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/styles.css?v=1766516293480" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/accessibility.css?v=1766516293480" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/radical-solution.css?v=1766516293480" media="all"><!-- RADICAL SOLUTION -->
+    <link rel="stylesheet" href="css/mobile-nav.css?v=1766516293480" media="all">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1766516293480"
+        media="print" onload="this.media='all'">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    
+
     <!-- Web App Manifest for PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#00ff9d">
-    
+
     <!-- Inline Critical CSS for faster initial render -->
     <style>
-        :root{--bg-dark:#000;--bg-darker:#050505;--primary:#00ff9d;--primary-light:#33ffb5;--primary-dark:#00cc7d;--text:#e0e0e0;--text-secondary:#b8b8b8;--text-muted:#999;--border:#1a1a1a;--header-bg:rgba(0,0,0,.95)}*{margin:0;padding:0;box-sizing:border-box}body{font-family:Orbitron,monospace;background-color:var(--bg-darker);color:var(--text);min-height:100vh}header{position:fixed;top:0;width:100%;background-color:var(--header-bg);backdrop-filter:blur(10px);z-index:1000;padding:.75rem 0;height:40px}.container{max-width:1200px;margin:0 auto;padding:0 2rem}img{max-width:100%;height:auto}@font-face{font-family:Orbitron;font-display:swap;src:local('Orbitron')}
+        :root {
+            --bg-dark: #000;
+            --bg-darker: #050505;
+            --primary: #00ff9d;
+            --primary-light: #33ffb5;
+            --primary-dark: #00cc7d;
+            --text: #e0e0e0;
+            --text-secondary: #b8b8b8;
+            --text-muted: #999;
+            --border: #1a1a1a;
+            --header-bg: rgba(0, 0, 0, .95)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Orbitron, monospace;
+            background-color: var(--bg-darker);
+            color: var(--text);
+            min-height: 100vh
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: .75rem 0;
+            height: 40px
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+
+        @font-face {
+            font-family: Orbitron;
+            font-display: swap;
+            src: local('Orbitron')
+        }
     </style>
-    
+
     <!-- DNS Prefetch for faster external resource loading -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://via.placeholder.com">
     <link rel="dns-prefetch" href="https://github.com">
-    
+
     <!-- Preload project images for faster loading -->
-    <link rel="preload" as="image" href="https://raw.githubusercontent.com/IronAdamant/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png">
-    <link rel="preload" as="image" href="https://github.com/IronAdamant/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true">
-    <link rel="preload" as="image" href="https://github.com/IronAdamant/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true">
-    
-    <meta property="og:title" content="Projects - Necron Coder">
-    <meta property="og:description" content="Explore Necron Coder's portfolio of web, game, and AI/ML projects.">
+    <link rel="preload" as="image"
+        href="https://raw.githubusercontent.com/IronAdamant/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png">
+    <link rel="preload" as="image"
+        href="https://github.com/IronAdamant/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true">
+    <link rel="preload" as="image"
+        href="https://github.com/IronAdamant/Simple-Time-Tracker-for-Tasks/blob/master/images/Simple_Time_Tracker_front.png?raw=true">
+
+    <meta property="og:title" content="Projects - Iron_Adamant">
+    <meta property="og:description"
+        content="Explore Iron_Adamant's portfolio of desktop applications, web tools, and productivity software.">
     <meta property="og:image" content="images/og-image.jpg">
     <meta name="twitter:card" content="summary_large_image">
 </head>
+
 <body>
-    <!-- Unified Background Element -->
+    <!-- Tech Circuit Background Elements -->
     <div class="unified-background"></div>
-    <!-- Necron Glyphs Background Elements -->
-    <div class="necron-glyph circuit-circle" style="top: 25%; left: 12%;"></div>
-    <div class="necron-glyph circuit-circle" style="top: 60%; left: 88%;"></div>
-    <div class="necron-glyph connected-nodes" style="top: 45%; left: 92%;">
-        <div class="node node-1"></div>
-        <div class="node node-2"></div>
-        <div class="node node-3"></div>
-        <div class="node node-4"></div>
-        <div class="node node-5"></div>
-    </div>
-    <div class="necron-glyph connected-nodes" style="top: 80%; left: 20%;">
-        <div class="node node-1"></div>
-        <div class="node node-2"></div>
-        <div class="node node-3"></div>
-        <div class="node node-4"></div>
-        <div class="node node-5"></div>
-    </div>
-    <div class="necron-glyph vertical-circuit" style="top: 15%; left: 75%;">
-        <div class="circuit-node circuit-node-1"></div>
-        <div class="circuit-node circuit-node-2"></div>
-        <div class="circuit-node circuit-node-3"></div>
-        <div class="circuit-node circuit-node-4"></div>
-        <div class="circuit-branch branch-left" style="top: 33%;"></div>
-        <div class="circuit-branch branch-right" style="top: 66%;"></div>
-    </div>
-    <div class="necron-glyph vertical-circuit" style="top: 50%; left: 8%;">
-        <div class="circuit-node circuit-node-1"></div>
-        <div class="circuit-node circuit-node-2"></div>
-        <div class="circuit-node circuit-node-3"></div>
-        <div class="circuit-node circuit-node-4"></div>
-        <div class="circuit-branch branch-left" style="top: 33%;"></div>
-        <div class="circuit-branch branch-right" style="top: 66%;"></div>
-    </div>
-    
-    <!-- Advanced Necron Circuit Patterns -->
-    <div class="necron-complex-glyph diagonal-circuit" style="top: 35%; left: 20%;"></div>
-    <div class="necron-complex-glyph diagonal-circuit" style="top: 70%; left: 50%; transform: rotate(-45deg);"></div>
-    <div class="necron-complex-glyph hexagon-pattern" style="top: 25%; left: 40%;">
-        <div class="hexagon"></div>
-        <div class="hexagon-inner"></div>
-        <div class="hex-center"></div>
-    </div>
-    <div class="necron-complex-glyph hexagon-pattern" style="top: 65%; left: 85%;">
-        <div class="hexagon"></div>
-        <div class="hexagon-inner"></div>
-        <div class="hex-center"></div>
-    </div>
-    <div class="connection-line" style="top: 50%; left: 30%; transform: rotate(20deg);"></div>
-    <div class="connection-line" style="top: 75%; left: 70%; transform: rotate(-25deg);"></div>
-    <div class="circuit-rect" style="top: 40%; left: 60%;"></div>
-    <div class="energy-column" style="top: 10%; left: 65%;"></div>
-    <div class="energy-column" style="top: 60%; left: 15%;"></div>
-    
-    <!-- Intricate Circuit Patterns -->
-    <div class="bright-path" style="top: 25%; left: 35%; width: 200px; transform: rotate(15deg);"></div>
-    <div class="bright-path" style="top: 75%; left: 45%; width: 160px; transform: rotate(-20deg);"></div>
-    <div class="dim-path" style="top: 40%; left: 65%; width: 220px; transform: rotate(-30deg);"></div>
-    <div class="dim-path" style="top: 55%; left: 10%; width: 130px; transform: rotate(5deg);"></div>
-    <div class="dim-path" style="top: 35%; left: 80%; width: 170px; transform: rotate(55deg);"></div>
-    
-    <div class="circuit-grid" style="top: 15%; left: 75%;"></div>
-    <div class="circuit-grid" style="top: 65%; left: 35%;"></div>
-    
-    <div class="micro-circuit" style="top: 45%; left: 70%;">
-        <div class="micro-path path-1"></div>
-        <div class="micro-path path-2"></div>
-        <div class="micro-node node-1"></div>
-        <div class="micro-node node-2"></div>
-        <div class="micro-node node-3"></div>
-        <div class="micro-node node-4"></div>
-        <div class="micro-node node-5"></div>
-        <div class="vertical-connector conn-1"></div>
-        <div class="vertical-connector conn-2"></div>
-    </div>
-    
-    <div class="circuit-board" style="top: 25%; left: 10%;">
-        <div class="circuit-line horizontal-line line-1"></div>
-        <div class="circuit-line horizontal-line line-2"></div>
-        <div class="circuit-line horizontal-line line-3"></div>
-        <div class="circuit-line vertical-line line-1"></div>
-        <div class="circuit-line vertical-line line-2"></div>
-        <div class="circuit-line vertical-line line-3"></div>
-        <div class="circuit-dot dot-1"></div>
-        <div class="circuit-dot dot-2"></div>
-        <div class="circuit-dot dot-3"></div>
-        <div class="circuit-dot dot-4"></div>
-        <div class="circuit-dot dot-5"></div>
-        <div class="circuit-dot dot-6"></div>
-        <div class="circuit-dot dot-7"></div>
-        <div class="circuit-dot dot-8"></div>
-        <div class="circuit-dot dot-9"></div>
-    </div>
-    
-    <div class="pulsing-node" style="top: 55%; left: 25%;"></div>
-    <div class="pulsing-node" style="top: 30%; left: 85%;"></div>
-    
-    <div class="diagonal-bright" style="top: 45%; left: 40%; transform: rotate(40deg);"></div>
-    
-    <div class="triangular-circuit" style="top: 70%; left: 55%;">
-        <div class="triangle"></div>
-        <div class="triangle-inner"></div>
-        <div class="triangle-center"></div>
-    </div>
-    
+
+    <!-- Simplified circuit patterns (tech aesthetic) -->
+    <div class="circuit-grid" style="top: 20%; left: 15%;"></div>
+    <div class="circuit-grid" style="top: 70%; left: 80%;"></div>
+    <div class="pulsing-node" style="top: 40%; left: 50%;"></div>
+    <div class="pulsing-node" style="top: 80%; left: 25%;"></div>
+    <div class="bright-path" style="top: 30%; left: 35%; width: 150px; transform: rotate(15deg);"></div>
+    <div class="dim-path" style="top: 60%; left: 55%; width: 180px; transform: rotate(-25deg);"></div>
+
     <a href="#main-content" class="skip-link">Skip to main content</a>
-    
+
     <!-- Removed unified-header-hero wrapper -->
     <header>
         <div class="container">
@@ -192,30 +165,37 @@
                     <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
             </nav>
         </div>
     </header>
-    
+
+    <!-- Mobile Navigation -->
+    <div class="nav-overlay"></div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
     <main id="main-content" tabindex="-1" class="projects-page">
-            <!-- Added Necron patterns inside the projects page with reduced opacity -->
-            <div class="necron-glyph circuit-circle" style="top: 25%; right: 20%; opacity: 0.3;"></div>
-            <div class="necron-glyph connected-nodes" style="bottom: 30%; left: 15%; opacity: 0.35;">
-                <div class="node node-1"></div>
-                <div class="node node-2"></div>
-                <div class="node node-3"></div>
-                <div class="node node-4"></div>
-                <div class="node node-5"></div>
-            </div>
-            <div class="necron-complex-glyph hexagon-pattern" style="top: 20%; left: 10%; transform: scale(0.8); opacity: 0.3;"></div>
-            <div class="necron-complex-glyph diagonal-circuit" style="bottom: 15%; right: 8%; transform: rotate(20deg); opacity: 0.25;"></div>
         <div class="container">
-            <h1>Project Archives</h1>
-            <p class="lead">Behold my gallery of digital artifacts, each meticulously preserved for eternity.</p>
-            
+            <h1>Projects</h1>
+            <p class="lead">A collection of tools and applications I've built.</p>
+
             <div class="category-filter" role="tablist" aria-label="Collection categories">
-                <button class="filter-btn active" data-category="all" role="tab" aria-selected="true" aria-controls="project-list" id="tab-all">Complete Collection</button>
-                <button class="filter-btn" data-category="application" role="tab" aria-selected="false" aria-controls="project-list" id="tab-application">Tool</button>
-                <button class="filter-btn" data-category="tracking" role="tab" aria-selected="false" aria-controls="project-list" id="tab-tracking">Tracking Systems</button>
+                <button class="filter-btn active" data-category="all" role="tab" aria-selected="true"
+                    aria-controls="project-list" id="tab-all">Complete Collection</button>
+                <button class="filter-btn" data-category="application" role="tab" aria-selected="false"
+                    aria-controls="project-list" id="tab-application">Tool</button>
+                <button class="filter-btn" data-category="tracking" role="tab" aria-selected="false"
+                    aria-controls="project-list" id="tab-tracking">Tracking Systems</button>
             </div>
 
             <div class="project-list" id="project-list" role="region" aria-live="polite">
@@ -226,12 +206,17 @@
 
     <footer>
         <div class="container">
-            <p>&copy; M3.025 Iron_Adamant. All specimens preserved in perpetuity.</p>
+            <p>&copy; 2025 Iron_Adamant. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/IronAdamant" target="_blank"><i class="fab fa-github"></i></a>
-                <a href="https://x.com/Iron_Adamant" target="_blank" title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank"><i class="fab fa-linkedin"></i></a>
-                <a href="https://buymeacoffee.com/ironadamant" target="_blank"><i class="fas fa-coffee"></i></a>
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer"
+                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-coffee"></i></a>
             </div>
         </div>
     </footer>
@@ -243,6 +228,7 @@
     <script src="js/resource-optimizer.js?v=1.1" defer></script>
     <script src="js/performance-monitor.js?v=1.1" defer></script>
     <script src="js/sw-register.js?v=1.1" defer></script>
-    <script src="js/version-check.js?v=1751523073087"></script>
+    <script src="js/version-check.js?v=1766516293480"></script>
 </body>
+
 </html>
