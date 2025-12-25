@@ -75,9 +75,9 @@ const projectData = [
         featured: true,
         shortDescription: "An automation tool for precise control of input devices, designed for Windows 11 gaming applications.",
         fullDescription: "AutoClacker is an automation tool that provides precise control over mouse and keyboard inputs. Designed specifically for Windows 11 gaming, it offers customizable macros and input sequences for enhanced gaming experiences.",
-        imageSrc: "https://raw.githubusercontent.com/IronAdamant/AutoClacker/refs/heads/master/Images/AutoClacker_Not_Running.png",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/AutoClacker/master/Images/AutoClacker.png",
         imageAlt: "AutoClacker Screenshot",
-        techTags: ["C#", ".Net 8", "json"],
+        techTags: ["C#", ".Net 9", "Avalonia"],
         links: [
             {
                 text: "GitHub",
@@ -138,26 +138,26 @@ const aboutData = {
 const projectHelpers = {
     // Get all projects
     getAllProjects: () => projectData,
-    
+
     // Get featured projects for homepage (first 3 projects from the top of the array)
     // To add new projects to homepage: add them at the top of projectData array with featured: true
     getFeaturedProjects: () => projectData.slice(0, 3),
-    
+
     // Get projects by category
     getProjectsByCategory: (category) => {
         if (category === 'all') return projectData;
         return projectData.filter(project => project.category === category);
     },
-    
+
     // Get project by ID
     getProjectById: (id) => projectData.find(project => project.id === id),
-    
+
     // Get all available categories
     getAllCategories: () => {
         const categories = new Set(projectData.map(project => project.category));
         return ['all', ...Array.from(categories)];
     },
-    
+
     // Get user-friendly category name
     getCategoryName: (categoryCode) => {
         const categoryNames = {
@@ -168,7 +168,7 @@ const projectHelpers = {
             'game': 'Interactive Constructs',
             'ai': 'Synthetic Intelligence'
         };
-        
+
         return categoryNames[categoryCode] || categoryCode;
     }
 };
