@@ -43,6 +43,18 @@ Modular CSS structure (imported via `main.css`):
 | `responsive.css` | Media queries | ~130 |
 | `main.css` | Entry point (imports all) | ~12 |
 
+## JS Architecture
+
+Modular JS structure (loaded via separate files):
+
+| Module | Purpose | LOC |
+|--------|---------|-----|
+| `navigation.js` | Smooth scroll, filtering, mobile nav | ~130 |
+| `contact-form.js` | Form validation, submission, spam protection | ~260 |
+| `page-transitions.js` | Page loading transitions | ~170 |
+| `image-modal.js` | Image expansion and lightbox | ~190 |
+| `main.js` | Entry point (orchestrates all) | ~55 |
+
 ## Cache Busting
 
 Before commits:
