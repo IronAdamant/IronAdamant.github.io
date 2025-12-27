@@ -10,7 +10,7 @@ Personal portfolio website showcasing software development projects and tools.
 
 ## Deployment
 
-Uses GitHub Actions to deploy to GitHub Pages (excludes `.md` files, `wiki-local/`).
+Uses GitHub Actions to deploy to GitHub Pages (excludes `.md` files).
 
 **Enable:**
 1. Repository Settings → Pages
