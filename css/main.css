@@ -1,0 +1,12 @@
+/*
+ * Main CSS - Entry point that imports all modular stylesheets
+ * Total: 6 modules, all under 500 LOC each
+ */
+
+/* Import order matters - base first, then layers, then responsive last */
+@import url('base.css');
+@import url('layout.css');
+@import url('components.css');
+@import url('animations.css');
+@import url('patterns.css');
+@import url('responsive.css');

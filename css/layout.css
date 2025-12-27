@@ -1,0 +1,385 @@
+/* Layout - Container, Header, Navigation, Hero, Footer, Sections */
+
+/* Container */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+/* Section spacing */
+section {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* Header */
+header {
+    background: rgba(5, 5, 5, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.4);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    z-index: 1000;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+    height: 30px;
+    position: relative;
+    overflow: hidden;
+}
+
+header .container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(90deg,
+            transparent 0%, transparent 40%,
+            rgba(0, 255, 157, 0.2) 45%, rgba(0, 255, 157, 0.2) 55%,
+            transparent 60%, transparent 100%);
+    animation: circuit-flow 6s linear infinite;
+    z-index: -1;
+}
+
+header .container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 25% 50%, rgba(0, 255, 157, 0.15) 0%, transparent 10%),
+        radial-gradient(circle at 75% 50%, rgba(0, 255, 157, 0.15) 0%, transparent 10%);
+    animation: pulse-glow 4s ease-in-out infinite;
+    z-index: -1;
+}
+
+/* Logo */
+.logo {
+    display: inline-block;
+    color: var(--text);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    position: relative;
+    line-height: 30px;
+    margin-left: 20px;
+    top: 3px;
+}
+
+.logo:hover {
+    transform: scale(1.05);
+}
+
+.logo::after {
+    display: none;
+}
+
+/* Navigation */
+nav {
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 5px;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.8rem;
+    padding: 4px 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    background-color: transparent;
+    border: none;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 255, 157, 0.3);
+    letter-spacing: 1px;
+    overflow: hidden;
+    margin: 0 3px;
+    border-radius: 4px;
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background: var(--text);
+    transform: scaleX(0);
+    transform-origin: center;
+    transition: transform 0.3s ease;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--primary);
+    text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
+    background-color: rgba(0, 255, 157, 0.1);
+}
+
+nav a:hover::after,
+nav a.active::after {
+    transform: scaleX(1);
+    background: var(--primary);
+    box-shadow: 0 0 8px rgba(0, 255, 157, 0.6);
+}
+
+nav a.active {
+    background: rgba(0, 255, 157, 0.15);
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    border-radius: 4px;
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+/* Unified Header and Hero Container */
+.unified-header-hero {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    min-height: auto;
+    overflow: hidden;
+    background: transparent;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    z-index: 10;
+    position: relative;
+    margin-top: 10px;
+    padding-top: 20px;
+    padding-bottom: 2rem;
+    overflow: hidden;
+    min-height: auto;
+}
+
+.hero .container {
+    position: relative;
+    z-index: 2;
+    max-width: 1000px;
+    width: 100%;
+    padding: 0 1rem;
+    margin: 0 auto;
+    text-align: center;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-logo {
+    font-size: 1.2rem;
+    margin-bottom: 0.25rem;
+    color: var(--primary);
+    opacity: 0.9;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.8), 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.hero-subtitle {
+    font-size: 1.1rem;
+    margin: 0 auto 0.75rem;
+    color: var(--text);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
+}
+
+.hero-title {
+    font-size: 3rem;
+    margin-bottom: 0.5rem;
+    color: var(--text);
+    text-shadow: 0 0 20px rgba(0, 255, 157, 0.6), 0 0 3px rgba(0, 0, 0, 0.9);
+    position: relative;
+    z-index: 1;
+    letter-spacing: 2px;
+    animation: title-pulse 3s ease-in-out infinite;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+    color: var(--text);
+    text-shadow: 0 0 25px rgba(0, 255, 157, 0.7), 0 0 3px rgba(0, 0, 0, 0.9);
+    font-weight: 700;
+    position: relative;
+    display: inline-block;
+    letter-spacing: 2px;
+    animation: title-glow 4s ease-in-out infinite alternate;
+}
+
+.hero .subtitle {
+    font-size: 1.2rem;
+    max-width: 700px;
+    margin: 0 auto 1rem;
+    color: var(--text);
+    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 10px rgba(0, 255, 157, 0.2);
+}
+
+.hero .glow {
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(0, 255, 157, 0.8), 0 0 3px rgba(0, 0, 0, 0.8);
+}
+
+.hero .cta-buttons {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-bottom: 0;
+}
+
+.hero-background-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0, 255, 157, 0.2) 0%, transparent 70%);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.hero::before {
+    display: none;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    opacity: 0.7;
+    transition: all 0.3s ease;
+    z-index: 2;
+}
+
+.scroll-indicator span {
+    margin-bottom: 0.5rem;
+}
+
+.scroll-indicator .arrow {
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid var(--primary);
+    border-bottom: 2px solid var(--primary);
+    transform: rotate(45deg);
+    animation: arrowBounce 2s infinite;
+}
+
+/* Footer */
+footer {
+    background: var(--bg-darker);
+    padding: 2rem 0;
+    text-align: center;
+    border-top: 1px solid rgba(0, 255, 157, 0.1);
+}
+
+footer .container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+footer p {
+    margin-bottom: 1rem;
+    color: var(--text);
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+footer .social-links {
+    display: flex;
+    gap: 1.5rem;
+}
+
+footer .social-links a {
+    color: var(--text);
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
+}
+
+footer .social-links a:hover {
+    color: var(--primary);
+    transform: translateY(-3px);
+}
+
+/* Featured Projects Section */
+.featured-projects {
+    position: relative;
+    z-index: 2;
+    padding: 2rem 0;
+    margin-top: 0;
+    border-top: 1px solid rgba(0, 255, 157, 0.1);
+    background: linear-gradient(to bottom, transparent, var(--bg-darker) 15%);
+}
+
+/* Contact & Projects Page Layout */
+.contact-page,
+.projects-page {
+    padding: 4rem 0;
+}
+
+.contact-page .container,
+.projects-page .container,
+main section:first-of-type {
+    padding-top: 0;
+    margin-top: 0;
+}
+
+header+main {
+    margin-top: 0;
+    padding-top: 0;
+}
+
+/* Contact Container */
+.contact-container {
+    display: flex;
+    flex-direction: column;
+    gap: 3rem;
+    margin-top: 3rem;
+}
+
+@media (min-width: 992px) {
+    .contact-container {
+        flex-direction: row;
+    }
+
+    .contact-info,
+    .contact-form {
+        flex: 1;
+    }
+}

@@ -1,0 +1,444 @@
+/* Background Patterns - Circuit patterns, unified background, decorative elements */
+
+/* Background element base styles */
+.necron-glyph,
+.necron-complex-glyph,
+.bright-path,
+.connection-line,
+.circuit-rect,
+.energy-column,
+.circuit-board {
+    position: fixed !important;
+    z-index: -10 !important;
+    pointer-events: none !important;
+}
+
+.unified-background,
+.diagonal-bright,
+.pulsing-node,
+.triangular-circuit,
+.circuit-circle,
+.connected-nodes {
+    position: fixed !important;
+    z-index: -10 !important;
+    pointer-events: none !important;
+}
+
+/* Body Background Patterns */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        repeating-linear-gradient(to right, transparent, transparent 50px, rgba(0, 255, 157, 0.04) 50px, rgba(0, 255, 157, 0.04) 51px, transparent 51px, transparent 100px),
+        repeating-linear-gradient(to right, transparent, transparent 100px, rgba(0, 255, 157, 0.05) 100px, rgba(0, 255, 157, 0.05) 101px, transparent 101px, transparent 200px),
+        repeating-linear-gradient(to bottom, transparent, transparent 60px, rgba(0, 255, 157, 0.04) 60px, rgba(0, 255, 157, 0.04) 61px, transparent 61px, transparent 120px),
+        repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(0, 255, 157, 0.03) 40px, rgba(0, 255, 157, 0.03) 41px, transparent 41px, transparent 80px),
+        repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(0, 255, 157, 0.03) 40px, rgba(0, 255, 157, 0.03) 41px, transparent 41px, transparent 80px);
+    z-index: -2;
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background:
+        radial-gradient(circle at 15% 20%, rgba(0, 255, 157, 0.15) 0%, rgba(0, 255, 157, 0.08) 3%, transparent 15%),
+        radial-gradient(circle at 85% 25%, rgba(0, 255, 157, 0.15) 0%, rgba(0, 255, 157, 0.08) 3%, transparent 15%),
+        radial-gradient(circle at 25% 50%, rgba(0, 255, 157, 0.15) 0%, rgba(0, 255, 157, 0.08) 3%, transparent 15%),
+        radial-gradient(circle at 75% 55%, rgba(0, 255, 157, 0.15) 0%, rgba(0, 255, 157, 0.08) 3%, transparent 15%),
+        radial-gradient(circle at 50% 50%, rgba(0, 0, 0, 0.3) 0%, transparent 100%);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.85;
+}
+
+/* Unified Background */
+.unified-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-darker);
+    z-index: -10;
+    pointer-events: none;
+}
+
+.unified-background::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(90deg, transparent 0%, transparent 48%, rgba(0, 255, 157, 0.1) 50%, transparent 52%, transparent 100%),
+        linear-gradient(0deg, transparent 0%, transparent 48%, rgba(0, 255, 157, 0.1) 50%, transparent 52%, transparent 100%);
+    background-size: 100px 100px;
+    animation: circuit-pulse 8s linear infinite;
+    opacity: 0.6;
+    pointer-events: none;
+}
+
+.unified-background::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        repeating-conic-gradient(from 0deg at 20% 50%, transparent 0deg, rgba(0, 255, 157, 0.05) 60deg, transparent 120deg),
+        repeating-conic-gradient(from 0deg at 80% 50%, transparent 0deg, rgba(0, 255, 157, 0.05) 60deg, transparent 120deg);
+    opacity: 0.4;
+    animation: rotate-slow 60s linear infinite;
+    pointer-events: none;
+}
+
+/* Necron Glyph Base */
+.necron-glyph {
+    position: absolute;
+    opacity: 0.15;
+    pointer-events: none;
+    z-index: -1;
+    animation: glowPulse 4s infinite;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+.necron-glyph:nth-child(2n) {
+    animation-delay: 1s;
+}
+
+.necron-glyph:nth-child(3n) {
+    animation-delay: 2s;
+}
+
+.necron-glyph:nth-child(4n) {
+    animation-delay: 3s;
+}
+
+/* Circuit Circle */
+.circuit-circle {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--primary);
+    border-radius: 50%;
+    position: relative;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+.circuit-circle::before {
+    content: '';
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--primary);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.circuit-circle::after {
+    content: '';
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 10px var(--primary);
+}
+
+/* Connected Nodes */
+.connected-nodes {
+    width: 100px;
+    height: 100px;
+    position: relative;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+.connected-nodes::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background:
+        linear-gradient(to right, transparent 48%, var(--primary) 48%, var(--primary) 52%, transparent 52%),
+        linear-gradient(to bottom, transparent 48%, var(--primary) 48%, var(--primary) 52%, transparent 52%);
+}
+
+.node {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background: var(--primary);
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+.node-1 {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node-2 {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.node-3 {
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.node-4 {
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+}
+
+.node-5 {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+}
+
+/* Complex Necron Glyph */
+.necron-complex-glyph {
+    position: fixed;
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: -1;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+}
+
+/* Diagonal Circuit */
+.diagonal-circuit {
+    position: fixed;
+    width: 400px;
+    height: 2px;
+    background-color: var(--primary);
+    transform: rotate(45deg);
+    opacity: 0.07;
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.2);
+    z-index: -1;
+}
+
+/* Connection Line */
+.connection-line {
+    position: fixed;
+    width: 200px;
+    height: 1px;
+    background-color: var(--primary);
+    opacity: 0.05;
+    z-index: -1;
+}
+
+/* Circuit Rectangle */
+.circuit-rect {
+    position: fixed;
+    width: 150px;
+    height: 80px;
+    border: 1px solid var(--primary);
+    opacity: 0.05;
+    z-index: -1;
+}
+
+.circuit-rect::before {
+    content: '';
+    position: absolute;
+    width: 70%;
+    height: 50%;
+    top: 25%;
+    left: 15%;
+    border: 1px solid var(--primary);
+}
+
+.circuit-rect::after {
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 5px;
+    background-color: var(--primary);
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    box-shadow: 0 0 5px var(--primary);
+}
+
+/* Energy Column */
+.energy-column {
+    position: fixed;
+    width: 2px;
+    height: 200px;
+    background-color: var(--primary);
+    opacity: 0.1;
+    box-shadow: 0 0 10px var(--primary);
+    z-index: -2;
+}
+
+.energy-column::before,
+.energy-column::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    background-color: var(--primary);
+    animation: energyPulse 3s infinite alternate;
+}
+
+.energy-column::before {
+    height: 30%;
+    top: 0;
+    opacity: 0.5;
+}
+
+.energy-column::after {
+    height: 20%;
+    bottom: 0;
+    opacity: 0.3;
+}
+
+/* Bright Path */
+.bright-path {
+    position: fixed;
+    height: 1px;
+    background-color: var(--primary);
+    opacity: 0.2;
+    box-shadow: 0 0 8px var(--primary);
+    z-index: -1;
+}
+
+/* Circuit Board */
+.circuit-board {
+    position: fixed;
+    width: 200px;
+    height: 200px;
+    opacity: 0.04;
+    z-index: -1;
+}
+
+.circuit-line {
+    position: absolute;
+    background-color: var(--primary);
+}
+
+.horizontal-line {
+    width: 100%;
+    height: 1px;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 100%;
+}
+
+.horizontal-line.line-1 {
+    top: 20%;
+}
+
+.horizontal-line.line-2 {
+    top: 50%;
+}
+
+.horizontal-line.line-3 {
+    top: 80%;
+}
+
+.vertical-line.line-1 {
+    left: 20%;
+}
+
+.vertical-line.line-2 {
+    left: 50%;
+}
+
+.vertical-line.line-3 {
+    left: 80%;
+}
+
+.circuit-dot {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background-color: var(--primary);
+    transform: translate(-50%, -50%);
+}
+
+/* Triangular Circuit */
+.triangular-circuit {
+    position: fixed;
+    width: 120px;
+    height: 120px;
+    opacity: 0.05;
+    z-index: -1;
+    transform: translateZ(0);
+    will-change: transform, opacity;
+}
+
+.triangle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border: 1px solid var(--primary);
+}
+
+.triangle-inner {
+    position: absolute;
+    width: 60%;
+    height: 60%;
+    top: 30%;
+    left: 20%;
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border: 1px solid var(--primary);
+}
+
+.triangle-center {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--primary);
+    opacity: 0.2;
+    border-radius: 50%;
+}
+
+/* Hero patterns positioning */
+.hero .necron-glyph,
+.hero .necron-complex-glyph,
+.projects-page .necron-glyph,
+.projects-page .necron-complex-glyph,
+.contact-page .necron-glyph,
+.contact-page .necron-complex-glyph {
+    position: absolute;
+    z-index: 0;
+    pointer-events: none;
+}

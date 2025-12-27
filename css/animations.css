@@ -1,0 +1,338 @@
+/* Animations - All keyframes and transitions */
+
+/* Page Transition Overlay */
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: var(--bg-darker);
+    z-index: 9999;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    pointer-events: none;
+}
+
+.page-transition::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 255, 157, 0.3);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    opacity: 0.9;
+    will-change: transform;
+}
+
+.page-transition::after {
+    content: 'LOADING';
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+.loader-spinner {
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(0, 255, 157, 0.3);
+    border-top-color: var(--primary);
+    border-radius: 50%;
+    animation: spin 0.8s linear infinite;
+    opacity: 0.9;
+    will-change: transform;
+}
+
+.loading-text {
+    margin-top: 20px;
+    color: var(--primary);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* Core Keyframes */
+@keyframes spin {
+    to {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0.6;
+    }
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateZ(0);
+        will-change: transform;
+    }
+
+    50% {
+        transform: translateY(-20px) translateZ(0);
+    }
+
+    100% {
+        transform: translateY(0) translateZ(0);
+    }
+}
+
+@keyframes glitch {
+
+    0%,
+    100% {
+        transform: translate(0);
+    }
+
+    20% {
+        transform: translate(-2px, 2px);
+    }
+
+    40% {
+        transform: translate(2px, -2px);
+    }
+
+    60% {
+        transform: translate(-2px, -2px);
+    }
+
+    80% {
+        transform: translate(2px, 2px);
+    }
+}
+
+@keyframes arrowBounce {
+
+    0%,
+    100% {
+        transform: rotate(45deg) translate(0, 0);
+    }
+
+    50% {
+        transform: rotate(45deg) translate(5px, 5px);
+    }
+}
+
+@keyframes title-pulse {
+
+    0%,
+    100% {
+        text-shadow: 0 0 15px rgba(0, 255, 157, 0.6);
+    }
+
+    50% {
+        text-shadow: 0 0 25px rgba(0, 255, 157, 0.8);
+    }
+}
+
+@keyframes title-glow {
+    0% {
+        text-shadow: 0 0 20px rgba(0, 255, 157, 0.7);
+    }
+
+    100% {
+        text-shadow: 0 0 30px rgba(0, 255, 157, 0.9);
+    }
+}
+
+@keyframes circuit-flow {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes pulse-glow {
+
+    0%,
+    100% {
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+}
+
+@keyframes gradient-shift {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes loading-gradient {
+    0% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Live Project Animations */
+@keyframes netlify-glow {
+    0% {
+        opacity: 0.6;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes live-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 10px rgba(0, 255, 157, 0.6);
+    }
+
+    50% {
+        transform: scale(1.05);
+        box-shadow: 0 0 15px rgba(0, 255, 157, 0.8);
+    }
+}
+
+@keyframes netlify-tag-glow {
+
+    0%,
+    100% {
+        box-shadow: 0 0 8px rgba(0, 255, 157, 0.3);
+    }
+
+    50% {
+        box-shadow: 0 0 12px rgba(0, 255, 157, 0.5);
+    }
+}
+
+@keyframes external-link-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+}
+
+/* Pattern Animations */
+@keyframes circuit-pulse {
+    0% {
+        transform: translate(0, 0);
+        opacity: 0.3;
+    }
+
+    50% {
+        opacity: 0.8;
+    }
+
+    100% {
+        transform: translate(50px, 50px);
+        opacity: 0.3;
+    }
+}
+
+@keyframes rotate-slow {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.15;
+    }
+
+    50% {
+        opacity: 0.25;
+    }
+}
+
+@keyframes energyPulse {
+    0% {
+        opacity: 0.1;
+        box-shadow: 0 0 5px var(--primary);
+    }
+
+    100% {
+        opacity: 0.4;
+        box-shadow: 0 0 15px var(--primary);
+    }
+}
+
+/* Performance Optimizations */
+.project-card,
+.project-item,
+.btn,
+nav a,
+.project-image::after {
+    will-change: transform, opacity, box-shadow;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+}

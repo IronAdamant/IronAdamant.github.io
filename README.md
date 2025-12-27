@@ -6,37 +6,51 @@ Personal portfolio website showcasing software development projects and tools.
 
 1. Clone the repository
 2. Open `index.html` in a browser
-3. For local development, use a simple server: `python -m http.server 8000`
+3. For local development: `python -m http.server 8000`
 
 ## Deployment
 
-The site uses GitHub Actions to deploy to GitHub Pages. The workflow excludes documentation files (`.md`, `wiki-local/`) from the live site.
+Uses GitHub Actions to deploy to GitHub Pages (excludes `.md` files, `wiki-local/`).
 
-**To enable:**
-1. Go to repository Settings → Pages
-2. Set Source to "GitHub Actions"
-3. Push to `main` branch to trigger deployment
+**Enable:**
+1. Repository Settings → Pages
+2. Source: "GitHub Actions"
+3. Push to `main` to deploy
 
 ## Structure
 
 | File/Folder | Purpose |
 |-------------|---------|
 | `index.html` | Homepage with hero and featured projects |
-| `projects.html` | Projects gallery with filtering |
+| `projects.html` | Project gallery with filtering |
 | `contact.html` | Contact form (Formspree backend) |
 | `404.html` | Custom error page |
-| `css/` | Stylesheets (styles.css, mobile-nav.css, etc.) |
-| `js/` | JavaScript (combined.js, project-data.js) |
-| `images/` | Project screenshots and assets |
+| `css/` | Modular stylesheets |
+| `js/` | JavaScript modules |
+| `images/` | Assets |
 
-## Important: Cache Busting
+## CSS Architecture
 
-Before committing changes, run:
+Modular CSS structure (imported via `main.css`):
+
+| Module | Purpose | LOC |
+|--------|---------|-----|
+| `base.css` | Variables, reset, typography | ~150 |
+| `layout.css` | Header, nav, hero, footer | ~280 |
+| `components.css` | Buttons, cards, forms, tags | ~470 |
+| `animations.css` | Keyframes, transitions | ~180 |
+| `patterns.css` | Background circuit patterns | ~280 |
+| `responsive.css` | Media queries | ~130 |
+| `main.css` | Entry point (imports all) | ~12 |
+
+## Cache Busting
+
+Before commits:
 ```bash
 node update-version.js
 ```
 
-This updates the version timestamp in `manifest.json` to ensure users see the latest changes.
+Updates version in `manifest.json` for cache busting.
 
 ## Tech Stack
 
