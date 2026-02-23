@@ -40,7 +40,10 @@ function renderFeaturedProjects() {
                 <img src="${project.imageSrc}" alt="${project.imageAlt}" loading="eager">
             </div>
             <div class="project-info">
-                <h3>${project.title}</h3>
+                <div class="project-card-header">
+                    <h3>${project.title}</h3>
+                    <span class="badge-open-source"><i class="fab fa-github"></i> Open Source</span>
+                </div>
                 <p>${project.shortDescription}</p>
                 <div class="project-tags">
                     ${project.techTags.map(tag => `<span class="tag">${tag}</span>`).join('')}
@@ -80,7 +83,10 @@ function renderProjectsList() {
                 <img src="${project.imageSrc}" alt="${project.imageAlt}" loading="eager">
             </div>
             <div class="project-content">
-                <h2>${project.title}</h2>
+                <div class="project-card-header">
+                    <h2>${project.title}</h2>
+                    <span class="badge-open-source"><i class="fab fa-github"></i> Open Source</span>
+                </div>
                 <p>${project.fullDescription}</p>
                 <div class="project-meta">
                     <div class="project-category">

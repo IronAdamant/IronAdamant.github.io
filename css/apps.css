@@ -1,0 +1,438 @@
+/* =============================================================================
+   Apps / Products Page Styles
+   Used exclusively on apps.html
+   ============================================================================= */
+
+/* Page Layout */
+.apps-page {
+    padding: 5rem 0 4rem;
+}
+
+.apps-page h1 {
+    font-size: clamp(1.5rem, 4vw, 2.5rem);
+    color: var(--primary);
+    text-shadow: 0 0 15px rgba(0, 255, 157, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.apps-page .lead {
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    line-height: 1.6;
+}
+
+.apps-intro-note {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 3rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(255, 210, 0, 0.2);
+    border-radius: 4px;
+    background: rgba(255, 210, 0, 0.04);
+}
+
+.apps-intro-note i {
+    color: #ffd700;
+}
+
+/* ---- App Card ---- */
+.app-card {
+    background: var(--bg-dark);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    animation: fadeInUp 0.8s ease-out;
+}
+
+.app-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, transparent, var(--primary), rgba(0, 255, 157, 0.4), var(--primary), transparent);
+}
+
+.app-card:hover {
+    border-color: rgba(0, 255, 157, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 255, 157, 0.08);
+}
+
+/* ---- App Header ---- */
+.app-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.app-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+    flex-shrink: 0;
+    filter: drop-shadow(0 0 8px rgba(0, 255, 157, 0.3));
+}
+
+.app-title-group {
+    flex: 1;
+    min-width: 200px;
+}
+
+.app-title {
+    font-size: clamp(1.2rem, 3vw, 1.8rem);
+    color: var(--primary);
+    margin-bottom: 0.3rem;
+    text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+.app-tagline {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.75rem;
+    line-height: 1.5;
+}
+
+.app-header-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.app-website-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.8rem;
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    letter-spacing: 0.5px;
+}
+
+.app-website-link:hover {
+    background: rgba(0, 255, 157, 0.1);
+    box-shadow: 0 0 8px rgba(0, 255, 157, 0.2);
+}
+
+/* ---- Status Badge ---- */
+.app-status {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.75rem;
+    padding: 0.3rem 0.85rem;
+    border-radius: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.app-status.live {
+    background: rgba(0, 255, 157, 0.1);
+    border: 1px solid rgba(0, 255, 157, 0.35);
+    color: var(--primary);
+}
+
+.app-status.alpha {
+    background: rgba(255, 210, 0, 0.08);
+    border: 1px solid rgba(255, 210, 0, 0.3);
+    color: #ffd700;
+}
+
+.app-status::before {
+    content: '';
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: currentColor;
+    animation: live-pulse 1.8s ease-in-out infinite;
+}
+
+/* ---- App Description ---- */
+.app-description {
+    color: var(--text);
+    line-height: 1.75;
+    margin-bottom: 1.25rem;
+}
+
+/* ---- Use-Case Chips ---- */
+.use-case-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.use-case-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.8rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text-secondary);
+}
+
+/* ---- Pricing Grid ---- */
+.pricing-section-title {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 1rem;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+}
+
+/* ---- Pricing Tier ---- */
+.pricing-tier {
+    background: rgba(8, 8, 8, 0.7);
+    border: 1px solid rgba(0, 255, 157, 0.12);
+    border-radius: 8px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    backdrop-filter: blur(4px);
+}
+
+.pricing-tier.pro {
+    border-color: rgba(0, 255, 157, 0.45);
+    background: rgba(0, 255, 157, 0.025);
+    position: relative;
+    overflow: hidden;
+}
+
+.pricing-tier.pro::after {
+    content: 'PRO';
+    position: absolute;
+    top: 14px;
+    right: -18px;
+    background: var(--primary);
+    color: var(--bg-darker);
+    font-size: 0.6rem;
+    font-weight: 900;
+    letter-spacing: 2px;
+    padding: 3px 28px;
+    transform: rotate(45deg);
+    box-shadow: 0 0 10px rgba(0, 255, 157, 0.5);
+}
+
+/* ---- Tier Header ---- */
+.tier-header {
+    margin-bottom: 1rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 255, 157, 0.08);
+}
+
+.tier-header h3 {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+.pricing-tier.pro .tier-header h3 {
+    color: var(--primary);
+    text-shadow: 0 0 8px rgba(0, 255, 157, 0.3);
+}
+
+.tier-price {
+    line-height: 1.2;
+}
+
+.price-amount {
+    font-size: 1.9rem;
+    font-weight: 700;
+    color: var(--primary);
+}
+
+.price-label {
+    font-size: 0.9rem;
+    color: var(--text);
+    font-weight: 600;
+}
+
+.price-sublabel {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    margin-top: 0.2rem;
+}
+
+/* ---- Feature List ---- */
+.tier-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex: 1;
+}
+
+.tier-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.45rem 0;
+    color: var(--text);
+    font-size: 0.875rem;
+    line-height: 1.45;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.tier-features li:last-child {
+    border-bottom: none;
+}
+
+.tier-features li .feat-icon {
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 0.1rem;
+    font-size: 0.75rem;
+    width: 14px;
+    text-align: center;
+}
+
+.tier-features li.feat-limited {
+    color: var(--text-secondary);
+}
+
+.tier-features li.feat-limited .feat-icon {
+    color: var(--text-muted);
+}
+
+/* ---- Tier CTA ---- */
+.tier-cta {
+    margin-top: 1.5rem;
+}
+
+.btn-tier {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 100%;
+    padding: 0.7rem 1.5rem;
+    border-radius: 4px;
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.btn-tier.primary {
+    background: var(--primary);
+    color: var(--bg-darker);
+}
+
+.btn-tier.primary:hover {
+    background: transparent;
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
+}
+
+.btn-tier.secondary {
+    background: transparent;
+    color: var(--text-secondary);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.btn-tier.secondary:hover {
+    color: var(--primary);
+    border-color: rgba(0, 255, 157, 0.3);
+}
+
+/* ---- App Tech Stack ---- */
+.app-tech {
+    margin-top: 1.75rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.app-tech .meta-label {
+    color: var(--primary);
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    flex-shrink: 0;
+}
+
+/* ---- Open Source Notice (also used on projects page) ---- */
+.open-source-notice {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary);
+    font-size: 0.85rem;
+    margin-bottom: 2rem;
+    padding: 0.4rem 1rem;
+    border: 1px solid rgba(0, 255, 157, 0.25);
+    border-radius: 4px;
+    background: rgba(0, 255, 157, 0.04);
+}
+
+.open-source-notice i {
+    font-size: 1rem;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 620px) {
+    .pricing-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .app-card {
+        padding: 1.25rem;
+    }
+
+    .app-header {
+        gap: 1rem;
+    }
+}
+
+/* Proprietary badge */
+.badge-proprietary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.7rem;
+    padding: 0.2rem 0.65rem;
+    border-radius: 20px;
+    background: rgba(180, 100, 255, 0.08);
+    border: 1px solid rgba(180, 100, 255, 0.3);
+    color: #c084fc;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 600;
+    white-space: nowrap;
+    flex-shrink: 0;
+}

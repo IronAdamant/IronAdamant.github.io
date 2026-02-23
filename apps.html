@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Preloader script (runs immediately) -->
+    <script src="js/page-preloader.js?v=1766516293480"></script>
+    <!-- Critical CSS for immediate background color - prevents white flash -->
+    <style>
+        html,
+        body {
+            background-color: #050505 !important;
+            margin: 0;
+            padding: 0;
+            color: #e0e0e0;
+        }
+
+        .page-transition {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #050505;
+            z-index: 9999;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="build-version" content="2026-02-24T00:00:00.000Z">
+
+    <meta name="theme-color" content="#050505">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="description"
+        content="Apps by Iron_Adamant - Practical productivity software. Checkpoint Projects and ConsistencyHub.">
+    <title>Apps - Iron_Adamant</title>
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="/favicon.png">
+
+    <!-- Resource hints for faster loading -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+
+    <link rel="stylesheet" href="css/main.css?v=1766516293480" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/apps.css?v=1.0" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/accessibility.css?v=1766516293480" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/radical-solution.css?v=1766516293480" media="all">
+    <link rel="stylesheet" href="css/mobile-nav.css?v=1766516293480" media="all">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1766516293480"
+        media="print" onload="this.media='all'">
+
+    <!-- Web App Manifest for PWA -->
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#00ff9d">
+
+    <!-- Inline Critical CSS for faster initial render -->
+    <style>
+        :root {
+            --bg-dark: #000;
+            --bg-darker: #050505;
+            --primary: #00ff9d;
+            --primary-light: #33ffb5;
+            --primary-dark: #00cc7d;
+            --text: #e0e0e0;
+            --text-secondary: #b8b8b8;
+            --text-muted: #999;
+            --border: #1a1a1a;
+            --header-bg: rgba(0, 0, 0, .95)
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: Orbitron, monospace;
+            background-color: var(--bg-darker);
+            color: var(--text);
+            min-height: 100vh
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: var(--header-bg);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: .75rem 0;
+            height: 40px
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+
+        @font-face {
+            font-family: Orbitron;
+            font-display: swap;
+            src: local('Orbitron')
+        }
+    </style>
+
+    <!-- DNS Prefetch -->
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
+
+    <meta property="og:title" content="Apps - Iron_Adamant">
+    <meta property="og:description" content="Practical productivity software by Iron_Adamant — Checkpoint Projects and ConsistencyHub.">
+    <meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body>
+    <!-- Tech Circuit Background Elements -->
+    <div class="unified-background"></div>
+
+    <div class="circuit-grid" style="top: 20%; left: 10%;"></div>
+    <div class="circuit-grid" style="top: 65%; left: 82%;"></div>
+    <div class="pulsing-node" style="top: 38%; left: 48%;"></div>
+    <div class="pulsing-node" style="top: 75%; left: 22%;"></div>
+    <div class="bright-path" style="top: 28%; left: 32%; width: 150px; transform: rotate(18deg);"></div>
+    <div class="dim-path" style="top: 55%; left: 60%; width: 180px; transform: rotate(-22deg);"></div>
+
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <header>
+        <div class="container">
+            <nav aria-label="Main navigation">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="apps.html" class="active" aria-current="page">Apps</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="nav-overlay"></div>
+    <nav class="mobile-nav" aria-label="Mobile navigation">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="apps.html" class="active">Apps</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main id="main-content" tabindex="-1" class="apps-page">
+        <div class="container">
+            <h1>Apps</h1>
+            <p class="lead">Practical software products built to solve real problems.</p>
+            <p class="apps-intro-note">
+                <i class="fas fa-tag"></i>
+                These are paid products with free tiers. For free, open-source tools see the
+                <a href="projects.html" style="color: inherit; text-decoration: underline;">Projects</a> page.
+            </p>
+
+            <!-- ================================================================
+                 APP 1 — Checkpoint Projects
+                 ================================================================ -->
+            <article class="app-card" id="checkpoint-projects">
+                <div class="app-header">
+                    <div class="app-icon">&#9989;</div>
+                    <div class="app-title-group">
+                        <h2 class="app-title">Checkpoint Projects</h2>
+                        <p class="app-tagline">Mobile-first project tracker. No accounts. No cloud. Just checkboxes.</p>
+                        <div class="app-header-links">
+                            <a href="https://checkpointprojects.com" target="_blank" rel="noopener noreferrer"
+                                class="app-website-link">
+                                <i class="fas fa-external-link-alt"></i> checkpointprojects.com
+                            </a>
+                            <span class="app-status live">Live</span>
+                            <span class="badge-proprietary"><i class="fas fa-lock"></i> Proprietary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-chips">
+                    <span class="use-case-chip"><i class="fas fa-briefcase" style="margin-right:4px;color:#00ff9d;"></i>Personal Projects</span>
+                    <span class="use-case-chip"><i class="fas fa-tasks" style="margin-right:4px;color:#00ff9d;"></i>Task Management</span>
+                    <span class="use-case-chip"><i class="fas fa-mobile-alt" style="margin-right:4px;color:#00ff9d;"></i>Mobile-Friendly</span>
+                    <span class="use-case-chip"><i class="fas fa-wifi-slash" style="margin-right:4px;color:#00ff9d;"></i>Works Offline</span>
+                </div>
+
+                <p class="app-description">
+                    Checkpoint Projects is a lightweight, offline-first project manager that gets out of your way.
+                    Create projects with nested task checklists and watch animated progress bars fill up as you complete work.
+                    Everything is stored locally on your device — no account required, no data sent to servers, no analytics.
+                    Sync between devices using a simple 6-character code when you need it, on your terms.
+                </p>
+                <p class="app-description">
+                    Built as a direct alternative to bloated subscription tools: you buy it once and own it forever.
+                    Export your data at any time to YAML, JSON, or CSV — no lock-in.
+                </p>
+
+                <p class="pricing-section-title"><i class="fas fa-tag" style="margin-right:6px;"></i>Pricing</p>
+
+                <div class="pricing-grid">
+                    <!-- Free Tier -->
+                    <div class="pricing-tier">
+                        <div class="tier-header">
+                            <h3>Free</h3>
+                            <div class="tier-price">
+                                <span class="price-amount">Free</span>
+                                <span class="price-sublabel">No account needed</span>
+                            </div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><span class="feat-icon">&#10003;</span> Projects with nested task checklists</li>
+                            <li><span class="feat-icon">&#10003;</span> Animated progress bars</li>
+                            <li><span class="feat-icon">&#10003;</span> Due dates &amp; Today View</li>
+                            <li><span class="feat-icon">&#10003;</span> Dark &amp; light themes</li>
+                            <li><span class="feat-icon">&#10003;</span> Device sync via 6-character code</li>
+                            <li><span class="feat-icon">&#10003;</span> YAML export</li>
+                            <li class="feat-limited"><span class="feat-icon">&mdash;</span> Limited number of projects</li>
+                            <li class="feat-limited"><span class="feat-icon">&mdash;</span> CSV &amp; JSON export not included</li>
+                        </ul>
+                        <div class="tier-cta">
+                            <a href="https://checkpointprojects.com" target="_blank" rel="noopener noreferrer"
+                                class="btn-tier secondary">
+                                <i class="fas fa-external-link-alt"></i> Open App
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pro Tier -->
+                    <div class="pricing-tier pro">
+                        <div class="tier-header">
+                            <h3>Pro</h3>
+                            <div class="tier-price">
+                                <span class="price-label">One-time purchase</span>
+                                <span class="price-sublabel">Own it forever &mdash; no subscription</span>
+                            </div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><span class="feat-icon">&#10003;</span> Everything in Free</li>
+                            <li><span class="feat-icon">&#10003;</span> <strong>Unlimited projects</strong></li>
+                            <li><span class="feat-icon">&#10003;</span> <strong>Cross-device auto-sync</strong> — background sync across all devices</li>
+                            <li><span class="feat-icon">&#10003;</span> <strong>Full export</strong> — YAML, JSON, and CSV</li>
+                            <li><span class="feat-icon">&#10003;</span> License key via Gumroad</li>
+                        </ul>
+                        <div class="tier-cta">
+                            <a href="https://ironadamant.gumroad.com/l/qubtc" target="_blank" rel="noopener noreferrer"
+                                class="btn-tier primary">
+                                <i class="fas fa-shopping-cart"></i> Get Pro on Gumroad
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-tech">
+                    <span class="meta-label">Stack:</span>
+                    <span class="tag">HTML / CSS / JS</span>
+                    <span class="tag">Azure Functions</span>
+                    <span class="tag">Docker</span>
+                    <span class="tag">Offline-first</span>
+                </div>
+            </article>
+
+            <!-- ================================================================
+                 APP 2 — ConsistencyHub
+                 ================================================================ -->
+            <article class="app-card" id="consistencyhub">
+                <div class="app-header">
+                    <div class="app-icon">&#128218;</div>
+                    <div class="app-title-group">
+                        <h2 class="app-title">ConsistencyHub</h2>
+                        <p class="app-tagline">Keep your stories consistent. Track characters, events, and factions — AI optional.</p>
+                        <div class="app-header-links">
+                            <a href="https://consistencyhub.io" target="_blank" rel="noopener noreferrer"
+                                class="app-website-link">
+                                <i class="fas fa-external-link-alt"></i> consistencyhub.io
+                            </a>
+                            <span class="app-status alpha">Alpha</span>
+                            <span class="badge-proprietary"><i class="fas fa-lock"></i> Proprietary</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="use-case-chips">
+                    <span class="use-case-chip"><i class="fas fa-book-open" style="margin-right:4px;color:#00ff9d;"></i>Fiction Writers</span>
+                    <span class="use-case-chip"><i class="fas fa-dice-d20" style="margin-right:4px;color:#00ff9d;"></i>TTRPG Game Masters</span>
+                    <span class="use-case-chip"><i class="fas fa-film" style="margin-right:4px;color:#00ff9d;"></i>Screenwriters</span>
+                    <span class="use-case-chip"><i class="fas fa-shield-alt" style="margin-right:4px;color:#00ff9d;"></i>Zero-Knowledge</span>
+                </div>
+
+                <p class="app-description">
+                    ConsistencyHub is a zero-knowledge document consistency platform for writers and world-builders.
+                    It stores everything directly in your OneDrive — no backend, no server-side storage, no one but you
+                    can read your work. Smart heuristics automatically catch contradictions in your documents (a character
+                    described as dead appearing alive in a later chapter, faction alliances flipped, location details mismatched)
+                    before your readers do.
+                </p>
+                <p class="app-description">
+                    Write in a full DOCX editor with live consistency highlighting, manage your world bible in an
+                    Excel-like spreadsheet, visualise entity relationships in an interactive knowledge graph, and
+                    generate characters, factions, locations, and events with ease. AI assistance is entirely optional
+                    — bring your own API key (ChatGPT, Claude, or others) only if you want it.
+                </p>
+                <p class="app-description" style="color: var(--text-secondary); font-size: 0.9rem;">
+                    <i class="fas fa-info-circle" style="color: #ffd700; margin-right: 6px;"></i>
+                    Currently in public alpha. Pro features are <strong>free during the testing period</strong>.
+                    A Microsoft account is required for OneDrive storage (free to create).
+                </p>
+
+                <p class="pricing-section-title"><i class="fas fa-tag" style="margin-right:6px;"></i>Pricing</p>
+
+                <div class="pricing-grid">
+                    <!-- Free Tier -->
+                    <div class="pricing-tier">
+                        <div class="tier-header">
+                            <h3>Free</h3>
+                            <div class="tier-price">
+                                <span class="price-amount">Free</span>
+                                <span class="price-sublabel">Microsoft account required</span>
+                            </div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><span class="feat-icon">&#10003;</span> Up to <strong>2 projects</strong></li>
+                            <li><span class="feat-icon">&#10003;</span> Up to <strong>20 entities</strong> per project (characters, factions, etc.)</li>
+                            <li><span class="feat-icon">&#10003;</span> Up to <strong>10 documents</strong> per project</li>
+                            <li><span class="feat-icon">&#10003;</span> DOCX document editor w/ consistency highlights</li>
+                            <li><span class="feat-icon">&#10003;</span> Spreadsheet &amp; knowledge graph</li>
+                            <li><span class="feat-icon">&#10003;</span> Heuristic consistency checker</li>
+                            <li><span class="feat-icon">&#10003;</span> Content generator &amp; wiki</li>
+                            <li><span class="feat-icon">&#10003;</span> Daily OneDrive auto-backup</li>
+                            <li><span class="feat-icon">&#10003;</span> Optional AI assistant (bring your own key)</li>
+                        </ul>
+                        <div class="tier-cta">
+                            <a href="https://consistencyhub.io" target="_blank" rel="noopener noreferrer"
+                                class="btn-tier secondary">
+                                <i class="fas fa-external-link-alt"></i> Open App
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Pro Tier -->
+                    <div class="pricing-tier pro">
+                        <div class="tier-header">
+                            <h3>Pro</h3>
+                            <div class="tier-price">
+                                <span class="price-label">Free during alpha</span>
+                                <span class="price-sublabel">Gumroad license &mdash; pricing on launch</span>
+                            </div>
+                        </div>
+                        <ul class="tier-features">
+                            <li><span class="feat-icon">&#10003;</span> Everything in Free</li>
+                            <li><span class="feat-icon">&#10003;</span> <strong>Unlimited projects</strong></li>
+                            <li><span class="feat-icon">&#10003;</span> <strong>Unlimited entities</strong> per project</li>
+                            <li><span class="feat-icon">&#10003;</span> <strong>Unlimited documents</strong> per project</li>
+                            <li><span class="feat-icon">&#10003;</span> License key via Gumroad</li>
+                        </ul>
+                        <div class="tier-cta">
+                            <a href="https://consistencyhub.io" target="_blank" rel="noopener noreferrer"
+                                class="btn-tier primary">
+                                <i class="fas fa-external-link-alt"></i> Get Started (Free)
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="app-tech">
+                    <span class="meta-label">Stack:</span>
+                    <span class="tag">HTML / CSS / JS</span>
+                    <span class="tag">Microsoft OneDrive</span>
+                    <span class="tag">Azure Static Web Apps</span>
+                    <span class="tag">SheetJS</span>
+                    <span class="tag">Transformers.js</span>
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Iron_Adamant. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-github"></i></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer"
+                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
+                        class="fab fa-twitter"></i></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer"><i
+                        class="fab fa-linkedin"></i></a>
+                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer"><i
+                        class="fas fa-coffee"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Deferred scripts for better performance -->
+    <script src="js/navigation.js?v=1.1" defer></script>
+    <script src="js/page-transitions.js?v=1.1" defer></script>
+    <script src="js/main.js?v=1.1" defer></script>
+    <script src="js/resource-optimizer.js?v=1.1" defer></script>
+    <script src="js/sw-register.js?v=1.1" defer></script>
+    <script src="js/version-check.js?v=1766516293480"></script>
+</body>
+
+</html>
