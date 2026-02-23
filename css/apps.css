@@ -273,6 +273,12 @@
     font-weight: 600;
 }
 
+.price-period {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: 400;
+}
+
 .price-sublabel {
     display: block;
     font-size: 0.75rem;
