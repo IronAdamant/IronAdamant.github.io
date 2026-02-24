@@ -5,7 +5,7 @@
 
 /* Page Layout */
 .apps-page {
-    padding: 5rem 0 4rem;
+    padding: 4rem 0;
 }
 
 .apps-page h1 {
@@ -213,6 +213,18 @@
     display: flex;
     flex-direction: column;
     backdrop-filter: blur(4px);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
+}
+
+.pricing-tier:hover {
+    transform: translateY(-4px);
+    border-color: rgba(0, 255, 157, 0.25);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.pricing-tier.pro:hover {
+    border-color: rgba(0, 255, 157, 0.65);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), 0 0 20px rgba(0, 255, 157, 0.1);
 }
 
 .pricing-tier.pro {
@@ -425,6 +437,74 @@
     }
 }
 
+/* ---- Best Value pill (inline, next to a price) ---- */
+.best-value-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    font-size: 0.65rem;
+    padding: 0.15rem 0.55rem;
+    border-radius: 20px;
+    background: rgba(255, 215, 0, 0.1);
+    border: 1px solid rgba(255, 215, 0, 0.35);
+    color: #ffd700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-weight: 700;
+    vertical-align: middle;
+    margin-left: 0.5rem;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+/* ---- Savings line (below lifetime price) ---- */
+.price-savings {
+    display: block;
+    font-size: 0.75rem;
+    color: #ffd700;
+    margin-top: 0.3rem;
+    letter-spacing: 0.3px;
+}
+
+/* ---- No-subscription callout (Checkpoint Pro) ---- */
+.no-sub-callout {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--primary);
+    background: rgba(0, 255, 157, 0.05);
+    border: 1px solid rgba(0, 255, 157, 0.2);
+    border-radius: 4px;
+    padding: 0.5rem 0.85rem;
+    margin-top: 1.25rem;
+}
+
+.no-sub-callout i {
+    flex-shrink: 0;
+}
+
+/* ---- Visual divider between app cards ---- */
+.app-divider {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin: 0.5rem 0 3rem;
+    color: var(--text-muted);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.app-divider::before,
+.app-divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, rgba(0, 255, 157, 0.15), transparent);
+}
+
+/* ---- Open Source notice (also defined in components.css for projects page) ---- */
 /* Proprietary badge */
 .badge-proprietary {
     display: inline-flex;
