@@ -69,25 +69,6 @@ const projectData = [
         ]
     },
     {
-        id: "autoclacker",
-        title: "AutoClacker",
-        category: "application",
-        featured: true,
-        shortDescription: "An automation tool for precise control of input devices, designed for Windows 11 gaming applications.",
-        fullDescription: "AutoClacker is an automation tool that provides precise control over mouse and keyboard inputs. Designed specifically for Windows 11 gaming, it offers customizable macros and input sequences for enhanced gaming experiences.",
-        imageSrc: "https://raw.githubusercontent.com/IronAdamant/AutoClacker/master/Images/AutoClacker.png",
-        imageAlt: "AutoClacker Screenshot",
-        techTags: ["C#", ".Net 9", "Avalonia"],
-        links: [
-            {
-                text: "GitHub",
-                icon: "fab fa-github",
-                url: "https://github.com/IronAdamant/AutoClacker",
-                external: true
-            }
-        ]
-    },
-    {
         id: "expense-tracker",
         title: "Expense Tracker",
         category: "tracking",
