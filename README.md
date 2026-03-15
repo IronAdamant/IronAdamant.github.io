@@ -23,6 +23,7 @@ Uses GitHub Actions to deploy to GitHub Pages (excludes `.md` files).
 |-------------|---------|
 | `index.html` | Homepage with hero and featured projects |
 | `projects.html` | Project gallery with filtering |
+| `apps.html` | Paid products (Checkpoint Projects, ConsistencyHub) |
 | `contact.html` | Contact form (Formspree backend) |
 | `404.html` | Custom error page |
 | `css/` | Modular stylesheets |
@@ -64,9 +65,14 @@ node update-version.js
 
 Updates version in `manifest.json` for cache busting.
 
+## AI-Assisted Development
+
+This project is indexed with [ChunkForge](https://github.com/IronAdamant/ChunkForge), a local context cache for LLM agents. ChunkForge provides semantic chunking and vector search across the codebase, enabling faster context retrieval in long-running AI-assisted development sessions without re-reading unchanged files.
+
 ## Tech Stack
 
 - HTML5, CSS3, Vanilla JavaScript
 - Service Worker (PWA with offline support)
 - Formspree (contact form)
 - GitHub Actions (deployment)
+- [ChunkForge](https://github.com/IronAdamant/ChunkForge) (AI development tooling)
