@@ -37,8 +37,8 @@ const projectData = [
         featured: true,
         shortDescription: "A local context cache for LLM agents with semantic chunking, HNSW vector search, and a real MCP server — zero required dependencies.",
         fullDescription: "ChunkForge helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code, text, images, PDFs, audio, video), stored in SQLite, and an HNSW vector index enables fast O(log n) retrieval. Features include change detection via SHA-256 hashing, annotations, session rollback, and both MCP (stdio) and HTTP REST server modes. Runs 100% offline with zero required dependencies — pure Python stdlib.",
-        imageSrc: "",
-        imageAlt: "ChunkForge - Local LLM Context Cache",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/chunkforge-mcp-demo.png",
+        imageAlt: "ChunkForge MCP server running semantic search and stats in Claude Code",
         techTags: ["Python", "MCP", "SQLite", "Vector Search", "AI Tooling"],
         links: [
             {
