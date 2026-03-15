@@ -31,6 +31,25 @@
 
 const projectData = [
     {
+        id: "chunkforge",
+        title: "ChunkForge",
+        category: "ai",
+        featured: true,
+        shortDescription: "A local context cache for LLM agents with semantic chunking, HNSW vector search, and a real MCP server — zero required dependencies.",
+        fullDescription: "ChunkForge helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code, text, images, PDFs, audio, video), stored in SQLite, and an HNSW vector index enables fast O(log n) retrieval. Features include change detection via SHA-256 hashing, annotations, session rollback, and both MCP (stdio) and HTTP REST server modes. Runs 100% offline with zero required dependencies — pure Python stdlib.",
+        imageSrc: "",
+        imageAlt: "ChunkForge - Local LLM Context Cache",
+        techTags: ["Python", "MCP", "SQLite", "Vector Search", "AI Tooling"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/ChunkForge",
+                external: true
+            }
+        ]
+    },
+    {
         id: "windows-sound-tracker",
         title: "Windows Sound Tracker",
         category: "tracking",
@@ -72,7 +91,7 @@ const projectData = [
         id: "expense-tracker",
         title: "Expense Tracker",
         category: "tracking",
-        featured: true,
+        featured: false,
         shortDescription: "A financial tracking application that monitors and visualizes spending patterns.",
         fullDescription: "The Expense Tracker is a comprehensive financial tool that records and categorizes expenditures. It provides detailed visualizations of spending patterns, helping users maintain better control over their finances.",
         imageSrc: "https://github.com/IronAdamant/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true",
@@ -147,7 +166,7 @@ const projectHelpers = {
             'tracking': 'Tracking Systems',
             'web': 'Web Artifacts',
             'game': 'Interactive Constructs',
-            'ai': 'Synthetic Intelligence'
+            'ai': 'AI Tools'
         };
 
         return categoryNames[categoryCode] || categoryCode;
