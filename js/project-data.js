@@ -130,6 +130,25 @@ const projectData = [
                 external: true
             }
         ]
+    },
+    {
+        id: "console-logger",
+        title: "Console Logger",
+        category: "browser",
+        featured: false,
+        shortDescription: "A Chromium browser extension that captures all JavaScript console messages from any tab, displays them live, and auto-saves to a text file.",
+        fullDescription: "Console Logger is a developer-focused browser extension that uses the chrome.debugger API to capture all console messages — including native browser errors that content scripts miss. Features include deep object logging with nested objects and stack traces, live monitoring in a popup window, auto-save to your Downloads folder on a configurable interval, custom save locations, smart file overwrite to prevent clutter, and persistent storage that survives browser restarts. Works on all Chromium browsers including Chrome, Edge, Brave, Opera, Vivaldi, and Arc.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/console-logger-screenshot.png",
+        imageAlt: "Console Logger extension capturing live console output alongside a webpage",
+        techTags: ["JavaScript", "Chrome Extension", "Debugger API", "Manifest V3"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/Console-logger",
+                external: true
+            }
+        ]
     }
     // Add new projects here following the same structure
 ];
@@ -172,7 +191,8 @@ const projectHelpers = {
             'tracking': 'Tracking Systems',
             'web': 'Web Artifacts',
             'game': 'Interactive Constructs',
-            'ai': 'AI Tools'
+            'ai': 'AI Tools',
+            'browser': 'Browser Extensions'
         };
 
         return categoryNames[categoryCode] || categoryCode;
