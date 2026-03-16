@@ -67,7 +67,7 @@ Updates version in `manifest.json` for cache busting.
 
 ## AI-Assisted Development
 
-This project is indexed with [ChunkForge](https://github.com/IronAdamant/ChunkForge), a local context cache for LLM agents. ChunkForge provides semantic chunking and vector search across the codebase, enabling faster context retrieval in long-running AI-assisted development sessions without re-reading unchanged files.
+This project is indexed with [Stele](https://github.com/IronAdamant/Stele), a local context cache for LLM agents. Stele provides semantic chunking, vector search, symbol graph analysis, and multi-agent safety across the codebase, enabling faster context retrieval in long-running AI-assisted development sessions without re-reading unchanged files.
 
 ## Tech Stack
 
@@ -75,4 +75,4 @@ This project is indexed with [ChunkForge](https://github.com/IronAdamant/ChunkFo
 - Service Worker (PWA with offline support)
 - Formspree (contact form)
 - GitHub Actions (deployment)
-- [ChunkForge](https://github.com/IronAdamant/ChunkForge) (AI development tooling)
+- [Stele](https://github.com/IronAdamant/Stele) (AI development tooling)

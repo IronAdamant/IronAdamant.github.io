@@ -31,20 +31,20 @@
 
 const projectData = [
     {
-        id: "chunkforge",
-        title: "ChunkForge",
+        id: "stele",
+        title: "Stele",
         category: "ai",
         featured: true,
-        shortDescription: "A local context cache for LLM agents with semantic chunking, HNSW vector search, and a real MCP server — zero required dependencies.",
-        fullDescription: "ChunkForge helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code, text, images, PDFs, audio, video), stored in SQLite, and an HNSW vector index enables fast O(log n) retrieval. Features include change detection via SHA-256 hashing, annotations, session rollback, and both MCP (stdio) and HTTP REST server modes. Runs 100% offline with zero required dependencies — pure Python stdlib.",
-        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/chunkforge-mcp-demo.png",
-        imageAlt: "ChunkForge MCP server running semantic search and stats in Claude Code",
-        techTags: ["Python", "MCP", "SQLite", "Vector Search", "AI Tooling"],
+        shortDescription: "A local context cache for LLM agents with semantic chunking, HNSW vector search, multi-agent safety, and a real MCP server — zero required dependencies.",
+        fullDescription: "Stele helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code, text, images, PDFs, audio, video), stored in SQLite, and an HNSW vector index enables fast O(log n) retrieval. Features include symbol graph with cross-file impact analysis, multi-agent safety with per-document locking and conflict audit logs, change detection via SHA-256 hashing, session rollback, and both MCP (stdio) and HTTP REST server modes. Built for solo developers running multiple LLM agents on the same local machine. Runs 100% offline with zero required dependencies — pure Python stdlib.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/stele-mcp-demo.png",
+        imageAlt: "Stele MCP server running stats and indexing in Claude Code",
+        techTags: ["Python", "MCP", "SQLite", "Vector Search", "AI Tooling", "Multi-Agent"],
         links: [
             {
                 text: "GitHub",
                 icon: "fab fa-github",
-                url: "https://github.com/IronAdamant/ChunkForge",
+                url: "https://github.com/IronAdamant/Stele",
                 external: true
             }
         ]
