@@ -92,12 +92,18 @@ const projectData = [
         title: "Expense Tracker",
         category: "tracking",
         featured: false,
-        shortDescription: "A financial tracking application that monitors and visualizes spending patterns.",
-        fullDescription: "The Expense Tracker is a comprehensive financial tool that records and categorizes expenditures. It provides detailed visualizations of spending patterns, helping users maintain better control over their finances.",
-        imageSrc: "https://github.com/IronAdamant/Expense-Tracker-Updated/blob/master/image/Expense%20tracker%20front.png?raw=true",
-        imageAlt: "Expense Tracker Interface",
-        techTags: ["Python", "HTML", "CSS", "Javascript"],
+        shortDescription: "A live web application for tracking and visualizing spending patterns with category breakdowns and time-based charts.",
+        fullDescription: "The Expense Tracker is a comprehensive financial tool deployed on Netlify. It records and categorizes expenditures with search, filtering by category and time period, import/export functionality, and detailed visualizations including spending by category and spending over time charts. All data is stored locally in the browser for privacy.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/expense-tracker-screenshot.png",
+        imageAlt: "Expense Tracker Interface showing dashboard with spending categories and time charts",
+        techTags: ["HTML", "CSS", "Javascript", "Netlify"],
         links: [
+            {
+                text: "Live App",
+                icon: "fas fa-external-link-alt",
+                url: "https://randomexpenstracker.netlify.app/",
+                external: true
+            },
             {
                 text: "GitHub",
                 icon: "fab fa-github",
