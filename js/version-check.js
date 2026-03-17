@@ -34,7 +34,6 @@
         localStorage.setItem(STORAGE_KEY, currentVersion);
       } else if (storedVersion !== currentVersion) {
         // New version available
-        console.log('New version available:', currentVersion);
         localStorage.setItem(STORAGE_KEY, currentVersion);
         
         // Show unobtrusive notification
@@ -42,7 +41,6 @@
       }
     } catch (error) {
       // Silently fail - don't disrupt user experience
-      console.log('Version check failed:', error);
     }
   }
   

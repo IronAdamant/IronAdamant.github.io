@@ -7,7 +7,6 @@
 function initApp() {
     // Initialize all modules
     if (typeof initNavigation === 'function') initNavigation();
-    if (typeof initProjectFiltering === 'function') initProjectFiltering();
     if (typeof initScrollAnimations === 'function') initScrollAnimations();
     if (typeof initMobileNav === 'function') initMobileNav();
     if (typeof initImageExpansion === 'function') initImageExpansion();

@@ -1,24 +1,5 @@
 /* Accessibility Enhancements */
 
-/* Skip link styles */
-.skip-link {
-    position: absolute;
-    top: -40px;
-    left: 0;
-    background: var(--primary);
-    color: var(--bg-darker);
-    padding: 8px 16px;
-    z-index: 100;
-    transition: top 0.3s;
-    font-weight: bold;
-    text-decoration: none;
-}
-
-.skip-link:focus {
-    top: 0;
-    outline: 3px solid var(--primary-light);
-}
-
 /* Focus styles */
 a:focus,
 button:focus,
@@ -58,10 +39,6 @@ textarea:focus,
         outline-offset: 2px;
     }
     
-    /* Ensure text is readable in high contrast mode */
-    body {
-        -ms-high-contrast-adjust: none;
-    }
 }
 
 /* Reduced motion */
@@ -252,8 +229,3 @@ textarea:focus {
     animation: spin 1s linear infinite;
 }
 
-@keyframes spin {
-    to {
-        transform: rotate(360deg);
-    }
-}

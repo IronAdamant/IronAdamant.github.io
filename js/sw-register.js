@@ -3,7 +3,6 @@ if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
     navigator.serviceWorker.register('/sw.js')
       .then(registration => {
-        console.log('ServiceWorker registration successful:', registration.scope);
         
         // Check for updates every 30 seconds when page is visible
         setInterval(() => {
@@ -23,7 +22,6 @@ if ('serviceWorker' in navigator) {
         });
       })
       .catch(err => {
-        console.log('ServiceWorker registration failed:', err);
       });
   });
 

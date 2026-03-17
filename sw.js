@@ -6,15 +6,20 @@ const urlsToCache = [
   '/',
   '/index.html',
   '/projects.html',
+  '/apps.html',
   '/contact.html',
   '/404.html',
-  '/css/styles.css',
+  '/css/main.css',
   '/css/accessibility.css',
   '/css/radical-solution.css',
-  '/js/combined.js',
+  '/css/mobile-nav.css',
+  '/js/navigation.js',
+  '/js/page-transitions.js',
+  '/js/image-modal.js',
+  '/js/main.js',
+  '/js/contact-form.js',
   '/js/resource-optimizer.js',
   '/js/page-preloader.js',
-  '/js/performance-monitor.js',
   '/js/project-data.js',
   '/js/project-loader.js',
   '/js/sw-register.js',
@@ -38,7 +43,6 @@ async function checkForUpdates() {
       
       // Check if version or timestamp has changed
       if (storedData.version !== newVersion || storedData.build_timestamp !== newTimestamp) {
-        console.log('New version detected:', newVersion);
         await clearAllCaches();
         await storeVersionInfo(newVersion, newTimestamp);
         return true; // Update available
@@ -69,7 +73,6 @@ async function clearAllCaches() {
   const deletePromises = cacheNames
     .filter(name => name !== VERSION_CACHE)
     .map(name => {
-      console.log('Deleting cache:', name);
       return caches.delete(name);
     });
   
@@ -90,7 +93,6 @@ self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME)
       .then(cache => {
-        console.log('Opened cache');
         return cache.addAll(urlsToCache);
       })
       .then(() => self.skipWaiting()) // Force immediate activation
@@ -175,7 +177,6 @@ self.addEventListener('activate', event => {
         return Promise.all(
           cacheNames.map(cacheName => {
             if (cacheName !== CACHE_NAME && cacheName !== VERSION_CACHE) {
-              console.log('Deleting old cache:', cacheName);
               return caches.delete(cacheName);
             }
           })

@@ -1,7 +1,7 @@
 /**
  * Resource Optimizer for IronAdamant Portfolio
  * Handles preloading, resource optimization, responsive images, and faster transitions
- * Combines functionality from resource-optimizer.js, responsive-images.js, and parts of performance-monitor.js
+ * Handles preloading, responsive images, performance metrics, and connection-aware optimizations
  */
 (function() {
     'use strict';
@@ -12,12 +12,12 @@
         pagesToPreload: [
             'index.html',
             'projects.html',
+            'apps.html',
             'contact.html'
         ],
         // Critical resources to preload immediately
         criticalResources: [
-            { url: 'css/styles.css', as: 'style' },
-            { url: 'js/combined.js', as: 'script' }
+            { url: 'css/main.css', as: 'style' }
         ],
         // Images to preload after critical content
         imagesToPreload: [],

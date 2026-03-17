@@ -34,39 +34,6 @@ function initNavigation() {
     });
 }
 
-// ====== PROJECT FILTERING ======
-function initProjectFiltering() {
-    const filterButtons = document.querySelectorAll('.filter-btn');
-    const projectItems = document.querySelectorAll('.project-item');
-
-    if (filterButtons.length === 0) return;
-
-    filterButtons.forEach(button => {
-        button.addEventListener('click', function () {
-            filterButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-
-            const filterValue = this.getAttribute('data-category');
-
-            projectItems.forEach(item => {
-                if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
-                    item.style.display = 'block';
-                    setTimeout(() => {
-                        item.style.opacity = '1';
-                        item.style.transform = 'translateY(0)';
-                    }, 50);
-                } else {
-                    item.style.opacity = '0';
-                    item.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
-                        item.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-}
-
 // ====== SCROLL ANIMATIONS ======
 function initScrollAnimations() {
     const animateOnScroll = () => {
@@ -131,6 +98,5 @@ function initMobileNav() {
 
 // Export for use in main.js
 window.initNavigation = initNavigation;
-window.initProjectFiltering = initProjectFiltering;
 window.initScrollAnimations = initScrollAnimations;
 window.initMobileNav = initMobileNav;
