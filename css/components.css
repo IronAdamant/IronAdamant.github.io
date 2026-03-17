@@ -16,7 +16,7 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: all var(--transition-duration) var(--transition-timing);
+    transition: background var(--transition-duration) var(--transition-timing), color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing), transform var(--transition-duration) var(--transition-timing), text-shadow var(--transition-duration) var(--transition-timing), border-color var(--transition-duration) var(--transition-timing);
     text-decoration: none;
     position: relative;
     overflow: hidden;
@@ -131,7 +131,7 @@
     border: 1px solid var(--border);
     border-radius: 8px;
     overflow: hidden;
-    transition: all 0.3s ease, opacity 0.4s ease, transform 0.4s ease, height 0.4s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, opacity 0.4s ease, transform 0.4s ease, height 0.4s ease;
     animation: fadeInUp 0.8s ease-out;
     position: relative;
     padding: 1.5rem;
@@ -256,7 +256,7 @@
     border-radius: 20px;
     font-size: 0.85rem;
     border: 1px solid rgba(0, 255, 157, 0.2);
-    transition: all 0.3s ease;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .tag:hover {
@@ -295,7 +295,7 @@
     cursor: pointer;
     font-family: 'Orbitron', sans-serif;
     font-size: 0.9rem;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
     position: relative;
     overflow: hidden;
 }
@@ -339,7 +339,7 @@
     border: 1px solid var(--border);
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .contact-info:hover,
@@ -439,7 +439,7 @@
     border-radius: 4px;
     color: var(--text);
     font-family: 'Orbitron', sans-serif;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
@@ -525,7 +525,7 @@
     border-radius: 4px;
     color: var(--text);
     font-size: 0.85rem;
-    transition: all 0.3s ease;
+    transition: border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
     text-decoration: none;
 }
 
@@ -553,20 +553,23 @@
     background: rgba(0, 255, 157, 0.04);
 }
 
-/* Open Source badge */
-.badge-open-source {
+/* Badge base (shared by open-source and proprietary badges) */
+.badge {
     display: inline-flex;
     align-items: center;
     gap: 0.35rem;
     font-size: 0.7rem;
     padding: 0.2rem 0.65rem;
     border-radius: 20px;
-    background: rgba(0, 255, 157, 0.08);
-    border: 1px solid rgba(0, 255, 157, 0.3);
-    color: var(--primary);
     letter-spacing: 0.5px;
     text-transform: uppercase;
     font-weight: 600;
     white-space: nowrap;
     flex-shrink: 0;
+}
+
+.badge-open-source {
+    background: rgba(0, 255, 157, 0.08);
+    border: 1px solid rgba(0, 255, 157, 0.3);
+    color: var(--primary);
 }

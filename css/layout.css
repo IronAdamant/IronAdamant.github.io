@@ -63,7 +63,7 @@ nav a {
     font-size: 0.8rem;
     padding: 4px 15px;
     position: relative;
-    transition: all 0.3s ease;
+    transition: background-color 0.3s ease, text-shadow 0.3s ease;
     background-color: rgba(0, 0, 0, 0.3);
     border: none;
     display: inline-flex;
@@ -192,7 +192,7 @@ footer .social-links {
 footer .social-links a {
     color: var(--text);
     font-size: 1.5rem;
-    transition: all 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease;
     text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 

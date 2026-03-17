@@ -2,6 +2,53 @@
  * Contact Form Module - Form validation, submission, spam protection
  */
 
+// ====== CONSTANTS & VALIDATORS (file scope) ======
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const NAME_REGEX = /^[a-zA-Z\s'-]+$/;
+const CHAR_LIMITS = {
+    name: { min: 2, max: 100 },
+    email: { min: 5, max: 100 },
+    subject: { min: 5, max: 200 },
+    message: { min: 10, max: 2000 }
+};
+
+const VALIDATORS = {
+    name(value) {
+        if (!value.trim()) return 'Name is required';
+        if (value.length < CHAR_LIMITS.name.min) return `Name must be at least ${CHAR_LIMITS.name.min} characters`;
+        if (value.length > CHAR_LIMITS.name.max) return `Name must be less than ${CHAR_LIMITS.name.max} characters`;
+        if (!NAME_REGEX.test(value)) return 'Name contains invalid characters';
+        return '';
+    },
+    email(value) {
+        if (!value.trim()) return 'Email is required';
+        if (!EMAIL_REGEX.test(value)) return 'Please enter a valid email address';
+        return '';
+    },
+    subject(value) {
+        if (!value.trim()) return 'Subject is required';
+        if (value.length < CHAR_LIMITS.subject.min) return `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
+        if (value.length > CHAR_LIMITS.subject.max) return `Subject must be less than ${CHAR_LIMITS.subject.max} characters`;
+        return '';
+    },
+    message(value) {
+        if (!value.trim()) return 'Message is required';
+        if (value.length < CHAR_LIMITS.message.min) return `Message must be at least ${CHAR_LIMITS.message.min} characters`;
+        if (value.length > CHAR_LIMITS.message.max) return `Message must be less than ${CHAR_LIMITS.message.max} characters`;
+        return '';
+    }
+};
+
+function announceToScreenReader(message, priority) {
+    const liveRegion = document.createElement('div');
+    liveRegion.setAttribute('role', priority === 'assertive' ? 'alert' : 'status');
+    liveRegion.setAttribute('aria-live', priority);
+    liveRegion.className = 'sr-only';
+    liveRegion.textContent = message;
+    document.body.appendChild(liveRegion);
+    setTimeout(() => liveRegion.remove(), 1000);
+}
+
 // ====== CONTACT FORM ======
 function initContactForm() {
     const form = document.getElementById('contactForm');
@@ -16,20 +63,6 @@ function initContactForm() {
     const submitButton = form.querySelector('button[type="submit"]');
     const buttonText = submitButton ? submitButton.querySelector('.button-text') : null;
     const formSuccess = document.getElementById('form-success');
-
-    // Validation regexes
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    const nameRegex = /^[a-zA-Z\s'-]+$/;
-
-    // Character limits
-    const CHAR_LIMITS = {
-        name: { min: 2, max: 100 },
-        email: { min: 5, max: 100 },
-        subject: { min: 5, max: 200 },
-        message: { min: 10, max: 2000 }
-    };
-
-    // Track form load time for spam detection
     const formLoadTime = performance.now();
 
     // Initialize character count
@@ -42,10 +75,10 @@ function initContactForm() {
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        const isNameValid = validateField(nameInput, validateName);
-        const isEmailValid = validateField(emailInput, validateEmail);
-        const isSubjectValid = validateField(subjectInput, validateSubject);
-        const isMessageValid = validateField(messageInput, validateMessage);
+        const isNameValid = validateField(nameInput, VALIDATORS.name);
+        const isEmailValid = validateField(emailInput, VALIDATORS.email);
+        const isSubjectValid = validateField(subjectInput, VALIDATORS.subject);
+        const isMessageValid = validateField(messageInput, VALIDATORS.message);
 
         if (isNameValid && isEmailValid && isSubjectValid && isMessageValid) {
             await submitForm();
@@ -64,35 +97,6 @@ function initContactForm() {
             input.addEventListener('input', () => clearError(input));
         }
     });
-
-    // Validation functions
-    function validateName(value) {
-        if (!value.trim()) return 'Name is required';
-        if (value.length < CHAR_LIMITS.name.min) return `Name must be at least ${CHAR_LIMITS.name.min} characters`;
-        if (value.length > CHAR_LIMITS.name.max) return `Name must be less than ${CHAR_LIMITS.name.max} characters`;
-        if (!nameRegex.test(value)) return 'Name contains invalid characters';
-        return '';
-    }
-
-    function validateEmail(value) {
-        if (!value.trim()) return 'Email is required';
-        if (!emailRegex.test(value)) return 'Please enter a valid email address';
-        return '';
-    }
-
-    function validateSubject(value) {
-        if (!value.trim()) return 'Subject is required';
-        if (value.length < CHAR_LIMITS.subject.min) return `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
-        if (value.length > CHAR_LIMITS.subject.max) return `Subject must be less than ${CHAR_LIMITS.subject.max} characters`;
-        return '';
-    }
-
-    function validateMessage(value) {
-        if (!value.trim()) return 'Message is required';
-        if (value.length < CHAR_LIMITS.message.min) return `Message must be at least ${CHAR_LIMITS.message.min} characters`;
-        if (value.length > CHAR_LIMITS.message.max) return `Message must be less than ${CHAR_LIMITS.message.max} characters`;
-        return '';
-    }
 
     function validateField(input, validationFn) {
         if (!input) return true;
@@ -113,37 +117,25 @@ function initContactForm() {
     function validateOnBlur(input) {
         clearTimeout(blurTimeout);
         blurTimeout = setTimeout(() => {
-            let validationFn;
-            switch (input.id) {
-                case 'name': validationFn = validateName; break;
-                case 'email': validationFn = validateEmail; break;
-                case 'subject': validationFn = validateSubject; break;
-                case 'message': validationFn = validateMessage; break;
-            }
+            const validationFn = VALIDATORS[input.id];
             if (validationFn) validateField(input, validationFn);
         }, 200);
     }
 
     function showError(input, errorElement, message) {
         if (!input || !errorElement) return;
-
         input.classList.add('error');
         input.setAttribute('aria-invalid', 'true');
         errorElement.textContent = message;
-
         announceToScreenReader(message, 'assertive');
     }
 
     function clearError(input, errorElement) {
         if (!input) return;
-
         input.classList.remove('error');
         input.setAttribute('aria-invalid', 'false');
-
         const error = errorElement || document.getElementById(`${input.id}-error`);
-        if (error) {
-            error.textContent = '';
-        }
+        if (error) error.textContent = '';
     }
 
     function updateCharacterCount() {
@@ -166,16 +158,6 @@ function initContactForm() {
         if ([maxLength - 100, maxLength - 50, maxLength - 10].includes(currentLength)) {
             announceToScreenReader(`You have ${maxLength - currentLength} characters remaining.`, 'polite');
         }
-    }
-
-    function announceToScreenReader(message, priority) {
-        const liveRegion = document.createElement('div');
-        liveRegion.setAttribute('role', priority === 'assertive' ? 'alert' : 'status');
-        liveRegion.setAttribute('aria-live', priority);
-        liveRegion.className = 'sr-only';
-        liveRegion.textContent = message;
-        document.body.appendChild(liveRegion);
-        setTimeout(() => liveRegion.remove(), 1000);
     }
 
     async function submitForm() {
@@ -277,7 +259,6 @@ function initContactForm() {
             input.setAttribute('aria-required', 'true');
         }
     });
-
 }
 
 // Export for use in main.js

@@ -44,7 +44,7 @@ function renderFeaturedProjects() {
             <div>
                 <div class="project-card-header">
                     <h3>${project.title}</h3>
-                    <span class="badge-open-source"><i class="fab fa-github"></i> Open Source</span>
+                    <span class="badge badge-open-source"><i class="fab fa-github"></i> Open Source</span>
                 </div>
                 <p>${project.shortDescription}</p>
                 <div class="project-tags">
@@ -88,7 +88,7 @@ function renderProjectsList() {
             <div class="project-content">
                 <div class="project-card-header">
                     <h2>${project.title}</h2>
-                    <span class="badge-open-source"><i class="fab fa-github"></i> Open Source</span>
+                    <span class="badge badge-open-source"><i class="fab fa-github"></i> Open Source</span>
                 </div>
                 <p>${project.fullDescription}</p>
                 <div class="project-meta">
