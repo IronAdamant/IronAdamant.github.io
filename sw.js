@@ -1,5 +1,5 @@
 // Service Worker for automatic cache management and version control
-const CACHE_VERSION = 'v1.0.5';
+const CACHE_VERSION = 'v1.0.6';
 const CACHE_NAME = `iron-adamant-portfolio-${CACHE_VERSION}`;
 const VERSION_CACHE = 'version-cache';
 const urlsToCache = [
@@ -17,7 +17,6 @@ const urlsToCache = [
   '/js/image-modal.js',
   '/js/main.js',
   '/js/contact-form.js',
-  '/js/resource-optimizer.js',
   '/js/page-preloader.js',
   '/js/project-data.js',
   '/js/project-loader.js',
@@ -154,7 +153,7 @@ function updateCache(request) {
     return caches.open(CACHE_NAME).then(cache => {
       return cache.put(request, response);
     });
-  });
+  }).catch(() => { /* Offline or network error — ignore silently */ });
 }
 
 // Listen for messages

@@ -7,9 +7,10 @@
 
 // Renders the about section on the index page
 function renderAboutSection() {
+    if (typeof aboutData === 'undefined') return;
     const aboutTitle = document.querySelector('.section-title');
     const aboutText = document.querySelector('.section-text');
-    
+
     if (aboutTitle && aboutData) {
         aboutTitle.innerHTML = aboutData.title.replace('About ', 'About <span class="highlight">') + '</span>';
     }
@@ -21,9 +22,10 @@ function renderAboutSection() {
 
 // Renders featured projects on the index page
 function renderFeaturedProjects() {
+    if (typeof projectHelpers === 'undefined') return;
     const container = document.querySelector('.featured-projects .project-grid');
     if (!container) return;
-    
+
     const featuredProjects = projectHelpers.getFeaturedProjects();
     
     // Clear any existing content
@@ -39,7 +41,7 @@ function renderFeaturedProjects() {
             <div class="project-image">
                 <img src="${project.imageSrc}" alt="${project.imageAlt}" loading="eager">
             </div>
-            <div class="project-info">
+            <div>
                 <div class="project-card-header">
                     <h3>${project.title}</h3>
                     <span class="badge-open-source"><i class="fab fa-github"></i> Open Source</span>
@@ -50,7 +52,7 @@ function renderFeaturedProjects() {
                 </div>
                 <div class="project-links">
                     ${project.links.map(link => `
-                        <a href="${link.url}" ${link.external ? 'target="_blank" rel="noopener"' : ''}>
+                        <a href="${link.url}" ${link.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
                             <i class="${link.icon}"></i> ${link.text}
                         </a>
                     `).join('')}
@@ -64,9 +66,10 @@ function renderFeaturedProjects() {
 
 // Renders all projects on the projects page
 function renderProjectsList() {
+    if (typeof projectHelpers === 'undefined') return;
     const container = document.querySelector('.project-list');
     if (!container) return;
-    
+
     const allProjects = projectHelpers.getAllProjects();
     
     // Clear any existing content
@@ -102,7 +105,7 @@ function renderProjectsList() {
                 </div>
                 <div class="project-links">
                     ${project.links.map(link => `
-                        <a href="${link.url}" class="btn btn-link" ${link.external ? 'target="_blank" rel="noopener"' : ''}>
+                        <a href="${link.url}" class="btn btn-link" ${link.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
                             <i class="${link.icon}"></i> ${link.text}
                         </a>
                     `).join('')}
@@ -116,9 +119,10 @@ function renderProjectsList() {
 
 // Initialize project filtering functionality
 function initializeProjectFilters() {
+    if (typeof projectHelpers === 'undefined') return;
     const filterButtons = document.querySelectorAll('.filter-btn');
     if (filterButtons.length === 0) return;
-    
+
     // Update filter buttons to match available categories
     const categoryContainer = document.querySelector('.category-filter');
     if (categoryContainer) {
@@ -143,9 +147,16 @@ function initializeProjectFilters() {
         });
     }
     
+    // Track pending filter timeouts to cancel on rapid clicks
+    let filterTimeouts = [];
+
     // Add event listeners to filter buttons
     document.querySelectorAll('.filter-btn').forEach(button => {
         button.addEventListener('click', function() {
+            // Cancel any pending filter animations
+            filterTimeouts.forEach(id => clearTimeout(id));
+            filterTimeouts = [];
+
             // Update ARIA attributes
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
@@ -153,24 +164,24 @@ function initializeProjectFilters() {
             });
             this.classList.add('active');
             this.setAttribute('aria-selected', 'true');
-            
+
             const filterValue = this.getAttribute('data-category');
             const projectItems = document.querySelectorAll('.project-item');
-            
+
             // Filter projects
             projectItems.forEach(item => {
                 if (filterValue === 'all' || item.getAttribute('data-category') === filterValue) {
                     item.style.display = 'block';
-                    setTimeout(() => {
+                    filterTimeouts.push(setTimeout(() => {
                         item.style.opacity = '1';
                         item.style.transform = 'translateY(0)';
-                    }, 50);
+                    }, 50));
                 } else {
                     item.style.opacity = '0';
                     item.style.transform = 'translateY(20px)';
-                    setTimeout(() => {
+                    filterTimeouts.push(setTimeout(() => {
                         item.style.display = 'none';
-                    }, 300);
+                    }, 300));
                 }
             });
         });
@@ -187,9 +198,14 @@ document.addEventListener('DOMContentLoaded', () => {
         renderAboutSection();
         renderFeaturedProjects();
     }
-    
+
     if (isProjectsPage) {
         renderProjectsList();
         initializeProjectFilters();
+    }
+
+    // Initialize image expansion after dynamic elements are created
+    if ((isIndexPage || isProjectsPage) && typeof initImageExpansion === 'function') {
+        initImageExpansion();
     }
 });

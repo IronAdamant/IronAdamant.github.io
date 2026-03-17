@@ -130,7 +130,6 @@ function initContactForm() {
         input.classList.add('error');
         input.setAttribute('aria-invalid', 'true');
         errorElement.textContent = message;
-        errorElement.classList.add('visible');
 
         announceToScreenReader(message, 'assertive');
     }
@@ -144,7 +143,6 @@ function initContactForm() {
         const error = errorElement || document.getElementById(`${input.id}-error`);
         if (error) {
             error.textContent = '';
-            error.classList.remove('visible');
         }
     }
 
@@ -177,7 +175,7 @@ function initContactForm() {
         liveRegion.className = 'sr-only';
         liveRegion.textContent = message;
         document.body.appendChild(liveRegion);
-        setTimeout(() => document.body.removeChild(liveRegion), 1000);
+        setTimeout(() => liveRegion.remove(), 1000);
     }
 
     async function submitForm() {
@@ -207,7 +205,7 @@ function initContactForm() {
         // Disable submit button
         submitButton.disabled = true;
         submitButton.setAttribute('aria-busy', 'true');
-        buttonText.textContent = submitButton.getAttribute('data-loading-text');
+        if (buttonText) buttonText.textContent = submitButton.getAttribute('data-loading-text');
 
         try {
             const formData = new FormData();
@@ -241,14 +239,14 @@ function initContactForm() {
         } finally {
             submitButton.disabled = false;
             submitButton.removeAttribute('aria-busy');
-            buttonText.textContent = 'Send Message';
+            if (buttonText) buttonText.textContent = 'Send Message';
         }
     }
 
     function showFakeSuccess() {
         submitButton.disabled = false;
         submitButton.removeAttribute('aria-busy');
-        buttonText.textContent = 'Send Message';
+        if (buttonText) buttonText.textContent = 'Send Message';
 
         const fakeSuccess = document.createElement('div');
         fakeSuccess.style.cssText = 'margin-top:1rem;padding:1rem;background:#00ff9d;color:#000;border-radius:4px;';

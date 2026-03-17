@@ -9,7 +9,6 @@
     --primary-light: #33ffb5;
     --bg-dark: #0a0a0a;
     --bg-darker: #050505;
-    --bg-light: #1a1a1a;
     --text: #e0e0e0;
     --text-secondary: #b8b8b8;
     --text-muted: #999999;
@@ -45,7 +44,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-    font-family: 'Necron', 'Orbitron', sans-serif;
+    font-family: 'Orbitron', sans-serif;
     font-weight: 700;
     margin-bottom: 1rem;
     color: var(--text);

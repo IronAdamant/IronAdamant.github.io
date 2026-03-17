@@ -6,9 +6,11 @@
     <script src="js/page-preloader.js?v=1766516293480"></script>
     <!-- Critical CSS for immediate background color - prevents white flash -->
     <style>
-        html,
-        body {
+        html {
             background-color: #050505 !important;
+        }
+        body {
+            background-color: #050505;
             margin: 0;
             padding: 0;
             color: #e0e0e0;
@@ -125,8 +127,7 @@
             z-index: 10;
             display: flex;
             align-items: center;
-            padding-top: 1rem;
-            min-height: auto
+            padding-top: 1rem
         }
 
         img {
@@ -179,7 +180,7 @@
     <div class="nav-overlay"></div>
     <nav class="mobile-nav" aria-label="Mobile navigation">
         <ul>
-            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="apps.html">Apps</a></li>
             <li><a href="contact.html">Contact</a></li>
@@ -192,7 +193,7 @@
                 <h1 class="hero-title">Iron_Adamant</h1>
                 <p class="hero-subtitle">I build practical software tools, combining AI with human creativity.</p>
                 <div class="cta-buttons">
-                    <a href="projects.html" class="btn btn-primary">View Projects</a>
+                    <a href="projects.html" class="btn">View Projects</a>
                     <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
                 </div>
             </div>
@@ -219,7 +220,7 @@
                         class="fab fa-github"></i></a>
                 <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
                     title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
-                        class="fab fa-twitter"></i></a>
+                        class="fab fa-x-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
                         class="fab fa-linkedin"></i></a>
                 <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><i
@@ -235,7 +236,7 @@
     <script src="js/image-modal.js?v=1.1" defer></script>
     <script src="js/page-transitions.js?v=1.1" defer></script>
     <script src="js/main.js?v=1.1" defer></script>
-    <script src="js/resource-optimizer.js?v=1.1" defer></script>
+
     <script src="js/sw-register.js?v=1.1" defer></script>
 </body>
 

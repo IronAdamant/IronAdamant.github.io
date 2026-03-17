@@ -125,8 +125,6 @@ main {
     z-index: 5;
     padding: 0;
     margin: 0;
-    overflow: visible;
-    min-height: auto;
 }
 
 .hero .container {
@@ -137,10 +135,7 @@ main {
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
-    background: transparent;
     border-radius: 8px;
-    box-shadow: none;
-    border: none;
     animation: fadeInUp 1s ease-out;
 }
 

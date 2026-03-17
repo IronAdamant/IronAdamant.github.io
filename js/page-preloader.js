@@ -6,7 +6,7 @@
     // Hide content immediately via injected styles
     var style = document.createElement('style');
     style.id = 'preloader-styles';
-    style.textContent = '#page-preloader{opacity:1!important;visibility:visible!important}html,body{background-color:#050505!important;color:transparent!important;visibility:hidden!important}';
+    style.textContent = '#page-preloader{opacity:1!important;visibility:visible!important}html{background-color:#050505!important;}body{background-color:transparent!important;color:transparent!important;visibility:hidden!important}';
     document.head.appendChild(style);
 
     // Create preloader overlay element
@@ -20,16 +20,16 @@
             document.body.appendChild(preloader);
         }
         document.documentElement.style.backgroundColor = '#050505';
-        document.body.style.backgroundColor = '#050505';
+        document.body.style.backgroundColor = 'transparent';
     });
 
     // Fallback: restore visibility after 8 seconds if load event never fires
     var fallbackTimer = setTimeout(function() {
         var restoreStyle = document.createElement('style');
-        restoreStyle.textContent = 'html,body{background-color:#050505!important;color:inherit!important;visibility:visible!important}';
+        restoreStyle.textContent = 'html{background-color:#050505!important;}body{background-color:transparent!important;color:inherit!important;visibility:visible!important}';
         document.head.appendChild(restoreStyle);
         var el = document.getElementById('page-preloader');
-        if (el && el.parentNode) el.parentNode.removeChild(el);
+        if (el) el.remove();
         document.documentElement.style.visibility = 'visible';
         document.body.style.visibility = 'visible';
     }, 8000);
@@ -38,13 +38,13 @@
     window.addEventListener('load', function() {
         clearTimeout(fallbackTimer);
         var restoreStyle = document.createElement('style');
-        restoreStyle.textContent = 'html,body{background-color:#050505!important;color:inherit!important;visibility:visible!important}';
+        restoreStyle.textContent = 'html{background-color:#050505!important;}body{background-color:transparent!important;color:inherit!important;visibility:visible!important}';
         document.head.appendChild(restoreStyle);
 
         var el = document.getElementById('page-preloader');
         if (el) {
             setTimeout(function() {
-                if (el.parentNode) el.parentNode.removeChild(el);
+                el.remove();
                 document.documentElement.style.visibility = 'visible';
                 document.body.style.visibility = 'visible';
             }, 200);

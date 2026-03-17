@@ -6,9 +6,11 @@
     <script src="js/page-preloader.js?v=1766516293480"></script>
     <!-- Critical CSS for immediate background color - prevents white flash -->
     <style>
-        html,
-        body {
+        html {
             background-color: #050505 !important;
+        }
+        body {
+            background-color: #050505;
             margin: 0;
             padding: 0;
             color: #e0e0e0;
@@ -40,6 +42,15 @@
 
     <!-- Resource hints for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Load Orbitron web font -->
+    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap"
+        as="style" onload="this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&display=swap">
+    </noscript>
+
     <link rel="stylesheet" href="css/main.css?v=1766516293480" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/accessibility.css?v=1766516293480" media="print" onload="this.media='all'">
 
@@ -160,7 +171,7 @@
             <li><a href="index.html">Home</a></li>
             <li><a href="projects.html">Projects</a></li>
             <li><a href="apps.html">Apps</a></li>
-            <li><a href="contact.html" class="active">Contact</a></li>
+            <li><a href="contact.html" class="active" aria-current="page">Contact</a></li>
         </ul>
     </nav>
 
@@ -189,7 +200,7 @@
                         <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" class="social-link"
                             aria-label="X (Twitter)"
                             title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts">
-                            <i class="fab fa-twitter"></i>
+                            <i class="fab fa-x-twitter"></i>
                             <span>X (Twitter)</span>
                         </a>
                         <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" class="social-link"
@@ -261,7 +272,7 @@
                             </div>
                         </div>
                         <div class="form-footer">
-                            <button type="submit" id="submit-button" class="btn" aria-live="polite"
+                            <button type="submit" id="submit-button" class="btn"
                                 data-loading-text="Establishing Link...">
                                 <span class="button-text">Send Message</span>
                                 <span class="button-spinner" aria-hidden="true"></span>
@@ -288,7 +299,7 @@
                         class="fab fa-github"></i></a>
                 <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
                     title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
-                        class="fab fa-twitter"></i></a>
+                        class="fab fa-x-twitter"></i></a>
                 <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
                         class="fab fa-linkedin"></i></a>
                 <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><i
@@ -302,7 +313,7 @@
     <script src="js/contact-form.js?v=1.1" defer></script>
     <script src="js/page-transitions.js?v=1.1" defer></script>
     <script src="js/main.js?v=1.1" defer></script>
-    <script src="js/resource-optimizer.js?v=1.1" defer></script>
+
     <script src="js/sw-register.js?v=1.1" defer></script>
 </body>
 

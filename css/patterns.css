@@ -1,8 +1,7 @@
 /* Background Patterns - Circuit patterns, unified background, decorative elements */
 
-/* Background element base styles — !important needed because
-   specific rules (e.g. .circuit-circle position: relative) must
-   not override these when used as background decorations */
+/* Background element base styles — ensures decorative elements
+   stay behind content regardless of other rules */
 .necron-glyph,
 .bright-path,
 .unified-background,
@@ -52,14 +51,11 @@ body::after {
 
 /* Unified Background */
 .unified-background {
-    position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: var(--bg-darker);
-    z-index: -10;
-    pointer-events: none;
 }
 
 .unified-background::before {
@@ -95,10 +91,7 @@ body::after {
 
 /* Necron Glyph Base */
 .necron-glyph {
-    position: absolute;
     opacity: 0.15;
-    pointer-events: none;
-    z-index: -1;
     animation: glowPulse 4s infinite;
     will-change: transform, opacity;
 }
@@ -121,7 +114,6 @@ body::after {
     height: 60px;
     border: 2px solid var(--primary);
     border-radius: 50%;
-    position: relative;
     box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
     will-change: transform, opacity;
 }
@@ -155,7 +147,6 @@ body::after {
 .connected-nodes {
     width: 100px;
     height: 100px;
-    position: relative;
     will-change: transform, opacity;
 }
 
@@ -212,11 +203,9 @@ body::after {
 
 /* Bright Path */
 .bright-path {
-    position: fixed;
     height: 1px;
     background-color: var(--primary);
     opacity: 0.2;
     box-shadow: 0 0 8px var(--primary);
-    z-index: -1;
 }
 

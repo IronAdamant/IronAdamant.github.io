@@ -19,10 +19,6 @@
         font-size: 1.5rem;
     }
 
-    .hero h1 {
-        font-size: 2.5rem;
-    }
-
     nav a {
         font-size: 0.85rem;
         padding: 0.5rem 0.8rem;
@@ -34,7 +30,6 @@
     }
 
     .hero {
-        min-height: auto;
         top: 50px;
     }
 
@@ -46,15 +41,7 @@
         top: 300px;
     }
 
-    .project-item h3,
-    .project-category,
-    .project-content {
-        grid-column: 1;
-    }
-
     .project-image {
-        grid-column: 1;
-        grid-row: auto;
         height: 200px;
         margin-bottom: 1rem;
     }
