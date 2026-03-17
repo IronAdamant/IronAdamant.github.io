@@ -103,8 +103,8 @@ htmlFiles.forEach(file => {
       content = content.slice(0, insertPosition) + versionMeta + content.slice(insertPosition);
     }
     
-    // Update cache-busting version in script/css references
-    content = content.replace(/(\.(js|css))(\?v=[^"]*)?"/g, `$1?v=${Date.now()}"`);
+    // Update cache-busting version in local script/css references (skip CDN URLs)
+    content = content.replace(/((?:css|js)\/[^"]+\.(js|css))(\?v=[^"]*)?"/g, `$1?v=${Date.now()}"`);
     
     fs.writeFileSync(filePath, content);
     console.log(`✅ Updated ${file} with version info`);

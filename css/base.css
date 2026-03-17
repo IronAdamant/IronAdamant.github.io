@@ -1,8 +1,5 @@
 /* Base Styles - Variables, Reset, Typography, Links */
 
-/* Fonts */
-@import url('https://fonts.cdnfonts.com/css/necraptor');
-
 /* CSS Variables */
 :root {
     --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);

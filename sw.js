@@ -22,7 +22,6 @@ const urlsToCache = [
   '/js/project-data.js',
   '/js/project-loader.js',
   '/js/sw-register.js',
-  '/js/version-check.js',
   '/css/apps.css',
   '/manifest.json'
 ];
@@ -174,11 +173,9 @@ self.addEventListener('activate', event => {
       // Clean old caches
       caches.keys().then(cacheNames => {
         return Promise.all(
-          cacheNames.map(cacheName => {
-            if (cacheName !== CACHE_NAME && cacheName !== VERSION_CACHE) {
-              return caches.delete(cacheName);
-            }
-          })
+          cacheNames
+            .filter(cacheName => cacheName !== CACHE_NAME && cacheName !== VERSION_CACHE)
+            .map(cacheName => caches.delete(cacheName))
         );
       }),
       // Check for updates

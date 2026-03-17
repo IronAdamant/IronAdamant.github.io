@@ -30,8 +30,3 @@ if (document.readyState === 'loading') {
 window.addEventListener('pageshow', () => {
     if (typeof handlePageLoad === 'function') handlePageLoad();
 });
-
-// Add page-loaded class
-window.addEventListener('load', () => {
-    document.body.classList.add('page-loaded');
-});

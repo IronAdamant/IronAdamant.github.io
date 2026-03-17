@@ -52,12 +52,6 @@ textarea:focus,
         scroll-behavior: auto !important;
     }
     
-    /* Disable parallax and other motion effects */
-    [style*="animation"],
-    [style*="transition"] {
-        animation: none !important;
-        transition: none !important;
-    }
 }
 
 /* Print styles */
@@ -109,16 +103,6 @@ textarea:focus,
     border: 0;
 }
 
-/* Dark mode support */
-@media (prefers-color-scheme: dark) {
-    :root {
-        --text: #e0e0e0;
-        --text-secondary: #aaa;
-        --bg-dark: #0a0a0a;
-        --bg-darker: #050505;
-    }
-}
-
 /* Ensure interactive elements are easily tappable on mobile */
 button,
 a,
@@ -130,7 +114,6 @@ a,
 
 /* Improve form field visibility */
 input,
-select,
 textarea {
     background-color: var(--bg-dark);
     color: var(--text);
@@ -141,7 +124,6 @@ textarea {
 }
 
 input:focus,
-select:focus,
 textarea:focus {
     border-color: var(--primary);
     box-shadow: 0 0 0 2px var(--primary-light);

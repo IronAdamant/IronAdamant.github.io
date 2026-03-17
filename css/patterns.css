@@ -6,9 +6,9 @@
 .unified-background,
 .circuit-circle,
 .connected-nodes {
-    position: fixed !important;
-    z-index: -10 !important;
-    pointer-events: none !important;
+    position: fixed;
+    z-index: -10;
+    pointer-events: none;
 }
 
 /* Body Background Patterns */
@@ -98,9 +98,7 @@ body::after {
     pointer-events: none;
     z-index: -1;
     animation: glowPulse 4s infinite;
-    transform: translateZ(0);
     will-change: transform, opacity;
-    backface-visibility: hidden;
 }
 
 .necron-glyph:nth-child(2n) {
@@ -123,7 +121,6 @@ body::after {
     border-radius: 50%;
     position: relative;
     box-shadow: 0 0 15px rgba(0, 255, 157, 0.3);
-    transform: translateZ(0);
     will-change: transform, opacity;
 }
 
@@ -157,7 +154,6 @@ body::after {
     width: 100px;
     height: 100px;
     position: relative;
-    transform: translateZ(0);
     will-change: transform, opacity;
 }
 

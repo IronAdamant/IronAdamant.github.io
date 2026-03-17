@@ -23,8 +23,20 @@
         document.body.style.backgroundColor = '#050505';
     });
 
+    // Fallback: restore visibility after 8 seconds if load event never fires
+    var fallbackTimer = setTimeout(function() {
+        var restoreStyle = document.createElement('style');
+        restoreStyle.textContent = 'html,body{background-color:#050505!important;color:inherit!important;visibility:visible!important}';
+        document.head.appendChild(restoreStyle);
+        var el = document.getElementById('page-preloader');
+        if (el && el.parentNode) el.parentNode.removeChild(el);
+        document.documentElement.style.visibility = 'visible';
+        document.body.style.visibility = 'visible';
+    }, 8000);
+
     // Restore visibility after everything loads
     window.addEventListener('load', function() {
+        clearTimeout(fallbackTimer);
         var restoreStyle = document.createElement('style');
         restoreStyle.textContent = 'html,body{background-color:#050505!important;color:inherit!important;visibility:visible!important}';
         document.head.appendChild(restoreStyle);

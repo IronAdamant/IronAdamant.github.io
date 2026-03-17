@@ -41,15 +41,22 @@
 
     <!-- Resource hints for faster loading -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.cdnfonts.com">
     <link rel="preconnect" href="https://raw.githubusercontent.com">
     <link rel="stylesheet" href="css/main.css?v=1766516293480" media="print" onload="this.media='all'">
     <link rel="stylesheet" href="css/accessibility.css?v=1766516293480" media="print" onload="this.media='all'">
 
     <link rel="stylesheet" href="css/mobile-nav.css?v=1766516293480" media="all">
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css?v=1766516293480"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?v=1766516293480"
         media="print" onload="this.media='all'">
+    <!-- Fallback if JavaScript is disabled -->
+    <noscript>
+        <link rel="stylesheet" href="css/main.css?v=1766516293480">
+        <link rel="stylesheet" href="css/accessibility.css?v=1766516293480">
+        <link rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?v=1766516293480">
+    </noscript>
+
     <!-- Web App Manifest for PWA -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#00ff9d">
@@ -57,7 +64,7 @@
     <!-- Inline Critical CSS for faster initial render -->
     <style>
         :root {
-            --bg-dark: #000;
+            --bg-dark: #0a0a0a;
             --bg-darker: #050505;
             --primary: #00ff9d;
             --primary-light: #33ffb5;
@@ -172,10 +179,6 @@
             <div class="category-filter" role="tablist" aria-label="Collection categories">
                 <button class="filter-btn active" data-category="all" role="tab" aria-selected="true"
                     aria-controls="project-list" id="tab-all">Complete Collection</button>
-                <button class="filter-btn" data-category="application" role="tab" aria-selected="false"
-                    aria-controls="project-list" id="tab-application">Tool</button>
-                <button class="filter-btn" data-category="tracking" role="tab" aria-selected="false"
-                    aria-controls="project-list" id="tab-tracking">Tracking Systems</button>
             </div>
 
             <div class="project-list" id="project-list" role="region" aria-live="polite">
@@ -188,14 +191,14 @@
         <div class="container">
             <p>&copy; 2026 Iron_Adamant. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer"><i
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
                         class="fab fa-github"></i></a>
-                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer"
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
                     title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
                         class="fab fa-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer"><i
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
                         class="fab fa-linkedin"></i></a>
-                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer"><i
+                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><i
                         class="fas fa-coffee"></i></a>
             </div>
         </div>
@@ -210,7 +213,6 @@
     <script src="js/main.js?v=1.1" defer></script>
     <script src="js/resource-optimizer.js?v=1.1" defer></script>
     <script src="js/sw-register.js?v=1.1" defer></script>
-    <script src="js/version-check.js?v=1766516293480"></script>
 </body>
 
 </html>
