@@ -70,26 +70,15 @@
             }
             
             let hoverTimer;
-            let isMobile = /Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-            
-            // Handle desktop hover
-            if (!isMobile) {
-                link.addEventListener('mouseenter', () => {
-                    hoverTimer = setTimeout(() => {
-                        preloadPage(link.href);
-                    }, config.hoverDelay);
-                });
-                
-                link.addEventListener('mouseleave', () => {
-                    clearTimeout(hoverTimer);
-                });
-            }
-            
-            // Handle clicks for preloading the next page
-            link.addEventListener('click', function(e) {
-                // Let the normal page transition handler take over
-                // The transition overlay will show immediately
-                // while we finish loading resources in the background
+
+            link.addEventListener('mouseenter', () => {
+                hoverTimer = setTimeout(() => {
+                    preloadPage(link.href);
+                }, config.hoverDelay);
+            });
+
+            link.addEventListener('mouseleave', () => {
+                clearTimeout(hoverTimer);
             });
         });
     }
@@ -106,25 +95,6 @@
         prefetchLink.rel = 'prefetch';
         prefetchLink.href = url;
         document.head.appendChild(prefetchLink);
-        
-        // Also prefetch with XHR to handle cookies and state
-        const xhr = new XMLHttpRequest();
-        xhr.open('GET', url, true);
-        xhr.onreadystatechange = function() {
-            if (xhr.readyState === 4 && xhr.status === 200) {
-                // Page is now in browser cache
-                console.debug(`Preloaded: ${url}`);
-                
-                // Extract and preload images from the response
-                const responseText = xhr.responseText;
-                const imgRegex = /<img[^>]+src="([^">]+)"/g;
-                let match;
-                while (match = imgRegex.exec(responseText)) {
-                    preloadImage(match[1]);
-                }
-            }
-        };
-        xhr.send();
     }
     
     // Preload an individual image
@@ -170,36 +140,8 @@
         }
     }
     
-    // Optimize image loading with lazy loading and responsive images
+    // Optimize image loading with lazy loading
     function optimizeImageLoading() {
-        // ===== RESPONSIVE IMAGES IMPLEMENTATION =====
-        // Convert project images to use responsive srcset
-        const projectImages = document.querySelectorAll('.project-image img');
-        
-        projectImages.forEach(img => {
-            const src = img.getAttribute('src') || img.getAttribute('data-src');
-            if (src && src.includes('placeholder.com')) {
-                // Extract dimensions from placeholder URL
-                const matches = src.match(/(\d+)x(\d+)/);
-                if (matches) {
-                    const width = matches[1];
-                    const height = matches[2];
-                    
-                    // Create responsive srcset
-                    const srcset = `
-                        ${src.replace(`${width}x${height}`, '400x250')} 400w,
-                        ${src.replace(`${width}x${height}`, '600x375')} 600w,
-                        ${src.replace(`${width}x${height}`, '800x500')} 800w,
-                        ${src.replace(`${width}x${height}`, '1200x750')} 1200w
-                    `;
-                    
-                    img.setAttribute('srcset', srcset.trim());
-                    img.setAttribute('sizes', '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px');
-                }
-            }
-        });
-
-        // ===== CORE IMAGE OPTIMIZATION =====
         // Find all images that can be lazy loaded
         const images = document.querySelectorAll('img:not([loading])');
         
@@ -221,31 +163,6 @@
             img.setAttribute('fetchpriority', 'high');
         });
         
-        // Use Intersection Observer to load images just before they're needed
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        // If data-src exists, move it to src
-                        if (img.dataset.src) {
-                            img.src = img.dataset.src;
-                            delete img.dataset.src;
-                        }
-                        observer.unobserve(img);
-                    }
-                });
-            }, {
-                rootMargin: '200px 0px' // Start loading 200px before it comes into view
-            });
-            
-            // Apply to images with data-src
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
-
-        // ===== MEMORY MANAGEMENT =====
         // Memory management - clean up unused images
         const memoryObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {

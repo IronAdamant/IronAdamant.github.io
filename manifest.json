@@ -12,6 +12,13 @@
     "developer",
     "technology"
   ],
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "any",
+      "type": "image/png"
+    }
+  ],
   "related_applications": [],
   "prefer_related_applications": false,
   "version": "1.0.5",

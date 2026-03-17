@@ -58,12 +58,6 @@
         margin-top: 0;
     }
 
-    /* Project item responsive */
-    .project-item>.project-item {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
     .project-item h3,
     .project-category,
     .project-content {
@@ -80,20 +74,6 @@
     /* Header mobile adjustments */
     header {
         position: relative;
-        background: rgba(5, 5, 5, 0.95);
-        backdrop-filter: blur(10px);
-        -webkit-backdrop-filter: blur(10px);
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    }
-
-    body {
-        padding: 0;
-    }
-
-    .logo {
-        font-size: 1.3rem;
-        display: block;
-        margin-bottom: 0.5rem;
     }
 
     /* Fix sections padding for mobile */
@@ -107,7 +87,6 @@
 
     /* Hide patterns on mobile for performance */
     .necron-glyph,
-    .necron-complex-glyph,
     .circuit-circle,
     .connected-nodes {
         display: none;

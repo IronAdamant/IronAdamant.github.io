@@ -23,6 +23,8 @@ const urlsToCache = [
   '/js/project-data.js',
   '/js/project-loader.js',
   '/js/sw-register.js',
+  '/js/version-check.js',
+  '/css/apps.css',
   '/manifest.json'
 ];
 
@@ -162,9 +164,7 @@ self.addEventListener('message', event => {
   if (event.data.action === 'skipWaiting') {
     self.skipWaiting();
   } else if (event.data.action === 'checkForUpdates') {
-    event.waitUntil(checkForUpdates().then(hasUpdate => {
-      event.ports[0].postMessage({ hasUpdate });
-    }));
+    event.waitUntil(checkForUpdates());
   }
 });
 

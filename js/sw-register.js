@@ -110,7 +110,7 @@ function showUpdateNotification(message = 'A new version is available!') {
 
 // Refresh page to apply updates
 function refreshPage() {
-  window.location.reload(true);
+  window.location.reload();
 }
 
 // Dismiss notification

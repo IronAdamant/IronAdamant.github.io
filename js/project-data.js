@@ -174,9 +174,6 @@ const projectHelpers = {
         return projectData.filter(project => project.category === category);
     },
 
-    // Get project by ID
-    getProjectById: (id) => projectData.find(project => project.id === id),
-
     // Get all available categories
     getAllCategories: () => {
         const categories = new Set(projectData.map(project => project.category));

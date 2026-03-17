@@ -5,14 +5,15 @@
 // ====== PAGE TRANSITIONS ======
 function handlePageTransition(e) {
     // Only handle internal links that aren't anchors
-    if (e.target.tagName === 'A' &&
-        e.target.href &&
-        e.target.href.startsWith(window.location.origin) &&
-        !e.target.href.includes('#') &&
-        e.target.target !== '_blank') {
+    const link = e.target.closest('a');
+    if (link &&
+        link.href &&
+        link.href.startsWith(window.location.origin) &&
+        !link.href.includes('#') &&
+        link.target !== '_blank') {
 
         e.preventDefault();
-        const targetUrl = e.target.href;
+        const targetUrl = link.href;
 
         // Create and inject black background style
         const styleTag = document.createElement('style');
@@ -52,8 +53,6 @@ function handlePageTransition(e) {
 
         // Save transition state
         try {
-            window.name = JSON.stringify({ transitioning: true });
-            localStorage.setItem('pageTransitioning', 'true');
             sessionStorage.setItem('pageTransitioning', 'true');
         } catch (e) { }
 
@@ -95,18 +94,7 @@ function handlePageLoad() {
     // Check if we were in a page transition
     let wasTransitioning = false;
     try {
-        if (window.name) {
-            try {
-                const state = JSON.parse(window.name);
-                wasTransitioning = state.transitioning === true;
-                window.name = '';
-            } catch (e) { }
-        }
-        if (!wasTransitioning && localStorage.getItem('pageTransitioning') === 'true') {
-            wasTransitioning = true;
-            localStorage.removeItem('pageTransitioning');
-        }
-        if (!wasTransitioning && sessionStorage.getItem('pageTransitioning') === 'true') {
+        if (sessionStorage.getItem('pageTransitioning') === 'true') {
             wasTransitioning = true;
             sessionStorage.removeItem('pageTransitioning');
         }

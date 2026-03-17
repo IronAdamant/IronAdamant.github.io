@@ -86,7 +86,7 @@ try {
 }
 
 // Update HTML files with version meta tag
-const htmlFiles = ['index.html', 'projects.html', 'contact.html', '404.html'];
+const htmlFiles = ['index.html', 'projects.html', 'apps.html', 'contact.html', '404.html'];
 htmlFiles.forEach(file => {
   const filePath = path.join(__dirname, file);
   try {
@@ -104,7 +104,7 @@ htmlFiles.forEach(file => {
     }
     
     // Update cache-busting version in script/css references
-    content = content.replace(/(\.(js|css))(\?v=\d+)?"/g, `$1?v=${Date.now()}"`);
+    content = content.replace(/(\.(js|css))(\?v=[^"]*)?"/g, `$1?v=${Date.now()}"`);
     
     fs.writeFileSync(filePath, content);
     console.log(`✅ Updated ${file} with version info`);

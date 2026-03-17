@@ -52,15 +52,6 @@ textarea:focus,
         scroll-behavior: auto !important;
     }
     
-    .scarab-container,
-    .scarab,
-    .scarab-body,
-    .scarab-wings,
-    .scarab-legs {
-        animation: none !important;
-        transition: none !important;
-    }
-    
     /* Disable parallax and other motion effects */
     [style*="animation"],
     [style*="transition"] {
@@ -71,10 +62,6 @@ textarea:focus,
 
 /* Print styles */
 @media print {
-    .no-print {
-        display: none !important;
-    }
-    
     body {
         background: #fff !important;
         color: #000 !important;
@@ -94,12 +81,10 @@ textarea:focus,
         color: #666;
     }
     
-    .project-links,
-    .filter-buttons,
-    .scroll-indicator {
+    .project-links {
         display: none !important;
     }
-    
+
     .project-item {
         break-inside: avoid;
         page-break-inside: avoid;
@@ -122,28 +107,6 @@ textarea:focus,
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
-}
-
-/* Focus ring for interactive elements */
-.focus-ring {
-    position: relative;
-}
-
-.focus-ring:focus {
-    outline: none;
-}
-
-.focus-ring:focus::after {
-    content: '';
-    position: absolute;
-    top: -2px;
-    left: -2px;
-    right: -2px;
-    bottom: -2px;
-    border: 2px solid var(--primary);
-    border-radius: inherit;
-    pointer-events: none;
-    z-index: 1;
 }
 
 /* Dark mode support */

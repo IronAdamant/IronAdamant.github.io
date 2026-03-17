@@ -404,24 +404,6 @@
     flex-shrink: 0;
 }
 
-/* ---- Open Source Notice (also used on projects page) ---- */
-.open-source-notice {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--primary);
-    font-size: 0.85rem;
-    margin-bottom: 2rem;
-    padding: 0.4rem 1rem;
-    border: 1px solid rgba(0, 255, 157, 0.25);
-    border-radius: 4px;
-    background: rgba(0, 255, 157, 0.04);
-}
-
-.open-source-notice i {
-    font-size: 1rem;
-}
-
 /* ---- Responsive ---- */
 @media (max-width: 620px) {
     .pricing-grid {

@@ -4,25 +4,6 @@
 /* Override specific styles only while preserving the overall theme */
 /* No need for a full reset as we're focusing only on layout concerns */
 
-/* Force all Necron patterns to background */
-.necron-glyph,
-.necron-complex-glyph,
-.bright-path,
-.connection-line,
-.circuit-rect,
-.energy-column,
-.circuit-board,
-.unified-background,
-.diagonal-bright,
-.pulsing-node,
-.triangular-circuit,
-.circuit-circle,
-.connected-nodes {
-    position: fixed !important; /* Force fixed positioning */
-    z-index: -10 !important; /* Force to background */
-    pointer-events: none !important; /* Ensure clicks pass through */
-}
-
 /* Header styling - clean, minimal */
 header {
     position: fixed !important; /* Fixed at top, use !important to override */
