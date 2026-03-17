@@ -1,14 +1,16 @@
 /* Background Patterns - Circuit patterns, unified background, decorative elements */
 
-/* Background element base styles */
+/* Background element base styles — !important needed because
+   specific rules (e.g. .circuit-circle position: relative) must
+   not override these when used as background decorations */
 .necron-glyph,
 .bright-path,
 .unified-background,
 .circuit-circle,
 .connected-nodes {
-    position: fixed;
-    z-index: -10;
-    pointer-events: none;
+    position: fixed !important;
+    z-index: -10 !important;
+    pointer-events: none !important;
 }
 
 /* Body Background Patterns */
