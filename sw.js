@@ -17,7 +17,6 @@ const urlsToCache = [
   '/js/image-modal.js',
   '/js/main.js',
   '/js/contact-form.js',
-  '/js/page-preloader.js',
   '/js/project-data.js',
   '/js/project-loader.js',
   '/js/sw-register.js',

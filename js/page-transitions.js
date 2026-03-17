@@ -15,16 +15,6 @@ function handlePageTransition(e) {
         e.preventDefault();
         const targetUrl = link.href;
 
-        // Reuse or create black background style (shared with handlePageLoad)
-        let styleTag = document.getElementById('page-load-style');
-        if (!styleTag) {
-            styleTag = document.createElement('style');
-            styleTag.id = 'page-load-style';
-            document.head.insertBefore(styleTag, document.head.firstChild);
-        }
-        styleTag.textContent = 'html{background-color:#050505!important;}body{background-color:transparent!important;transition:none!important}';
-        void document.documentElement.offsetWidth;
-
         // Create transition overlay (spinner/text handled by CSS pseudo-elements)
         let transitionOverlay = document.querySelector('.page-transition');
         if (!transitionOverlay) {
@@ -33,10 +23,7 @@ function handlePageTransition(e) {
             document.body.appendChild(transitionOverlay);
         }
 
-        document.documentElement.style.backgroundColor = '#050505';
-        document.body.style.backgroundColor = 'transparent';
         void transitionOverlay.offsetWidth;
-
         transitionOverlay.style.opacity = '1';
         transitionOverlay.style.visibility = 'visible';
 
@@ -89,18 +76,6 @@ function handlePageLoad() {
         }
     } catch (e) { }
 
-    // Set background colors
-    document.documentElement.style.backgroundColor = '#050505';
-    document.body.style.backgroundColor = 'transparent';
-
-    let style = document.getElementById('page-load-style');
-    if (!style) {
-        style = document.createElement('style');
-        style.id = 'page-load-style';
-        document.head.insertBefore(style, document.head.firstChild);
-    }
-    style.textContent = 'html{background-color:#050505!important;}body{background-color:transparent!important;transition:none!important}';
-
     // Create overlay if needed (spinner/text handled by CSS pseudo-elements)
     let transitionOverlay = document.querySelector('.page-transition');
     if (!transitionOverlay && wasTransitioning) {
@@ -120,7 +95,6 @@ function handlePageLoad() {
         }
 
         setTimeout(() => {
-            style.textContent = 'html,body{background-color:#050505!important}';
             transitionOverlay.style.opacity = '0';
             setTimeout(() => {
                 if (transitionOverlay) {

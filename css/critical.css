@@ -1,0 +1,84 @@
+/* Critical CSS — single source of truth.
+   Read by build.js and injected into HTML files.
+   NOT loaded by browsers directly. */
+
+/* Anti-FOUC: parsed before anything renders */
+html {
+    background-color: #050505 !important;
+}
+
+:root {
+    --bg-dark: #0a0a0a;
+    --bg-darker: #050505;
+    --primary: #00ff9d;
+    --primary-light: #33ffb5;
+    --primary-dark: #00cc7d;
+    --text: #e0e0e0;
+    --text-secondary: #b8b8b8;
+    --text-muted: #999;
+    --border: #1a1a1a;
+    --header-bg: rgba(0, 0, 0, .95)
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box
+}
+
+body {
+    font-family: Orbitron, monospace;
+    background-color: var(--bg-darker);
+    color: var(--text);
+    min-height: 100vh
+}
+
+header {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: var(--header-bg);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    padding: .75rem 0;
+    height: 40px
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem
+}
+
+img {
+    max-width: 100%;
+    height: auto
+}
+
+@font-face {
+    font-family: Orbitron;
+    font-display: swap;
+    src: local('Orbitron')
+}
+
+.page-transition {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #050505;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center
+}
+
+/* page:index.html */
+.hero {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    padding-top: 1rem
+}
