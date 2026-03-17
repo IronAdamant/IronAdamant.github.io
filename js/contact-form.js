@@ -30,7 +30,7 @@ function initContactForm() {
     };
 
     // Track form load time for spam detection
-    window.formLoadTime = performance.now();
+    const formLoadTime = performance.now();
 
     // Initialize character count
     if (messageInput && messageCount) {
@@ -182,7 +182,7 @@ function initContactForm() {
 
     async function submitForm() {
         // Anti-spam checks
-        const timeTaken = performance.now() - (window.formLoadTime || performance.now() - 2000);
+        const timeTaken = performance.now() - formLoadTime;
         if (timeTaken < 3000) {
             await new Promise(resolve => setTimeout(resolve, 2000));
         }
@@ -241,14 +241,14 @@ function initContactForm() {
         } finally {
             submitButton.disabled = false;
             submitButton.removeAttribute('aria-busy');
-            buttonText.textContent = 'Transmit Message';
+            buttonText.textContent = 'Send Message';
         }
     }
 
     function showFakeSuccess() {
         submitButton.disabled = false;
         submitButton.removeAttribute('aria-busy');
-        buttonText.textContent = 'Transmit Message';
+        buttonText.textContent = 'Send Message';
 
         const fakeSuccess = document.createElement('div');
         fakeSuccess.style.cssText = 'margin-top:1rem;padding:1rem;background:#00ff9d;color:#000;border-radius:4px;';
@@ -259,11 +259,11 @@ function initContactForm() {
     }
 
     function showFormError(message) {
-        const existingError = form.querySelector('.error-message');
+        const existingError = form.querySelector('.form-submit-error');
         if (existingError) existingError.remove();
 
         const errorDiv = document.createElement('div');
-        errorDiv.className = 'error-message';
+        errorDiv.className = 'form-submit-error';
         errorDiv.style.cssText = 'margin-top:1rem;padding:1rem;background:#ff4444;color:white;border-radius:4px;';
         errorDiv.textContent = message;
         form.appendChild(errorDiv);
@@ -280,19 +280,6 @@ function initContactForm() {
         }
     });
 
-    // Add loading spinner styles
-    const style = document.createElement('style');
-    style.textContent = `
-        button[aria-busy="true"] { position:relative; color:transparent!important; pointer-events:none; }
-        button[aria-busy="true"] .button-spinner {
-            display:inline-block; width:1.5em; height:1.5em;
-            border:2px solid currentColor; border-radius:50%; border-top-color:transparent;
-            animation:spin 1s linear infinite;
-            position:absolute; top:50%; left:50%; margin:-0.75em 0 0 -0.75em;
-        }
-        @keyframes spin { to { transform:rotate(360deg); } }
-    `;
-    document.head.appendChild(style);
 }
 
 // Export for use in main.js

@@ -8,8 +8,8 @@
     --transition-timing: cubic-bezier(0.4, 0, 0.2, 1);
     --transition-duration: 0.3s;
     --primary: #00ff9d;
-    --primary-dark: #00cc7a;
-    --primary-light: #66ffc2;
+    --primary-dark: #00cc7d;
+    --primary-light: #33ffb5;
     --bg-dark: #0a0a0a;
     --bg-darker: #050505;
     --bg-light: #1a1a1a;
@@ -18,6 +18,7 @@
     --text-muted: #999999;
     --success: #4caf50;
     --error: #f44336;
+    --border: #1a1a1a;
     --focus-ring: 0 0 0 3px rgba(0, 255, 157, 0.5);
     --border-radius: 4px;
 }
@@ -38,7 +39,6 @@ body {
     position: relative;
     overflow-x: hidden;
     text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
-    will-change: transform, opacity;
     min-height: 100vh;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;

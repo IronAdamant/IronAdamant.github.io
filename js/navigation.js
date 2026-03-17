@@ -23,41 +23,44 @@ function initNavigation() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', handleSmoothScroll);
     });
-
-    // Add active class to current navigation item
-    const currentLocation = location.href;
-    const menuItems = document.querySelectorAll('nav ul li a');
-    menuItems.forEach(item => {
-        if (item.href === currentLocation) {
-            item.classList.add('active');
-        }
-    });
 }
 
 // ====== SCROLL ANIMATIONS ======
 function initScrollAnimations() {
-    const animateOnScroll = () => {
-        const elements = document.querySelectorAll('.project-item, .project-card');
-        elements.forEach(element => {
-            const elementTop = element.getBoundingClientRect().top;
-            const windowHeight = window.innerHeight;
+    const elements = document.querySelectorAll('.project-item, .project-card');
+    if (elements.length === 0) return;
 
-            if (elementTop < windowHeight - 100) {
+    const animateOnScroll = () => {
+        const windowHeight = window.innerHeight;
+        elements.forEach(element => {
+            if (element.getBoundingClientRect().top < windowHeight - 100) {
                 element.style.opacity = '1';
                 element.style.transform = 'translateY(0)';
             }
         });
     };
 
+    // Throttle scroll handler to ~60fps
+    let ticking = false;
+    const onScroll = () => {
+        if (!ticking) {
+            requestAnimationFrame(() => {
+                animateOnScroll();
+                ticking = false;
+            });
+            ticking = true;
+        }
+    };
+
     // Set initial styles
-    document.querySelectorAll('.project-item, .project-card').forEach(element => {
+    elements.forEach(element => {
         element.style.opacity = '0';
         element.style.transform = 'translateY(30px)';
         element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
     });
 
     animateOnScroll();
-    window.addEventListener('scroll', animateOnScroll);
+    window.addEventListener('scroll', onScroll, { passive: true });
 }
 
 // ====== MOBILE NAVIGATION ======

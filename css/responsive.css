@@ -46,16 +46,15 @@
 
     .hero {
         min-height: auto;
-        margin-top: 0;
-        padding-top: 5px;
+        top: 50px;
     }
 
     .hero .container {
-        padding: 0 1rem;
+        padding: 1.5rem;
     }
 
     .featured-projects {
-        margin-top: 0;
+        top: 300px;
     }
 
     .project-item h3,
@@ -69,11 +68,6 @@
         grid-row: auto;
         height: 200px;
         margin-bottom: 1rem;
-    }
-
-    /* Header mobile adjustments */
-    header {
-        position: relative;
     }
 
     /* Fix sections padding for mobile */

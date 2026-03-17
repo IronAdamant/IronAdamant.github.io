@@ -50,6 +50,7 @@ function initImageExpansion() {
         if (closeHint) closeHint.remove();
 
         document.body.style.overflow = '';
+        document.removeEventListener('keydown', closeOnEscape);
     }
 }
 

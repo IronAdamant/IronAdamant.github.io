@@ -4,7 +4,6 @@
 .necron-glyph,
 .bright-path,
 .unified-background,
-.pulsing-node,
 .circuit-circle,
 .connected-nodes {
     position: fixed !important;
@@ -223,11 +222,3 @@ body::after {
     z-index: -1;
 }
 
-/* Hero patterns positioning */
-.hero .necron-glyph,
-.projects-page .necron-glyph,
-.contact-page .necron-glyph {
-    position: absolute;
-    z-index: 0;
-    pointer-events: none;
-}

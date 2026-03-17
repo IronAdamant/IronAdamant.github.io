@@ -15,32 +15,21 @@ function handlePageTransition(e) {
         e.preventDefault();
         const targetUrl = link.href;
 
-        // Create and inject black background style
-        const styleTag = document.createElement('style');
-        styleTag.textContent = `
-            html, body {
-                background-color: #050505 !important;
-                transition: none !important;
-            }
-        `;
-        document.head.appendChild(styleTag);
+        // Reuse or create black background style
+        let styleTag = document.getElementById('page-transition-style');
+        if (!styleTag) {
+            styleTag = document.createElement('style');
+            styleTag.id = 'page-transition-style';
+            document.head.appendChild(styleTag);
+        }
+        styleTag.textContent = 'html,body{background-color:#050505!important;transition:none!important}';
         void document.documentElement.offsetWidth;
 
-        // Create transition overlay
+        // Create transition overlay (spinner/text handled by CSS pseudo-elements)
         let transitionOverlay = document.querySelector('.page-transition');
         if (!transitionOverlay) {
             transitionOverlay = document.createElement('div');
             transitionOverlay.className = 'page-transition';
-
-            const spinner = document.createElement('div');
-            spinner.className = 'loader-spinner';
-            transitionOverlay.appendChild(spinner);
-
-            const loadingText = document.createElement('div');
-            loadingText.className = 'loading-text';
-            loadingText.textContent = 'LOADING';
-            transitionOverlay.appendChild(loadingText);
-
             document.body.appendChild(transitionOverlay);
         }
 
@@ -104,32 +93,21 @@ function handlePageLoad() {
     document.documentElement.style.backgroundColor = '#050505';
     document.body.style.backgroundColor = '#050505';
 
-    const style = document.createElement('style');
-    style.textContent = `
-        html, body {
-            background-color: #050505 !important;
-            transition: none !important;
-        }
-    `;
-    document.head.insertBefore(style, document.head.firstChild);
+    let style = document.getElementById('page-load-style');
+    if (!style) {
+        style = document.createElement('style');
+        style.id = 'page-load-style';
+        document.head.insertBefore(style, document.head.firstChild);
+    }
+    style.textContent = 'html,body{background-color:#050505!important;transition:none!important}';
 
-    // Create overlay if needed
+    // Create overlay if needed (spinner/text handled by CSS pseudo-elements)
     let transitionOverlay = document.querySelector('.page-transition');
     if (!transitionOverlay && wasTransitioning) {
         transitionOverlay = document.createElement('div');
         transitionOverlay.className = 'page-transition';
         transitionOverlay.style.opacity = '1';
         transitionOverlay.style.visibility = 'visible';
-
-        const spinner = document.createElement('div');
-        spinner.className = 'loader-spinner';
-        transitionOverlay.appendChild(spinner);
-
-        const loadingText = document.createElement('div');
-        loadingText.className = 'loading-text';
-        loadingText.textContent = 'LOADING';
-        transitionOverlay.appendChild(loadingText);
-
         document.body.appendChild(transitionOverlay);
     }
 
@@ -142,7 +120,7 @@ function handlePageLoad() {
         }
 
         setTimeout(() => {
-            style.textContent = `html, body { background-color: #050505 !important; }`;
+            style.textContent = 'html,body{background-color:#050505!important}';
             transitionOverlay.style.opacity = '0';
             setTimeout(() => {
                 if (transitionOverlay && transitionOverlay.parentNode) {
