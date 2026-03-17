@@ -28,6 +28,8 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary) var(--bg-darker);
 }
 
 /* Body */
@@ -99,28 +101,23 @@ a:hover {
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-    width: 10px !important;
-    height: 10px !important;
+    width: 10px;
+    height: 10px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--bg-darker) !important;
-    border-radius: 5px !important;
+    background: var(--bg-darker);
+    border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primary) !important;
-    border-radius: 5px !important;
-    border: 2px solid var(--bg-darker) !important;
+    background: var(--primary);
+    border-radius: 5px;
+    border: 2px solid var(--bg-darker);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-dark) !important;
-}
-
-* {
-    scrollbar-width: thin !important;
-    scrollbar-color: var(--primary) var(--bg-darker) !important;
+    background: var(--primary-dark);
 }
 
 /* Touch optimization */

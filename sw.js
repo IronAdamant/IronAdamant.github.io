@@ -11,7 +11,6 @@ const urlsToCache = [
   '/404.html',
   '/css/main.css',
   '/css/accessibility.css',
-  '/css/radical-solution.css',
   '/css/mobile-nav.css',
   '/js/navigation.js',
   '/js/page-transitions.js',

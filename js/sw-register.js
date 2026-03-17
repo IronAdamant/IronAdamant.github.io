@@ -22,6 +22,7 @@ if ('serviceWorker' in navigator) {
         });
       })
       .catch(err => {
+        console.warn('Service worker registration failed:', err);
       });
   });
 
@@ -55,7 +56,7 @@ function showUpdateNotification(message = 'A new version is available!') {
       animation: slideIn 0.3s ease-out;
     ">
       <div style="margin-bottom: 10px;">${message}</div>
-      <button onclick="refreshPage()" style="
+      <button class="sw-update-btn" style="
         background: #000;
         color: #00ff9d;
         border: none;
@@ -66,7 +67,7 @@ function showUpdateNotification(message = 'A new version is available!') {
         font-weight: 600;
         margin-right: 10px;
       ">Update Now</button>
-      <button onclick="dismissNotification()" style="
+      <button class="sw-dismiss-btn" style="
         background: transparent;
         color: #000;
         border: 1px solid #000;
@@ -99,7 +100,10 @@ function showUpdateNotification(message = 'A new version is available!') {
   }
   
   document.body.appendChild(notification);
-  
+
+  notification.querySelector('.sw-update-btn').addEventListener('click', refreshPage);
+  notification.querySelector('.sw-dismiss-btn').addEventListener('click', dismissNotification);
+
   // Auto-dismiss after 10 seconds
   setTimeout(() => {
     if (document.getElementById('update-notification')) {
@@ -124,8 +128,8 @@ function dismissNotification() {
 
 // Check for updates when page becomes visible
 document.addEventListener('visibilitychange', () => {
-  if (!document.hidden && 'serviceWorker' in navigator && navigator.serviceWorker.controller) {
-    // Check for updates when user returns to tab
-    navigator.serviceWorker.controller.postMessage({ action: 'checkForUpdates' });
+  const controller = navigator.serviceWorker && navigator.serviceWorker.controller;
+  if (!document.hidden && controller) {
+    controller.postMessage({ action: 'checkForUpdates' });
   }
 });

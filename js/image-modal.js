@@ -13,7 +13,6 @@ function initImageExpansion() {
         container.appendChild(expandHint);
 
         container.addEventListener('click', function () {
-            const img = this.querySelector('img');
             if (!this.classList.contains('expanded')) {
                 this.classList.add('expanded');
                 this.style.zIndex = '1000';

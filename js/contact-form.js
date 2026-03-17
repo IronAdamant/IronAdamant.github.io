@@ -14,7 +14,7 @@ function initContactForm() {
     const messageInput = document.getElementById('message');
     const messageCount = document.getElementById('message-count');
     const submitButton = form.querySelector('button[type="submit"]');
-    const buttonText = submitButton.querySelector('.button-text');
+    const buttonText = submitButton ? submitButton.querySelector('.button-text') : null;
     const formSuccess = document.getElementById('form-success');
 
     // Validation regexes

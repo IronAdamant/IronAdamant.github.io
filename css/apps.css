@@ -284,12 +284,6 @@
     color: var(--primary);
 }
 
-.price-label {
-    font-size: 0.9rem;
-    color: var(--text);
-    font-weight: 600;
-}
-
 .price-period {
     font-size: 1rem;
     color: var(--text-secondary);

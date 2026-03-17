@@ -69,7 +69,7 @@
         z-index: 1000;
       ">
         <span>New version available</span>
-        <button onclick="location.reload(true)" style="
+        <button class="vc-refresh-btn" style="
           background: #00ff9d;
           color: #000;
           border: none;
@@ -80,7 +80,7 @@
           font-size: 12px;
           font-weight: 600;
         ">Refresh</button>
-        <button onclick="this.parentElement.parentElement.remove()" style="
+        <button class="vc-dismiss-btn" style="
           background: transparent;
           color: #00ff9d;
           border: none;
@@ -91,8 +91,11 @@
         ">&times;</button>
       </div>
     `;
-    
+
     document.body.appendChild(notice);
+
+    notice.querySelector('.vc-refresh-btn').addEventListener('click', () => location.reload());
+    notice.querySelector('.vc-dismiss-btn').addEventListener('click', () => notice.remove());
     
     // Auto-hide after 30 seconds
     setTimeout(() => {
@@ -111,13 +114,8 @@
   }
   
   // Also check when returning to the page after being away
-  let wasHidden = false;
   document.addEventListener('visibilitychange', () => {
-    if (document.hidden) {
-      wasHidden = true;
-    } else if (wasHidden) {
-      wasHidden = false;
-      // Check for updates when returning to tab
+    if (!document.hidden) {
       checkForUpdates();
     }
   });
