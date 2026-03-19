@@ -38,6 +38,21 @@
     color: #ffd700;
 }
 
+.apps-intro-note a {
+    color: inherit;
+    text-decoration: underline;
+}
+
+.app-note {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.app-note i {
+    color: var(--primary);
+    margin-right: 6px;
+}
+
 /* ---- App Card ---- */
 .app-card {
     background: var(--bg-dark);
@@ -188,6 +203,11 @@
     color: var(--text-secondary);
 }
 
+.use-case-chip i {
+    color: var(--primary);
+    margin-right: 4px;
+}
+
 /* ---- Pricing Grid ---- */
 .pricing-section-title {
     font-size: 0.8rem;
@@ -195,6 +215,10 @@
     text-transform: uppercase;
     letter-spacing: 2px;
     margin-bottom: 1rem;
+}
+
+.pricing-section-title i {
+    margin-right: 6px;
 }
 
 .pricing-grid {

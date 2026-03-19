@@ -9,7 +9,6 @@ function initApp() {
     if (typeof initNavigation === 'function') initNavigation();
     if (typeof initScrollAnimations === 'function') initScrollAnimations();
     if (typeof initMobileNav === 'function') initMobileNav();
-    if (typeof initImageExpansion === 'function') initImageExpansion();
     if (typeof initContactForm === 'function') initContactForm();
 }
 

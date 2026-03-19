@@ -189,12 +189,6 @@
     will-change: transform, opacity;
 }
 
-.project-image img.loading {
-    background: linear-gradient(to right, var(--bg-dark), rgba(0, 255, 157, 0.15), var(--bg-dark));
-    background-size: 200% 100%;
-    animation: loading-gradient 1.5s ease-in-out infinite;
-}
-
 .project-image::before {
     content: "Loading...";
     position: absolute;

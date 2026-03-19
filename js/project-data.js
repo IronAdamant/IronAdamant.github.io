@@ -30,6 +30,24 @@
 
 const projectData = [
     {
+        id: "chisel",
+        title: "Chisel",
+        category: "ai",
+        shortDescription: "A test impact analysis and code intelligence tool for LLM agents — maps tests to code, scores risk, and suggests what to run after every change. Zero dependencies.",
+        fullDescription: "Chisel is a test impact analysis engine that gives LLM agents precise intelligence about the blast radius of code changes. Instead of running all tests or guessing with -k flags, agents get targeted test suggestions, risk scores, churn analysis, code ownership, and co-change coupling data. Features 15 MCP tools, supports Python/JS/TS/Go/Rust/C#/Java and 6 more languages, auto-detects pytest/Jest/Go test/Rust #[test]/Playwright, and runs via CLI, HTTP, or stdio MCP server. Zero runtime dependencies — pure Python stdlib with SQLite persistence.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/chisel-demo.png",
+        imageAlt: "Chisel analyzing a project showing risk map, test gaps, ownership, and coupling analysis",
+        techTags: ["Python", "MCP", "SQLite", "AI Tooling", "Test Intelligence"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/Chisel",
+                external: true
+            }
+        ]
+    },
+    {
         id: "stele",
         title: "Stele",
         category: "ai",
@@ -43,6 +61,24 @@ const projectData = [
                 text: "GitHub",
                 icon: "fab fa-github",
                 url: "https://github.com/IronAdamant/Stele",
+                external: true
+            }
+        ]
+    },
+    {
+        id: "pythonbol",
+        title: "PythonBol Translator",
+        category: "ai",
+        shortDescription: "An offline, zero-dependency COBOL-to-Python code generator for legacy system modernization — translates enterprise COBOL into valid Python skeletons with sensitivity detection and LLM briefs.",
+        fullDescription: "PythonBol Translator (cobol-safe-translator) converts enterprise COBOL programs into syntactically valid Python skeleton code. Tested on 5,282+ COBOL files across 42 real-world projects with 100% valid output. Features include EXEC SQL to DB-API 2.0 code generation, PII/sensitivity detection, LLM translation briefs for AI-assisted completion, interactive validation, and batch processing with copybook resolution. Includes an MCP server for integration with Claude Code, Cursor, and other AI coding assistants. 1,006 tests, zero runtime dependencies — pure Python stdlib.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/PythonBol-Translator/main/docs/images/validation-report.png",
+        imageAlt: "PythonBol validation report showing COBOL files translated to valid Python across 42 projects",
+        techTags: ["Python", "COBOL", "MCP", "Code Generation", "Legacy Modernization"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/PythonBol-Translator",
                 external: true
             }
         ]
@@ -139,6 +175,24 @@ const projectData = [
                 text: "GitHub",
                 icon: "fab fa-github",
                 url: "https://github.com/IronAdamant/Console-logger",
+                external: true
+            }
+        ]
+    },
+    {
+        id: "autoclacker",
+        title: "AutoClacker",
+        category: "application",
+        shortDescription: "A cross-platform click and keypress automation tool built with Avalonia UI and .NET, with native platform support for Windows, Linux, and macOS.",
+        fullDescription: "AutoClacker is a cross-platform automation tool for repetitive mouse clicks and keyboard presses. It features dual-mode operation (mouse clicks and keyboard key presses), configurable intervals from 10–2000ms, global hotkey support (works even when the app isn't focused), and persistent JSON settings. Built with Avalonia UI for a modern Fluent design, it uses native P/Invoke on Windows, X11/XTest on Linux, and Cocoa APIs on macOS — no wrappers or shims. Self-contained builds require no runtime installation.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/autoclacker-screenshot.png",
+        imageAlt: "AutoClacker interface showing mouse and keyboard automation controls with interval slider",
+        techTags: ["C#", ".NET", "Avalonia UI", "Cross-Platform", "Native APIs"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/AutoClacker",
                 external: true
             }
         ]
