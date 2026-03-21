@@ -48,19 +48,25 @@ const projectData = [
         ]
     },
     {
-        id: "stele",
-        title: "Stele",
+        id: "stele-context",
+        title: "stele-context",
         category: "ai",
-        shortDescription: "A local context cache for LLM agents with semantic chunking, HNSW vector search, multi-agent safety, and a real MCP server — zero required dependencies.",
-        fullDescription: "Stele helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code, text, images, PDFs, audio, video), stored in SQLite, and an HNSW vector index enables fast O(log n) retrieval. Features include symbol graph with cross-file impact analysis, multi-agent safety with per-document locking and conflict audit logs, change detection via SHA-256 hashing, session rollback, and both MCP (stdio) and HTTP REST server modes. Built for solo developers running multiple LLM agents on the same local machine. Runs 100% offline with zero required dependencies — pure Python stdlib.",
-        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/stele-mcp-demo.png",
-        imageAlt: "Stele MCP server running stats and indexing in Claude Code",
+        shortDescription: "A local context cache for LLM agents with semantic chunking, hybrid HNSW + BM25 search, multi-agent safety, and 42 MCP tools — zero required dependencies.",
+        fullDescription: "stele-context helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code with tree-sitter AST support, text, images, PDFs, audio, video), stored in SQLite, and a hybrid HNSW vector + BM25 keyword index enables fast O(log n) retrieval. Features include symbol graph with cross-file impact analysis, multi-agent safety with per-document read-write locking and conflict audit logs, change detection via SHA-256 hashing, session rollback, annotations, configurable via .stele-context.toml, and both MCP (stdio) and HTTP REST server modes with 42 MCP tools. 573 tests. Built for solo developers running multiple LLM agents on the same local machine. Runs 100% offline with zero required dependencies — pure Python stdlib.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/stele-context-search-demo.png",
+        imageAlt: "stele-context semantic search results with similarity scores across indexed Python source files",
         techTags: ["Python", "MCP", "SQLite", "Vector Search", "AI Tooling", "Multi-Agent"],
         links: [
             {
                 text: "GitHub",
                 icon: "fab fa-github",
-                url: "https://github.com/IronAdamant/Stele",
+                url: "https://github.com/IronAdamant/stele-context",
+                external: true
+            },
+            {
+                text: "PyPI",
+                icon: "fas fa-box",
+                url: "https://pypi.org/project/stele-context/",
                 external: true
             }
         ]
@@ -69,16 +75,22 @@ const projectData = [
         id: "pythonbol",
         title: "PythonBol Translator",
         category: "ai",
-        shortDescription: "An offline, zero-dependency COBOL-to-Python code generator for legacy system modernization — translates enterprise COBOL into valid Python skeletons with sensitivity detection and LLM briefs.",
-        fullDescription: "PythonBol Translator (cobol-safe-translator) converts enterprise COBOL programs into syntactically valid Python skeleton code. Tested on 5,282+ COBOL files across 42 real-world projects with 100% valid output. Features include EXEC SQL to DB-API 2.0 code generation, PII/sensitivity detection, LLM translation briefs for AI-assisted completion, interactive validation, and batch processing with copybook resolution. Includes an MCP server for integration with Claude Code, Cursor, and other AI coding assistants. 1,006 tests, zero runtime dependencies — pure Python stdlib.",
+        shortDescription: "An offline, zero-dependency COBOL-to-Python code generator for legacy system modernization — translates enterprise COBOL into valid Python skeletons with 41 intrinsic functions and full middleware support.",
+        fullDescription: "PythonBol Translator (cobol-safe-translator) converts enterprise COBOL programs into syntactically valid Python skeleton code. Tested on 5,288 COBOL files across 32 real-world projects with 100% syntax validity and 100% full validation. Features include 41 FUNCTION intrinsics, EXEC SQL to DB-API 2.0 translation, EXEC CICS hints, REPORT WRITER and SCREEN SECTION support, copybook resolution with recursive expansion and REPLACING, nested programs, PII/sensitivity detection, LLM translation briefs, and batch processing. Runtime adapters preserve COBOL semantics (CobolDecimal fixed-point, CobolString, FileAdapter). Includes an MCP server for integration with Claude Code, Cursor, and other AI coding assistants. 1,031 tests, zero runtime dependencies — pure Python stdlib.",
         imageSrc: "https://raw.githubusercontent.com/IronAdamant/PythonBol-Translator/main/docs/images/validation-report.png",
-        imageAlt: "PythonBol validation report showing COBOL files translated to valid Python across 42 projects",
+        imageAlt: "PythonBol validation report showing 5,288 COBOL files translated to valid Python across 32 projects",
         techTags: ["Python", "COBOL", "MCP", "Code Generation", "Legacy Modernization"],
         links: [
             {
                 text: "GitHub",
                 icon: "fab fa-github",
                 url: "https://github.com/IronAdamant/PythonBol-Translator",
+                external: true
+            },
+            {
+                text: "PyPI",
+                icon: "fas fa-box",
+                url: "https://pypi.org/project/cobol-safe-translator/",
                 external: true
             }
         ]
