@@ -41,13 +41,13 @@ header .container {
     height: 100%;
 }
 
-/* Navigation */
-nav {
+/* Desktop Navigation (scoped to header to avoid leaking into .mobile-nav) */
+header nav {
     display: flex;
     align-items: center;
 }
 
-nav ul {
+header nav ul {
     display: flex;
     list-style: none;
     gap: 0.5rem;
@@ -57,7 +57,7 @@ nav ul {
     align-items: center;
 }
 
-nav a {
+header nav a {
     color: var(--text);
     text-decoration: none;
     font-size: 0.85rem;
@@ -75,7 +75,7 @@ nav a {
     border-radius: 4px;
 }
 
-nav a::after {
+header nav a::after {
     content: '';
     position: absolute;
     bottom: 0;
@@ -88,19 +88,19 @@ nav a::after {
     transition: transform 0.3s ease;
 }
 
-nav a:hover,
-nav a.active {
+header nav a:hover,
+header nav a.active {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-nav a:hover::after,
-nav a.active::after {
+header nav a:hover::after,
+header nav a.active::after {
     transform: scaleX(1);
     background: var(--primary);
     box-shadow: 0 0 8px rgba(0, 255, 157, 0.6);
 }
 
-nav a.active {
+header nav a.active {
     border: 1px solid rgba(0, 255, 157, 0.3);
     box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
 }
