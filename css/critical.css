@@ -41,7 +41,7 @@ header {
     backdrop-filter: blur(10px);
     z-index: 1000;
     padding: .75rem 0;
-    height: 40px
+    height: 44px
 }
 
 .container {
@@ -58,7 +58,7 @@ img {
 @font-face {
     font-family: Orbitron;
     font-display: swap;
-    src: local('Orbitron')
+    src: url('../fonts/orbitron-latin.woff2') format('woff2'), local('Orbitron')
 }
 
 .page-transition {

@@ -26,7 +26,7 @@ header {
     backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(0, 0, 0, 0.4);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    height: 40px;
+    height: 44px;
     display: flex;
     align-items: center;
 }
@@ -60,16 +60,15 @@ nav ul {
 nav a {
     color: var(--text);
     text-decoration: none;
-    font-size: 0.8rem;
-    padding: 4px 15px;
+    font-size: 0.85rem;
+    padding: 6px 16px;
     position: relative;
-    transition: background-color 0.3s ease, text-shadow 0.3s ease;
+    transition: background-color var(--transition-duration) var(--transition-timing);
     background-color: rgba(0, 0, 0, 0.3);
     border: none;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 255, 157, 0.3);
     letter-spacing: 1px;
     overflow: hidden;
     margin: 0 3px;
@@ -91,7 +90,6 @@ nav a::after {
 
 nav a:hover,
 nav a.active {
-    text-shadow: 0 0 5px rgba(0, 255, 157, 0.5);
     background-color: rgba(0, 0, 0, 0.5);
 }
 
@@ -109,7 +107,7 @@ nav a.active {
 
 /* Main Content */
 main {
-    padding-top: 40px;
+    padding-top: 44px;
 }
 
 /* Hero Section - absolute positioning below fixed header */
@@ -139,21 +137,19 @@ main {
 }
 
 .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     margin: 0 auto 1rem;
     color: var(--text);
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 8px rgba(0, 0, 0, 0.4);
+    line-height: 1.7;
 }
 
 .hero-title {
     font-size: 3rem;
     margin-bottom: 0.5rem;
-    color: var(--text);
-    text-shadow: 0 0 20px rgba(0, 255, 157, 0.6), 0 0 3px rgba(0, 0, 0, 0.9);
+    color: var(--primary);
     position: relative;
     z-index: 1;
     letter-spacing: 2px;
-    animation: title-pulse 3s ease-in-out infinite;
 }
 
 .hero .cta-buttons {
@@ -180,7 +176,6 @@ footer .container {
 footer p {
     margin-bottom: 1rem;
     color: var(--text);
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 footer .social-links {
@@ -192,7 +187,6 @@ footer .social-links a {
     color: var(--text);
     font-size: 1.5rem;
     transition: color 0.3s ease, transform 0.3s ease;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 footer .social-links a:hover {
@@ -214,7 +208,6 @@ footer .social-links a:hover {
 .section-title,
 .section-text {
     background: transparent;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 /* Contact & Projects Page Layout */

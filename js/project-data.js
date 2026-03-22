@@ -33,8 +33,8 @@ const projectData = [
         id: "chisel",
         title: "Chisel",
         category: "ai",
-        shortDescription: "A test impact analysis and code intelligence tool for LLM agents — maps tests to code, scores risk, and suggests what to run after every change. Zero dependencies.",
-        fullDescription: "Chisel is a test impact analysis engine that gives LLM agents precise intelligence about the blast radius of code changes. Instead of running all tests or guessing with -k flags, agents get targeted test suggestions, risk scores, churn analysis, code ownership, and co-change coupling data. Features 15 MCP tools, supports Python/JS/TS/Go/Rust/C#/Java and 6 more languages, auto-detects pytest/Jest/Go test/Rust #[test]/Playwright, and runs via CLI, HTTP, or stdio MCP server. Zero runtime dependencies — pure Python stdlib with SQLite persistence.",
+        shortDescription: "A test impact analysis and code intelligence tool for LLM agents — maps tests to code, scores risk, and suggests what to run after every change. 15 MCP tools, 12 languages, zero dependencies.",
+        fullDescription: "Chisel is a test impact analysis engine that gives LLM agents precise intelligence about the blast radius of code changes. Instead of running all tests or guessing with -k flags, agents get targeted test suggestions, risk scores, churn analysis, code ownership, and co-change coupling data. Features 15 MCP tools, supports 12 languages (Python, JS/TS, Go, Rust, C#, Java, Kotlin, C/C++, Swift, PHP, Ruby, Dart), auto-detects 13 test frameworks (pytest, Jest, Go test, Rust #[test], Playwright, xUnit/NUnit/MSTest, JUnit, XCTest, PHPUnit, RSpec, Minitest, gtest, Dart test), and runs via CLI, HTTP, or stdio MCP server. Zero runtime dependencies — pure Python stdlib with SQLite persistence. Requires Python 3.11+.",
         imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/chisel-demo.png",
         imageAlt: "Chisel analyzing a project showing risk map, test gaps, ownership, and coupling analysis",
         techTags: ["Python", "MCP", "SQLite", "AI Tooling", "Test Intelligence"],
@@ -44,6 +44,12 @@ const projectData = [
                 icon: "fab fa-github",
                 url: "https://github.com/IronAdamant/Chisel",
                 external: true
+            },
+            {
+                text: "PyPI",
+                icon: "fas fa-box",
+                url: "https://pypi.org/project/chisel-test-impact/",
+                external: true
             }
         ]
     },
@@ -51,8 +57,8 @@ const projectData = [
         id: "stele-context",
         title: "stele-context",
         category: "ai",
-        shortDescription: "A local context cache for LLM agents with semantic chunking, hybrid HNSW + BM25 search, multi-agent safety, and 42 MCP tools — zero required dependencies.",
-        fullDescription: "stele-context helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code with tree-sitter AST support, text, images, PDFs, audio, video), stored in SQLite, and a hybrid HNSW vector + BM25 keyword index enables fast O(log n) retrieval. Features include symbol graph with cross-file impact analysis, multi-agent safety with per-document read-write locking and conflict audit logs, change detection via SHA-256 hashing, session rollback, annotations, configurable via .stele-context.toml, and both MCP (stdio) and HTTP REST server modes with 42 MCP tools. 573 tests. Built for solo developers running multiple LLM agents on the same local machine. Runs 100% offline with zero required dependencies — pure Python stdlib.",
+        shortDescription: "A local context cache for LLM agents with semantic chunking, hybrid HNSW + BM25 search, multi-agent safety, and 42 MCP tools — 739 tests, zero required dependencies.",
+        fullDescription: "stele-context helps LLM agents avoid re-reading unchanged files by caching chunk data with semantic search. Documents are routed through modality-specific chunkers (code with tree-sitter AST support, text, images, PDFs, audio, video), stored in SQLite, and a hybrid HNSW vector + BM25 keyword index enables fast O(log n) retrieval. Features include symbol graph with cross-file impact analysis, multi-agent safety with per-document read-write locking and conflict audit logs, change detection via SHA-256 hashing, session rollback, annotations, configurable via .stele-context.toml, and both MCP (stdio) and HTTP REST server modes with 42 MCP tools. 739 tests. Built for solo developers running multiple LLM agents on the same local machine. Runs 100% offline with zero required dependencies — pure Python stdlib. Requires Python 3.9+.",
         imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/stele-context-search-demo.png",
         imageAlt: "stele-context semantic search results with similarity scores across indexed Python source files",
         techTags: ["Python", "MCP", "SQLite", "Vector Search", "AI Tooling", "Multi-Agent"],

@@ -16,14 +16,13 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    transition-property: background, color, box-shadow, transform, text-shadow, border-color;
+    transition-property: background, color, box-shadow, transform, border-color;
     transition-duration: var(--transition-duration);
     transition-timing-function: var(--transition-timing);
     text-decoration: none;
     position: relative;
     overflow: hidden;
     line-height: 1.2;
-    text-shadow: none;
 }
 
 .btn:focus {
@@ -47,7 +46,6 @@
     color: var(--primary);
     box-shadow: 0 0 15px var(--primary);
     transform: translateY(-2px);
-    text-shadow: 0 0 3px rgba(0, 0, 0, 0.8), 0 0 10px var(--primary);
 }
 
 /* Button variants */
@@ -234,7 +232,6 @@
     font-weight: 600;
     font-size: 0.9rem;
     margin-right: 0.5rem;
-    text-shadow: 0 0 3px rgba(0, 255, 157, 0.4);
 }
 
 .meta-value {
@@ -403,7 +400,6 @@
     align-items: center;
     margin-bottom: 1.5rem;
     color: var(--text);
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 .contact-info i {
@@ -423,7 +419,6 @@
     margin-bottom: 0.5rem;
     color: var(--text);
     font-weight: 500;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 .form-group input,
@@ -436,7 +431,6 @@
     color: var(--text);
     font-family: 'Orbitron', sans-serif;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 .form-group input:focus,
@@ -456,7 +450,6 @@
     font-size: 0.85rem;
     margin-top: 0.5rem;
     text-align: right;
-    text-shadow: 0 0 2px rgba(0, 0, 0, 0.8);
 }
 
 .character-count span {
@@ -501,7 +494,6 @@
 /* Highlight text (about section) */
 .highlight {
     color: var(--primary);
-    text-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
 }
 
 /* Contact page social links */

@@ -83,18 +83,6 @@
     }
 }
 
-@keyframes title-pulse {
-
-    0%,
-    100% {
-        text-shadow: 0 0 15px rgba(0, 255, 157, 0.6);
-    }
-
-    50% {
-        text-shadow: 0 0 25px rgba(0, 255, 157, 0.8);
-    }
-}
-
 @keyframes gradient-shift {
     0% {
         background-position: 0% 50%;
