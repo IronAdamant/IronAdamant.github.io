@@ -108,12 +108,12 @@
     .hamburger {
         display: flex;
     }
-    
-    /* Hide desktop nav on mobile */
+
+    /* Hide desktop nav on mobile — !important to beat async-loaded main.css */
     header nav ul {
-        display: none;
+        display: none !important;
     }
-    
+
     /* Adjust header for hamburger */
     header .container {
         display: flex;

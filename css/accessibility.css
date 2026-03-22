@@ -103,8 +103,8 @@ textarea:focus,
 }
 
 /* Ensure interactive elements are easily tappable on mobile */
-button,
-a,
+button:not(header button),
+a:not(header a),
 [role="button"],
 [tabindex] {
     min-height: 44px;
