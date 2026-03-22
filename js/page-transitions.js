@@ -49,8 +49,7 @@ function initPageTransitions() {
     document.addEventListener('click', handlePageTransition);
 
     // Prefetch pages on hover
-    const links = document.getElementsByTagName('a');
-    Array.from(links).forEach(link => {
+    document.querySelectorAll('a').forEach(link => {
         if (link.href &&
             link.href.startsWith(window.location.origin) &&
             !link.href.includes('#') &&

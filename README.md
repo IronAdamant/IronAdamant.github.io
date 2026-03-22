@@ -50,20 +50,25 @@ Modular JS structure (loaded via separate files):
 
 | Module | Purpose | LOC |
 |--------|---------|-----|
-| `navigation.js` | Smooth scroll, filtering, mobile nav | ~130 |
-| `contact-form.js` | Form validation, submission, spam protection | ~260 |
-| `page-transitions.js` | Page loading transitions | ~170 |
-| `image-modal.js` | Image expansion and lightbox | ~190 |
-| `main.js` | Entry point (orchestrates all) | ~55 |
+| `navigation.js` | Smooth scroll, mobile nav, scroll animations | ~105 |
+| `contact-form.js` | Form validation, submission, spam protection | ~265 |
+| `page-transitions.js` | Page loading transitions | ~110 |
+| `image-modal.js` | Image expansion and lightbox | ~105 |
+| `project-loader.js` | Dynamic project rendering and filtering | ~210 |
+| `project-data.js` | Project definitions and helpers | ~250 |
+| `sw-register.js` | Service worker registration and updates | ~135 |
+| `main.js` | Entry point (orchestrates all) | ~32 |
 
 ## Cache Busting
 
 Before commits:
 ```bash
-node update-version.js
+node build.js          # patch bump + full rebuild
+node build.js minor    # minor bump + rebuild
+node build.js --css-only  # CSS injection only, no version bump
 ```
 
-Updates version in `manifest.json` for cache busting.
+Updates version in `manifest.json`, `sw.js`, injects critical CSS, and cache-busts all local assets.
 
 ## AI-Assisted Development
 

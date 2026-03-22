@@ -5,3 +5,6 @@ wiki-local/
 
 # Moved MD files
 MD_Files/
+
+# Backup files
+*.bak

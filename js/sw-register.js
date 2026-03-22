@@ -1,29 +1,28 @@
 // Register Service Worker with automatic update checking
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
-    navigator.serviceWorker.register('/sw.js')
-      .then(registration => {
-        
-        // Check for updates every 30 seconds when page is visible
-        setInterval(() => {
-          if (!document.hidden) {
-            registration.update();
+  window.addEventListener('load', async () => {
+    try {
+      const registration = await navigator.serviceWorker.register('/sw.js');
+
+      // Check for updates every 30 seconds when page is visible
+      setInterval(() => {
+        if (!document.hidden) {
+          registration.update();
+        }
+      }, 30000);
+
+      // Listen for updates
+      registration.addEventListener('updatefound', () => {
+        const newWorker = registration.installing;
+        newWorker.addEventListener('statechange', () => {
+          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+            showUpdateNotification();
           }
-        }, 30000);
-        
-        // Listen for updates
-        registration.addEventListener('updatefound', () => {
-          const newWorker = registration.installing;
-          newWorker.addEventListener('statechange', () => {
-            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
-              showUpdateNotification();
-            }
-          });
         });
-      })
-      .catch(err => {
-        console.warn('Service worker registration failed:', err);
       });
+    } catch (err) {
+      console.warn('Service worker registration failed:', err);
+    }
   });
 
   // Listen for messages from service worker

@@ -16,7 +16,9 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     cursor: pointer;
-    transition: background var(--transition-duration) var(--transition-timing), color var(--transition-duration) var(--transition-timing), box-shadow var(--transition-duration) var(--transition-timing), transform var(--transition-duration) var(--transition-timing), text-shadow var(--transition-duration) var(--transition-timing), border-color var(--transition-duration) var(--transition-timing);
+    transition-property: background, color, box-shadow, transform, text-shadow, border-color;
+    transition-duration: var(--transition-duration);
+    transition-timing-function: var(--transition-timing);
     text-decoration: none;
     position: relative;
     overflow: hidden;

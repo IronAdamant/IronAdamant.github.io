@@ -29,7 +29,11 @@ jobs:
           rsync -av \
             --exclude='*.md' \
             --exclude='wiki-local/' \
-            --exclude='.agent/' \
+            --exclude='.claude/'
+            --exclude='.stele/'
+            --exclude='.stele-context/'
+            --exclude='.chisel/'
+            --exclude='*.bak' \
             --exclude='.github/' \
             --exclude='.git/' \
             --exclude='deploy/' \
