@@ -24,10 +24,9 @@
         line-height: 1.8;
     }
 
-    nav a {
-        font-size: 0.9rem;
-        padding: 8px 12px;
-        margin: 0 2px;
+    /* Force-hide desktop nav on mobile — hamburger menu takes over */
+    header nav ul {
+        display: none !important;
     }
 
     .project-grid {
@@ -51,7 +50,7 @@
     }
 
     .featured-projects {
-        margin-top: 180px;
+        margin-top: 230px;
     }
 
     .project-image {
@@ -124,6 +123,11 @@
 
     .btn {
         width: 100%;
+    }
+
+    /* More margin needed because stacked buttons make hero taller */
+    .featured-projects {
+        margin-top: 300px;
     }
 
     .pricing-grid {
