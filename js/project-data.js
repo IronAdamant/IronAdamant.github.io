@@ -78,6 +78,30 @@ const projectData = [
         ]
     },
     {
+        id: "trammel",
+        title: "Trammel",
+        category: "ai",
+        shortDescription: "A pure-Python planning and execution harness for LLM-assisted coding — decomposes goals into dependency-aware strategies, explores parallel beams, learns from failures, and caches recipes. 27 MCP tools, zero dependencies.",
+        fullDescription: "Trammel is a planning and execution harness designed for LLM coding agents. It decomposes multi-file coding goals into dependency-aware step sequences, explores 9 parallel strategy variants via beam search (bottom-up, top-down, risk-first, critical-path, cohesion, minimal-change, and more), runs incremental verification in isolated temp copies, and learns from failures via persistent constraints that prevent known-bad patterns from being re-attempted. Successful strategies are cached as reusable recipes in a local SQLite database with trigram-based retrieval. Features dependency analysis for 10+ languages (Python AST, TypeScript, Go, Rust, C/C++, Java/Kotlin, C#, Ruby, PHP, Swift, Dart, Zig), automatic test discovery and execution, and 27 MCP tools for integration with Claude Code, Cursor, and other AI assistants. 242 tests, zero runtime dependencies — pure Python stdlib. Requires Python 3.10+.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/IronAdamant.github.io/main/images/trammel-demo.png",
+        imageAlt: "Trammel planning and execution harness showing dependency-aware strategy decomposition",
+        techTags: ["Python", "MCP", "SQLite", "AI Tooling", "Beam Search"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/Trammel",
+                external: true
+            },
+            {
+                text: "PyPI",
+                icon: "fas fa-box",
+                url: "https://pypi.org/project/trammel/",
+                external: true
+            }
+        ]
+    },
+    {
         id: "pythonbol",
         title: "PythonBol Translator",
         category: "ai",
