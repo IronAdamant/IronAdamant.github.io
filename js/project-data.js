@@ -30,6 +30,30 @@
 
 const projectData = [
     {
+        id: "coordinationhub",
+        title: "CoordinationHub",
+        category: "ai",
+        shortDescription: "A shared notice-board that stops multiple AI coding assistants from overwriting each other's work — file locks, agent tree, task registry, and a live SVG dashboard. 50 MCP tools, zero dependencies.",
+        fullDescription: "CoordinationHub is a local coordination layer for multi-agent AI coding workflows. When several assistants work on the same repo, it tracks who's alive, who holds which file, which tasks are blocked, and where edits are crossing into another agent's territory. Features TTL'd file and region locking (two agents can edit non-overlapping ranges of the same file), scope enforcement with path-prefix boundaries, cascade cleanup when agents die, globally unique hierarchical agent IDs (hub.PID.seq.seq), inter-agent messaging, cross-agent dependencies with auto-satisfy on completion, contention hotspot ranking, and a pure-SVG live dashboard fed by SSE at http://127.0.0.1:9898. Ships with Claude Code hooks out of the box (SessionStart, PreToolUse/PostToolUse for Write/Edit, SubagentStart/Stop, SessionEnd) — every agent self-registers, every edit acquires a lock, nothing is orphaned. 50 MCP tools, 75 CLI commands, 404 tests, SQLite-backed with WAL mode. Zero runtime dependencies — pure Python stdlib. Requires Python 3.10+.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/coordinationhub/main/screenshots/dashboard.png",
+        imageAlt: "CoordinationHub dashboard showing agent tree, task registry, work intent board, handoffs, dependencies, and active file locks",
+        techTags: ["Python", "MCP", "SQLite", "AI Tooling", "Multi-Agent"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/coordinationhub",
+                external: true
+            },
+            {
+                text: "PyPI",
+                icon: "fas fa-box",
+                url: "https://pypi.org/project/coordinationhub/",
+                external: true
+            }
+        ]
+    },
+    {
         id: "chisel",
         title: "Chisel",
         category: "ai",
