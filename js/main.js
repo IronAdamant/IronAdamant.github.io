@@ -1,31 +1,24 @@
 /**
  * Main JavaScript Entry Point
- * Orchestrates all modular JS components
+ * Orchestrates all modular JS components.
+ * Page transitions are handled natively by the View Transitions API (see animations.css).
  */
 
 // ====== INITIALIZATION ======
 function initApp() {
-    // Initialize all modules
-    if (typeof initNavigation === 'function') initNavigation();
+    // Initialize all modules (each page loads only the modules it needs)
     if (typeof initScrollAnimations === 'function') initScrollAnimations();
     if (typeof initMobileNav === 'function') initMobileNav();
     if (typeof initContactForm === 'function') initContactForm();
 }
 
 // ====== BOOTSTRAP ======
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => {
-        initApp();
-        if (typeof initPageTransitions === 'function') initPageTransitions();
-        if (typeof handlePageLoad === 'function') handlePageLoad();
-    });
-} else {
+// Deferred scripts run while readyState is 'interactive', BEFORE DOMContentLoaded
+// fires — so wait for it unless the document is already fully loaded. This keeps
+// initApp after project-loader's own DOMContentLoaded handler (registered earlier),
+// so dynamically rendered cards exist by the time the observers initialize.
+if (document.readyState === 'complete') {
     initApp();
-    if (typeof initPageTransitions === 'function') initPageTransitions();
-    if (typeof handlePageLoad === 'function') handlePageLoad();
+} else {
+    document.addEventListener('DOMContentLoaded', initApp);
 }
-
-// Handle back/forward navigation
-window.addEventListener('pageshow', () => {
-    if (typeof handlePageLoad === 'function') handlePageLoad();
-});

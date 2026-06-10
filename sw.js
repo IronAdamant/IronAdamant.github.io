@@ -1,5 +1,5 @@
 // Service Worker for automatic cache management and version control
-const CACHE_VERSION = 'v1.0.15';
+const CACHE_VERSION = 'v1.0.17';
 const CACHE_NAME = `iron-adamant-portfolio-${CACHE_VERSION}`;
 const VERSION_CACHE = 'version-cache';
 const urlsToCache = [
@@ -12,8 +12,8 @@ const urlsToCache = [
   '/css/main.css',
   '/css/accessibility.css',
   '/css/mobile-nav.css',
+  '/css/lightbox.css',
   '/js/navigation.js',
-  '/js/page-transitions.js',
   '/js/image-modal.js',
   '/js/main.js',
   '/js/contact-form.js',
@@ -22,6 +22,8 @@ const urlsToCache = [
   '/js/sw-register.js',
   '/css/apps.css',
   '/fonts/orbitron-latin.woff2',
+  '/images/icons.svg',
+  '/favicon.png',
   '/manifest.json'
 ];
 

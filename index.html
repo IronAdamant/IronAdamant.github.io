@@ -11,6 +11,7 @@
         /* Anti-FOUC: parsed before anything renders */
         html {
             background-color: #050505 !important;
+            color-scheme: dark;
         }
 
         :root {
@@ -67,30 +68,15 @@
             src: url('../fonts/orbitron-latin.woff2') format('woff2'), local('Orbitron')
         }
 
-        .page-transition {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #050505;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center
-        }
-
         .hero {
             position: relative;
-            z-index: 10;
-            display: flex;
-            align-items: center;
-            padding-top: 1rem
+            z-index: 5;
+            padding: 3rem 0 1rem
         }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="build-version" content="2026-04-15T11:12:29.717Z">
+    <meta name="build-version" content="2026-06-10T15:09:05.848Z">
 
     <meta name="format-detection" content="telephone=no">
 
@@ -103,25 +89,22 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="css/main.css?v=1776251549719" as="style">
+    <link rel="preload" href="css/main.css?v=1781104145848" as="style">
 
     <!-- Load non-critical CSS asynchronously -->
-    <link rel="stylesheet" href="css/main.css?v=1776251549719" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/accessibility.css?v=1776251549719" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/main.css?v=1781104145848" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/accessibility.css?v=1781104145848" media="print" onload="this.media='all'">
 
-    <link rel="stylesheet" href="css/mobile-nav.css?v=1776251549719" media="all">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?v=1766516293480"
-        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/mobile-nav.css?v=1781104145848" media="all">
+    <link rel="stylesheet" href="css/lightbox.css?v=1781104145848" media="print" onload="this.media='all'">
 
     <!-- Fallback if JavaScript is disabled -->
     <noscript>
-        <link rel="stylesheet" href="css/main.css?v=1776251549719">
-        <link rel="stylesheet" href="css/accessibility.css?v=1776251549719">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?v=1766516293480">
+        <link rel="stylesheet" href="css/main.css?v=1781104145848">
+        <link rel="stylesheet" href="css/accessibility.css?v=1781104145848">
     </noscript>
 
     <!-- Web App Manifest for PWA -->
@@ -129,9 +112,24 @@
     <meta name="theme-color" content="#00ff9d">
 
     <!-- DNS Prefetch for faster external resource loading -->
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="https://github.com">
 
+    <meta property="og:title" content="Iron_Adamant - Portfolio">
+    <meta property="og:description"
+        content="Software developer portfolio showcasing practical tools and applications built with AI-assisted development.">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ironadamant.com/">
+    <meta property="og:url" content="https://ironadamant.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron_Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <script type="speculationrules">
+    {
+        "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+    }
+    </script>
 </head>
 
 <body>
@@ -200,28 +198,23 @@
         <div class="container">
             <p>&copy; 2026 Iron_Adamant. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
                 <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
-                        class="fab fa-x-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><i
-                        class="fas fa-coffee"></i></a>
+                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#coffee"/></svg></a>
             </div>
         </div>
     </footer>
 
     <!-- Deferred scripts for better performance -->
-    <script src="js/project-data.js?v=1776251549719" defer></script>
-    <script src="js/project-loader.js?v=1776251549719" defer></script>
-    <script src="js/navigation.js?v=1776251549719" defer></script>
-    <script src="js/image-modal.js?v=1776251549719" defer></script>
-    <script src="js/page-transitions.js?v=1776251549719" defer></script>
-    <script src="js/main.js?v=1776251549719" defer></script>
+    <script src="js/project-data.js?v=1781104145848" defer></script>
+    <script src="js/project-loader.js?v=1781104145848" defer></script>
+    <script src="js/navigation.js?v=1781104145848" defer></script>
+    <script src="js/image-modal.js?v=1781104145848" defer></script>
+    <script src="js/main.js?v=1781104145848" defer></script>
 
-    <script src="js/sw-register.js?v=1776251549719" defer></script>
+    <script src="js/sw-register.js?v=1781104145848" defer></script>
 </body>
 
 </html>

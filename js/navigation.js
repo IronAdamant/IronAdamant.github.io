@@ -1,66 +1,35 @@
 /**
- * Navigation Module - Smooth scroll, mobile nav, project filtering, scroll animations
+ * Navigation Module - Mobile nav drawer and scroll-reveal animations.
+ * Smooth anchor scrolling is handled by CSS (scroll-behavior + scroll-padding-top in base.css).
  */
 
-// ====== NAVIGATION AND FILTERING ======
-function initNavigation() {
-    // Optimized smooth scrolling for anchor links
-    const handleSmoothScroll = (e) => {
-        const targetId = e.currentTarget.getAttribute('href');
-        if (targetId === '#' || !targetId.startsWith('#')) return;
-
-        e.preventDefault();
-        const targetElement = document.querySelector(targetId);
-        if (targetElement) {
-            window.scrollTo({
-                top: targetElement.offsetTop - 80,
-                behavior: 'smooth'
-            });
-        }
-    };
-
-    // Initialize smooth scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', handleSmoothScroll);
-    });
-}
-
-// ====== SCROLL ANIMATIONS ======
+// ====== SCROLL-REVEAL ANIMATIONS ======
+// Adds .in-view as cards enter the viewport; the hidden initial state lives in
+// animations.css behind @media (scripting: enabled), so content is never
+// hidden for no-JS visitors.
 function initScrollAnimations() {
-    const elements = document.querySelectorAll('.project-item, .project-card');
+    // Idempotent: only picks up elements not yet initialized, so it can be
+    // called again after dynamic renders (see project-loader.js)
+    const elements = [...document.querySelectorAll('.project-item, .project-card')]
+        .filter(el => !el.dataset.revealInit);
     if (elements.length === 0) return;
+    elements.forEach(el => { el.dataset.revealInit = 'true'; });
 
-    const animateOnScroll = () => {
-        const windowHeight = window.innerHeight;
-        elements.forEach(element => {
-            if (element.getBoundingClientRect().top < windowHeight - 100) {
-                element.style.opacity = '1';
-                element.style.transform = 'translateY(0)';
+    if (!('IntersectionObserver' in window)) {
+        elements.forEach(el => el.classList.add('in-view'));
+        return;
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+        for (const entry of entries) {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('in-view');
+                observer.unobserve(entry.target);
             }
-        });
-    };
-
-    // Throttle scroll handler to ~60fps
-    let ticking = false;
-    const onScroll = () => {
-        if (!ticking) {
-            requestAnimationFrame(() => {
-                animateOnScroll();
-                ticking = false;
-            });
-            ticking = true;
         }
-    };
+    }, { rootMargin: '0px 0px -60px 0px' });
 
-    // Set initial styles
-    elements.forEach(element => {
-        element.style.opacity = '0';
-        element.style.transform = 'translateY(30px)';
-        element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-
-    animateOnScroll();
-    window.addEventListener('scroll', onScroll, { passive: true });
+    elements.forEach(el => observer.observe(el));
 }
 
 // ====== MOBILE NAVIGATION ======
@@ -100,6 +69,5 @@ function initMobileNav() {
 }
 
 // Export for use in main.js
-window.initNavigation = initNavigation;
 window.initScrollAnimations = initScrollAnimations;
 window.initMobileNav = initMobileNav;

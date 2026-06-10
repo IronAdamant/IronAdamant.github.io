@@ -1,0 +1,60 @@
+/* Image Lightbox — native <dialog>, opened by image-modal.js.
+   Loaded on index.html and projects.html only. */
+
+.project-image {
+    cursor: zoom-in;
+}
+
+.project-image .expand-hint {
+    position: absolute;
+    bottom: 8px;
+    right: 8px;
+    color: var(--primary);
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.project-image:hover .expand-hint,
+.project-image:focus-visible .expand-hint {
+    opacity: 1;
+}
+
+/* The dialog itself lives in the browser top layer, so it can never be
+   clipped by ancestor containment/overflow (the bug in the old approach) */
+.lightbox {
+    border: none;
+    padding: 0;
+    background: transparent;
+    max-width: 92vw;
+    max-height: 92vh;
+}
+
+.lightbox::backdrop {
+    background: rgba(0, 0, 0, 0.92);
+}
+
+.lightbox img {
+    display: block;
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 4px;
+    box-shadow: 0 0 40px rgba(0, 255, 157, 0.15);
+    cursor: zoom-out;
+}
+
+.lightbox-hint {
+    margin: 0.75rem auto 0;
+    text-align: center;
+    color: var(--primary);
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+}

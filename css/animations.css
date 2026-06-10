@@ -1,53 +1,34 @@
 /* Animations - All keyframes and transitions */
 
-/* Page Transition Overlay */
-.page-transition {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: var(--bg-darker);
-    z-index: 9999;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease, visibility 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    pointer-events: none;
+/* Cross-document page transitions — native View Transitions API.
+   Browsers without support simply navigate instantly (progressive enhancement). */
+@view-transition {
+    navigation: auto;
 }
 
-.page-transition::before {
-    content: '';
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 40px;
-    height: 40px;
-    border: 3px solid rgba(0, 255, 157, 0.3);
-    border-top-color: var(--primary);
-    border-radius: 50%;
-    animation: spin 0.8s linear infinite;
-    opacity: 0.9;
-    will-change: transform;
+@media (prefers-reduced-motion: reduce) {
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+        animation: none !important;
+    }
 }
 
-.page-transition::after {
-    content: 'LOADING';
-    position: absolute;
-    top: 60%;
-    left: 50%;
-    transform: translateX(-50%);
-    color: var(--primary);
-    font-family: 'Orbitron', sans-serif;
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    opacity: 0.7;
-    animation: pulse 2s ease-in-out infinite;
+/* Scroll-reveal for project cards (IntersectionObserver adds .in-view, see
+   navigation.js). The hidden initial state only applies when scripting is
+   enabled and motion is allowed — content is never hidden for no-JS visitors
+   or reduced-motion users. */
+@media (scripting: enabled) and (prefers-reduced-motion: no-preference) {
+    .project-card,
+    .project-item {
+        transition: opacity 0.5s ease, transform 0.5s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .project-card:not(.in-view),
+    .project-item:not(.in-view) {
+        opacity: 0;
+        transform: translateY(30px);
+    }
 }
 
 /* Core Keyframes */

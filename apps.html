@@ -11,6 +11,7 @@
         /* Anti-FOUC: parsed before anything renders */
         html {
             background-color: #050505 !important;
+            color-scheme: dark;
         }
 
         :root {
@@ -66,23 +67,10 @@
             font-display: swap;
             src: url('../fonts/orbitron-latin.woff2') format('woff2'), local('Orbitron')
         }
-
-        .page-transition {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #050505;
-            z-index: 9999;
-            display: flex;
-            justify-content: center;
-            align-items: center
-        }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="build-version" content="2026-04-15T11:12:29.717Z">
+    <meta name="build-version" content="2026-06-10T15:09:05.848Z">
 
     <meta name="format-detection" content="telephone=no">
     <meta name="description"
@@ -91,26 +79,21 @@
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
 
     <!-- Resource hints for faster loading -->
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
 
-    <link rel="stylesheet" href="css/main.css?v=1776251549719" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/apps.css?v=1776251549719" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/accessibility.css?v=1776251549719" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/main.css?v=1781104145848" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/apps.css?v=1781104145848" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/accessibility.css?v=1781104145848" media="print" onload="this.media='all'">
 
-    <link rel="stylesheet" href="css/mobile-nav.css?v=1776251549719" media="all">
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?v=1766516293480"
-        media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="css/mobile-nav.css?v=1781104145848" media="all">
 
     <!-- Fallback if JavaScript is disabled -->
     <noscript>
-        <link rel="stylesheet" href="css/main.css?v=1776251549719">
-        <link rel="stylesheet" href="css/apps.css?v=1776251549719">
-        <link rel="stylesheet" href="css/accessibility.css?v=1776251549719">
-        <link rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css?v=1766516293480">
+        <link rel="stylesheet" href="css/main.css?v=1781104145848">
+        <link rel="stylesheet" href="css/apps.css?v=1781104145848">
+        <link rel="stylesheet" href="css/accessibility.css?v=1781104145848">
     </noscript>
 
     <!-- Web App Manifest for PWA -->
@@ -118,11 +101,22 @@
     <meta name="theme-color" content="#00ff9d">
 
     <!-- DNS Prefetch -->
-    <link rel="dns-prefetch" href="https://cdnjs.cloudflare.com">
 
     <meta property="og:title" content="Apps - Iron_Adamant">
     <meta property="og:description" content="Practical productivity software by Iron_Adamant — Checkpoint Projects and ConsistencyHub.">
     <meta name="twitter:card" content="summary_large_image">
+    <link rel="canonical" href="https://ironadamant.com/apps.html">
+    <meta property="og:url" content="https://ironadamant.com/apps.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron_Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <script type="speculationrules">
+    {
+        "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+    }
+    </script>
 </head>
 
 <body>
@@ -167,7 +161,7 @@
             <h1>Apps</h1>
             <p class="lead">Practical software products built to solve real problems.</p>
             <p class="apps-intro-note">
-                <i class="fas fa-tag"></i>
+                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tag"/></svg>
                 These are paid products with free tiers. For free, open-source tools see the
                 <a href="projects.html">Projects</a> page.
             </p>
@@ -184,19 +178,19 @@
                         <div class="app-header-links">
                             <a href="https://checkpointprojects.com" target="_blank" rel="noopener noreferrer"
                                 class="app-website-link">
-                                <i class="fas fa-external-link-alt"></i> checkpointprojects.com
+                                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> checkpointprojects.com
                             </a>
                             <span class="app-status live">Live</span>
-                            <span class="badge badge-proprietary"><i class="fas fa-lock"></i> Proprietary</span>
+                            <span class="badge badge-proprietary"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#lock"/></svg> Proprietary</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="use-case-chips">
-                    <span class="use-case-chip"><i class="fas fa-briefcase"></i>Personal Projects</span>
-                    <span class="use-case-chip"><i class="fas fa-tasks"></i>Task Management</span>
-                    <span class="use-case-chip"><i class="fas fa-mobile-alt"></i>Mobile-Friendly</span>
-                    <span class="use-case-chip"><i class="fas fa-download"></i>Works Offline</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#briefcase"/></svg>Personal Projects</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tasks"/></svg>Task Management</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#mobile"/></svg>Mobile-Friendly</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg>Works Offline</span>
                 </div>
 
                 <p class="app-description">
@@ -210,7 +204,7 @@
                     Export your data at any time to YAML, JSON, or CSV — no lock-in.
                 </p>
 
-                <p class="pricing-section-title"><i class="fas fa-tag"></i>Pricing</p>
+                <p class="pricing-section-title"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tag"/></svg>Pricing</p>
 
                 <div class="pricing-grid">
                     <!-- Free Tier -->
@@ -235,7 +229,7 @@
                         <div class="tier-cta">
                             <a href="https://checkpointprojects.com" target="_blank" rel="noopener noreferrer"
                                 class="btn-tier secondary">
-                                <i class="fas fa-external-link-alt"></i> Open App
+                                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Open App
                             </a>
                         </div>
                     </div>
@@ -257,13 +251,13 @@
                             <li><span class="feat-icon">&#10003;</span> License key via Gumroad</li>
                         </ul>
                         <div class="no-sub-callout">
-                            <i class="fas fa-ban"></i>
+                            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#ban"/></svg>
                             The only plan. No monthly fees, no subscriptions, ever.
                         </div>
                         <div class="tier-cta">
                             <a href="https://ironadamant.gumroad.com/l/qubtc" target="_blank" rel="noopener noreferrer"
                                 class="btn-tier primary">
-                                <i class="fas fa-shopping-cart"></i> Get Pro — $39
+                                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#cart"/></svg> Get Pro — $39
                             </a>
                         </div>
                     </div>
@@ -292,19 +286,19 @@
                         <div class="app-header-links">
                             <a href="https://consistencyhub.io" target="_blank" rel="noopener noreferrer"
                                 class="app-website-link">
-                                <i class="fas fa-external-link-alt"></i> consistencyhub.io
+                                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> consistencyhub.io
                             </a>
                             <span class="app-status live">Live</span>
-                            <span class="badge badge-proprietary"><i class="fas fa-lock"></i> Proprietary</span>
+                            <span class="badge badge-proprietary"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#lock"/></svg> Proprietary</span>
                         </div>
                     </div>
                 </div>
 
                 <div class="use-case-chips">
-                    <span class="use-case-chip"><i class="fas fa-book-open"></i>Fiction Writers</span>
-                    <span class="use-case-chip"><i class="fas fa-dice-d20"></i>TTRPG Game Masters</span>
-                    <span class="use-case-chip"><i class="fas fa-film"></i>Screenwriters</span>
-                    <span class="use-case-chip"><i class="fas fa-shield-alt"></i>Zero-Knowledge</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#book-open"/></svg>Fiction Writers</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#dice-d20"/></svg>TTRPG Game Masters</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#film"/></svg>Screenwriters</span>
+                    <span class="use-case-chip"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#shield"/></svg>Zero-Knowledge</span>
                 </div>
 
                 <p class="app-description">
@@ -321,11 +315,11 @@
                     — bring your own API key (ChatGPT, Claude, or others) only if you want it.
                 </p>
                 <p class="app-description app-note">
-                    <i class="fas fa-info-circle"></i>
+                    <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#info"/></svg>
                     A Microsoft account is required for OneDrive storage (free to create).
                 </p>
 
-                <p class="pricing-section-title"><i class="fas fa-tag"></i>Pricing</p>
+                <p class="pricing-section-title"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#tag"/></svg>Pricing</p>
 
                 <div class="pricing-grid">
                     <!-- Free Tier -->
@@ -351,7 +345,7 @@
                         <div class="tier-cta">
                             <a href="https://consistencyhub.io" target="_blank" rel="noopener noreferrer"
                                 class="btn-tier secondary">
-                                <i class="fas fa-external-link-alt"></i> Open App
+                                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Open App
                             </a>
                         </div>
                     </div>
@@ -364,7 +358,7 @@
                                 <span class="price-amount">$7</span><span class="price-period">&thinsp;/ month</span>
                                 <span class="price-sublabel">
                                     or <strong>$49 once</strong>
-                                    <span class="best-value-pill"><i class="fas fa-star"></i> Best Value</span>
+                                    <span class="best-value-pill"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#star"/></svg> Best Value</span>
                                 </span>
                                 <span class="price-savings">Lifetime pays off in 7 months — save $35+/yr</span>
                             </div>
@@ -379,7 +373,7 @@
                         <div class="tier-cta">
                             <a href="https://consistencyhub.io" target="_blank" rel="noopener noreferrer"
                                 class="btn-tier primary">
-                                <i class="fas fa-shopping-cart"></i> Get Pro — from $7/mo
+                                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#cart"/></svg> Get Pro — from $7/mo
                             </a>
                         </div>
                     </div>
@@ -402,25 +396,20 @@
         <div class="container">
             <p>&copy; 2026 Iron_Adamant. All rights reserved.</p>
             <div class="social-links">
-                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
-                        class="fab fa-github"></i></a>
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
                 <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><i
-                        class="fab fa-x-twitter"></i></a>
-                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i
-                        class="fab fa-linkedin"></i></a>
-                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><i
-                        class="fas fa-coffee"></i></a>
+                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#coffee"/></svg></a>
             </div>
         </div>
     </footer>
 
     <!-- Deferred scripts for better performance -->
-    <script src="js/navigation.js?v=1776251549719" defer></script>
-    <script src="js/page-transitions.js?v=1776251549719" defer></script>
-    <script src="js/main.js?v=1776251549719" defer></script>
+    <script src="js/navigation.js?v=1781104145848" defer></script>
+    <script src="js/main.js?v=1781104145848" defer></script>
 
-    <script src="js/sw-register.js?v=1776251549719" defer></script>
+    <script src="js/sw-register.js?v=1781104145848" defer></script>
 </body>
 
 </html>

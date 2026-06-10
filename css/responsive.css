@@ -1,4 +1,6 @@
-/* Responsive Styles - All media queries */
+/* Responsive Styles - All media queries.
+   Heading/hero font sizes are fluid via clamp() in base.css and layout.css,
+   so they need no overrides here. */
 
 /* Mobile Styles (max-width: 768px) */
 @media (max-width: 768px) {
@@ -7,64 +9,22 @@
         padding: 1rem;
     }
 
-    h1 {
-        font-size: clamp(2rem, 6vw, 2.8rem);
-    }
-
-    h2 {
-        font-size: clamp(1.6rem, 5vw, 2.2rem);
-    }
-
-    h3 {
-        font-size: clamp(1.3rem, 4vw, 1.6rem);
-    }
-
     p {
         font-size: 1rem;
         line-height: 1.8;
-    }
-
-    /* Force-hide desktop nav on mobile — hamburger menu takes over */
-    header nav ul {
-        display: none !important;
     }
 
     .project-grid {
         grid-template-columns: 1fr;
     }
 
-    .hero {
-        top: 50px;
-    }
-
     .hero .container {
         padding: 1.5rem;
-    }
-
-    .hero-title {
-        font-size: clamp(2rem, 7vw, 3rem);
-    }
-
-    .hero-subtitle {
-        font-size: clamp(1rem, 3vw, 1.15rem);
-    }
-
-    .featured-projects {
-        margin-top: 230px;
     }
 
     .project-image {
         height: 200px;
         margin-bottom: 1rem;
-    }
-
-    /* Fix sections padding for mobile */
-    section {
-        padding-top: 3rem;
-    }
-
-    .hero+section {
-        padding-top: 4rem;
     }
 
     .btn {
@@ -108,14 +68,6 @@
 
 /* Extra Small Screens (max-width: 480px) */
 @media (max-width: 480px) {
-    .hero-title {
-        font-size: 1.8rem;
-    }
-
-    .hero-subtitle {
-        font-size: 0.95rem;
-    }
-
     .hero .cta-buttons {
         flex-direction: column;
         gap: 0.5rem;
@@ -123,11 +75,6 @@
 
     .btn {
         width: 100%;
-    }
-
-    /* More margin needed because stacked buttons make hero taller */
-    .featured-projects {
-        margin-top: 300px;
     }
 
     .pricing-grid {
@@ -141,7 +88,7 @@
 
 /* Tablet Styles */
 @media (min-width: 769px) and (max-width: 1024px) {
-    nav a {
+    header nav a {
         font-size: 0.9rem;
         padding: 6px 14px;
     }

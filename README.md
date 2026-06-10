@@ -36,13 +36,17 @@ Modular CSS structure (imported via `main.css`):
 
 | Module | Purpose | LOC |
 |--------|---------|-----|
-| `base.css` | Variables, reset, typography | ~150 |
-| `layout.css` | Header, nav, hero, footer | ~280 |
-| `components.css` | Buttons, cards, forms, tags | ~470 |
-| `animations.css` | Keyframes, transitions | ~180 |
-| `patterns.css` | Background circuit patterns | ~280 |
-| `responsive.css` | Media queries | ~130 |
-| `main.css` | Entry point (imports all) | ~12 |
+| `base.css` | Variables, reset, fluid typography, icons | ~175 |
+| `layout.css` | Header, nav, hero, footer | ~240 |
+| `components.css` | Buttons, cards, forms, tags | ~555 |
+| `animations.css` | Keyframes, view transitions, scroll-reveal | ~120 |
+| `patterns.css` | Background circuit patterns | ~210 |
+| `responsive.css` | Media queries | ~105 |
+| `main.css` | Entry point (imports all) | ~11 |
+
+Loaded separately (not via `main.css`): `critical.css` (build-injected), `accessibility.css`, `mobile-nav.css`, `lightbox.css` (index/projects only), `apps.css` (apps page only).
+
+Page navigation transitions use the native View Transitions API; prefetching uses Speculation Rules — both progressive enhancements with zero JS.
 
 ## JS Architecture
 
@@ -50,14 +54,23 @@ Modular JS structure (loaded via separate files):
 
 | Module | Purpose | LOC |
 |--------|---------|-----|
-| `navigation.js` | Smooth scroll, mobile nav, scroll animations | ~105 |
+| `navigation.js` | Mobile nav drawer, IntersectionObserver scroll-reveal | ~75 |
 | `contact-form.js` | Form validation, submission, spam protection | ~265 |
-| `page-transitions.js` | Page loading transitions | ~110 |
-| `image-modal.js` | Image expansion and lightbox | ~105 |
-| `project-loader.js` | Dynamic project rendering and filtering | ~210 |
-| `project-data.js` | Project definitions and helpers | ~250 |
+| `image-modal.js` | Native `<dialog>` image lightbox | ~65 |
+| `project-loader.js` | Dynamic project rendering and filtering | ~240 |
+| `project-data.js` | Project definitions and helpers | ~330 |
 | `sw-register.js` | Service worker registration and updates | ~135 |
-| `main.js` | Entry point (orchestrates all) | ~32 |
+| `main.js` | Entry point (orchestrates all) | ~25 |
+
+## Icons
+
+Icons are self-hosted as an SVG sprite at `images/icons.svg` (Font Awesome Free artwork, CC BY 4.0 — no CDN dependency, works offline). Usage:
+
+```html
+<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>
+```
+
+Project link icons in `project-data.js` take the sprite symbol id (e.g. `"github"`, `"box"`, `"external-link"`). To add a new icon, append a `<symbol>` to the sprite.
 
 ## Cache Busting
 
@@ -76,8 +89,9 @@ This project is indexed with [Stele](https://github.com/IronAdamant/Stele), a lo
 
 ## Tech Stack
 
-- HTML5, CSS3, Vanilla JavaScript
-- Service Worker (PWA with offline support)
+- HTML5, CSS3, Vanilla JavaScript — no frameworks, no external runtime dependencies
+- View Transitions API + Speculation Rules (native page transitions and prefetch)
+- Service Worker (PWA with offline support, including self-hosted fonts and icons)
 - Formspree (contact form)
 - GitHub Actions (deployment)
 - [Stele](https://github.com/IronAdamant/Stele) (AI development tooling)

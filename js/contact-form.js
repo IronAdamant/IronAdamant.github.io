@@ -206,7 +206,7 @@ function initContactForm() {
                 formSuccess.hidden = false;
                 form.reset();
                 formSuccess.innerHTML = `
-                    <i class="fas fa-check-circle" aria-hidden="true"></i>
+                    <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#check-circle"/></svg>
                     <strong>Message Transmitted Successfully!</strong><br>
                     <small>Thank you for reaching out. I'll respond within 24-48 hours.</small>
                 `;

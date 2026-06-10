@@ -1,9 +1,30 @@
 /**
  * Project Loader for IronAdamant Portfolio
- * 
+ *
  * This file contains the functionality to load and display projects from project-data.js
  * on both the index.html (featured projects) and projects.html (all projects) pages.
  */
+
+// Icons come from the self-hosted sprite at /images/icons.svg.
+// Accepts plain sprite ids ("github") and legacy Font Awesome classes ("fab fa-github").
+const LEGACY_ICON_ALIASES = {
+    'fa-github': 'github',
+    'fa-x-twitter': 'x-twitter',
+    'fa-linkedin': 'linkedin',
+    'fa-coffee': 'coffee',
+    'fa-external-link-alt': 'external-link',
+    'fa-box': 'box',
+    'fa-shopping-cart': 'cart',
+    'fa-check-circle': 'check-circle',
+    'fa-map-marker-alt': 'location',
+    'fa-info-circle': 'info'
+};
+
+function iconSvg(icon) {
+    const faClass = icon.split(/\s+/).find(c => c.startsWith('fa-'));
+    const id = faClass ? (LEGACY_ICON_ALIASES[faClass] || faClass.slice(3)) : icon;
+    return `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#${id}"/></svg>`;
+}
 
 // Renders the about section on the index page
 function renderAboutSection() {
@@ -39,12 +60,12 @@ function renderFeaturedProjects() {
         
         projectCard.innerHTML = `
             <div class="project-image">
-                <img src="${project.imageSrc}" alt="${project.imageAlt}" loading="eager">
+                <img src="${project.imageSrc}" alt="${project.imageAlt}" loading="lazy" decoding="async">
             </div>
             <div>
                 <div class="project-card-header">
                     <h3>${project.title}</h3>
-                    <span class="badge badge-open-source"><i class="fab fa-github"></i> Open Source</span>
+                    <span class="badge badge-open-source">${iconSvg('github')} Open Source</span>
                 </div>
                 <p>${project.shortDescription}</p>
                 <div class="project-tags">
@@ -53,7 +74,7 @@ function renderFeaturedProjects() {
                 <div class="project-links">
                     ${project.links.map(link => `
                         <a href="${link.url}" ${link.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-                            <i class="${link.icon}"></i> ${link.text}
+                            ${iconSvg(link.icon)} ${link.text}
                         </a>
                     `).join('')}
                 </div>
@@ -83,12 +104,12 @@ function renderProjectsList() {
         
         projectItem.innerHTML = `
             <div class="project-image">
-                <img src="${project.imageSrc}" alt="${project.imageAlt}" loading="eager">
+                <img src="${project.imageSrc}" alt="${project.imageAlt}" loading="lazy" decoding="async">
             </div>
             <div class="project-content">
                 <div class="project-card-header">
                     <h2>${project.title}</h2>
-                    <span class="badge badge-open-source"><i class="fab fa-github"></i> Open Source</span>
+                    <span class="badge badge-open-source">${iconSvg('github')} Open Source</span>
                 </div>
                 <p>${project.fullDescription}</p>
                 <div class="project-meta">
@@ -106,7 +127,7 @@ function renderProjectsList() {
                 <div class="project-links">
                     ${project.links.map(link => `
                         <a href="${link.url}" class="btn btn-link" ${link.external ? 'target="_blank" rel="noopener noreferrer"' : ''}>
-                            <i class="${link.icon}"></i> ${link.text}
+                            ${iconSvg(link.icon)} ${link.text}
                         </a>
                     `).join('')}
                 </div>
@@ -133,16 +154,13 @@ function initializeProjectFilters() {
         categoryContainer.innerHTML = '';
         
         // Add buttons for each category
-        categories.forEach((category, index) => {
+        categories.forEach(category => {
             const button = document.createElement('button');
             button.className = 'filter-btn' + (category === 'all' ? ' active' : '');
             button.setAttribute('data-category', category);
-            button.setAttribute('role', 'tab');
-            button.setAttribute('aria-selected', category === 'all' ? 'true' : 'false');
-            button.setAttribute('aria-controls', 'project-list');
-            button.setAttribute('id', `tab-${category}`);
+            button.setAttribute('aria-pressed', category === 'all' ? 'true' : 'false');
             button.textContent = projectHelpers.getCategoryName(category);
-            
+
             categoryContainer.appendChild(button);
         });
     }
@@ -160,10 +178,10 @@ function initializeProjectFilters() {
             // Update ARIA attributes
             document.querySelectorAll('.filter-btn').forEach(btn => {
                 btn.classList.remove('active');
-                btn.setAttribute('aria-selected', 'false');
+                btn.setAttribute('aria-pressed', 'false');
             });
             this.classList.add('active');
-            this.setAttribute('aria-selected', 'true');
+            this.setAttribute('aria-pressed', 'true');
 
             const filterValue = this.getAttribute('data-category');
             const projectItems = document.querySelectorAll('.project-item');
@@ -204,8 +222,10 @@ document.addEventListener('DOMContentLoaded', () => {
         initializeProjectFilters();
     }
 
-    // Initialize image expansion after dynamic elements are created
-    if ((isIndexPage || isProjectsPage) && typeof initImageExpansion === 'function') {
-        initImageExpansion();
+    // Initialize image expansion and scroll-reveal after dynamic elements are
+    // created (script order alone doesn't guarantee the cards exist yet)
+    if (isIndexPage || isProjectsPage) {
+        if (typeof initImageExpansion === 'function') initImageExpansion();
+        if (typeof initScrollAnimations === 'function') initScrollAnimations();
     }
 });

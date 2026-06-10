@@ -5,6 +5,7 @@
 /* Anti-FOUC: parsed before anything renders */
 html {
     background-color: #050505 !important;
+    color-scheme: dark;
 }
 
 :root {
@@ -61,24 +62,9 @@ img {
     src: url('../fonts/orbitron-latin.woff2') format('woff2'), local('Orbitron')
 }
 
-.page-transition {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: #050505;
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center
-}
-
 /* page:index.html */
 .hero {
     position: relative;
-    z-index: 10;
-    display: flex;
-    align-items: center;
-    padding-top: 1rem
+    z-index: 5;
+    padding: 3rem 0 1rem
 }

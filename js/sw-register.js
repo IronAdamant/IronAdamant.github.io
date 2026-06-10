@@ -4,12 +4,13 @@ if ('serviceWorker' in navigator) {
     try {
       const registration = await navigator.serviceWorker.register('/sw.js');
 
-      // Check for updates every 30 seconds when page is visible
+      // Periodic update check while the page stays open (visibilitychange
+      // below handles the common tab-refocus case)
       setInterval(() => {
         if (!document.hidden) {
           registration.update();
         }
-      }, 30000);
+      }, 30 * 60 * 1000);
 
       // Listen for updates
       registration.addEventListener('updatefound', () => {

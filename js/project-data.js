@@ -20,7 +20,7 @@
  *   links: [                         // Array of related links
  *     {
  *       text: "Link Text",
- *       icon: "font-awesome-class",
+ *       icon: "sprite-id",           // Symbol id from images/icons.svg (e.g. "github", "box", "external-link")
  *       url: "https://example.com",
  *       external: true|false
  *     }
@@ -41,13 +41,13 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/wikifier",
                 external: true
             },
             {
                 text: "PyPI",
-                icon: "fas fa-box",
+                icon: "box",
                 url: "https://pypi.org/project/wikifier/",
                 external: true
             }
@@ -65,13 +65,13 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/coordinationhub",
                 external: true
             },
             {
                 text: "PyPI",
-                icon: "fas fa-box",
+                icon: "box",
                 url: "https://pypi.org/project/coordinationhub/",
                 external: true
             }
@@ -89,13 +89,13 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/Chisel",
                 external: true
             },
             {
                 text: "PyPI",
-                icon: "fas fa-box",
+                icon: "box",
                 url: "https://pypi.org/project/chisel-test-impact/",
                 external: true
             }
@@ -113,13 +113,13 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/stele-context",
                 external: true
             },
             {
                 text: "PyPI",
-                icon: "fas fa-box",
+                icon: "box",
                 url: "https://pypi.org/project/stele-context/",
                 external: true
             }
@@ -137,13 +137,13 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/Trammel",
                 external: true
             },
             {
                 text: "PyPI",
-                icon: "fas fa-box",
+                icon: "box",
                 url: "https://pypi.org/project/trammel/",
                 external: true
             }
@@ -161,13 +161,13 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/PythonBol-Translator",
                 external: true
             },
             {
                 text: "PyPI",
-                icon: "fas fa-box",
+                icon: "box",
                 url: "https://pypi.org/project/cobol-safe-translator/",
                 external: true
             }
@@ -185,7 +185,7 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/windows_sound_tracker",
                 external: true
             }
@@ -203,7 +203,7 @@ const projectData = [
         links: [
             {
                 text: "Live App",
-                icon: "fas fa-external-link-alt",
+                icon: "external-link",
                 url: "https://mdword.ironadamant.com/",
                 external: true
             }
@@ -221,13 +221,13 @@ const projectData = [
         links: [
             {
                 text: "Live App",
-                icon: "fas fa-external-link-alt",
+                icon: "external-link",
                 url: "https://randomexpenstracker.netlify.app/",
                 external: true
             },
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/Expense-Tracker-Updated",
                 external: true
             }
@@ -245,7 +245,7 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/Simple-Time-Tracker-for-Tasks",
                 external: true
             }
@@ -263,7 +263,7 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/Console-logger",
                 external: true
             }
@@ -281,7 +281,7 @@ const projectData = [
         links: [
             {
                 text: "GitHub",
-                icon: "fab fa-github",
+                icon: "github",
                 url: "https://github.com/IronAdamant/AutoClacker",
                 external: true
             }

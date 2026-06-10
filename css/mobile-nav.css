@@ -1,16 +1,16 @@
 /* Mobile Navigation - Slide-in Drawer */
 
-/* Hamburger Button */
+/* Hamburger Button — 44x44 touch target, 28x24 visual */
 .hamburger {
     display: none;
     flex-direction: column;
     justify-content: space-around;
-    width: 28px;
-    height: 24px;
+    width: 44px;
+    height: 44px;
     background: transparent;
     border: none;
     cursor: pointer;
-    padding: 0;
+    padding: 10px 8px;
     z-index: 1001;
     position: relative;
 }

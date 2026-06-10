@@ -110,17 +110,11 @@ main {
     padding-top: 44px;
 }
 
-/* Hero Section - absolute positioning below fixed header */
+/* Hero Section - normal document flow below the fixed header */
 .hero {
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    position: absolute;
-    top: 60px;
-    left: 0;
-    right: 0;
+    position: relative;
     z-index: 5;
-    padding: 0;
+    padding: 3rem 0 1rem;
     margin: 0;
 }
 
@@ -137,14 +131,14 @@ main {
 }
 
 .hero-subtitle {
-    font-size: 1.15rem;
+    font-size: clamp(1rem, 0.9rem + 0.8vw, 1.15rem);
     margin: 0 auto 1rem;
     color: var(--text);
     line-height: 1.7;
 }
 
 .hero-title {
-    font-size: 3rem;
+    font-size: clamp(2rem, 1.2rem + 4vw, 3rem);
     margin-bottom: 0.5rem;
     color: var(--primary);
     position: relative;
@@ -199,7 +193,7 @@ footer .social-links a:hover {
     position: relative;
     z-index: 5;
     padding: 2rem 0;
-    margin-top: 300px;
+    margin-top: 2rem;
     border-top: 1px solid rgba(0, 255, 157, 0.1);
     background: transparent;
 }
