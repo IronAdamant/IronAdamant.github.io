@@ -30,6 +30,30 @@
 
 const projectData = [
     {
+        id: "wikifier",
+        title: "Wikifier",
+        category: "ai",
+        shortDescription: "An agent-to-agent codebase wiki — a token-efficient, queryable map of any codebase (file health matrix, dependency graphs, per-file summaries) so AI agents look things up instead of re-reading source files. 23+ MCP tools, zero dependencies.",
+        fullDescription: "Wikifier gives AI coding agents a living, queryable map of any codebase so they can look up a 50-token summary instead of ingesting a 5,000-token file. It generates a documentation health matrix (file_health.md), a codebase map (library.md) with Mermaid dependency diagrams, resolved import tables, and Tarjan-based circular dependency detection with break recommendations, plus per-file wiki summaries and a semantic journal that records why every change was made. Dependency analysis covers Python and JavaScript/TypeScript imports (ES modules, CommonJS, dynamic imports, TypeScript path aliases, package.json exports, workspaces) with name-routed barrel expansion and per-edge confidence scoring. Incremental mtime-based updates re-analyze only true consumers — measured at ~8.5s for a full map of llama_index (3,837 Python files) and 3–8s candidate scans on 50k-file trees like the Linux kernel. Includes an optional MCP server with 23+ tools for Claude Code, Claude Desktop, Cursor, and Cline, plus a static HTML human dashboard with a pan/zoom dependency graph and file tree. Zero runtime dependencies — pure Python stdlib. Requires Python 3.8+.",
+        imageSrc: "https://raw.githubusercontent.com/IronAdamant/wikifier/main/screenshot/front_page_review.png",
+        imageAlt: "Wikifier human dashboard showing the codebase health matrix, dependency graph, and per-file descriptions",
+        techTags: ["Python", "MCP", "AI Tooling", "Dependency Graphs", "Documentation"],
+        links: [
+            {
+                text: "GitHub",
+                icon: "fab fa-github",
+                url: "https://github.com/IronAdamant/wikifier",
+                external: true
+            },
+            {
+                text: "PyPI",
+                icon: "fas fa-box",
+                url: "https://pypi.org/project/wikifier/",
+                external: true
+            }
+        ]
+    },
+    {
         id: "coordinationhub",
         title: "Coordination<br>Hub",
         category: "ai",
