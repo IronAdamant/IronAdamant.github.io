@@ -29,10 +29,11 @@ jobs:
           rsync -av \
             --exclude='*.md' \
             --exclude='wiki-local/' \
-            --exclude='.claude/'
-            --exclude='.stele/'
-            --exclude='.stele-context/'
-            --exclude='.chisel/'
+            --exclude='.claude/' \
+            --exclude='.stele/' \
+            --exclude='.stele-context/' \
+            --exclude='.chisel/' \
+            --exclude='.coordinationhub/' \
             --exclude='*.bak' \
             --exclude='.github/' \
             --exclude='.git/' \
