@@ -1,9 +1,5 @@
 /**
- * Image Lightbox Module — native <dialog> based image expansion.
- * Replaces the old class-toggle fullscreen hack, which broke inside
- * CSS-contained project cards (contain: paint clips fixed descendants).
- * The dialog renders in the browser top layer, with focus trapping,
- * Esc handling, and a ::backdrop for free. Styles: css/lightbox.css.
+ * Native <dialog> image lightbox for work images.
  */
 
 let lightboxDialog = null;
@@ -26,29 +22,25 @@ function openLightbox(img) {
     const dialog = getLightbox();
     const view = dialog.querySelector('img');
     view.src = img.currentSrc || img.src;
-    view.alt = img.alt;
+    view.alt = img.alt || '';
     dialog.showModal();
 }
 
-// ====== IMAGE EXPANSION ======
 function initImageExpansion() {
-    document.querySelectorAll('.project-image').forEach(container => {
-        // Avoid double-init
+    document.querySelectorAll('.work-card-image').forEach((container) => {
         if (container.dataset.expandInit) return;
-
         const img = container.querySelector('img');
         if (!img) return;
         container.dataset.expandInit = 'true';
 
         const expandHint = document.createElement('span');
         expandHint.className = 'expand-hint';
-        expandHint.textContent = 'Click to expand';
+        expandHint.textContent = 'Expand';
         container.appendChild(expandHint);
 
-        // Keyboard-accessible: the container acts as a button
         container.setAttribute('role', 'button');
         container.setAttribute('tabindex', '0');
-        container.setAttribute('aria-label', `Expand image: ${img.alt}`);
+        container.setAttribute('aria-label', `Expand image: ${img.alt || 'screenshot'}`);
 
         container.addEventListener('click', () => openLightbox(img));
         container.addEventListener('keydown', (e) => {
@@ -60,5 +52,4 @@ function initImageExpansion() {
     });
 }
 
-// Export for use in project-loader.js
 window.initImageExpansion = initImageExpansion;

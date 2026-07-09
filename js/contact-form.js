@@ -4,7 +4,7 @@
 
 // ====== CONSTANTS & VALIDATORS (file scope) ======
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const NAME_REGEX = /^[a-zA-Z\s'-]+$/;
+const NAME_REGEX = /^[\p{L}\p{M}\s'.-]+$/u;
 const CHAR_LIMITS = {
     name: { min: 2, max: 100 },
     email: { min: 5, max: 100 },
@@ -167,15 +167,6 @@ function initContactForm() {
             await new Promise(resolve => setTimeout(resolve, 2000));
         }
 
-        // Content spam detection
-        const messageText = messageInput.value.toLowerCase();
-        const spamKeywords = ['crypto', 'bitcoin', 'investment', 'earn money', 'guaranteed', 'click here', 'free money', 'viagra', 'casino'];
-        const spamScore = spamKeywords.filter(keyword => messageText.includes(keyword)).length;
-        if (spamScore >= 2) {
-            const extraVerify = confirm('Your message contains content that might be flagged as spam. Are you sure you want to send this message?');
-            if (!extraVerify) return;
-        }
-
         // Honeypot check
         const honeypot = document.getElementById('website');
         if (honeypot && honeypot.value !== '') {
@@ -203,13 +194,9 @@ function initContactForm() {
             });
 
             if (response.ok) {
-                formSuccess.hidden = false;
                 form.reset();
-                formSuccess.innerHTML = `
-                    <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#check-circle"/></svg>
-                    <strong>Message Transmitted Successfully!</strong><br>
-                    <small>Thank you for reaching out. I'll respond within 24-48 hours.</small>
-                `;
+                formSuccess.hidden = false;
+                formSuccess.innerHTML = `<p><strong>Message sent.</strong> Thanks — I’ll reply within 1–2 business days.</p>`;
                 announceToScreenReader(formSuccess.textContent.trim(), 'polite');
                 formSuccess.focus();
             } else {
@@ -221,17 +208,17 @@ function initContactForm() {
         } finally {
             submitButton.disabled = false;
             submitButton.removeAttribute('aria-busy');
-            if (buttonText) buttonText.textContent = 'Send Message';
+            if (buttonText) buttonText.textContent = 'Send message';
         }
     }
 
     function showFakeSuccess() {
         submitButton.disabled = false;
         submitButton.removeAttribute('aria-busy');
-        if (buttonText) buttonText.textContent = 'Send Message';
+        if (buttonText) buttonText.textContent = 'Send message';
 
         const fakeSuccess = document.createElement('div');
-        fakeSuccess.style.cssText = 'margin-top:1rem;padding:1rem;background:#00ff9d;color:#000;border-radius:4px;';
+        fakeSuccess.className = 'success-message';
         fakeSuccess.textContent = 'Message sent successfully!';
         form.appendChild(fakeSuccess);
         form.reset();

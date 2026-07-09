@@ -1,14 +1,18 @@
 #!/usr/bin/env node
-
 /**
- * Build script for IronAdamant Portfolio
- * Replaces update-version.js — unified CSS injection + version management.
+ * Build script — Iron Adamant site
+ *
+ * - Concatenates modular CSS → css/bundle.css
+ * - Injects critical CSS, header/footer partials
+ * - Renders work cards from data/work.json
+ * - Marks active nav
+ * - Bumps version + cache-busts asset URLs
  *
  * Usage:
  *   node build.js              # patch bump + full rebuild
- *   node build.js minor        # minor bump + rebuild
- *   node build.js major        # major bump + rebuild
- *   node build.js --css-only   # inject CSS only, no version bump
+ *   node build.js minor|major  # version bump
+ *   node build.js 1.2.3        # explicit version
+ *   node build.js --css-only   # assets only, no version bump
  */
 
 const fs = require('fs');
@@ -18,57 +22,242 @@ const ROOT = __dirname;
 const CRITICAL_CSS_PATH = path.join(ROOT, 'css', 'critical.css');
 const MANIFEST_PATH = path.join(ROOT, 'manifest.json');
 const SW_PATH = path.join(ROOT, 'sw.js');
-const HTML_FILES = ['index.html', 'projects.html', 'apps.html', 'contact.html'];
-const MARKER = '<!-- CRITICAL_CSS -->';
+const WORK_DATA_PATH = path.join(ROOT, 'data', 'work.json');
+const BUNDLE_CSS_PATH = path.join(ROOT, 'css', 'bundle.css');
 
-// ── Parse args ──────────────────────────────────────────────
+const CSS_SOURCES = [
+  'css/base.css',
+  'css/layout.css',
+  'css/components.css',
+  'css/accessibility.css'
+];
+
+const PRIMARY_HTML = ['index.html', 'work.html', 'contact.html', '404.html'];
+const ALL_HTML = [...PRIMARY_HTML, 'projects.html', 'apps.html'];
+
+const MARKERS = {
+  critical: '<!-- CRITICAL_CSS -->',
+  header: '<!-- INJECT_HEADER -->',
+  footer: '<!-- INJECT_FOOTER -->',
+  featured: '<!-- INJECT_FEATURED_WORK -->',
+  workList: '<!-- INJECT_WORK_LIST -->',
+  products: '<!-- INJECT_PRODUCTS -->'
+};
+
 const arg = process.argv[2] || 'patch';
 const cssOnly = arg === '--css-only';
 
-// ── Read & parse critical.css ───────────────────────────────
-const rawCSS = fs.readFileSync(CRITICAL_CSS_PATH, 'utf8');
+function read(rel) {
+  return fs.readFileSync(path.join(ROOT, rel), 'utf8');
+}
 
-// Split into shared rules and page-specific blocks
+function write(rel, content) {
+  fs.writeFileSync(path.join(ROOT, rel), content);
+}
+
+function escapeHtml(str) {
+  return String(str)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;');
+}
+
+function iconSvg(id) {
+  return `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#${id}"/></svg>`;
+}
+
+function badgeHtml(type) {
+  if (type === 'product') {
+    return `<span class="badge badge-product">${iconSvg('lock')} Product</span>`;
+  }
+  return `<span class="badge badge-oss">${iconSvg('github')} Open source</span>`;
+}
+
+function linksHtml(links) {
+  return (links || [])
+    .map(
+      (link) =>
+        `<a href="${escapeHtml(link.url)}" class="btn btn-link" target="_blank" rel="noopener noreferrer">${iconSvg(
+          link.icon || 'external-link'
+        )} ${escapeHtml(link.text)}</a>`
+    )
+    .join('\n');
+}
+
+function tagsHtml(tags) {
+  return `<div class="tag-list">${(tags || [])
+    .map((t) => `<span class="tag">${escapeHtml(t)}</span>`)
+    .join('')}</div>`;
+}
+
+function imageBlock(item) {
+  if (!item.imageSrc) return '';
+  return `<div class="work-card-image">
+    <img src="${escapeHtml(item.imageSrc)}" alt="${escapeHtml(item.imageAlt || item.title)}" loading="lazy" decoding="async" width="640" height="400">
+  </div>`;
+}
+
+function featuredCard(item) {
+  return `<article class="work-card" data-category="${escapeHtml(item.category)}" id="${escapeHtml(item.id)}">
+  ${imageBlock(item)}
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>${escapeHtml(item.title)}</h3>
+      ${badgeHtml(item.type)}
+    </div>
+    <p>${escapeHtml(item.summary)}</p>
+    ${tagsHtml(item.techTags)}
+    <div class="work-links">${linksHtml(item.links)}</div>
+  </div>
+</article>`;
+}
+
+function workItem(item) {
+  const body = `<div class="work-item-body">
+    <div class="work-card-header">
+      <h2>${escapeHtml(item.title)}</h2>
+      ${badgeHtml(item.type)}
+    </div>
+    <p>${escapeHtml(item.description || item.summary)}</p>
+    ${tagsHtml(item.techTags)}
+    <div class="work-links">${linksHtml(item.links)}</div>
+  </div>`;
+
+  return `<article class="work-item" data-category="${escapeHtml(item.category)}" id="${escapeHtml(item.id)}">
+  ${imageBlock(item)}
+  ${body}
+</article>`;
+}
+
+function productCard(item) {
+  return `<article class="product-card" id="${escapeHtml(item.id)}">
+  <div class="work-card-header">
+    <h3>${escapeHtml(item.title)}</h3>
+    ${badgeHtml('product')}
+  </div>
+  <p>${escapeHtml(item.summary)}</p>
+  ${tagsHtml(item.techTags)}
+  <div class="work-links">${linksHtml(item.links)}</div>
+</article>`;
+}
+
+// ── CSS bundle ──────────────────────────────────────────────
+const bundleParts = CSS_SOURCES.map((rel) => {
+  const css = read(rel);
+  return `/* === ${rel} === */\n${css}`;
+});
+write(
+  'css/bundle.css',
+  `/* Auto-generated by build.js — edit source files in css/, not this file. */\n\n${bundleParts.join('\n\n')}\n`
+);
+console.log('✅ Wrote css/bundle.css');
+
+// ── Critical CSS ────────────────────────────────────────────
+const rawCSS = fs.readFileSync(CRITICAL_CSS_PATH, 'utf8');
 const PAGE_MARKER_RE = /\/\*\s*page:(\S+)\s*\*\//g;
 const sections = rawCSS.split(PAGE_MARKER_RE);
-// sections[0] = shared CSS, then [filename, css, filename, css, ...]
-
 const sharedCSS = sections[0].trim();
 const pageCSS = {};
 for (let i = 1; i < sections.length; i += 2) {
-  const filename = sections[i].trim();
-  const css = sections[i + 1].trim();
-  pageCSS[filename] = css;
+  pageCSS[sections[i].trim()] = sections[i + 1].trim();
 }
 
 function buildStyleBlock(htmlFile) {
   let css = sharedCSS;
-  if (pageCSS[htmlFile]) {
-    css += '\n\n' + pageCSS[htmlFile];
-  }
-  // Indent each line by 8 spaces for HTML formatting
+  if (pageCSS[htmlFile]) css += '\n\n' + pageCSS[htmlFile];
   const indented = css.replace(/^(.)/gm, '        $1');
   return `<style>\n${indented}\n    </style>`;
 }
 
-// ── Inject critical CSS into HTML files ─────────────────────
-for (const file of HTML_FILES) {
+// ── Partials & data ─────────────────────────────────────────
+const headerPartial = read('partials/header.html').trim();
+const footerPartial = read('partials/footer.html').trim();
+const workData = JSON.parse(fs.readFileSync(WORK_DATA_PATH, 'utf8'));
+const byId = Object.fromEntries(workData.items.map((i) => [i.id, i]));
+const featured = (workData.featuredIds || [])
+  .map((id) => byId[id])
+  .filter(Boolean);
+const products = workData.items.filter((i) => i.type === 'product');
+const workList = workData.items;
+
+function navKeyFor(file) {
+  if (file === 'index.html') return 'home';
+  if (file === 'work.html') return 'work';
+  if (file === 'contact.html') return 'contact';
+  return '';
+}
+
+function applyNavActive(headerHtml, file) {
+  const key = navKeyFor(file);
+  if (!key) return headerHtml;
+  return headerHtml.replace(
+    new RegExp(`(data-nav="${key}")`, 'g'),
+    `$1 class="active" aria-current="page"`
+  );
+}
+
+function injectBlock(html, marker, block) {
+  if (!html.includes(marker)) return html;
+  const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  // Replace marker + optional previously generated region until END marker
+  const end = marker.replace('<!-- ', '<!-- END_').replace(' -->', ' -->');
+  const region = new RegExp(`${escaped}[\\s\\S]*?(?:${end.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})?`);
+  if (html.includes(end.replace('END_', 'END_'))) {
+    // handled by region if end exists
+  }
+  const endMarker = marker.replace('INJECT_', 'END_INJECT_');
+  if (html.includes(endMarker)) {
+    const re = new RegExp(
+      escaped + '[\\s\\S]*?' + endMarker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+    );
+    return html.replace(re, `${marker}\n${block}\n    ${endMarker}`);
+  }
+  return html.replace(marker, `${marker}\n${block}`);
+}
+
+function injectCritical(html, file) {
+  if (!html.includes(MARKERS.critical)) return html;
+  const escaped = MARKERS.critical.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const injectRE = new RegExp(escaped + '(\\s*<style>[\\s\\S]*?<\\/style>)?');
+  return html.replace(injectRE, MARKERS.critical + '\n    ' + buildStyleBlock(file));
+}
+
+function processHtml(file) {
   const filePath = path.join(ROOT, file);
+  if (!fs.existsSync(filePath)) return;
   let html = fs.readFileSync(filePath, 'utf8');
 
-  if (!html.includes(MARKER)) {
-    console.error(`ERROR: ${file} is missing the ${MARKER} marker`);
-    process.exit(1);
+  // Header / footer (primary pages only)
+  if (PRIMARY_HTML.includes(file) && html.includes(MARKERS.header)) {
+    const header = applyNavActive(headerPartial, file);
+    html = injectBlock(html, MARKERS.header, header);
+  }
+  if (PRIMARY_HTML.includes(file) && html.includes(MARKERS.footer)) {
+    html = injectBlock(html, MARKERS.footer, footerPartial);
   }
 
-  // Replace marker + any previously injected style block
-  const escapedMarker = MARKER.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const injectRE = new RegExp(escapedMarker + '(\\s*<style>[\\s\\S]*?<\\/style>)?');
-  const styleBlock = buildStyleBlock(file);
-  html = html.replace(injectRE, MARKER + '\n    ' + styleBlock);
+  // Work content
+  if (html.includes(MARKERS.featured)) {
+    const block = featured.map(featuredCard).join('\n');
+    html = injectBlock(html, MARKERS.featured, block);
+  }
+  if (html.includes(MARKERS.workList)) {
+    const block = workList.map(workItem).join('\n');
+    html = injectBlock(html, MARKERS.workList, block);
+  }
+  if (html.includes(MARKERS.products)) {
+    const block = products.map(productCard).join('\n');
+    html = injectBlock(html, MARKERS.products, block);
+  }
 
+  html = injectCritical(html, file);
   fs.writeFileSync(filePath, html);
-  console.log(`✅ Injected critical CSS → ${file}`);
+  console.log(`✅ Processed ${file}`);
+}
+
+for (const file of ALL_HTML) {
+  processHtml(file);
 }
 
 if (cssOnly) {
@@ -82,7 +271,7 @@ const currentVersion = manifest.version || '1.0.0';
 const parts = currentVersion.split('.').map(Number);
 let newVersion;
 
-if (arg.match(/^\d+\.\d+\.\d+$/)) {
+if (/^\d+\.\d+\.\d+$/.test(arg)) {
   newVersion = arg;
 } else {
   switch (arg.toLowerCase()) {
@@ -102,41 +291,46 @@ if (arg.match(/^\d+\.\d+\.\d+$/)) {
 const buildTimestamp = new Date().toISOString();
 manifest.version = newVersion;
 manifest.build_timestamp = buildTimestamp;
+manifest.name = 'Iron Adamant';
+manifest.short_name = 'Iron Adamant';
+manifest.description =
+  'Custom software, automation, and practical tools by Aron Amos';
+manifest.theme_color = '#3d9a7a';
+manifest.background_color = '#0c0e12';
+manifest.orientation = 'any';
 fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n');
 console.log(`\n📦 Version: ${currentVersion} → ${newVersion}`);
 
-// ── Update sw.js CACHE_VERSION ──────────────────────────────
+// ── SW version ──────────────────────────────────────────────
 let swContent = fs.readFileSync(SW_PATH, 'utf8');
-swContent = swContent.replace(
-  /const CACHE_VERSION = '[^']+';/,
-  `const CACHE_VERSION = 'v${newVersion}';`
-);
-fs.writeFileSync(SW_PATH, swContent);
-console.log(`🔧 sw.js CACHE_VERSION → v${newVersion}`);
+if (swContent.includes('CACHE_VERSION')) {
+  swContent = swContent.replace(
+    /const CACHE_VERSION = '[^']+';/,
+    `const CACHE_VERSION = 'v${newVersion}'`
+  );
+  fs.writeFileSync(SW_PATH, swContent);
+  console.log(`🔧 sw.js CACHE_VERSION → v${newVersion}`);
+}
 
-// ── Update ?v= timestamps + build-version in HTML files ─────
+// ── Cache-bust HTML assets ──────────────────────────────────
 const versionStamp = Date.now();
-const allHTML = [...HTML_FILES, '404.html'];
-
-for (const file of allHTML) {
+for (const file of ALL_HTML) {
   const filePath = path.join(ROOT, file);
   if (!fs.existsSync(filePath)) continue;
   let html = fs.readFileSync(filePath, 'utf8');
 
-  // Update build-version meta tag
   html = html.replace(
     /<meta name="build-version" content="[^"]*">/,
     `<meta name="build-version" content="${buildTimestamp}">`
   );
 
-  // Update ?v= on local CSS/JS refs only (skip http:// and https://)
   html = html.replace(
     /(<(?:link|script)[^>]+(?:href|src)=")(?!https?:\/\/)([^"]*\.(?:css|js))(\?v=[^"]*)?(")/g,
     `$1$2?v=${versionStamp}$4`
   );
 
   fs.writeFileSync(filePath, html);
-  console.log(`✅ Updated versions in ${file}`);
+  console.log(`✅ Version stamps → ${file}`);
 }
 
 console.log('\n🚀 Build complete!');

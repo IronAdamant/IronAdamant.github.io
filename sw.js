@@ -1,193 +1,74 @@
-// Service Worker for automatic cache management and version control
-const CACHE_VERSION = 'v1.0.17';
-const CACHE_NAME = `iron-adamant-portfolio-${CACHE_VERSION}`;
-const VERSION_CACHE = 'version-cache';
-const urlsToCache = [
+// Slim service worker — network-first navigations, cache-first static assets
+const CACHE_VERSION = 'v1.1.0'
+const CACHE_NAME = `iron-adamant-${CACHE_VERSION}`;
+
+const PRECACHE = [
   '/',
   '/index.html',
-  '/projects.html',
-  '/apps.html',
+  '/work.html',
   '/contact.html',
   '/404.html',
-  '/css/main.css',
-  '/css/accessibility.css',
-  '/css/mobile-nav.css',
-  '/css/lightbox.css',
+  '/css/bundle.css',
   '/js/navigation.js',
-  '/js/image-modal.js',
   '/js/main.js',
   '/js/contact-form.js',
-  '/js/project-data.js',
-  '/js/project-loader.js',
+  '/js/work-filters.js',
+  '/js/image-modal.js',
   '/js/sw-register.js',
-  '/css/apps.css',
-  '/fonts/orbitron-latin.woff2',
   '/images/icons.svg',
   '/favicon.png',
   '/manifest.json'
 ];
 
-// Check for version updates
-async function checkForUpdates() {
-  try {
-    const response = await fetch('/manifest.json', { cache: 'no-cache' });
-    const manifest = await response.json();
-    const newVersion = manifest.version;
-    const newTimestamp = manifest.build_timestamp;
-    
-    // Get stored version info
-    const versionCache = await caches.open(VERSION_CACHE);
-    const storedResponse = await versionCache.match('version-info');
-    
-    if (storedResponse) {
-      const storedData = await storedResponse.json();
-      
-      // Check if version or timestamp has changed
-      if (storedData.version !== newVersion || storedData.build_timestamp !== newTimestamp) {
-        await clearAllCaches();
-        await storeVersionInfo(newVersion, newTimestamp);
-        return true; // Update available
-      }
-    } else {
-      // First time - store version info
-      await storeVersionInfo(newVersion, newTimestamp);
-    }
-    
-    return false; // No update
-  } catch (error) {
-    console.error('Error checking for updates:', error);
-    return false;
-  }
-}
-
-// Store version information
-async function storeVersionInfo(version, timestamp) {
-  const versionCache = await caches.open(VERSION_CACHE);
-  const versionData = { version, build_timestamp: timestamp };
-  const response = new Response(JSON.stringify(versionData));
-  await versionCache.put('version-info', response);
-}
-
-// Clear all caches except version cache
-async function clearAllCaches() {
-  const cacheNames = await caches.keys();
-  const deletePromises = cacheNames
-    .filter(name => name !== VERSION_CACHE)
-    .map(name => {
-      return caches.delete(name);
-    });
-  
-  await Promise.all(deletePromises);
-  
-  // Notify all clients about the update
-  const clients = await self.clients.matchAll();
-  clients.forEach(client => {
-    client.postMessage({
-      type: 'CACHE_UPDATED',
-      message: 'New version available! The page will refresh automatically.'
-    });
-  });
-}
-
-// Install event - cache assets
-self.addEventListener('install', event => {
+self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then(cache => {
-        return cache.addAll(urlsToCache);
-      })
-      .then(() => self.skipWaiting()) // Force immediate activation
+    caches.open(CACHE_NAME).then((cache) => cache.addAll(PRECACHE)).then(() => self.skipWaiting())
   );
 });
 
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
+    ).then(() => self.clients.claim())
+  );
+});
 
-// Fetch event - serve from cache, fallback to network
-self.addEventListener('fetch', event => {
-  // Skip non-GET requests
-  if (event.request.method !== 'GET') return;
+function isNavigation(request) {
+  return request.mode === 'navigate' ||
+    (request.method === 'GET' && request.headers.get('accept') && request.headers.get('accept').includes('text/html'));
+}
 
+self.addEventListener('fetch', (event) => {
+  const { request } = event;
+  if (request.method !== 'GET') return;
+
+  const url = new URL(request.url);
+  if (url.origin !== self.location.origin) return;
+
+  if (isNavigation(request)) {
+    event.respondWith(
+      fetch(request)
+        .then((response) => {
+          const copy = response.clone();
+          caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+          return response;
+        })
+        .catch(() => caches.match(request).then((r) => r || caches.match('/index.html')))
+    );
+    return;
+  }
+
+  // Static assets: cache match ignoring ?v= query, then network
   event.respondWith(
-    caches.match(event.request)
-      .then(response => {
-        // Cache hit - return response
-        if (response) {
-          // For HTML files, also update cache in background
-          if (event.request.mode === 'navigate' || event.request.url.endsWith('.html')) {
-            event.waitUntil(updateCache(event.request));
-          }
-          return response;
-        }
-
-        // Clone the request
-        const fetchRequest = event.request.clone();
-
-        return fetch(fetchRequest).then(response => {
-          // Check if valid response
-          if (!response || response.status !== 200 || response.type !== 'basic') {
-            return response;
-          }
-
-          // Clone the response
-          const responseToCache = response.clone();
-
-          // Cache the fetched response
-          caches.open(CACHE_NAME)
-            .then(cache => {
-              // Cache static assets with version query string
-              cache.put(event.request, responseToCache);
-            });
-
-          return response;
-        });
-      })
-      .catch(() => {
-        // Offline fallback
-        if (event.request.mode === 'navigate') {
-          return caches.match('/index.html');
-        }
-      })
+    caches.match(request, { ignoreSearch: true }).then((cached) => {
+      if (cached) return cached;
+      return fetch(request).then((response) => {
+        if (!response || response.status !== 200 || response.type !== 'basic') return response;
+        const copy = response.clone();
+        caches.open(CACHE_NAME).then((cache) => cache.put(request, copy));
+        return response;
+      });
+    })
   );
-});
-
-// Update cache in background
-function updateCache(request) {
-  return fetch(request).then(response => {
-    return caches.open(CACHE_NAME).then(cache => {
-      return cache.put(request, response);
-    });
-  }).catch(() => { /* Offline or network error — ignore silently */ });
-}
-
-// Listen for messages
-self.addEventListener('message', event => {
-  if (event.data.action === 'skipWaiting') {
-    self.skipWaiting();
-  } else if (event.data.action === 'checkForUpdates') {
-    event.waitUntil(checkForUpdates());
-  }
-});
-
-// Periodic update check when service worker becomes active
-self.addEventListener('activate', event => {
-  event.waitUntil(
-    Promise.all([
-      // Clean old caches
-      caches.keys().then(cacheNames => {
-        return Promise.all(
-          cacheNames
-            .filter(cacheName => cacheName !== CACHE_NAME && cacheName !== VERSION_CACHE)
-            .map(cacheName => caches.delete(cacheName))
-        );
-      }),
-      // Check for updates
-      checkForUpdates()
-    ]).then(() => self.clients.claim())
-  );
-});
-
-// Background sync for update checking
-self.addEventListener('sync', event => {
-  if (event.tag === 'update-check') {
-    event.waitUntil(checkForUpdates());
-  }
 });

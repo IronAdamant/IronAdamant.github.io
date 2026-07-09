@@ -1,54 +1,56 @@
-/* Critical CSS — single source of truth.
-   Read by build.js and injected into HTML files.
-   NOT loaded by browsers directly. */
+/* Critical CSS — injected by build.js. Not loaded by browsers directly. */
 
-/* Anti-FOUC: parsed before anything renders */
 html {
-    background-color: #050505 !important;
+    background-color: #0c0e12 !important;
     color-scheme: dark;
 }
 
 :root {
-    --bg-dark: #0a0a0a;
-    --bg-darker: #050505;
-    --primary: #00ff9d;
-    --primary-light: #33ffb5;
-    --primary-dark: #00cc7d;
-    --text: #e0e0e0;
-    --text-secondary: #b8b8b8;
-    --text-muted: #999;
-    --border: #1a1a1a;
-    --header-bg: rgba(0, 0, 0, .95)
+    --bg: #0c0e12;
+    --bg-elevated: #141820;
+    --surface: #1a1f2a;
+    --border: #2a3140;
+    --text: #e8eaed;
+    --text-muted: #9aa3b2;
+    --accent: #3d9a7a;
+    --header-h: 64px;
+    --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    --max-w: 1100px
 }
 
-* {
+*,
+*::before,
+*::after {
     margin: 0;
     padding: 0;
     box-sizing: border-box
 }
 
 body {
-    font-family: Orbitron, monospace;
-    background-color: var(--bg-darker);
+    font-family: var(--font);
+    background-color: var(--bg);
     color: var(--text);
-    min-height: 100vh
+    min-height: 100vh;
+    line-height: 1.65
 }
 
-header {
+.site-header {
     position: fixed;
     top: 0;
     width: 100%;
-    background-color: var(--header-bg);
-    backdrop-filter: blur(10px);
-    z-index: 1000;
-    padding: .75rem 0;
-    height: 44px
+    height: var(--header-h);
+    background: rgba(12, 14, 18, .92);
+    border-bottom: 1px solid var(--border);
+    z-index: 1000
 }
 
 .container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 2rem
+    width: min(100% - 2rem, var(--max-w));
+    margin-inline: auto
+}
+
+main {
+    padding-top: var(--header-h)
 }
 
 img {
@@ -56,15 +58,7 @@ img {
     height: auto
 }
 
-@font-face {
-    font-family: Orbitron;
-    font-display: swap;
-    src: url('../fonts/orbitron-latin.woff2') format('woff2'), local('Orbitron')
-}
-
 /* page:index.html */
 .hero {
-    position: relative;
-    z-index: 5;
-    padding: 3rem 0 1rem
+    padding: 3.5rem 0 2rem
 }

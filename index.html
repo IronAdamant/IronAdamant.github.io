@@ -4,57 +4,59 @@
 <head>
     <!-- CRITICAL_CSS -->
     <style>
-        /* Critical CSS — single source of truth.
-           Read by build.js and injected into HTML files.
-           NOT loaded by browsers directly. */
+        /* Critical CSS — injected by build.js. Not loaded by browsers directly. */
 
-        /* Anti-FOUC: parsed before anything renders */
         html {
-            background-color: #050505 !important;
+            background-color: #0c0e12 !important;
             color-scheme: dark;
         }
 
         :root {
-            --bg-dark: #0a0a0a;
-            --bg-darker: #050505;
-            --primary: #00ff9d;
-            --primary-light: #33ffb5;
-            --primary-dark: #00cc7d;
-            --text: #e0e0e0;
-            --text-secondary: #b8b8b8;
-            --text-muted: #999;
-            --border: #1a1a1a;
-            --header-bg: rgba(0, 0, 0, .95)
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
         }
 
-        * {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box
         }
 
         body {
-            font-family: Orbitron, monospace;
-            background-color: var(--bg-darker);
+            font-family: var(--font);
+            background-color: var(--bg);
             color: var(--text);
-            min-height: 100vh
+            min-height: 100vh;
+            line-height: 1.65
         }
 
-        header {
+        .site-header {
             position: fixed;
             top: 0;
             width: 100%;
-            background-color: var(--header-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: .75rem 0;
-            height: 44px
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
         }
 
         .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
         }
 
         img {
@@ -62,69 +64,72 @@
             height: auto
         }
 
-        @font-face {
-            font-family: Orbitron;
-            font-display: swap;
-            src: url('../fonts/orbitron-latin.woff2') format('woff2'), local('Orbitron')
-        }
-
         .hero {
-            position: relative;
-            z-index: 5;
-            padding: 3rem 0 1rem
+            padding: 3.5rem 0 2rem
         }
     </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="build-version" content="2026-06-10T15:09:05.848Z">
-
+    <meta name="build-version" content="2026-07-09T23:26:15.230Z">
     <meta name="format-detection" content="telephone=no">
 
-    <!-- Resource hints for faster loading -->
-    <link rel="preconnect" href="https://raw.githubusercontent.com">
-
-    <title>Iron_Adamant - Portfolio</title>
+    <title>Software development, automation &amp; VPS | Iron Adamant</title>
     <meta name="description"
-        content="Iron_Adamant - A software developer portfolio showcasing practical tools and applications built with AI-assisted development.">
+        content="Aron Amos (Iron Adamant) — custom software, workflow automation with n8n, and VPS deployment. Practical tools for teams and developers. Start a project or view work.">
 
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="preload" href="css/bundle.css?v=1783639575235" as="style">
+    <link rel="stylesheet" href="css/bundle.css?v=1783639575235">
 
-    <!-- Preload critical resources -->
-    <link rel="preload" href="css/main.css?v=1781104145848" as="style">
-
-    <!-- Load non-critical CSS asynchronously -->
-    <link rel="stylesheet" href="css/main.css?v=1781104145848" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/accessibility.css?v=1781104145848" media="print" onload="this.media='all'">
-
-    <link rel="stylesheet" href="css/mobile-nav.css?v=1781104145848" media="all">
-    <link rel="stylesheet" href="css/lightbox.css?v=1781104145848" media="print" onload="this.media='all'">
-
-    <!-- Fallback if JavaScript is disabled -->
-    <noscript>
-        <link rel="stylesheet" href="css/main.css?v=1781104145848">
-        <link rel="stylesheet" href="css/accessibility.css?v=1781104145848">
-    </noscript>
-
-    <!-- Web App Manifest for PWA -->
     <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#00ff9d">
+    <meta name="theme-color" content="#3d9a7a">
 
-    <!-- DNS Prefetch for faster external resource loading -->
-    <link rel="dns-prefetch" href="https://github.com">
-
-    <meta property="og:title" content="Iron_Adamant - Portfolio">
-    <meta property="og:description"
-        content="Software developer portfolio showcasing practical tools and applications built with AI-assisted development.">
-    <meta name="twitter:card" content="summary_large_image">
     <link rel="canonical" href="https://ironadamant.com/">
+    <meta property="og:title" content="Software development, automation &amp; VPS | Iron Adamant">
+    <meta property="og:description"
+        content="Custom software, n8n automation, and VPS deployment by Aron Amos. Practical engineering for products and workflows.">
     <meta property="og:url" content="https://ironadamant.com/">
     <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Iron_Adamant">
+    <meta property="og:site_name" content="Iron Adamant">
     <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Iron Adamant — software, automation &amp; VPS">
+    <meta name="twitter:description"
+        content="Custom software, workflow automation, and VPS deployment. View work or start a project.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aron Amos",
+      "alternateName": "Iron Adamant",
+      "url": "https://ironadamant.com/",
+      "email": "aron.amos@ironadamant.com",
+      "jobTitle": "Software developer",
+      "description": "Builds custom software, workflow automation, and VPS deployments. Open-source AI tooling and shipping products.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      },
+      "sameAs": [
+        "https://github.com/IronAdamant",
+        "https://www.linkedin.com/in/aron-amos-64045582/",
+        "https://x.com/Iron_Adamant"
+      ],
+      "knowsAbout": [
+        "Software development",
+        "Web applications",
+        "Workflow automation",
+        "n8n",
+        "VPS deployment",
+        "AI developer tooling"
+      ]
+    }
+    </script>
     <script type="speculationrules">
     {
         "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
@@ -133,88 +138,218 @@
 </head>
 
 <body>
-    <!-- Tech Circuit Background Elements -->
-    <div class="unified-background"></div>
+    <!-- INJECT_HEADER -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <div class="bright-path" style="top: 20%; left: 30%; width: 150px; transform: rotate(25deg);"></div>
+<header class="site-header">
+    <div class="container">
+        <a href="index.html" class="brand">Iron <span>Adamant</span></a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="index.html" data-nav="home" class="active" aria-current="page">Home</a>
+            <a href="work.html" data-nav="work">Work</a>
+            <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
 
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header>
-        <div class="container">
-            <nav aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
-                    <li><a href="apps.html">Apps</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="nav-overlay"></div>
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-        <ul>
-            <li><a href="index.html" class="active" aria-current="page">Home</a></li>
-            <li><a href="projects.html">Projects</a></li>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
+<div class="nav-overlay" hidden></div>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="index.html" data-nav="home" class="active" aria-current="page">Home</a>
+    <a href="work.html" data-nav="work">Work</a>
+    <a href="contact.html" data-nav="contact">Contact</a>
+</nav>
+    <!-- END_INJECT_HEADER -->
 
     <main id="main-content" tabindex="-1">
         <section class="hero">
             <div class="container">
-                <h1 class="hero-title">Iron_Adamant</h1>
-                <p class="hero-subtitle">I build practical software tools, combining AI with human creativity.</p>
-                <div class="cta-buttons">
-                    <a href="projects.html" class="btn">View Projects</a>
-                    <a href="contact.html" class="btn btn-secondary">Get in Touch</a>
+                <p class="section-label">Software contractor · Australia · Remote</p>
+                <h1 class="hero-title">Build it. Automate it. Run it.</h1>
+                <p class="hero-subtitle">
+                    I build custom software and practical tools — for teams shipping products,
+                    and for developers who want solid engineering. That includes app development,
+                    workflow automation (n8n), and VPS deployment when the work needs to live somewhere reliable.
+                </p>
+                <div class="cta-row">
+                    <a href="contact.html" class="btn btn-primary">Start a project</a>
+                    <a href="work.html" class="btn btn-secondary">View work</a>
                 </div>
             </div>
         </section>
 
-        <section class="featured-projects">
+        <section class="section" id="services" aria-labelledby="services-heading">
             <div class="container">
-                <h2 class="section-title">About <span class="highlight">the Developer</span></h2>
-                <p class="section-text"><!-- About text will be loaded dynamically from project-data.js --></p>
+                <div class="section-header">
+                    <p class="section-label">Services</p>
+                    <h2 id="services-heading">What I can help with</h2>
+                    <p>Straightforward delivery: ship software, connect systems, and deploy them without unnecessary complexity.</p>
+                </div>
+                <div class="service-grid">
+                    <article class="service-card">
+                        <h3>Custom web &amp; app development</h3>
+                        <p>Tools and applications that solve a concrete workflow — web apps, utilities, and focused MVPs.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>AI tooling &amp; integration</h3>
+                        <p>Agent and MCP tooling, automation around codebases, and practical AI-assisted delivery where it earns its keep.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Workflow automation (n8n)</h3>
+                        <p>Connect apps, APIs, forms, and notifications so routine work runs without manual glue. Setting up n8n-based automation for client projects.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>VPS &amp; deployment</h3>
+                        <p>Stand up projects on a VPS — Docker, reverse proxy, and sensible basics for backups and upkeep. Build it and run it.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-                <h2>Featured Projects</h2>
-                <div class="project-grid">
-                    <!-- Projects will be dynamically loaded here -->
+        <section class="section" id="selected-work" aria-labelledby="work-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Selected work</p>
+                    <h2 id="work-heading">Recent open-source tools</h2>
+                    <p>A sample of engineering work peers can inspect and clients can treat as proof of delivery.</p>
+                </div>
+                <div class="work-grid">
+                    <!-- INJECT_FEATURED_WORK -->
+<article class="work-card" data-category="ai" id="wikifier">
+  <div class="work-card-image">
+    <img src="https://raw.githubusercontent.com/IronAdamant/wikifier/main/screenshot/front_page_review.png" alt="Wikifier dashboard showing health matrix and dependency graph" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>Wikifier</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>A token-efficient codebase map for AI agents — health matrix, dependency graphs, and per-file summaries so agents look things up instead of re-reading source.</p>
+    <div class="tag-list"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">AI tooling</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/wikifier" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://pypi.org/project/wikifier/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#box"/></svg> PyPI</a></div>
+  </div>
+</article>
+<article class="work-card" data-category="ai" id="coordinationhub">
+  <div class="work-card-image">
+    <img src="https://raw.githubusercontent.com/IronAdamant/coordinationhub/main/screenshots/dashboard.png" alt="CoordinationHub dashboard with agents, tasks, and file locks" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>CoordinationHub</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>A shared coordination layer so multiple AI coding agents don’t overwrite each other — file locks, agent tree, tasks, and a live dashboard.</p>
+    <div class="tag-list"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">SQLite</span><span class="tag">Multi-agent</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/coordinationhub" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://pypi.org/project/coordinationhub/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#box"/></svg> PyPI</a></div>
+  </div>
+</article>
+<article class="work-card" data-category="ai" id="chisel">
+  <div class="work-card-image">
+    <img src="images/chisel-demo.png" alt="Chisel risk map and test impact analysis UI" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>Chisel</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Test impact analysis for LLM agents — maps tests to code, scores risk, and suggests what to run after a change.</p>
+    <div class="tag-list"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">Test intelligence</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/Chisel" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://pypi.org/project/chisel-test-impact/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#box"/></svg> PyPI</a></div>
+  </div>
+</article>
+    <!-- END_INJECT_FEATURED_WORK -->
+                </div>
+                <p style="margin-top: 1.25rem;">
+                    <a href="work.html">See all work →</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="products" aria-labelledby="products-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Products</p>
+                    <h2 id="products-heading">Shipped products</h2>
+                    <p>Live products with free tiers. Pricing and full detail live on each product site.</p>
+                </div>
+                <div class="product-grid">
+                    <!-- INJECT_PRODUCTS -->
+<article class="product-card" id="checkpoint-projects">
+  <div class="work-card-header">
+    <h3>Checkpoint Projects</h3>
+    <span class="badge badge-product"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#lock"/></svg> Product</span>
+  </div>
+  <p>Mobile-first project tracker. No accounts required for free use — nested checklists, progress, and optional device sync.</p>
+  <div class="tag-list"><span class="tag">Web app</span><span class="tag">Offline-first</span><span class="tag">Azure</span></div>
+  <div class="work-links"><a href="https://checkpointprojects.com" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Website</a></div>
+</article>
+<article class="product-card" id="consistencyhub">
+  <div class="work-card-header">
+    <h3>ConsistencyHub</h3>
+    <span class="badge badge-product"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#lock"/></svg> Product</span>
+  </div>
+  <p>Zero-knowledge consistency platform for writers — track characters, events, and contradictions with optional AI.</p>
+  <div class="tag-list"><span class="tag">Web app</span><span class="tag">OneDrive</span><span class="tag">Writers</span></div>
+  <div class="work-links"><a href="https://consistencyhub.io" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Website</a></div>
+</article>
+    <!-- END_INJECT_PRODUCTS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">About</p>
+                    <h2 id="about-heading">About Aron</h2>
+                </div>
+                <div class="about-block">
+                    <p>
+                        I’m Aron Amos (Iron Adamant), a developer based in Australia working remotely.
+                        I care about practical systems: software people actually use, automation that removes busywork,
+                        and deployments that stay understandable.
+                    </p>
+                    <p>
+                        Alongside client work I ship open-source tooling for AI-assisted development and run my own products.
+                        If you need something built, automated, or hosted — get in touch.
+                    </p>
+                </div>
+                <div class="cta-band" style="margin-top: 1.5rem;">
+                    <p>Have a project in mind? Tell me what you’re trying to ship.</p>
+                    <a href="contact.html" class="btn btn-primary">Contact me</a>
                 </div>
             </div>
         </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Iron_Adamant. All rights reserved.</p>
+    <!-- INJECT_FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
             <div class="social-links">
                 <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
-                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
                 <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
-                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#coffee"/></svg></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="This Iron Adamant account is not linked to other IronAdamant accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
             </div>
         </div>
-    </footer>
+    </div>
+</footer>
+    <!-- END_INJECT_FOOTER -->
 
-    <!-- Deferred scripts for better performance -->
-    <script src="js/project-data.js?v=1781104145848" defer></script>
-    <script src="js/project-loader.js?v=1781104145848" defer></script>
-    <script src="js/navigation.js?v=1781104145848" defer></script>
-    <script src="js/image-modal.js?v=1781104145848" defer></script>
-    <script src="js/main.js?v=1781104145848" defer></script>
-
-    <script src="js/sw-register.js?v=1781104145848" defer></script>
+    <script src="js/navigation.js?v=1783639575235" defer></script>
+    <script src="js/image-modal.js?v=1783639575235" defer></script>
+    <script src="js/main.js?v=1783639575235" defer></script>
+    <script src="js/sw-register.js?v=1783639575235" defer></script>
 </body>
 
 </html>

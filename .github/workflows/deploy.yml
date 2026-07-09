@@ -21,26 +21,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Create deployment directory
+      - name: Create deployment directory (allowlist only)
         run: |
           mkdir -p deploy
-          
-          # Copy all web files, excluding documentation and dev files
-          rsync -av \
-            --exclude='*.md' \
-            --exclude='wiki-local/' \
-            --exclude='.claude/' \
-            --exclude='.stele/' \
-            --exclude='.stele-context/' \
-            --exclude='.chisel/' \
-            --exclude='.coordinationhub/' \
-            --exclude='*.bak' \
-            --exclude='.github/' \
-            --exclude='.git/' \
-            --exclude='deploy/' \
-            --exclude='node_modules/' \
-            --exclude='*.log' \
-            . ./deploy/
+          # Explicit public web surface only
+          for f in index.html work.html contact.html 404.html projects.html apps.html \
+                   sw.js manifest.json favicon.png CNAME robots.txt sitemap.xml; do
+            if [ -f "$f" ]; then cp "$f" deploy/; fi
+          done
+          cp -r css js images fonts deploy/
+          # Do not ship source-only or tooling trees
+          rm -f deploy/css/main.css 2>/dev/null || true
+          # Keep modular CSS for transparency is fine; bundle.css is what pages load
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

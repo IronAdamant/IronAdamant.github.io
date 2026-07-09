@@ -2,150 +2,133 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="build-version" content="2026-06-10T15:09:05.848Z">
-
-    <title>Page Not Found - Iron_Adamant</title>
-    <meta name="description" content="The page you're looking for couldn't be found.">
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-
-    <link rel="stylesheet" href="/css/main.css?v=1781104145848">
-    <link rel="stylesheet" href="/css/accessibility.css?v=1781104145848">
-    <link rel="stylesheet" href="/css/mobile-nav.css?v=1781104145848">
+    <!-- CRITICAL_CSS -->
     <style>
-        .error-404 {
-            min-height: calc(100vh - 100px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            padding: 2rem;
+        /* Critical CSS — injected by build.js. Not loaded by browsers directly. */
+
+        html {
+            background-color: #0c0e12 !important;
+            color-scheme: dark;
         }
 
-        .error-content {
-            max-width: 600px;
+        :root {
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
         }
 
-        .error-code {
-            font-size: 6rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
         }
 
-        .error-title {
-            font-size: 2rem;
-            margin-bottom: 1rem;
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
             color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65
         }
 
-        .error-message {
-            font-size: 1.1rem;
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            line-height: 1.6;
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
         }
 
-        .error-glyph {
-            font-size: 3rem;
-            color: var(--primary);
-            margin-bottom: 2rem;
-            opacity: 0.6;
-            animation: pulse 2s ease-in-out infinite;
+        .container {
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
         }
     </style>
-    <script type="speculationrules">
-    {
-        "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
-    }
-    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="build-version" content="2026-07-09T23:26:15.230Z">
+    <meta name="robots" content="noindex">
+    <title>Page not found | Iron Adamant</title>
+    <meta name="description" content="That page doesn’t exist. Return home or browse work.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="/css/bundle.css?v=1783639575235">
+    <meta name="theme-color" content="#3d9a7a">
+    <link rel="canonical" href="https://ironadamant.com/404.html">
 </head>
 
 <body>
-    <!-- Unified Background Element -->
-    <div class="unified-background"></div>
-
-    <!-- Necron Glyphs Background Elements -->
-    <div class="necron-glyph circuit-circle" style="top: 20%; left: 5%;"></div>
-    <div class="necron-glyph circuit-circle" style="top: 70%; left: 90%;"></div>
-    <div class="necron-glyph connected-nodes" style="top: 40%; left: 85%;">
-        <div class="node node-1"></div>
-        <div class="node node-2"></div>
-        <div class="node node-3"></div>
-        <div class="node node-4"></div>
-        <div class="node node-5"></div>
-    </div>
-
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <header>
+    <header class="site-header">
         <div class="container">
-            <nav aria-label="Main navigation">
-                <ul>
-                    <li><a href="/index.html">Home</a></li>
-                    <li><a href="/projects.html">Projects</a></li>
-                    <li><a href="/apps.html">Apps</a></li>
-                    <li><a href="/contact.html">Contact</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
+            <a href="/index.html" class="brand">Iron <span>Adamant</span></a>
+            <nav class="nav-desktop" aria-label="Main navigation">
+                <a href="/index.html">Home</a>
+                <a href="/work.html">Work</a>
+                <a href="/contact.html">Contact</a>
             </nav>
+            <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
-    <!-- Mobile Navigation -->
-    <div class="nav-overlay"></div>
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-        <ul>
-            <li><a href="/index.html">Home</a></li>
-            <li><a href="/projects.html">Projects</a></li>
-            <li><a href="/apps.html">Apps</a></li>
-            <li><a href="/contact.html">Contact</a></li>
-        </ul>
+    <div class="nav-overlay" hidden></div>
+    <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+        <a href="/index.html">Home</a>
+        <a href="/work.html">Work</a>
+        <a href="/contact.html">Contact</a>
     </nav>
 
-    <main id="main-content" tabindex="-1">
-        <div class="error-404">
-            <div class="error-content">
-                <div class="error-glyph" aria-hidden="true">🔍</div>
-                <div class="error-code">404</div>
-                <h1 class="error-title">Page Not Found</h1>
-                <p class="error-message">
-                    The page you're looking for doesn't exist or has been moved.
-                    Check the URL or return to the homepage to explore my projects.
-                </p>
-                <div class="cta-buttons">
-                    <a href="/index.html" class="btn">Go to Homepage</a>
-                    <a href="/projects.html" class="btn btn-secondary">View Projects</a>
-                </div>
+    <main id="main-content" class="page-main" tabindex="-1">
+        <div class="container error-page">
+            <p class="error-code">404</p>
+            <h1>Page not found</h1>
+            <p>That URL doesn’t match anything on this site.</p>
+            <div class="cta-row" style="justify-content: center;">
+                <a href="/index.html" class="btn btn-primary">Home</a>
+                <a href="/work.html" class="btn btn-secondary">View work</a>
             </div>
         </div>
     </main>
 
-    <footer>
+    <footer class="site-footer">
         <div class="container">
-            <p>&copy; 2026 Iron_Adamant. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
-                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
-                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
-                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#coffee"/></svg></a>
+            <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="/work.html">Work</a>
+                <a href="/contact.html">Contact</a>
             </div>
         </div>
     </footer>
 
-    <script src="/js/navigation.js?v=1781104145848" defer></script>
-    <script src="/js/main.js?v=1781104145848" defer></script>
-    <script src="/js/sw-register.js?v=1781104145848" defer></script>
+    <script src="/js/navigation.js?v=1783639575235" defer></script>
+    <script src="/js/main.js?v=1783639575235" defer></script>
+    <script src="/js/sw-register.js?v=1783639575235" defer></script>
 </body>
 
 </html>

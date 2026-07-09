@@ -1,12 +1,12 @@
 {
-  "name": "Iron_Adamant - Developer Portfolio",
-  "short_name": "Iron_Adamant",
-  "description": "Software developer building practical tools with AI-assisted development",
+  "name": "Iron Adamant",
+  "short_name": "Iron Adamant",
+  "description": "Custom software, automation, and practical tools by Aron Amos",
   "start_url": "/",
   "display": "standalone",
-  "orientation": "portrait-primary",
-  "background_color": "#000000",
-  "theme_color": "#00ff9d",
+  "orientation": "any",
+  "background_color": "#0c0e12",
+  "theme_color": "#3d9a7a",
   "categories": [
     "portfolio",
     "developer",
@@ -26,6 +26,6 @@
   ],
   "related_applications": [],
   "prefer_related_applications": false,
-  "version": "1.0.17",
-  "build_timestamp": "2026-06-10T15:09:05.848Z"
+  "version": "1.1.0",
+  "build_timestamp": "2026-07-09T23:26:15.230Z"
 }

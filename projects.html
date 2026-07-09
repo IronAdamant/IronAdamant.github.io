@@ -1,202 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <!-- CRITICAL_CSS -->
-    <style>
-        /* Critical CSS — single source of truth.
-           Read by build.js and injected into HTML files.
-           NOT loaded by browsers directly. */
-
-        /* Anti-FOUC: parsed before anything renders */
-        html {
-            background-color: #050505 !important;
-            color-scheme: dark;
-        }
-
-        :root {
-            --bg-dark: #0a0a0a;
-            --bg-darker: #050505;
-            --primary: #00ff9d;
-            --primary-light: #33ffb5;
-            --primary-dark: #00cc7d;
-            --text: #e0e0e0;
-            --text-secondary: #b8b8b8;
-            --text-muted: #999;
-            --border: #1a1a1a;
-            --header-bg: rgba(0, 0, 0, .95)
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box
-        }
-
-        body {
-            font-family: Orbitron, monospace;
-            background-color: var(--bg-darker);
-            color: var(--text);
-            min-height: 100vh
-        }
-
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background-color: var(--header-bg);
-            backdrop-filter: blur(10px);
-            z-index: 1000;
-            padding: .75rem 0;
-            height: 44px
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem
-        }
-
-        img {
-            max-width: 100%;
-            height: auto
-        }
-
-        @font-face {
-            font-family: Orbitron;
-            font-display: swap;
-            src: url('../fonts/orbitron-latin.woff2') format('woff2'), local('Orbitron')
-        }
-    </style>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <meta name="build-version" content="2026-06-10T15:09:05.848Z">
-
-    <meta name="format-detection" content="telephone=no">
-    <meta name="description"
-        content="Projects - Iron_Adamant Portfolio. Browse my collection of tools and applications: desktop utilities, web apps, and productivity software.">
-    <title>Projects - Iron_Adamant</title>
-
-    <!-- Favicon -->
-    <link rel="icon" type="image/png" href="/favicon.png">
-    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-
-    <!-- Resource hints for faster loading -->
-    <link rel="preconnect" href="https://raw.githubusercontent.com">
-
-    <link rel="stylesheet" href="css/main.css?v=1781104145848" media="print" onload="this.media='all'">
-    <link rel="stylesheet" href="css/accessibility.css?v=1781104145848" media="print" onload="this.media='all'">
-
-    <link rel="stylesheet" href="css/mobile-nav.css?v=1781104145848" media="all">
-    <link rel="stylesheet" href="css/lightbox.css?v=1781104145848" media="print" onload="this.media='all'">
-    <!-- Fallback if JavaScript is disabled -->
-    <noscript>
-        <link rel="stylesheet" href="css/main.css?v=1781104145848">
-        <link rel="stylesheet" href="css/accessibility.css?v=1781104145848">
-    </noscript>
-
-    <!-- Web App Manifest for PWA -->
-    <link rel="manifest" href="/manifest.json">
-    <meta name="theme-color" content="#00ff9d">
-
-    <!-- DNS Prefetch for faster external resource loading -->
-    <link rel="dns-prefetch" href="https://github.com">
-
-    <meta property="og:title" content="Projects - Iron_Adamant">
-    <meta property="og:description"
-        content="Explore Iron_Adamant's portfolio of desktop applications, web tools, and productivity software.">
-    <meta name="twitter:card" content="summary_large_image">
-    <link rel="canonical" href="https://ironadamant.com/projects.html">
-    <meta property="og:url" content="https://ironadamant.com/projects.html">
-    <meta property="og:type" content="website">
-    <meta property="og:site_name" content="Iron_Adamant">
-    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <script type="speculationrules">
-    {
-        "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
-    }
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moved to Work | Iron Adamant</title>
+    <meta name="description" content="Projects has moved to the Work page.">
+    <link rel="canonical" href="https://ironadamant.com/work.html">
+    <meta http-equiv="refresh" content="0;url=work.html">
+    <meta name="robots" content="noindex">
+    <link rel="stylesheet" href="css/bundle.css?v=1783639575235">
+    <meta name="theme-color" content="#3d9a7a">
 </head>
-
 <body>
-    <!-- Tech Circuit Background Elements -->
-    <div class="unified-background"></div>
-
-    <div class="bright-path" style="top: 30%; left: 35%; width: 150px; transform: rotate(15deg);"></div>
-
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-
-    <header>
-        <div class="container">
-            <nav aria-label="Main navigation">
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
-                    <li><a href="apps.html">Apps</a></li>
-                    <li><a href="contact.html">Contact</a></li>
-                </ul>
-                <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>
-            </nav>
-        </div>
-    </header>
-
-    <!-- Mobile Navigation -->
-    <div class="nav-overlay"></div>
-    <nav class="mobile-nav" aria-label="Mobile navigation">
-        <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="projects.html" class="active" aria-current="page">Projects</a></li>
-            <li><a href="apps.html">Apps</a></li>
-            <li><a href="contact.html">Contact</a></li>
-        </ul>
-    </nav>
-
-    <main id="main-content" tabindex="-1" class="projects-page">
-        <div class="container">
-            <h1>Projects</h1>
-            <p class="lead">A collection of tools and applications I've built.</p>
-            <p class="open-source-notice">
-                <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>
-                All projects on this page are open source and freely available on GitHub.
-            </p>
-
-            <div class="category-filter" role="group" aria-label="Filter projects by category">
-                <button class="filter-btn active" data-category="all" aria-pressed="true">Complete Collection</button>
-            </div>
-
-            <div class="project-list" id="project-list" role="region" aria-label="Projects">
-                <!-- Projects will be dynamically loaded here -->
-            </div>
+    <main class="redirect-page">
+        <div>
+            <h1>This page moved</h1>
+            <p>Projects is now part of <strong>Work</strong>.</p>
+            <a class="btn btn-primary" href="work.html">Go to Work</a>
         </div>
     </main>
-
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Iron_Adamant. All rights reserved.</p>
-            <div class="social-links">
-                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
-                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"
-                    title="This Iron_Adamant account is not linked or associated with any other IronAdamant X accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
-                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
-                <a href="https://buymeacoffee.com/ironadamant" target="_blank" rel="noopener noreferrer" aria-label="Buy Me A Coffee"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#coffee"/></svg></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Deferred scripts for better performance -->
-    <script src="js/project-data.js?v=1781104145848" defer></script>
-    <script src="js/project-loader.js?v=1781104145848" defer></script>
-    <script src="js/navigation.js?v=1781104145848" defer></script>
-    <script src="js/image-modal.js?v=1781104145848" defer></script>
-    <script src="js/main.js?v=1781104145848" defer></script>
-
-    <script src="js/sw-register.js?v=1781104145848" defer></script>
+    <script>location.replace('work.html');</script>
 </body>
-
 </html>

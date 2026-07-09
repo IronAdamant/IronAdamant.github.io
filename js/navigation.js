@@ -1,38 +1,7 @@
 /**
- * Navigation Module - Mobile nav drawer and scroll-reveal animations.
- * Smooth anchor scrolling is handled by CSS (scroll-behavior + scroll-padding-top in base.css).
+ * Mobile nav drawer + focus management.
  */
 
-// ====== SCROLL-REVEAL ANIMATIONS ======
-// Adds .in-view as cards enter the viewport; the hidden initial state lives in
-// animations.css behind @media (scripting: enabled), so content is never
-// hidden for no-JS visitors.
-function initScrollAnimations() {
-    // Idempotent: only picks up elements not yet initialized, so it can be
-    // called again after dynamic renders (see project-loader.js)
-    const elements = [...document.querySelectorAll('.project-item, .project-card')]
-        .filter(el => !el.dataset.revealInit);
-    if (elements.length === 0) return;
-    elements.forEach(el => { el.dataset.revealInit = 'true'; });
-
-    if (!('IntersectionObserver' in window)) {
-        elements.forEach(el => el.classList.add('in-view'));
-        return;
-    }
-
-    const observer = new IntersectionObserver((entries) => {
-        for (const entry of entries) {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('in-view');
-                observer.unobserve(entry.target);
-            }
-        }
-    }, { rootMargin: '0px 0px -60px 0px' });
-
-    elements.forEach(el => observer.observe(el));
-}
-
-// ====== MOBILE NAVIGATION ======
 function initMobileNav() {
     const hamburger = document.querySelector('.hamburger');
     const mobileNav = document.querySelector('.mobile-nav');
@@ -40,34 +9,57 @@ function initMobileNav() {
 
     if (!hamburger || !mobileNav || !navOverlay) return;
 
-    const toggleMobileNav = () => {
-        hamburger.classList.toggle('active');
-        mobileNav.classList.toggle('active');
-        navOverlay.classList.toggle('active');
+    const focusableSelector = 'a[href], button:not([disabled])';
+    let lastFocus = null;
 
-        const isExpanded = hamburger.classList.contains('active');
-        hamburger.setAttribute('aria-expanded', isExpanded);
-        document.body.style.overflow = isExpanded ? 'hidden' : '';
+    const setOpen = (open) => {
+        hamburger.classList.toggle('active', open);
+        mobileNav.classList.toggle('active', open);
+        navOverlay.classList.toggle('active', open);
+        navOverlay.hidden = !open;
+        hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+
+        if (open) {
+            lastFocus = document.activeElement;
+            const first = mobileNav.querySelector(focusableSelector);
+            if (first) first.focus();
+        } else if (lastFocus && typeof lastFocus.focus === 'function') {
+            lastFocus.focus();
+        }
     };
 
-    hamburger.addEventListener('click', toggleMobileNav);
-    navOverlay.addEventListener('click', toggleMobileNav);
+    const toggle = () => setOpen(!mobileNav.classList.contains('active'));
+
+    hamburger.addEventListener('click', toggle);
+    navOverlay.addEventListener('click', () => setOpen(false));
 
     document.addEventListener('keydown', (e) => {
-        if (e.key === 'Escape' && mobileNav.classList.contains('active')) {
-            toggleMobileNav();
+        if (!mobileNav.classList.contains('active')) return;
+
+        if (e.key === 'Escape') {
+            setOpen(false);
+            return;
+        }
+
+        if (e.key !== 'Tab') return;
+        const focusable = [...mobileNav.querySelectorAll(focusableSelector)];
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
         }
     });
 
-    mobileNav.querySelectorAll('a').forEach(link => {
-        link.addEventListener('click', () => {
-            if (mobileNav.classList.contains('active')) {
-                toggleMobileNav();
-            }
-        });
+    mobileNav.querySelectorAll('a').forEach((link) => {
+        link.addEventListener('click', () => setOpen(false));
     });
 }
 
-// Export for use in main.js
-window.initScrollAnimations = initScrollAnimations;
 window.initMobileNav = initMobileNav;

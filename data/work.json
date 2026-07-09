@@ -1,0 +1,183 @@
+{
+  "siteName": "Iron Adamant",
+  "personName": "Aron Amos",
+  "email": "aron.amos@ironadamant.com",
+  "location": "Australia (remote)",
+  "featuredIds": ["wikifier", "coordinationhub", "chisel"],
+  "items": [
+    {
+      "id": "wikifier",
+      "title": "Wikifier",
+      "type": "oss",
+      "category": "ai",
+      "summary": "A token-efficient codebase map for AI agents — health matrix, dependency graphs, and per-file summaries so agents look things up instead of re-reading source.",
+      "description": "Wikifier gives coding agents a living map of any codebase: documentation health, dependency analysis (Python and JS/TS), circular dependency detection, and MCP tools so agents query a short summary instead of ingesting whole files. Pure Python stdlib, zero runtime dependencies.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/wikifier/main/screenshot/front_page_review.png",
+      "imageAlt": "Wikifier dashboard showing health matrix and dependency graph",
+      "techTags": ["Python", "MCP", "AI tooling"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/wikifier" },
+        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/wikifier/" }
+      ]
+    },
+    {
+      "id": "coordinationhub",
+      "title": "CoordinationHub",
+      "type": "oss",
+      "category": "ai",
+      "summary": "A shared coordination layer so multiple AI coding agents don’t overwrite each other — file locks, agent tree, tasks, and a live dashboard.",
+      "description": "CoordinationHub tracks which agents are active, who holds which files, and which tasks are blocked. TTL locks, scope boundaries, messaging, and an SVG dashboard over SSE. Built for multi-agent local workflows with MCP and Claude Code hooks. Pure Python stdlib.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/coordinationhub/main/screenshots/dashboard.png",
+      "imageAlt": "CoordinationHub dashboard with agents, tasks, and file locks",
+      "techTags": ["Python", "MCP", "SQLite", "Multi-agent"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/coordinationhub" },
+        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/coordinationhub/" }
+      ]
+    },
+    {
+      "id": "chisel",
+      "title": "Chisel",
+      "type": "oss",
+      "category": "ai",
+      "summary": "Test impact analysis for LLM agents — maps tests to code, scores risk, and suggests what to run after a change.",
+      "description": "Chisel maps the blast radius of code changes across many languages and test frameworks. Agents get targeted test suggestions, risk scores, and ownership signals instead of guessing. CLI, HTTP, and MCP. Pure Python with SQLite.",
+      "imageSrc": "images/chisel-demo.png",
+      "imageAlt": "Chisel risk map and test impact analysis UI",
+      "techTags": ["Python", "MCP", "Test intelligence"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Chisel" },
+        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/chisel-test-impact/" }
+      ]
+    },
+    {
+      "id": "stele-context",
+      "title": "stele-context",
+      "type": "oss",
+      "category": "ai",
+      "summary": "Local context cache for LLM agents with hybrid search, multi-agent safety, and MCP tools — runs fully offline.",
+      "description": "stele-context caches chunked project context so agents avoid re-reading unchanged files. Hybrid vector + keyword search, symbol graph, and locking for multi-agent use. Pure Python, optional tree-sitter, 100% offline capable.",
+      "imageSrc": "images/stele-context-search-demo.png",
+      "imageAlt": "stele-context semantic search results",
+      "techTags": ["Python", "MCP", "Vector search"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/stele-context" },
+        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/stele-context/" }
+      ]
+    },
+    {
+      "id": "trammel",
+      "title": "Trammel",
+      "type": "oss",
+      "category": "ai",
+      "summary": "Planning and execution harness for LLM-assisted coding — dependency-aware strategies, beam search, and learned constraints.",
+      "description": "Trammel decomposes multi-file goals into step sequences, explores strategy variants, verifies incrementally, and caches successful recipes. Designed for agents that need structure, not just chat.",
+      "imageSrc": "images/trammel-demo.png",
+      "imageAlt": "Trammel planning harness overview",
+      "techTags": ["Python", "MCP", "Planning"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Trammel" },
+        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/trammel/" }
+      ]
+    },
+    {
+      "id": "pythonbol",
+      "title": "PythonBol Translator",
+      "type": "oss",
+      "category": "ai",
+      "summary": "Offline COBOL-to-Python skeleton generator for legacy modernization — validated across thousands of real programs.",
+      "description": "Converts enterprise COBOL into syntactically valid Python skeletons with intrinsic functions, SQL/CICS hints, and copybook resolution. Zero runtime dependencies; includes MCP for agent workflows.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/PythonBol-Translator/main/docs/images/validation-report.png",
+      "imageAlt": "PythonBol validation report across COBOL projects",
+      "techTags": ["Python", "COBOL", "Modernization"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/PythonBol-Translator" },
+        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/cobol-safe-translator/" }
+      ]
+    },
+    {
+      "id": "checkpoint-projects",
+      "title": "Checkpoint Projects",
+      "type": "product",
+      "category": "product",
+      "summary": "Mobile-first project tracker. No accounts required for free use — nested checklists, progress, and optional device sync.",
+      "description": "Lightweight offline-first project manager with nested tasks and progress bars. Free tier for local use; Pro unlocks unlimited projects and full export. One-time purchase, no subscription.",
+      "imageSrc": "",
+      "imageAlt": "",
+      "techTags": ["Web app", "Offline-first", "Azure"],
+      "links": [
+        { "text": "Website", "icon": "external-link", "url": "https://checkpointprojects.com" }
+      ]
+    },
+    {
+      "id": "consistencyhub",
+      "title": "ConsistencyHub",
+      "type": "product",
+      "category": "product",
+      "summary": "Zero-knowledge consistency platform for writers — track characters, events, and contradictions with optional AI.",
+      "description": "Stores world data in your OneDrive. Heuristic consistency checks, document editor, spreadsheet bible, and knowledge graph. AI is optional with your own API key.",
+      "imageSrc": "",
+      "imageAlt": "",
+      "techTags": ["Web app", "OneDrive", "Writers"],
+      "links": [
+        { "text": "Website", "icon": "external-link", "url": "https://consistencyhub.io" }
+      ]
+    },
+    {
+      "id": "mdword",
+      "title": "MDWord",
+      "type": "oss",
+      "category": "application",
+      "summary": "Live Markdown ↔ Word converter deployed on Netlify for quick document handoffs.",
+      "description": "Browser-based conversion between Markdown and Word documents. Useful when clients and tools disagree on format.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Markdown-Word-Converter/main/images/screencapture-mdword-ironadamant-2025-07-03-12_11_28.png",
+      "imageAlt": "MDWord converter interface",
+      "techTags": ["React", "Netlify"],
+      "links": [
+        { "text": "Live app", "icon": "external-link", "url": "https://mdword.ironadamant.com/" }
+      ]
+    },
+    {
+      "id": "console-logger",
+      "title": "Console Logger",
+      "type": "oss",
+      "category": "browser",
+      "summary": "Chromium extension that captures console output across tabs, including errors content scripts miss.",
+      "description": "Uses the debugger API for deep console capture, live popup monitoring, and auto-save to disk. Works on Chromium browsers under Manifest V3.",
+      "imageSrc": "images/console-logger-screenshot.png",
+      "imageAlt": "Console Logger extension capturing live console output",
+      "techTags": ["Chrome extension", "JavaScript"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Console-logger" }
+      ]
+    },
+    {
+      "id": "autoclacker",
+      "title": "AutoClacker",
+      "type": "oss",
+      "category": "application",
+      "summary": "Cross-platform click and keypress automation with Avalonia UI and native platform APIs.",
+      "description": "Configurable intervals, global hotkeys, and persistent settings for Windows, Linux, and macOS. Self-contained builds; no runtime install required.",
+      "imageSrc": "images/autoclacker-screenshot.png",
+      "imageAlt": "AutoClacker automation controls",
+      "techTags": ["C#", ".NET", "Avalonia"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AutoClacker" }
+      ]
+    },
+    {
+      "id": "windows-sound-tracker",
+      "title": "Windows Sound Tracker",
+      "type": "oss",
+      "category": "tracking",
+      "summary": "Windows app that logs which processes are making sound in real time.",
+      "description": "Real-time WASAPI-based monitoring with process names, levels, timestamps, CSV logging, and tray support for background use.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/windows_sound_tracker/refs/heads/master/images/windows_sound_tracker_ui.png",
+      "imageAlt": "Windows Sound Tracker interface",
+      "techTags": ["C++", "Win32", "WASAPI"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/windows_sound_tracker" }
+      ]
+    }
+  ]
+}
