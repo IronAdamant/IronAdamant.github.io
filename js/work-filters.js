@@ -3,25 +3,33 @@
  */
 
 function initWorkFilters() {
-    const buttons = document.querySelectorAll('.filter-btn');
+    const bar = document.querySelector('.filter-bar');
     const items = document.querySelectorAll('.work-item');
-    if (!buttons.length || !items.length) return;
+    if (!bar || !items.length) return;
 
-    buttons.forEach((button) => {
-        button.addEventListener('click', () => {
-            const category = button.getAttribute('data-category') || 'all';
+    const buttons = bar.querySelectorAll('.filter-btn');
+    if (!buttons.length) return;
 
-            buttons.forEach((btn) => {
-                const active = btn === button;
-                btn.classList.toggle('active', active);
-                btn.setAttribute('aria-pressed', active ? 'true' : 'false');
-            });
-
-            items.forEach((item) => {
-                const match = category === 'all' || item.getAttribute('data-category') === category;
-                item.hidden = !match;
-            });
+    function applyFilter(category) {
+        items.forEach((item) => {
+            const match = category === 'all' || item.getAttribute('data-category') === category;
+            item.hidden = !match;
         });
+    }
+
+    bar.addEventListener('click', (event) => {
+        const button = event.target.closest('.filter-btn');
+        if (!button || !bar.contains(button)) return;
+
+        const category = button.getAttribute('data-category') || 'all';
+
+        buttons.forEach((btn) => {
+            const active = btn === button;
+            btn.classList.toggle('active', active);
+            btn.setAttribute('aria-pressed', active ? 'true' : 'false');
+        });
+
+        applyFilter(category);
     });
 }
 

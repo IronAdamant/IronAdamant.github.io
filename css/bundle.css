@@ -712,6 +712,11 @@ main {
     transition: border-color var(--transition);
 }
 
+/* Author display:grid wins over the UA [hidden] rule — restore hide for filters */
+.work-item[hidden] {
+    display: none !important;
+}
+
 .work-item:hover {
     border-color: rgba(61, 154, 122, 0.45);
 }
