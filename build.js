@@ -305,8 +305,8 @@ console.log(`\n📦 Version: ${currentVersion} → ${newVersion}`);
 let swContent = fs.readFileSync(SW_PATH, 'utf8');
 if (swContent.includes('CACHE_VERSION')) {
   swContent = swContent.replace(
-    /const CACHE_VERSION = '[^']+';/,
-    `const CACHE_VERSION = 'v${newVersion}'`
+    /const CACHE_VERSION = '[^']+';?/,
+    `const CACHE_VERSION = 'v${newVersion}';`
   );
   fs.writeFileSync(SW_PATH, swContent);
   console.log(`🔧 sw.js CACHE_VERSION → v${newVersion}`);
