@@ -29,6 +29,8 @@ jobs:
                    sw.js manifest.json favicon.png CNAME robots.txt sitemap.xml; do
             if [ -f "$f" ]; then cp "$f" deploy/; fi
           done
+          # Digital business card at /card/ (orphan utility page — not in main nav)
+          if [ -d card ]; then cp -r card deploy/; fi
           cp -r css js images fonts deploy/
           # Do not ship source-only or tooling trees
           rm -f deploy/css/main.css 2>/dev/null || true

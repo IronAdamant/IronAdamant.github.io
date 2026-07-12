@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="robots" content="noindex, nofollow">
+
+    <title>Aron Amos — Iron Adamant</title>
+    <meta name="description"
+        content="Aron Amos (Iron Adamant) — custom software, automation, and VPS. Contact and site links.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="canonical" href="https://ironadamant.com/card/">
+
+    <meta property="og:title" content="Aron Amos — Iron Adamant">
+    <meta property="og:description"
+        content="Software contractor: custom apps, n8n automation, and VPS deployment. Australia · Remote.">
+    <meta property="og:url" content="https://ironadamant.com/card/">
+    <meta property="og:type" content="profile">
+    <meta property="og:site_name" content="Iron Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="Aron Amos — Iron Adamant">
+    <meta name="twitter:description"
+        content="Software contractor: custom apps, n8n automation, and VPS deployment.">
+
+    <style>
+        /* Standalone digital card — no site nav chrome */
+        html {
+            background-color: #0c0e12;
+            color-scheme: dark;
+        }
+
+        :root {
+            --bg: #0c0e12;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --accent-hover: #4db38f;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--font);
+            background:
+                radial-gradient(ellipse 80% 50% at 50% -10%, rgba(61, 154, 122, 0.14), transparent 55%),
+                var(--bg);
+            color: var(--text);
+            min-height: 100dvh;
+            min-height: 100vh;
+            line-height: 1.5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+        }
+
+        .card {
+            width: min(100%, 22rem);
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            padding: 1.75rem 1.5rem 1.5rem;
+            box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+            text-align: center;
+        }
+
+        .brand {
+            font-size: 0.8rem;
+            font-weight: 600;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 0.35rem;
+        }
+
+        .brand span {
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        h1 {
+            font-size: 1.65rem;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+            margin-bottom: 0.35rem;
+        }
+
+        .role {
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .summary {
+            font-size: 0.95rem;
+            color: var(--text);
+            margin-bottom: 1.35rem;
+            text-wrap: pretty;
+        }
+
+        .actions {
+            display: flex;
+            flex-direction: column;
+            gap: 0.65rem;
+            margin-bottom: 1.35rem;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 0.65rem;
+            font: inherit;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            text-align: center;
+            border: 1px solid transparent;
+            transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
+        }
+
+        .btn-primary {
+            background: var(--accent);
+            color: #0c0e12;
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus-visible {
+            background: var(--accent-hover);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--text);
+            border-color: var(--border);
+        }
+
+        .btn-secondary:hover,
+        .btn-secondary:focus-visible {
+            border-color: var(--accent);
+            color: var(--accent);
+        }
+
+        .qr-block {
+            padding-top: 0.25rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .qr-frame {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            margin: 1rem auto 0.65rem;
+            padding: 0.65rem;
+            background: #fff;
+            border-radius: 0.75rem;
+            line-height: 0;
+        }
+
+        .qr-frame img {
+            width: 9.5rem;
+            height: 9.5rem;
+            display: block;
+        }
+
+        .qr-caption {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .qr-caption a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .qr-caption a:hover,
+        .qr-caption a:focus-visible {
+            text-decoration: underline;
+        }
+
+        /* QR payload documented for tooling: https://ironadamant.com/ */
+        /* data-qr-payload mirrors the encoded URL in images/card-home-qr.svg */
+    </style>
+</head>
+
+<body>
+    <article class="card" aria-label="Digital business card">
+        <p class="brand">Iron <span>Adamant</span></p>
+        <h1>Aron Amos</h1>
+        <p class="role">Software contractor · Australia · Remote</p>
+        <p class="summary">
+            I build custom software, workflow automation (n8n), and VPS deployments —
+            practical tools for teams shipping products and systems that stay understandable.
+        </p>
+
+        <div class="actions">
+            <a class="btn btn-primary" href="mailto:aron.amos@ironadamant.com">Email me</a>
+            <a class="btn btn-secondary" href="https://ironadamant.com/">Visit website</a>
+            <a class="btn btn-secondary" href="https://ironadamant.com/work.html">View work</a>
+        </div>
+
+        <div class="qr-block"
+             data-qr-payload="https://ironadamant.com/"
+             data-qr-asset="/images/card-home-qr.svg">
+            <div class="qr-frame">
+                <img src="/images/card-home-qr.svg"
+                     width="152"
+                     height="152"
+                     alt="QR code linking to https://ironadamant.com/"
+                     decoding="async">
+            </div>
+            <p class="qr-caption">
+                Scan for the full site ·
+                <a href="https://ironadamant.com/">ironadamant.com</a>
+            </p>
+        </div>
+    </article>
+</body>
+
+</html>
