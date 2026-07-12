@@ -9,23 +9,50 @@
 
     <title>Aron Amos — Iron Adamant</title>
     <meta name="description"
-        content="Aron Amos (Iron Adamant) — custom software, automation, and VPS. Contact and site links.">
+        content="Aron Amos (Iron Adamant) — custom software, n8n automation, and VPS. Australia · Remote.">
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="canonical" href="https://ironadamant.com/card/">
+    <link rel="me" href="https://github.com/IronAdamant">
+    <link rel="me" href="mailto:aron.amos@ironadamant.com">
 
     <meta property="og:title" content="Aron Amos — Iron Adamant">
     <meta property="og:description"
-        content="Software contractor: custom apps, n8n automation, and VPS deployment. Australia · Remote.">
+        content="Software contractor · Australia · Remote. Custom apps, n8n automation, and VPS deployment.">
     <meta property="og:url" content="https://ironadamant.com/card/">
     <meta property="og:type" content="profile">
     <meta property="og:site_name" content="Iron Adamant">
-    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image" content="https://ironadamant.com/images/card-og.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Aron Amos — Iron Adamant digital business card">
 
-    <meta name="twitter:card" content="summary">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Aron Amos — Iron Adamant">
     <meta name="twitter:description"
-        content="Software contractor: custom apps, n8n automation, and VPS deployment.">
+        content="Software contractor · Australia · Remote. Custom apps, n8n automation, and VPS.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/card-og.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aron Amos",
+      "alternateName": "Iron Adamant",
+      "jobTitle": "Software contractor",
+      "email": "aron.amos@ironadamant.com",
+      "url": "https://ironadamant.com/",
+      "sameAs": [
+        "https://github.com/IronAdamant",
+        "https://ironadamant.com/card/"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      },
+      "description": "Builds custom software, workflow automation with n8n, and VPS deployments. Australia · Remote."
+    }
+    </script>
 
     <style>
         /* Standalone digital card — no site nav chrome */
@@ -65,7 +92,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            padding: max(1rem, env(safe-area-inset-top)) max(1rem, env(safe-area-inset-right)) max(1rem, env(safe-area-inset-bottom)) max(1rem, env(safe-area-inset-left));
+            padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
         }
 
         .card {
@@ -73,18 +100,18 @@
             background: var(--surface);
             border: 1px solid var(--border);
             border-radius: 1.25rem;
-            padding: 1.75rem 1.5rem 1.5rem;
+            padding: 1.5rem 1.35rem 1.25rem;
             box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
             text-align: center;
         }
 
         .brand {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             font-weight: 600;
             letter-spacing: 0.06em;
             text-transform: uppercase;
             color: var(--accent);
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.3rem;
         }
 
         .brand span {
@@ -93,37 +120,37 @@
         }
 
         h1 {
-            font-size: 1.65rem;
+            font-size: 1.55rem;
             font-weight: 700;
             letter-spacing: -0.02em;
             line-height: 1.2;
-            margin-bottom: 0.35rem;
+            margin-bottom: 0.3rem;
         }
 
         .role {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: var(--text-muted);
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
         }
 
         .summary {
-            font-size: 0.95rem;
+            font-size: 0.92rem;
             color: var(--text);
-            margin-bottom: 1.35rem;
+            margin-bottom: 1.1rem;
             text-wrap: pretty;
         }
 
         .actions {
             display: flex;
             flex-direction: column;
-            gap: 0.65rem;
-            margin-bottom: 1.35rem;
+            gap: 0.55rem;
+            margin-bottom: 0.75rem;
         }
 
         .btn {
             display: block;
             width: 100%;
-            padding: 0.8rem 1rem;
+            padding: 0.75rem 1rem;
             border-radius: 0.65rem;
             font: inherit;
             font-weight: 600;
@@ -131,6 +158,9 @@
             text-decoration: none;
             text-align: center;
             border: 1px solid transparent;
+            cursor: pointer;
+            background: transparent;
+            color: inherit;
             transition: background 0.15s ease, border-color 0.15s ease, color 0.15s ease;
         }
 
@@ -156,8 +186,58 @@
             color: var(--accent);
         }
 
+        .util-row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.35rem 0.85rem;
+            margin-bottom: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .util-row a,
+        .util-row button {
+            font: inherit;
+            font-size: inherit;
+            color: var(--accent);
+            background: none;
+            border: none;
+            padding: 0.15rem 0;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .util-row a:hover,
+        .util-row a:focus-visible,
+        .util-row button:hover,
+        .util-row button:focus-visible {
+            text-decoration: underline;
+        }
+
+        .util-row button.is-copied {
+            color: var(--text-muted);
+        }
+
+        .tertiary {
+            font-size: 0.82rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .tertiary a {
+            color: var(--text-muted);
+            text-decoration: none;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .tertiary a:hover,
+        .tertiary a:focus-visible {
+            color: var(--accent);
+            border-bottom-color: var(--accent);
+        }
+
         .qr-block {
-            padding-top: 0.25rem;
+            padding-top: 0.15rem;
             border-top: 1px solid var(--border);
         }
 
@@ -165,22 +245,23 @@
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            margin: 1rem auto 0.65rem;
-            padding: 0.65rem;
+            margin: 0.85rem auto 0.55rem;
+            padding: 0.55rem;
             background: #fff;
             border-radius: 0.75rem;
             line-height: 0;
         }
 
         .qr-frame img {
-            width: 9.5rem;
-            height: 9.5rem;
+            width: 8.75rem;
+            height: 8.75rem;
             display: block;
         }
 
         .qr-caption {
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             color: var(--text-muted);
+            line-height: 1.4;
         }
 
         .qr-caption a {
@@ -193,43 +274,122 @@
             text-decoration: underline;
         }
 
-        /* QR payload documented for tooling: https://ironadamant.com/ */
-        /* data-qr-payload mirrors the encoded URL in images/card-home-qr.svg */
+        .visually-hidden {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* On-page QR payload: https://ironadamant.com/ (images/card-home-qr.svg)
+           Print/sticker QR (not shown): https://ironadamant.com/card/ (images/card-page-qr.svg) */
     </style>
 </head>
 
 <body>
-    <article class="card" aria-label="Digital business card">
-        <p class="brand">Iron <span>Adamant</span></p>
-        <h1>Aron Amos</h1>
-        <p class="role">Software contractor · Australia · Remote</p>
-        <p class="summary">
-            I build custom software, workflow automation (n8n), and VPS deployments —
-            practical tools for teams shipping products and systems that stay understandable.
+    <article class="card h-card" aria-label="Digital business card">
+        <p class="brand p-org">Iron <span>Adamant</span></p>
+        <h1 class="p-name">Aron Amos</h1>
+        <p class="role p-job-title">Software contractor · Australia · Remote</p>
+        <p class="summary p-note">
+            Custom software, n8n automation, and VPS — practical systems teams can ship and run.
         </p>
 
         <div class="actions">
-            <a class="btn btn-primary" href="mailto:aron.amos@ironadamant.com">Email me</a>
-            <a class="btn btn-secondary" href="https://ironadamant.com/">Visit website</a>
+            <a class="btn btn-primary u-email"
+               id="email-link"
+               href="mailto:aron.amos@ironadamant.com">Email me</a>
+            <a class="btn btn-secondary u-url" href="https://ironadamant.com/">Visit website</a>
             <a class="btn btn-secondary" href="https://ironadamant.com/work.html">View work</a>
         </div>
 
+        <div class="util-row">
+            <button type="button" id="copy-email" data-email="aron.amos@ironadamant.com">
+                Copy email
+            </button>
+            <a href="/card/aron-amos.vcf" download="aron-amos.vcf">Add contact</a>
+        </div>
+
+        <p class="tertiary">
+            <a class="u-url" href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer me">GitHub</a>
+        </p>
+
         <div class="qr-block"
              data-qr-payload="https://ironadamant.com/"
-             data-qr-asset="/images/card-home-qr.svg">
+             data-qr-asset="/images/card-home-qr.svg"
+             data-print-qr-payload="https://ironadamant.com/card/"
+             data-print-qr-asset="/images/card-page-qr.svg">
             <div class="qr-frame">
                 <img src="/images/card-home-qr.svg"
-                     width="152"
-                     height="152"
+                     width="140"
+                     height="140"
                      alt="QR code linking to https://ironadamant.com/"
                      decoding="async">
             </div>
             <p class="qr-caption">
                 Scan for the full site ·
-                <a href="https://ironadamant.com/">ironadamant.com</a>
+                <a class="u-url" href="https://ironadamant.com/">ironadamant.com</a><br>
+                <span class="visually-hidden">
+                    Print or sticker QR for this card page is at /images/card-page-qr.svg
+                    and encodes https://ironadamant.com/card/
+                </span>
             </p>
         </div>
     </article>
+
+    <script>
+        (function () {
+            var btn = document.getElementById('copy-email');
+            if (!btn) return;
+            var email = btn.getAttribute('data-email') || 'aron.amos@ironadamant.com';
+            var idleLabel = 'Copy email';
+            var doneLabel = 'Copied';
+
+            function setLabel(text, copied) {
+                btn.textContent = text;
+                btn.classList.toggle('is-copied', !!copied);
+                btn.setAttribute('aria-label', text + (copied ? '' : ': ' + email));
+            }
+
+            setLabel(idleLabel, false);
+
+            btn.addEventListener('click', function () {
+                function ok() {
+                    setLabel(doneLabel, true);
+                    window.setTimeout(function () { setLabel(idleLabel, false); }, 1600);
+                }
+                function fail() {
+                    // Fallback: select mailto for manual copy on older browsers
+                    window.prompt('Copy email address:', email);
+                }
+
+                if (navigator.clipboard && navigator.clipboard.writeText) {
+                    navigator.clipboard.writeText(email).then(ok).catch(fail);
+                } else {
+                    try {
+                        var ta = document.createElement('textarea');
+                        ta.value = email;
+                        ta.setAttribute('readonly', '');
+                        ta.style.position = 'fixed';
+                        ta.style.left = '-9999px';
+                        document.body.appendChild(ta);
+                        ta.select();
+                        var worked = document.execCommand('copy');
+                        document.body.removeChild(ta);
+                        if (worked) ok();
+                        else fail();
+                    } catch (e) {
+                        fail();
+                    }
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>

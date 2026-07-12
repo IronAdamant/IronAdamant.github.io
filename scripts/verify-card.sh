@@ -5,10 +5,15 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 CARD="$ROOT/card/index.html"
+VCF="$ROOT/card/aron-amos.vcf"
 DEPLOY="$ROOT/.github/workflows/deploy.yml"
 QR="$ROOT/images/card-home-qr.svg"
+PRINT_QR="$ROOT/images/card-page-qr.svg"
+OG="$ROOT/images/card-og.png"
 HOME_URL="https://ironadamant.com/"
+CARD_URL="https://ironadamant.com/card/"
 MAILTO="mailto:aron.amos@ironadamant.com"
+EMAIL="aron.amos@ironadamant.com"
 FAIL=0
 
 ok() { echo "OK  $*"; }
@@ -22,10 +27,30 @@ else
   bad "missing $CARD"
 fi
 
+if [[ -f "$VCF" ]]; then
+  ok "vCard exists: card/aron-amos.vcf"
+  grep -q "$EMAIL" "$VCF" && ok "vCard includes email" || bad "vCard missing email"
+  grep -q 'BEGIN:VCARD' "$VCF" && ok "vCard has BEGIN:VCARD" || bad "vCard malformed"
+else
+  bad "missing vCard $VCF"
+fi
+
 if [[ -f "$QR" ]]; then
-  ok "QR asset exists: images/card-home-qr.svg"
+  ok "home QR asset exists: images/card-home-qr.svg"
 else
   bad "missing QR asset $QR"
+fi
+
+if [[ -f "$PRINT_QR" ]]; then
+  ok "print/card-page QR asset exists: images/card-page-qr.svg"
+else
+  bad "missing print QR asset $PRINT_QR"
+fi
+
+if [[ -f "$OG" ]]; then
+  ok "OG share image exists: images/card-og.png"
+else
+  bad "missing OG image $OG"
 fi
 
 if grep -q 'card' "$DEPLOY" && grep -q 'cp -r card' "$DEPLOY"; then
@@ -38,7 +63,12 @@ if [[ -f "$CARD" ]]; then
   grep -q "$MAILTO" "$CARD" && ok "mailto link present" || bad "missing $MAILTO"
   grep -q "$HOME_URL" "$CARD" && ok "home URL present in page" || bad "missing home URL $HOME_URL"
   grep -q 'data-qr-payload="https://ironadamant.com/"' "$CARD" && ok "data-qr-payload documents home URL" || bad "missing data-qr-payload"
+  grep -q 'data-print-qr-payload="https://ironadamant.com/card/"' "$CARD" && ok "print QR payload documented" || bad "missing print QR payload docs"
   grep -q 'card-home-qr.svg' "$CARD" && ok "QR img references card-home-qr.svg" || bad "QR img missing"
+  grep -q 'aron-amos.vcf' "$CARD" && ok "Add contact links to vCard" || bad "missing vCard download link"
+  grep -q 'copy-email' "$CARD" && ok "Copy email control present" || bad "missing copy-email"
+  grep -q 'h-card' "$CARD" && ok "h-card microformat present" || bad "missing h-card"
+  grep -q 'application/ld+json' "$CARD" && ok "JSON-LD Person present" || bad "missing JSON-LD"
   # Standalone: no main site nav injection / no site-header
   if grep -q 'site-header\|nav-desktop\|INJECT_HEADER\|mobile-nav' "$CARD"; then
     bad "card page unexpectedly includes main site nav chrome"

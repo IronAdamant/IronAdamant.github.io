@@ -1,0 +1,11 @@
+BEGIN:VCARD
+VERSION:3.0
+N:Amos;Aron;;;
+FN:Aron Amos
+ORG:Iron Adamant
+TITLE:Software contractor
+EMAIL;TYPE=INTERNET,PREF:aron.amos@ironadamant.com
+URL;TYPE=work:https://ironadamant.com/
+URL:https://ironadamant.com/card/
+NOTE:Custom software\, n8n automation\, and VPS deployment. Australia · Remote.
+END:VCARD
