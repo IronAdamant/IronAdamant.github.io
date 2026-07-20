@@ -3,7 +3,7 @@
   "personName": "Aron Amos",
   "email": "aron.amos@ironadamant.com",
   "location": "Australia (remote)",
-  "featuredIds": ["wikifier", "coordinationhub", "chisel"],
+  "featuredIds": ["wikifier", "coordinationhub", "grok-bevy"],
   "items": [
     {
       "id": "wikifier",
@@ -48,6 +48,20 @@
       "links": [
         { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Chisel" },
         { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/chisel-test-impact/" }
+      ]
+    },
+    {
+      "id": "grok-bevy",
+      "title": "Grok-Bevy",
+      "type": "oss",
+      "category": "ai",
+      "summary": "MCP server + CLI so AI coding agents can doctor, scaffold, and live-control Bevy 2D/3D games — BRP query/mutate and viewport screenshots.",
+      "description": "Gives agents eyes and hands on a running Bevy app: environment doctor, 2D/3D scaffolds, live Bevy Remote Protocol control, and viewport capture. Works with Grok Build and any MCP client. Dual-licensed MIT or Apache-2.0.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Grok-Bevy/main/docs/images/crystal-drift-play.png",
+      "imageAlt": "Crystal Drift gameplay — mining drone, asteroids, score and fuel HUD",
+      "techTags": ["Rust", "Bevy", "MCP", "Game dev"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Grok-Bevy" }
       ]
     },
     {
