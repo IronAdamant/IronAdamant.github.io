@@ -3,8 +3,38 @@
   "personName": "Aron Amos",
   "email": "aron.amos@ironadamant.com",
   "location": "Australia (remote)",
-  "featuredIds": ["wikifier", "coordinationhub", "grok-bevy"],
+  "featuredIds": ["interpres", "agentvideoparse", "wikifier"],
   "items": [
+    {
+      "id": "interpres",
+      "title": "Interpres",
+      "type": "oss",
+      "category": "application",
+      "summary": "Privacy-first Live Captions companion for Deaf and hard-of-hearing users — saves what Windows and Mac Live Captions already show, fully local.",
+      "description": "Interpres works with OS Live Captions (not a stand-alone speech engine). Native Win32 and AppKit UIs, opt-in dated session transcripts, light/dark/system theme, and a strict zero crates.io Rust core. Portable Mac and Windows builds; no subscription or cloud account.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Interpres/main/assets/screenshot-macos.png",
+      "imageAlt": "Interpres on Mac — native companion window with Live and Session caption areas",
+      "techTags": ["Rust", "Accessibility", "macOS", "Windows"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Interpres" },
+        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/Interpres/releases" }
+      ]
+    },
+    {
+      "id": "agentvideoparse",
+      "title": "AgentVideoParse",
+      "type": "oss",
+      "category": "ai",
+      "summary": "Drop a short debug video (≤30s) and get ordered frame screenshots so AI coding agents can see what was on screen.",
+      "description": "Agents read stills well but struggle with video. AgentVideoParse rejects clips over 30 seconds on purpose, samples agent-friendly JPEGs, and writes a manifest. Native macOS (SwiftUI + AVFoundation) and Windows (WPF) apps with a unified shell — no Python required for end users. Fully local, MIT.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/AgentVideoParse/main/assets/screenshots/macos-unified.png",
+      "imageAlt": "AgentVideoParse on macOS — unified dark UI for short debug video export",
+      "techTags": ["Swift", "C#", "AI agents", "Desktop"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AgentVideoParse" },
+        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/AgentVideoParse/releases" }
+      ]
+    },
     {
       "id": "wikifier",
       "title": "Wikifier",
