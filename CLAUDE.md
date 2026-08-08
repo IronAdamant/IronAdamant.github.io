@@ -6,7 +6,7 @@ Guidance for AI assistants working in this repository.
 
 Personal site (ironadamant.com) — vanilla HTML/CSS/JS, no framework, no package.json, no tests. Deployed to GitHub Pages via GitHub Actions on push to `main` (allowlisted files only).
 
-**Positioning:** dual audience — contract software work (custom apps, n8n automation, VPS) and open-source / product portfolio.
+**Positioning:** dual audience — contract software work (custom apps, AI tooling) and open-source / product portfolio. Differentiator: simplify technical complexity for non-technical decision-makers. Do not claim n8n or VPS services without shipped proof.
 
 ## Commands
 

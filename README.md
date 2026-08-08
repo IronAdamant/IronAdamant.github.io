@@ -1,6 +1,6 @@
 # Iron Adamant
 
-Personal site for **Aron Amos** (Iron Adamant) — custom software, workflow automation (n8n), VPS deployment, open-source tools, and products.
+Personal site for **Aron Amos** (Iron Adamant): custom software, practical AI tooling, open-source tools, and products.
 
 **Live:** [ironadamant.com](https://ironadamant.com)
 
