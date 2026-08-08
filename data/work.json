@@ -3,7 +3,7 @@
   "personName": "Aron Amos",
   "email": "aron.amos@ironadamant.com",
   "location": "Australia (remote)",
-  "featuredIds": ["interpres", "agentvideoparse", "wikifier"],
+  "featuredIds": ["interpres", "agentvideoparse", "agentgifparse"],
   "items": [
     {
       "id": "interpres",
@@ -33,6 +33,21 @@
       "links": [
         { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AgentVideoParse" },
         { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/AgentVideoParse/releases" }
+      ]
+    },
+    {
+      "id": "agentgifparse",
+      "title": "AgentGifParse",
+      "type": "oss",
+      "category": "ai",
+      "summary": "Drop a short animated GIF (≤30s) and get ordered frame screenshots so AI agents can review motion without watching the loop.",
+      "description": "Sibling to AgentVideoParse for GIF-only workflows. Hard 30s reject, 2 fps sampling (max 60 stills), agent-friendly JPEGs, and a manifest. Useful when short loops come from UI bugs or generative tools (Imagine-class / Seedance-style GIF and clip exports). Native macOS (SwiftUI + ImageIO) and Windows (WPF + WIC) apps; fully local, MIT.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/AgentGifParse/main/assets/screenshots/macos-unified.png",
+      "imageAlt": "AgentGifParse on macOS — unified dark UI for short animated GIF export",
+      "techTags": ["Swift", "C#", "AI agents", "GIF", "Desktop"],
+      "links": [
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AgentGifParse" },
+        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/AgentGifParse/releases" }
       ]
     },
     {
