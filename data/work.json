@@ -157,14 +157,16 @@
     {
       "id": "checkpoint-projects",
       "title": "Checkpoint",
-      "type": "oss",
-      "category": "application",
-      "summary": "Local-first personal project book. Today is the home screen — overdue first, then due today. No account.",
-      "description": "A personal project list that stays in this browser. Open a project, type the next task, tap a row to check it off. Export JSON, Markdown, CSV, todo.txt, or a calendar file if you leave. No account, no cloud, no purchase.",
+      "type": "app",
+      "category": "browser",
+      "summary": "Browser project book. Today is the home screen — overdue first, then due today. No account.",
+      "description": "A personal project list that runs in the browser. Open a project, type the next task, tap a row to check it off. Export JSON, Markdown, CSV, todo.txt, or a calendar file if you leave. No account, no cloud, no purchase. Use it at checkpointprojects.com.",
       "imageSrc": "images/checkpoint-today.jpg",
       "imageAlt": "Checkpoint Today view — next, overdue, and due-today tasks in a dark local-first notebook",
-      "techTags": ["React", "TypeScript", "Local-first"],
-      "links": []
+      "techTags": ["Web app", "Local-first"],
+      "links": [
+        { "text": "Open app", "icon": "external-link", "url": "https://checkpointprojects.com" }
+      ]
     },
     {
       "id": "consistencyhub",

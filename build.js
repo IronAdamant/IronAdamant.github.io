@@ -71,6 +71,9 @@ function badgeHtml(type) {
   if (type === 'product') {
     return `<span class="badge badge-product">${iconSvg('lock')} Product</span>`;
   }
+  if (type === 'app') {
+    return `<span class="badge badge-app">${iconSvg('external-link')} Web app</span>`;
+  }
   return `<span class="badge badge-oss">${iconSvg('github')} Open source</span>`;
 }
 

@@ -797,6 +797,12 @@ main {
     background: rgba(167, 139, 250, 0.1);
 }
 
+.badge-app {
+    color: var(--text);
+    border-color: var(--border);
+    background: var(--surface);
+}
+
 .tag-list {
     display: flex;
     flex-wrap: wrap;

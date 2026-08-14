@@ -42,7 +42,7 @@ No lint or test tooling.
 - `404.html` — root-absolute assets (GitHub Pages catch-all)
 
 ### Work content
-- Single source: `data/work.json` (`type`: `oss` | `product`, `category`, `featuredIds` on root).
+- Single source: `data/work.json` (`type`: `oss` | `product` | `app`, `category`, `featuredIds` on root). `app` is a browser web app, not open source and not a commercial product.
 - HTML is **static after build** (crawlable without JS).
 
 ### CSS
