@@ -156,17 +156,15 @@
     },
     {
       "id": "checkpoint-projects",
-      "title": "Checkpoint Projects",
-      "type": "product",
-      "category": "product",
-      "summary": "Mobile-first project tracker. No accounts required for free use — nested checklists, progress, and optional device sync.",
-      "description": "Lightweight offline-first project manager with nested tasks and progress bars. Free tier for local use; Pro unlocks unlimited projects and full export. One-time purchase, no subscription.",
-      "imageSrc": "",
-      "imageAlt": "",
-      "techTags": ["Web app", "Offline-first", "Azure"],
-      "links": [
-        { "text": "Website", "icon": "external-link", "url": "https://checkpointprojects.com" }
-      ]
+      "title": "Checkpoint",
+      "type": "oss",
+      "category": "application",
+      "summary": "Local-first personal project book. Today is the home screen — overdue first, then due today. No account.",
+      "description": "A personal project list that stays in this browser. Open a project, type the next task, tap a row to check it off. Export JSON, Markdown, CSV, todo.txt, or a calendar file if you leave. No account, no cloud, no purchase.",
+      "imageSrc": "images/checkpoint-today.jpg",
+      "imageAlt": "Checkpoint Today view — next, overdue, and due-today tasks in a dark local-first notebook",
+      "techTags": ["React", "TypeScript", "Local-first"],
+      "links": []
     },
     {
       "id": "consistencyhub",

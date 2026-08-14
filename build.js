@@ -108,9 +108,14 @@ function featuredCard(item) {
     </div>
     <p>${escapeHtml(item.summary)}</p>
     ${tagsHtml(item.techTags)}
-    <div class="work-links">${linksHtml(item.links)}</div>
+    ${linksBlock(item.links)}
   </div>
 </article>`;
+}
+
+function linksBlock(links) {
+  if (!links || links.length === 0) return '';
+  return `<div class="work-links">${linksHtml(links)}</div>`;
 }
 
 function workItem(item) {
@@ -121,7 +126,7 @@ function workItem(item) {
     </div>
     <p>${escapeHtml(item.description || item.summary)}</p>
     ${tagsHtml(item.techTags)}
-    <div class="work-links">${linksHtml(item.links)}</div>
+    ${linksBlock(item.links)}
   </div>`;
 
   return `<article class="work-item" data-category="${escapeHtml(item.category)}" id="${escapeHtml(item.id)}">
@@ -138,7 +143,7 @@ function productCard(item) {
   </div>
   <p>${escapeHtml(item.summary)}</p>
   ${tagsHtml(item.techTags)}
-  <div class="work-links">${linksHtml(item.links)}</div>
+  ${linksBlock(item.links)}
 </article>`;
 }
 
