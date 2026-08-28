@@ -6,7 +6,7 @@ Guidance for AI assistants working in this repository.
 
 Personal site (ironadamant.com) — vanilla HTML/CSS/JS, no framework, no package.json, no tests. Deployed to GitHub Pages via GitHub Actions on push to `main` (allowlisted files only).
 
-**Positioning:** dual audience — contract software work (custom apps, AI tooling) and open-source / product portfolio. Differentiator: simplify technical complexity for non-technical decision-makers. Do not claim n8n or VPS services without shipped proof.
+**Positioning:** dual audience — (1) contract software / AI tooling for people who hire developers, (2) small-business owners who are commercially sharp and unused to computers. Differentiator: simplify technical complexity for non-technical decision-makers; independence is the owner-facing product (fixed quote, finish date, they own the logins). Do not claim n8n or VPS services without shipped proof. Do not pitch owners with MCP, GitHub, or “you’re behind on AI.”
 
 ## Commands
 
@@ -35,9 +35,10 @@ No lint or test tooling.
 ## Architecture
 
 ### Pages
-- `index.html` — hero, services, featured work, products, about
+- `index.html` — hero, services, owner door, featured work, products, about. Keep existing title/description/JSON-LD (engineering SEO).
 - `work.html` — full portfolio + client-side filters (`js/work-filters.js`)
-- `contact.html` — Formspree form (`js/contact-form.js`)
+- `small-business.html` — owner offer (plain language, own title/description, Formspree with `audience=small-business`)
+- `contact.html` — Formspree form for software/AI tooling (`js/contact-form.js`)
 - `projects.html` / `apps.html` — SEO redirect stubs → `work.html`
 - `404.html` — root-absolute assets (GitHub Pages catch-all)
 
@@ -63,7 +64,7 @@ Self-hosted sprite `images/icons.svg`. Markup:
 `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>`
 
 ### Nav
-Home | Work | Contact — only via `partials/header.html` (desktop + mobile).
+Home | Work | For owners | Contact — only via `partials/header.html` (desktop + mobile). `404.html` is hardcoded with root-absolute hrefs.
 
 ## Deploy
 

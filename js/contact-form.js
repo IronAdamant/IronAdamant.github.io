@@ -26,9 +26,14 @@ const VALIDATORS = {
         return '';
     },
     subject(value) {
-        if (!value.trim()) return 'Subject is required';
-        if (value.length < CHAR_LIMITS.subject.min) return `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
-        if (value.length > CHAR_LIMITS.subject.max) return `Subject must be less than ${CHAR_LIMITS.subject.max} characters`;
+        const ownerForm = document.querySelector('#contactForm [name="audience"][value="small-business"]');
+        const emptyMsg = ownerForm ? 'Name the leak in a few words' : 'Subject is required';
+        const shortMsg = ownerForm
+            ? `A few more words — at least ${CHAR_LIMITS.subject.min} characters`
+            : `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
+        if (!value.trim()) return emptyMsg;
+        if (value.length < CHAR_LIMITS.subject.min) return shortMsg;
+        if (value.length > CHAR_LIMITS.subject.max) return `Must be less than ${CHAR_LIMITS.subject.max} characters`;
         return '';
     },
     message(value) {
@@ -182,10 +187,17 @@ function initContactForm() {
 
         try {
             const formData = new FormData();
+            const audienceInput = form.querySelector('[name="audience"]');
+            const audience = audienceInput ? audienceInput.value.trim() : '';
+            const subjectValue = subjectInput.value.trim();
             formData.append('name', nameInput.value.trim());
             formData.append('email', emailInput.value.trim());
-            formData.append('subject', subjectInput.value.trim());
+            formData.append(
+                'subject',
+                audience === 'small-business' ? `[Owner] ${subjectValue}` : subjectValue
+            );
             formData.append('message', messageInput.value.trim());
+            if (audience) formData.append('audience', audience);
 
             const response = await fetch('https://formspree.io/f/xjkrzwlq', {
                 method: 'POST',

@@ -32,7 +32,7 @@ const CSS_SOURCES = [
   'css/accessibility.css'
 ];
 
-const PRIMARY_HTML = ['index.html', 'work.html', 'contact.html', '404.html'];
+const PRIMARY_HTML = ['index.html', 'work.html', 'contact.html', 'small-business.html', '404.html'];
 const ALL_HTML = [...PRIMARY_HTML, 'projects.html', 'apps.html'];
 
 const MARKERS = {
@@ -195,6 +195,7 @@ const workList = workData.items;
 function navKeyFor(file) {
   if (file === 'index.html') return 'home';
   if (file === 'work.html') return 'work';
+  if (file === 'small-business.html') return 'owners';
   if (file === 'contact.html') return 'contact';
   return '';
 }

@@ -1,6 +1,6 @@
 # Iron Adamant
 
-Personal site for **Aron Amos** (Iron Adamant): custom software, practical AI tooling, open-source tools, and products.
+Personal site for **Aron Amos** (Iron Adamant): custom software, practical AI tooling, open-source tools, products, and a plain-language offer for small-business owners.
 
 **Live:** [ironadamant.com](https://ironadamant.com)
 
@@ -8,8 +8,9 @@ Personal site for **Aron Amos** (Iron Adamant): custom software, practical AI to
 
 | Page | Purpose |
 |------|---------|
-| `index.html` | Home — services, selected work, products, about |
+| `index.html` | Home — services, owner door, selected work, products, about |
 | `work.html` | Portfolio (OSS + products) with filters |
+| `small-business.html` | Owner offer — one loop on rails, then handover |
 | `contact.html` | Contact form (Formspree) |
 | `projects.html` / `apps.html` | Redirect stubs → Work |
 

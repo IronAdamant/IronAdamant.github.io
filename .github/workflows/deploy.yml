@@ -25,7 +25,7 @@ jobs:
         run: |
           mkdir -p deploy
           # Explicit public web surface only
-          for f in index.html work.html contact.html 404.html projects.html apps.html \
+          for f in index.html work.html contact.html small-business.html 404.html projects.html apps.html \
                    sw.js manifest.json favicon.png CNAME robots.txt sitemap.xml; do
             if [ -f "$f" ]; then cp "$f" deploy/; fi
           done

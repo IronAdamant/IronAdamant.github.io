@@ -517,6 +517,81 @@
     max-width: 28rem;
 }
 
+/* Owner offer */
+.owner-lede {
+    max-width: 40rem;
+    font-size: clamp(1.05rem, 0.95rem + 0.5vw, 1.2rem);
+    color: var(--text-muted);
+    margin: 0 0 1.5rem;
+    line-height: 1.7;
+}
+
+.owner-block {
+    margin-top: 2.75rem;
+}
+
+.owner-block > p {
+    max-width: 40rem;
+}
+
+.owner-block h2 {
+    font-size: 1.35rem;
+    margin-bottom: 0.75rem;
+}
+
+.owner-block > p {
+    margin-bottom: 1rem;
+}
+
+.owner-promises {
+    margin: 1rem 0 0;
+    padding-left: 1.2rem;
+}
+
+.owner-promises li {
+    margin-bottom: 0.45rem;
+}
+
+.offer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1.25rem;
+}
+
+.offer-meta {
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.owner-dates {
+    margin: 0 0 1rem;
+    padding-left: 1.2rem;
+}
+
+.owner-dates li {
+    margin-bottom: 0.65rem;
+}
+
+.fit-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.owner-proof {
+    max-width: 42rem;
+}
+
+@media (max-width: 700px) {
+    .offer-grid,
+    .fit-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /* Responsive work list */
 @media (max-width: 700px) {
     .work-item {
