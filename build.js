@@ -140,13 +140,16 @@ function workItem(item) {
 
 function productCard(item) {
   return `<article class="product-card" id="${escapeHtml(item.id)}">
-  <div class="work-card-header">
-    <h3>${escapeHtml(item.title)}</h3>
-    ${badgeHtml('product')}
+  ${imageBlock(item)}
+  <div class="product-card-body">
+    <div class="work-card-header">
+      <h3>${escapeHtml(item.title)}</h3>
+      ${badgeHtml('product')}
+    </div>
+    <p>${escapeHtml(item.summary)}</p>
+    ${tagsHtml(item.techTags)}
+    ${linksBlock(item.links)}
   </div>
-  <p>${escapeHtml(item.summary)}</p>
-  ${tagsHtml(item.techTags)}
-  ${linksBlock(item.links)}
 </article>`;
 }
 

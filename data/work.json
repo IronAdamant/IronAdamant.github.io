@@ -173,11 +173,11 @@
       "title": "ConsistencyHub",
       "type": "product",
       "category": "product",
-      "summary": "Zero-knowledge consistency platform for writers — track characters, events, and contradictions with optional AI.",
-      "description": "Stores world data in your OneDrive. Heuristic consistency checks, document editor, spreadsheet bible, and knowledge graph. AI is optional with your own API key.",
-      "imageSrc": "",
-      "imageAlt": "",
-      "techTags": ["Web app", "OneDrive", "Writers"],
+      "summary": "World-building that catches its own mistakes. Wiki, documents, maps, and continuity checks — files stay in your OneDrive.",
+      "description": "Write chapters, keep a wiki, lay out storyline, and pin maps — all saved to your OneDrive. Heuristic continuity checks run in the browser with no AI required. Prepaid platform Grok is optional for chat, wiki fill, Imagine art, and adventure play. Import from World Anvil, Notion, or Scrivener. Sign in with a personal Microsoft account.",
+      "imageSrc": "images/consistencyhub-wiki.jpg",
+      "imageAlt": "ConsistencyHub wiki entity grid with character portraits and letter tiles",
+      "techTags": ["Web app", "OneDrive", "World-building"],
       "links": [
         { "text": "Website", "icon": "external-link", "url": "https://consistencyhub.io" }
       ]
