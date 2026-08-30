@@ -27,9 +27,9 @@ const VALIDATORS = {
     },
     subject(value) {
         const ownerForm = document.querySelector('#contactForm [name="audience"][value="small-business"]');
-        const emptyMsg = ownerForm ? 'Name the leak in a few words' : 'Subject is required';
+        const emptyMsg = ownerForm ? 'Tell me what’s eating the week, in a few words' : 'Subject is required';
         const shortMsg = ownerForm
-            ? `A few more words — at least ${CHAR_LIMITS.subject.min} characters`
+            ? `A few more words. At least ${CHAR_LIMITS.subject.min} characters`
             : `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
         if (!value.trim()) return emptyMsg;
         if (value.length < CHAR_LIMITS.subject.min) return shortMsg;
@@ -208,7 +208,7 @@ function initContactForm() {
             if (response.ok) {
                 form.reset();
                 formSuccess.hidden = false;
-                formSuccess.innerHTML = `<p><strong>Message sent.</strong> Thanks — I’ll reply within 1–2 business days.</p>`;
+                formSuccess.innerHTML = `<p><strong>Message sent.</strong> Thanks. I’ll reply within 1 to 2 business days.</p>`;
                 announceToScreenReader(formSuccess.textContent.trim(), 'polite');
                 formSuccess.focus();
             } else {
