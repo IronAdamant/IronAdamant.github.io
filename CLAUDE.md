@@ -41,6 +41,7 @@ No lint or test tooling.
 - `contact.html` — Formspree form for software/AI tooling (`js/contact-form.js`)
 - `projects.html` / `apps.html` — SEO redirect stubs → `work.html`
 - `404.html` — root-absolute assets (GitHub Pages catch-all)
+- `card/index.html` — digital business card (`noindex`). Dual door: owners and contract work. Standalone, no site nav. Update `card/aron-amos.vcf` with the same note.
 
 ### Work content
 - Single source: `data/work.json` (`type`: `oss` | `product` | `app`, `category`, `featuredIds` on root). `app` is a browser web app, not open source and not a commercial product.
