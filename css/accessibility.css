@@ -62,7 +62,8 @@ textarea:focus-visible,
     .work-card,
     .service-card,
     .work-item,
-    .product-card {
+    .product-card,
+    .door-card {
         break-inside: avoid;
         border-color: #ccc;
     }

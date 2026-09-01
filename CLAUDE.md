@@ -35,7 +35,7 @@ No lint or test tooling.
 ## Architecture
 
 ### Pages
-- `index.html` — hero, services, owner door, featured work, products, about. Keep existing title/description/JSON-LD (engineering SEO).
+- `index.html` — two equal hero doors (owners vs software), services without MCP, featured work, products, about. Keep existing title/description/JSON-LD (engineering SEO).
 - `work.html` — full portfolio + client-side filters (`js/work-filters.js`)
 - `small-business.html` — owner offer (plain language, own title/description, Formspree with `audience=small-business`)
 - `contact.html` — Formspree form for software/AI tooling (`js/contact-form.js`)

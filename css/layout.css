@@ -229,6 +229,38 @@ main {
     text-decoration: underline;
 }
 
+.door-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1rem;
+    margin-top: 0.25rem;
+    max-width: 44rem;
+}
+
+.door-card {
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 1.35rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+}
+
+.door-card h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.door-card p {
+    margin: 0;
+}
+
+.door-card .btn {
+    align-self: flex-start;
+    margin-top: 0.25rem;
+}
+
 /* Footer */
 .site-footer {
     border-top: 1px solid var(--border);
@@ -369,6 +401,11 @@ main {
 
     .hero {
         padding: 2.5rem 0 2rem;
+    }
+
+    .door-grid {
+        grid-template-columns: 1fr;
+        max-width: none;
     }
 
     .contact-grid {
