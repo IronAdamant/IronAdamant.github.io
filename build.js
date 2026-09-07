@@ -6,6 +6,7 @@
  * - Injects critical CSS, header/footer partials
  * - Renders work cards from data/work.json
  * - Marks active nav
+ * - Writes sitemap.xml for canonical indexable URLs
  * - Bumps version + cache-busts asset URLs
  *
  * Usage:
@@ -235,6 +236,35 @@ function injectCritical(html, file) {
   return html.replace(injectRE, MARKERS.critical + '\n    ' + buildStyleBlock(file));
 }
 
+function writeSitemap() {
+  const today = new Date().toISOString().slice(0, 10);
+  const urls = [
+    { loc: 'https://ironadamant.com/', changefreq: 'weekly', priority: '1.0' },
+    { loc: 'https://ironadamant.com/work.html', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://ironadamant.com/contact.html', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://ironadamant.com/small-business.html', changefreq: 'monthly', priority: '0.8' }
+  ];
+  const body = urls
+    .map(
+      (u) => `  <url>
+    <loc>${u.loc}</loc>
+    <lastmod>${today}</lastmod>
+    <changefreq>${u.changefreq}</changefreq>
+    <priority>${u.priority}</priority>
+  </url>`
+    )
+    .join('\n');
+  write(
+    'sitemap.xml',
+    `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${body}
+</urlset>
+`
+  );
+  console.log('✅ Wrote sitemap.xml');
+}
+
 function processHtml(file) {
   const filePath = path.join(ROOT, file);
   if (!fs.existsSync(filePath)) return;
@@ -271,6 +301,8 @@ function processHtml(file) {
 for (const file of ALL_HTML) {
   processHtml(file);
 }
+
+writeSitemap();
 
 if (cssOnly) {
   console.log('\n--css-only: skipping version bump.');
