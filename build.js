@@ -338,7 +338,7 @@ manifest.build_timestamp = buildTimestamp;
 manifest.name = 'Iron Adamant';
 manifest.short_name = 'Iron Adamant';
 manifest.description =
-  'Custom software, practical AI tooling, and tools by Aron Amos';
+  'One office job you can run, plus custom software by Aron Amos';
 manifest.theme_color = '#3d9a7a';
 manifest.background_color = '#0c0e12';
 manifest.orientation = 'any';

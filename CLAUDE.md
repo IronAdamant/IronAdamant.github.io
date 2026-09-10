@@ -6,7 +6,7 @@ Guidance for AI assistants working in this repository.
 
 Personal site (ironadamant.com) — vanilla HTML/CSS/JS, no framework, no package.json, no tests. Deployed to GitHub Pages via GitHub Actions on push to `main` (allowlisted files only).
 
-**Positioning:** dual audience — (1) contract software / AI tooling for people who hire developers, (2) small-business owners who are commercially sharp and unused to computers. Differentiator: simplify technical complexity for non-technical decision-makers; independence is the owner-facing product (fixed quote, finish date, they own the logins). Do not claim n8n or VPS services without shipped proof. Do not pitch owners with MCP, GitHub, or “you’re behind on AI.”
+**Positioning:** dual audience. Homepage leads with small-business owners (one office job, they own the logins, you leave). Contract software / AI tooling is secondary (contact + work). Differentiator: simplify technical complexity for non-technical decision-makers; independence is the owner-facing product (fixed quote, finish date, they own the logins). Do not claim n8n or VPS services without shipped proof. Do not pitch owners with MCP, GitHub, or “you’re behind on AI.” AI stays out of the home title and H1.
 
 ## Commands
 
@@ -35,13 +35,13 @@ No lint or test tooling.
 ## Architecture
 
 ### Pages
-- `index.html` — two equal hero doors (owners vs software), services without MCP, featured work, products, about. Keep existing title/description/JSON-LD (engineering SEO).
+- `index.html` — owners-first hero (office job, write first). Software is a secondary CTA to contact. No AI in title/H1. Services without MCP. Featured work and products stay below as proof. Title/OG follow the owner lead; JSON-LD stays Person (software developer, AI in knowsAbout).
 - `work.html` — full portfolio + client-side filters (`js/work-filters.js`)
 - `small-business.html` — owner offer (plain language, own title/description, Formspree with `audience=small-business`)
 - `contact.html` — Formspree form for software/AI tooling (`js/contact-form.js`)
 - `projects.html` / `apps.html` — SEO redirect stubs → `work.html`
 - `404.html` — root-absolute assets (GitHub Pages catch-all)
-- `card/index.html` — digital business card (`noindex`). Dual door: owners and contract work. Standalone, no site nav. Update `card/aron-amos.vcf` with the same note.
+- `card/index.html` — digital business card (`noindex`). Owners first, software second. Standalone, no site nav. Update `card/aron-amos.vcf` with the same note.
 
 ### Work content
 - Single source: `data/work.json` (`type`: `oss` | `product` | `app`, `category`, `featuredIds` on root). `app` is a browser web app, not open source and not a commercial product.

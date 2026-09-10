@@ -215,13 +215,14 @@
       "title": "AutoClacker",
       "type": "oss",
       "category": "application",
-      "summary": "Cross-platform click and keypress automation with Avalonia UI and native platform APIs.",
-      "description": "Configurable intervals, global hotkeys, and persistent settings for Windows, Linux, and macOS. Self-contained builds; no runtime install required.",
+      "summary": "Portable mouse and keyboard autoclicker for Windows and Apple Silicon — Avalonia UI, native OS APIs, no installer.",
+      "description": "Repeat a mouse button or a key at 10–2000 ms, with an optional action limit and a global start/stop hotkey (default F6). Official self-contained Windows x64 and Apple Silicon builds; Linux is in the tree for forks (X11/XWayland only). MIT, .NET 10.",
       "imageSrc": "images/autoclacker-screenshot.png",
-      "imageAlt": "AutoClacker automation controls",
-      "techTags": ["C#", ".NET", "Avalonia"],
+      "imageAlt": "AutoClacker on macOS — mouse and keyboard automation with optional action limit",
+      "techTags": ["C#", ".NET 10", "Avalonia"],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AutoClacker" }
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AutoClacker" },
+        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/AutoClacker/releases" }
       ]
     },
     {

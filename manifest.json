@@ -1,7 +1,7 @@
 {
   "name": "Iron Adamant",
   "short_name": "Iron Adamant",
-  "description": "Custom software, practical AI tooling, and tools by Aron Amos",
+  "description": "One office job you can run, plus custom software by Aron Amos",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
@@ -26,6 +26,6 @@
   ],
   "related_applications": [],
   "prefer_related_applications": false,
-  "version": "1.1.12",
-  "build_timestamp": "2026-09-01T01:23:05.851Z"
+  "version": "1.1.14",
+  "build_timestamp": "2026-09-10T03:26:51.896Z"
 }
