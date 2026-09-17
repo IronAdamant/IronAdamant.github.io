@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CRITICAL_CSS -->
+    <style>
+        /* Critical CSS — injected by build.js. Not loaded by browsers directly. */
+
+        html {
+            background-color: #0c0e12 !important;
+            color-scheme: dark;
+        }
+
+        :root {
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
+        }
+
+        .container {
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+
+        .hero {
+            padding: 3.5rem 0 2rem
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="build-version" content="2026-09-17T04:10:47.691Z">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>One office job. You run it. | Iron Adamant</title>
+    <meta name="description"
+        content="One repeating office job: quotes, invoices, chasing people. Your accounts, set price, you run it. Custom software when you need something built. Australia, remote, write first.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="preload" href="css/bundle.css?v=1789618247691" as="style">
+    <link rel="stylesheet" href="css/bundle.css?v=1789618247691">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3d9a7a">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://ironadamant.com/">
+    <meta property="og:title" content="One office job. You run it. | Iron Adamant">
+    <meta property="og:description"
+        content="Quotes, invoices, chasing people. Your accounts, set price, you run it. Custom software when you need something built. Australia, remote, write first.">
+    <meta property="og:url" content="https://ironadamant.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="One office job. You run it. | Iron Adamant">
+    <meta name="twitter:description"
+        content="Quotes, invoices, chasing people. Your accounts, set price, you run it. Custom software when you need something built.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Aron Amos",
+      "alternateName": "Iron Adamant",
+      "url": "https://ironadamant.com/",
+      "email": "aron.amos@ironadamant.com",
+      "jobTitle": "Software developer",
+      "description": "Sets up one repeating office job that owners can run. Also builds custom software and practical AI tooling. Explains technical complexity in plain language. Open-source tools and shipping products.",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "AU"
+      },
+      "sameAs": [
+        "https://github.com/IronAdamant",
+        "https://www.linkedin.com/in/aron-amos-64045582/",
+        "https://x.com/Iron_Adamant"
+      ],
+      "knowsAbout": [
+        "Small business office systems",
+        "Software development",
+        "Web applications",
+        "AI developer tooling"
+      ]
+    }
+    </script>
+    <script type="speculationrules">
+    {
+        "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- INJECT_HEADER -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="brand">Iron <span>Adamant</span></a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="/" data-nav="home" class="active" aria-current="page">Home</a>
+            <a href="work.html" data-nav="work">Work</a>
+            <a href="small-business.html" data-nav="owners">For owners</a>
+            <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div class="nav-overlay" hidden></div>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/" data-nav="home" class="active" aria-current="page">Home</a>
+    <a href="work.html" data-nav="work">Work</a>
+    <a href="small-business.html" data-nav="owners">For owners</a>
+    <a href="contact.html" data-nav="contact">Contact</a>
+</nav>
+    <!-- END_INJECT_HEADER -->
+
+    <main id="main-content" tabindex="-1">
+        <section class="hero">
+            <div class="container">
+                <p class="section-label">Australia · Remote · Write first</p>
+                <h1 class="hero-title">One office job. Your accounts. You run it. I leave.</h1>
+                <p class="hero-subtitle">
+                    Quotes, invoices, chasing people: the bit that eats your week.
+                    Written plan, set price, about two weeks after the plan.
+                    No new package. $0 a month unless you ask.
+                </p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="small-business.html">Tell me what’s eating your week</a>
+                    <a class="btn btn-secondary" href="contact.html">I need something built</a>
+                </div>
+                <p class="hero-aside"><a href="work.html">View shipped work</a></p>
+            </div>
+        </section>
+
+        <section class="section" id="services" aria-labelledby="services-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Services</p>
+                    <h2 id="services-heading">What I can help with</h2>
+                    <p>One office job you can run. Custom software when you need something built.</p>
+                </div>
+                <div class="service-grid">
+                    <article class="service-card">
+                        <h3>The office job</h3>
+                        <p>Quotes, invoices, follow-up in the accounts you already have. Written plan, set price, you run it.</p>
+                    </article>
+                    <article class="service-card">
+                        <h3>Custom software</h3>
+                        <p>Web apps, focused tools, and the wiring between systems you already pay for.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="selected-work" aria-labelledby="work-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Selected work</p>
+                    <h2 id="work-heading">Shipped tools</h2>
+                    <p>Proof I can build. Not the owner offer. Full list on Work.</p>
+                </div>
+                <div class="work-grid">
+                    <!-- INJECT_FEATURED_WORK -->
+<article class="work-card" data-category="application" id="interpres">
+  <div class="work-card-image">
+    <img src="https://raw.githubusercontent.com/IronAdamant/Interpres/main/assets/screenshot-macos.png" alt="Interpres on Mac — native companion window with Live and Session caption areas" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>Interpres</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Privacy-first Live Captions companion for Deaf and hard-of-hearing users — saves what Windows and Mac Live Captions already show, fully local.</p>
+    <div class="tag-list"><span class="tag">Rust</span><span class="tag">Accessibility</span><span class="tag">macOS</span><span class="tag">Windows</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/Interpres" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://github.com/IronAdamant/Interpres/releases" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg> Releases</a></div>
+  </div>
+</article>
+<article class="work-card" data-category="ai" id="agentvideoparse">
+  <div class="work-card-image">
+    <img src="https://raw.githubusercontent.com/IronAdamant/AgentVideoParse/main/assets/screenshots/macos-unified.png" alt="AgentVideoParse on macOS — unified dark UI for short debug video export" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>AgentVideoParse</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Drop a short debug video (≤30s) and get ordered frame screenshots so AI coding agents can see what was on screen.</p>
+    <div class="tag-list"><span class="tag">Swift</span><span class="tag">C#</span><span class="tag">AI agents</span><span class="tag">Desktop</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/AgentVideoParse" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://github.com/IronAdamant/AgentVideoParse/releases" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg> Releases</a></div>
+  </div>
+</article>
+<article class="work-card" data-category="ai" id="agentgifparse">
+  <div class="work-card-image">
+    <img src="https://raw.githubusercontent.com/IronAdamant/AgentGifParse/main/assets/screenshots/macos-unified.png" alt="AgentGifParse on macOS — unified dark UI for short animated GIF export" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>AgentGifParse</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Drop a short animated GIF (≤30s) and get ordered frame screenshots so AI agents can review motion without watching the loop.</p>
+    <div class="tag-list"><span class="tag">Swift</span><span class="tag">C#</span><span class="tag">AI agents</span><span class="tag">GIF</span><span class="tag">Desktop</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/AgentGifParse" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://github.com/IronAdamant/AgentGifParse/releases" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg> Releases</a></div>
+  </div>
+</article>
+    <!-- END_INJECT_FEATURED_WORK -->
+                </div>
+                <p style="margin-top: 1.25rem;">
+                    <a href="work.html">See all work →</a>
+                </p>
+            </div>
+        </section>
+
+        <section class="section" id="products" aria-labelledby="products-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">Products</p>
+                    <h2 id="products-heading">Shipped products</h2>
+                    <p>Pricing and full detail live on each product site.</p>
+                </div>
+                <div class="product-grid">
+                    <!-- INJECT_PRODUCTS -->
+<article class="product-card" id="consistencyhub">
+  <div class="work-card-image">
+    <img src="images/consistencyhub-wiki.jpg" alt="ConsistencyHub wiki entity grid with character portraits and letter tiles" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="product-card-body">
+    <div class="work-card-header">
+      <h3>ConsistencyHub</h3>
+      <span class="badge badge-product"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#lock"/></svg> Product</span>
+    </div>
+    <p>World-building that catches its own mistakes. Wiki, documents, maps, and continuity checks — files stay in your OneDrive.</p>
+    <div class="tag-list"><span class="tag">Web app</span><span class="tag">OneDrive</span><span class="tag">World-building</span></div>
+    <div class="work-links"><a href="https://consistencyhub.io" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Website</a></div>
+  </div>
+</article>
+    <!-- END_INJECT_PRODUCTS -->
+                </div>
+            </div>
+        </section>
+
+        <section class="section" id="about" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">About</p>
+                    <h2 id="about-heading">About Aron</h2>
+                </div>
+                <div class="about-block">
+                    <p>
+                        I’m Aron Amos (Iron Adamant), based in Australia and working remotely.
+                        For owners I set up one repeating office job in the accounts they already have.
+                        They run it. I leave. I also build custom software when someone needs something shipped.
+                    </p>
+                    <p>
+                        A lot of that work has sat next to non-technical stakeholders.
+                        Years of that taught me how to take complicated detail and simplify it until people can actually use it to decide.
+                        Multi-party commercial and ops messes sit behind the software work, so I plan in layers and chase bottlenecks instead of polishing slides.
+                        Alongside client work I ship open-source tooling and my own products.
+                        If you need something built or made clearer, get in touch.
+                    </p>
+                </div>
+                <div class="cta-band" style="margin-top: 1.5rem;">
+                    <p>What’s eating the week, or what do you need built?</p>
+                    <div class="cta-row">
+                        <a href="small-business.html" class="btn btn-primary">Tell me what’s eating your week</a>
+                        <a href="contact.html" class="btn btn-secondary">Start a project</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- INJECT_FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="work.html">Work</a>
+            <a href="small-business.html">For owners</a>
+            <a href="contact.html">Contact</a>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="This Iron Adamant account is not linked to other IronAdamant accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- END_INJECT_FOOTER -->
+
+    <script src="js/navigation.js?v=1789618247691" defer></script>
+    <script src="js/image-modal.js?v=1789618247691" defer></script>
+    <script src="js/main.js?v=1789618247691" defer></script>
+    <script src="js/sw-register.js?v=1789618247691" defer></script>
+</body>
+
+</html>

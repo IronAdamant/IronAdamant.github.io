@@ -1,0 +1,70 @@
+/* Accessibility */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+}
+
+:focus:not(:focus-visible) {
+    outline: none;
+}
+
+@media (forced-colors: active) {
+    .btn,
+    .filter-btn,
+    .work-card,
+    .service-card {
+        border: 1px solid CanvasText;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+@media print {
+    body {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    .site-header,
+    .hamburger,
+    .mobile-nav,
+    .nav-overlay,
+    .filter-bar {
+        display: none !important;
+    }
+
+    main {
+        padding-top: 0;
+    }
+
+    a {
+        color: #0000ee !important;
+        text-decoration: underline !important;
+    }
+
+    .work-card,
+    .service-card,
+    .work-item,
+    .product-card,
+    .door-card {
+        break-inside: avoid;
+        border-color: #ccc;
+    }
+}

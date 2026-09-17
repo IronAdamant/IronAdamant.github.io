@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CRITICAL_CSS -->
+    <style>
+        /* Critical CSS — injected by build.js. Not loaded by browsers directly. */
+
+        html {
+            background-color: #0c0e12 !important;
+            color-scheme: dark;
+        }
+
+        :root {
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
+        }
+
+        .container {
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="build-version" content="2026-09-17T04:10:47.691Z">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Contact | Iron Adamant</title>
+    <meta name="description"
+        content="Contact Aron Amos (Iron Adamant) about custom software or practical AI tooling. Based in Australia, available remotely. Typical reply within 1–2 business days.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bundle.css?v=1789618247691">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3d9a7a">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://ironadamant.com/contact.html">
+    <meta property="og:title" content="Contact | Iron Adamant">
+    <meta property="og:description"
+        content="Discuss a custom software or AI tooling project with Aron Amos.">
+    <meta property="og:url" content="https://ironadamant.com/contact.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact | Iron Adamant">
+    <meta name="twitter:description" content="Start a project: custom software or practical AI tooling.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+
+    <script type="speculationrules">
+    {
+        "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- INJECT_HEADER -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="brand">Iron <span>Adamant</span></a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="/" data-nav="home">Home</a>
+            <a href="work.html" data-nav="work">Work</a>
+            <a href="small-business.html" data-nav="owners">For owners</a>
+            <a href="contact.html" data-nav="contact" class="active" aria-current="page">Contact</a>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div class="nav-overlay" hidden></div>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/" data-nav="home">Home</a>
+    <a href="work.html" data-nav="work">Work</a>
+    <a href="small-business.html" data-nav="owners">For owners</a>
+    <a href="contact.html" data-nav="contact" class="active" aria-current="page">Contact</a>
+</nav>
+    <!-- END_INJECT_HEADER -->
+
+    <main id="main-content" class="page-main" tabindex="-1">
+        <div class="container">
+            <p class="section-label">Contact</p>
+            <h1>Discuss a project</h1>
+            <p style="max-width: 40rem;">
+                Tell me what you’re trying to ship: a web app, focused tool, AI-assisted workflow,
+                or something in between. I usually reply within 1–2 business days.
+            </p>
+            <p style="max-width: 40rem; margin-top: 0.75rem;">
+                If you run a small business and want help with quotes, invoices, or follow-up, start on the
+                <a href="small-business.html">small business page</a> instead.
+            </p>
+
+            <div class="contact-grid">
+                <div class="contact-meta">
+                    <h2>Details</h2>
+                    <p>
+                        <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#envelope"/></svg>
+                        <a href="mailto:aron.amos@ironadamant.com">aron.amos@ironadamant.com</a>
+                    </p>
+                    <p>
+                        <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#location"/></svg>
+                        <span>Australia · available remotely</span>
+                    </p>
+                    <p style="margin-top: 1rem;">
+                        Helpful to include: goals, timeline, stack preferences if any, and whether you need
+                        custom development, AI tooling, or both.
+                    </p>
+                    <div class="contact-social">
+                        <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+                            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>
+                            <span>GitHub</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+                            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg>
+                            <span>LinkedIn</span>
+                        </a>
+                        <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)">
+                            <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg>
+                            <span>X</span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="form-panel">
+                    <h2>Send a message</h2>
+                    <form id="contactForm" novalidate>
+                        <div class="sr-only" aria-hidden="true">
+                            <label for="website">Website (leave blank)</label>
+                            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="name">
+                                Name
+                                <span class="required" aria-hidden="true">*</span>
+                                <span class="sr-only">(required)</span>
+                            </label>
+                            <input type="text" id="name" name="name" required aria-required="true" autocomplete="name"
+                                placeholder="Your name" minlength="2" maxlength="100">
+                            <div id="name-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">
+                                Email
+                                <span class="required" aria-hidden="true">*</span>
+                                <span class="sr-only">(required)</span>
+                            </label>
+                            <input type="email" id="email" name="email" required aria-required="true"
+                                autocomplete="email" placeholder="you@company.com">
+                            <div id="email-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">
+                                Subject
+                                <span class="required" aria-hidden="true">*</span>
+                                <span class="sr-only">(required)</span>
+                            </label>
+                            <input type="text" id="subject" name="subject" required aria-required="true"
+                                placeholder="Project overview" minlength="5" maxlength="200">
+                            <div id="subject-error" class="error-message" role="alert" aria-live="polite"></div>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">
+                                Message
+                                <span class="required" aria-hidden="true">*</span>
+                                <span class="sr-only">(required)</span>
+                            </label>
+                            <textarea id="message" name="message" rows="6" required aria-required="true"
+                                placeholder="What do you need built or automated?" minlength="10" maxlength="2000"></textarea>
+                            <div id="message-error" class="error-message" role="alert" aria-live="polite"></div>
+                            <div class="character-count" aria-live="polite">
+                                <span id="message-count">0</span>/2000 characters
+                            </div>
+                        </div>
+                        <div class="form-footer">
+                            <button type="submit" id="submit-button" class="btn btn-primary"
+                                data-loading-text="Sending…">
+                                <span class="button-text">Send message</span>
+                            </button>
+                            <p class="form-note">
+                                <span class="required" aria-hidden="true">*</span> Required
+                            </p>
+                        </div>
+                    </form>
+                    <div id="form-success" class="success-message" role="alert" aria-live="polite" tabindex="-1" hidden>
+                        <p>Message sent. I’ll get back to you soon.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- INJECT_FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="work.html">Work</a>
+            <a href="small-business.html">For owners</a>
+            <a href="contact.html">Contact</a>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="This Iron Adamant account is not linked to other IronAdamant accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- END_INJECT_FOOTER -->
+
+    <script src="js/navigation.js?v=1789618247691" defer></script>
+    <script src="js/contact-form.js?v=1789618247691" defer></script>
+    <script src="js/main.js?v=1789618247691" defer></script>
+    <script src="js/sw-register.js?v=1789618247691" defer></script>
+</body>
+
+</html>
