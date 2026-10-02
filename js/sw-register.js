@@ -2,7 +2,7 @@
  * Service worker registration + simple update toast.
  */
 
-function showUpdateNotification(message) {
+function showUpdateNotification() {
     const existing = document.getElementById('update-notification');
     if (existing) existing.remove();
 
@@ -11,7 +11,7 @@ function showUpdateNotification(message) {
     toast.className = 'update-toast';
     toast.setAttribute('role', 'status');
     toast.innerHTML = `
-        <p>${message || 'A new version is available.'}</p>
+        <p>A new version is available.</p>
         <div class="cta-row">
             <button type="button" class="btn btn-primary sw-update-btn">Refresh</button>
             <button type="button" class="btn btn-secondary sw-dismiss-btn">Later</button>
@@ -34,7 +34,7 @@ if ('serviceWorker' in navigator) {
                 if (!worker) return;
                 worker.addEventListener('statechange', () => {
                     if (worker.state === 'installed' && navigator.serviceWorker.controller) {
-                        showUpdateNotification('A new version is available.');
+                        showUpdateNotification();
                     }
                 });
             });
@@ -44,12 +44,6 @@ if ('serviceWorker' in navigator) {
             });
         } catch (err) {
             console.warn('Service worker registration failed:', err);
-        }
-    });
-
-    navigator.serviceWorker.addEventListener('message', (event) => {
-        if (event.data && event.data.type === 'CACHE_UPDATED') {
-            showUpdateNotification(event.data.message);
         }
     });
 }

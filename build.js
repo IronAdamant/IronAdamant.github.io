@@ -6,18 +6,21 @@
  * - Injects critical CSS, header/footer partials
  * - Renders work cards from data/work.json
  * - Marks active nav
- * - Writes sitemap.xml for canonical indexable URLs
- * - Bumps version + cache-busts asset URLs
+ * - Bumps manifest version (not with --css-only)
+ * - Content-hash cache busting: ?v= on local CSS/JS, CACHE_VERSION in sw.js
+ * - Writes sitemap.xml (lastmod from git) for canonical indexable URLs
  *
  * Usage:
  *   node build.js              # patch bump + full rebuild
  *   node build.js minor|major  # version bump
  *   node build.js 1.2.3        # explicit version
- *   node build.js --css-only   # assets only, no version bump
+ *   node build.js --css-only   # full rebuild, no manifest version bump
  */
 
 const fs = require('fs');
 const path = require('path');
+const crypto = require('crypto');
+const { execFileSync } = require('child_process');
 
 const ROOT = __dirname;
 const CRITICAL_CSS_PATH = path.join(ROOT, 'css', 'critical.css');
@@ -213,12 +216,7 @@ function applyNavActive(headerHtml, file) {
 function injectBlock(html, marker, block) {
   if (!html.includes(marker)) return html;
   const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  // Replace marker + optional previously generated region until END marker
-  const end = marker.replace('<!-- ', '<!-- END_').replace(' -->', ' -->');
-  const region = new RegExp(`${escaped}[\\s\\S]*?(?:${end.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')})?`);
-  if (html.includes(end.replace('END_', 'END_'))) {
-    // handled by region if end exists
-  }
+  // Replace marker + previously generated region up to the END marker
   const endMarker = marker.replace('INJECT_', 'END_INJECT_');
   if (html.includes(endMarker)) {
     const re = new RegExp(
@@ -236,19 +234,35 @@ function injectCritical(html, file) {
   return html.replace(injectRE, MARKERS.critical + '\n    ' + buildStyleBlock(file));
 }
 
+function localToday() {
+  const d = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())}`;
+}
+
+// Page's last real change: today if it has uncommitted edits, else its last commit date.
+function lastModified(file) {
+  try {
+    const opts = { cwd: ROOT, encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'] };
+    if (execFileSync('git', ['status', '--porcelain', '--', file], opts).trim()) return localToday();
+    return execFileSync('git', ['log', '-1', '--format=%cs', '--', file], opts).trim() || localToday();
+  } catch {
+    return localToday();
+  }
+}
+
 function writeSitemap() {
-  const today = new Date().toISOString().slice(0, 10);
   const urls = [
-    { loc: 'https://ironadamant.com/', changefreq: 'weekly', priority: '1.0' },
-    { loc: 'https://ironadamant.com/work.html', changefreq: 'weekly', priority: '0.9' },
-    { loc: 'https://ironadamant.com/contact.html', changefreq: 'monthly', priority: '0.8' },
-    { loc: 'https://ironadamant.com/small-business.html', changefreq: 'monthly', priority: '0.8' }
+    { loc: 'https://ironadamant.com/', file: 'index.html', changefreq: 'weekly', priority: '1.0' },
+    { loc: 'https://ironadamant.com/work.html', file: 'work.html', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://ironadamant.com/contact.html', file: 'contact.html', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://ironadamant.com/small-business.html', file: 'small-business.html', changefreq: 'monthly', priority: '0.8' }
   ];
   const body = urls
     .map(
       (u) => `  <url>
     <loc>${u.loc}</loc>
-    <lastmod>${today}</lastmod>
+    <lastmod>${lastModified(u.file)}</lastmod>
     <changefreq>${u.changefreq}</changefreq>
     <priority>${u.priority}</priority>
   </url>`
@@ -302,79 +316,101 @@ for (const file of ALL_HTML) {
   processHtml(file);
 }
 
-writeSitemap();
-
-if (cssOnly) {
-  console.log('\n--css-only: skipping version bump.');
-  process.exit(0);
-}
-
-// ── Version bump ────────────────────────────────────────────
+// ── Version bump (skipped with --css-only) ──────────────────
 const manifest = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
 const currentVersion = manifest.version || '1.0.0';
-const parts = currentVersion.split('.').map(Number);
-let newVersion;
+let newVersion = currentVersion;
 
-if (/^\d+\.\d+\.\d+$/.test(arg)) {
-  newVersion = arg;
-} else {
-  switch (arg.toLowerCase()) {
-    case 'major':
-      newVersion = `${parts[0] + 1}.0.0`;
-      break;
-    case 'minor':
-      newVersion = `${parts[0]}.${parts[1] + 1}.0`;
-      break;
-    case 'patch':
-    default:
-      newVersion = `${parts[0]}.${parts[1]}.${parts[2] + 1}`;
-      break;
+if (!cssOnly) {
+  const parts = currentVersion.split('.').map(Number);
+  if (/^\d+\.\d+\.\d+$/.test(arg)) {
+    newVersion = arg;
+  } else {
+    switch (arg.toLowerCase()) {
+      case 'major':
+        newVersion = `${parts[0] + 1}.0.0`;
+        break;
+      case 'minor':
+        newVersion = `${parts[0]}.${parts[1] + 1}.0`;
+        break;
+      case 'patch':
+      default:
+        newVersion = `${parts[0]}.${parts[1]}.${parts[2] + 1}`;
+        break;
+    }
   }
+
+  manifest.version = newVersion;
+  manifest.build_timestamp = new Date().toISOString();
+  manifest.name = 'Iron Adamant';
+  manifest.short_name = 'Iron Adamant';
+  manifest.description =
+    'One office job you can run, plus custom software by Aron Amos';
+  manifest.theme_color = '#3d9a7a';
+  manifest.background_color = '#0c0e12';
+  manifest.orientation = 'any';
+  fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n');
+  console.log(`\n📦 Version: ${currentVersion} → ${newVersion}`);
+} else {
+  console.log(`\n--css-only: version stays ${currentVersion}.`);
 }
 
-const buildTimestamp = new Date().toISOString();
-manifest.version = newVersion;
-manifest.build_timestamp = buildTimestamp;
-manifest.name = 'Iron Adamant';
-manifest.short_name = 'Iron Adamant';
-manifest.description =
-  'One office job you can run, plus custom software by Aron Amos';
-manifest.theme_color = '#3d9a7a';
-manifest.background_color = '#0c0e12';
-manifest.orientation = 'any';
-fs.writeFileSync(MANIFEST_PATH, JSON.stringify(manifest, null, 2) + '\n');
-console.log(`\n📦 Version: ${currentVersion} → ${newVersion}`);
+// ── Content hashes ──────────────────────────────────────────
+// Stamps and cache names change only when file contents change, so a rebuild with
+// no edits produces no diff (deploy.yml relies on this).
+function contentHash(...absPaths) {
+  const hash = crypto.createHash('sha256');
+  for (const p of absPaths) {
+    hash.update(path.relative(ROOT, p));
+    hash.update(fs.readFileSync(p));
+  }
+  return hash.digest('hex').slice(0, 10);
+}
 
-// ── SW version ──────────────────────────────────────────────
+// ── SW cache version ────────────────────────────────────────
+// The SW serves static assets cache-first, so its cache name must change whenever
+// any precached asset changes — including on --css-only builds.
 let swContent = fs.readFileSync(SW_PATH, 'utf8');
-if (swContent.includes('CACHE_VERSION')) {
-  swContent = swContent.replace(
-    /const CACHE_VERSION = '[^']+';?/,
-    `const CACHE_VERSION = 'v${newVersion}';`
-  );
-  fs.writeFileSync(SW_PATH, swContent);
-  console.log(`🔧 sw.js CACHE_VERSION → v${newVersion}`);
+const precacheList = (swContent.match(/const PRECACHE = \[([\s\S]*?)\];/) || [, ''])[1];
+const precacheAssets = [...precacheList.matchAll(/'([^']+)'/g)]
+  .map((m) => m[1])
+  .filter((url) => url !== '/' && !url.endsWith('.html'))
+  .map((url) => path.join(ROOT, url))
+  .filter((p) => fs.existsSync(p));
+const cacheVersion = `v${newVersion}-${contentHash(...precacheAssets)}`;
+const nextSw = swContent.replace(
+  /const CACHE_VERSION = '[^']+';?/,
+  `const CACHE_VERSION = '${cacheVersion}';`
+);
+if (nextSw !== swContent) {
+  fs.writeFileSync(SW_PATH, nextSw);
+  console.log(`🔧 sw.js CACHE_VERSION → ${cacheVersion}`);
 }
 
 // ── Cache-bust HTML assets ──────────────────────────────────
-const versionStamp = Date.now();
 for (const file of ALL_HTML) {
   const filePath = path.join(ROOT, file);
   if (!fs.existsSync(filePath)) continue;
-  let html = fs.readFileSync(filePath, 'utf8');
+  const html = fs.readFileSync(filePath, 'utf8');
 
-  html = html.replace(
-    /<meta name="build-version" content="[^"]*">/,
-    `<meta name="build-version" content="${buildTimestamp}">`
+  const stamped = html.replace(
+    /(<(?:link|script)[^>]+(?:href|src)=")(?!https?:\/\/)([^"?]*\.(?:css|js))(\?v=[^"]*)?(")/g,
+    (match, open, url, _v, close) => {
+      const assetPath = url.startsWith('/')
+        ? path.join(ROOT, url)
+        : path.join(ROOT, path.dirname(file), url);
+      if (!fs.existsSync(assetPath)) return match;
+      return `${open}${url}?v=${contentHash(assetPath)}${close}`;
+    }
   );
 
-  html = html.replace(
-    /(<(?:link|script)[^>]+(?:href|src)=")(?!https?:\/\/)([^"]*\.(?:css|js))(\?v=[^"]*)?(")/g,
-    `$1$2?v=${versionStamp}$4`
-  );
-
-  fs.writeFileSync(filePath, html);
-  console.log(`✅ Version stamps → ${file}`);
+  if (stamped !== html) {
+    fs.writeFileSync(filePath, stamped);
+    console.log(`✅ Version stamps → ${file}`);
+  }
 }
+
+// Last, so lastmod sees pages changed by this build.
+writeSitemap();
 
 console.log('\n🚀 Build complete!');

@@ -8,3 +8,22 @@ MD_Files/
 
 # Backup files
 *.bak
+
+# OS
+.DS_Store
+
+# Local AI tooling (never commit)
+trammel.db*
+.stele/
+.stele-context/
+.chisel/
+.coordinationhub/
+.wikifier/
+.wikifier_staging/
+wikifier.sh
+library.md
+pending_updates.md
+file_health.json
+file_health.md
+exclude_patterns.txt
+monitored_paths.txt

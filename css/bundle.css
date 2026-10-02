@@ -288,7 +288,10 @@ button, a, .work-card, .filter-btn {
     z-index: 1002;
     padding: calc(var(--header-h) + 1.5rem) 1.5rem 2rem;
     transform: translateX(100%);
-    transition: transform 0.25s ease;
+    /* Hidden when closed so its links leave the tab order and accessibility tree;
+       the visibility delay lets the slide-out finish first */
+    visibility: hidden;
+    transition: transform 0.25s ease, visibility 0s linear 0.25s;
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
@@ -296,6 +299,8 @@ button, a, .work-card, .filter-btn {
 
 .mobile-nav.active {
     transform: translateX(0);
+    visibility: visible;
+    transition: transform 0.25s ease;
 }
 
 .mobile-nav a {

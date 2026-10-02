@@ -17,10 +17,10 @@ node build.js                # patch version + full rebuild
 node build.js minor          # minor bump + rebuild
 node build.js major          # major bump + rebuild
 node build.js 1.2.3          # set explicit version
-node build.js --css-only     # rebuild injects/CSS, no version bump
+node build.js --css-only     # full rebuild, no manifest version bump
 ```
 
-No lint or test tooling.
+No lint or test tooling. `scripts/verify-card.sh` checks the card page.
 
 ## Build Pipeline (`build.js`)
 
@@ -28,7 +28,11 @@ No lint or test tooling.
 2. Injects `css/critical.css` at `<!-- CRITICAL_CSS -->` (page-specific blocks via `/* page:filename.html */`).
 3. Injects `partials/header.html` / `partials/footer.html` between `INJECT_*` / `END_INJECT_*` markers; marks active nav.
 4. Renders work cards from **`data/work.json`** into featured / work list / products markers.
-5. Bumps `manifest.json` version + timestamp; rewrites `CACHE_VERSION` in `sw.js`; stamps `?v=` on local CSS/JS.
+5. Bumps `manifest.json` version + timestamp (skipped by `--css-only`).
+6. Content-hash cache busting on every build: `?v=<hash>` on local CSS/JS, and `CACHE_VERSION` in `sw.js` = version + hash of the precached assets (the SW serves them cache-first, so this must change whenever they do).
+7. Writes `sitemap.xml`; `lastmod` is each page's last git commit date (today if uncommitted).
+
+A rebuild with no source edits produces no diff. The deploy workflow relies on this: it runs `node build.js --css-only` and fails if anything changes.
 
 **Edit sources, not generated regions:** never hand-edit injected header/footer/work blocks or the inlined critical `<style>` — change partials, `critical.css`, or `data/work.json` and re-run the build.
 
@@ -69,7 +73,7 @@ Home | Work | For owners | Contact — only via `partials/header.html` (desktop 
 
 ## Deploy
 
-`.github/workflows/deploy.yml` copies an **allowlist** (HTML shell, `css/`, `js/`, `images/`, `fonts/`, `sw.js`, manifest, CNAME, robots, sitemap). Do not rely on denylist for secrets/tooling.
+`.github/workflows/deploy.yml` copies an **allowlist** (HTML shell, `card/`, `css/`, `js/`, `images/`, `sw.js`, manifest, CNAME, robots, sitemap). Do not rely on denylist for secrets/tooling.
 
 ## Repo hygiene
 

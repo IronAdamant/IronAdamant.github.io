@@ -21,6 +21,18 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # Pages ship as committed. Fail if someone edited a source (data/work.json,
+      # partials, css/*) without re-running the build. sitemap lastmod comes from
+      # git history, which this shallow clone doesn't have, so it's excluded.
+      - name: Check build output is committed
+        run: |
+          node build.js --css-only
+          git checkout -- sitemap.xml
+          if ! git diff --exit-code --stat; then
+            echo "::error::Generated files are out of date. Run 'node build.js' and commit the result."
+            exit 1
+          fi
+
       - name: Create deployment directory (allowlist only)
         run: |
           mkdir -p deploy
@@ -31,10 +43,7 @@ jobs:
           done
           # Digital business card at /card/ (orphan utility page — not in main nav)
           if [ -d card ]; then cp -r card deploy/; fi
-          cp -r css js images fonts deploy/
-          # Do not ship source-only or tooling trees
-          rm -f deploy/css/main.css 2>/dev/null || true
-          # Keep modular CSS for transparency is fine; bundle.css is what pages load
+          cp -r css js images deploy/
 
       - name: Setup Pages
         uses: actions/configure-pages@v4

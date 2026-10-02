@@ -1,9 +1,0 @@
-/*
- * Source entry for modular CSS.
- * build.js concatenates these into a single css/bundle.css for production.
- * During local editing you can link main.css only if your browser resolves @import.
- */
-@import url('base.css');
-@import url('layout.css');
-@import url('components.css');
-@import url('accessibility.css');

@@ -3,8 +3,9 @@
  */
 
 // ====== CONSTANTS & VALIDATORS (file scope) ======
+const FALLBACK_EMAIL = 'aron.amos@ironadamant.com';
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const NAME_REGEX = /^[\p{L}\p{M}\s'.-]+$/u;
+const NAME_REGEX = /^[\p{L}\p{M}\s'’ʼ.-]+$/u; // ’ = iOS smart apostrophe
 const CHAR_LIMITS = {
     name: { min: 2, max: 100 },
     email: { min: 5, max: 100 },
@@ -91,6 +92,7 @@ function initContactForm() {
             const firstError = form.querySelector('.error');
             if (firstError) {
                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstError.focus({ preventScroll: true });
             }
         }
     });
@@ -132,7 +134,6 @@ function initContactForm() {
         input.classList.add('error');
         input.setAttribute('aria-invalid', 'true');
         errorElement.textContent = message;
-        announceToScreenReader(message, 'assertive');
     }
 
     function clearError(input, errorElement) {
@@ -180,6 +181,9 @@ function initContactForm() {
             return;
         }
 
+        const previousError = form.querySelector('.form-submit-error');
+        if (previousError) previousError.remove();
+
         // Disable submit button
         submitButton.disabled = true;
         submitButton.setAttribute('aria-busy', 'true');
@@ -209,14 +213,13 @@ function initContactForm() {
                 form.reset();
                 formSuccess.hidden = false;
                 formSuccess.innerHTML = `<p><strong>Message sent.</strong> Thanks. I’ll reply within 1 to 2 business days.</p>`;
-                announceToScreenReader(formSuccess.textContent.trim(), 'polite');
                 formSuccess.focus();
             } else {
                 throw new Error('Form submission failed');
             }
         } catch (error) {
             console.error('Form submission error:', error);
-            showFormError('Unable to send your message. Please email me directly at aron.amos@ironadamant.com');
+            showFormError();
         } finally {
             submitButton.disabled = false;
             submitButton.removeAttribute('aria-busy');
@@ -237,18 +240,19 @@ function initContactForm() {
         setTimeout(() => fakeSuccess.remove(), 3000);
     }
 
-    function showFormError(message) {
+    // Stays until the next submit so the fallback address can be copied
+    function showFormError() {
         const existingError = form.querySelector('.form-submit-error');
         if (existingError) existingError.remove();
 
         const errorDiv = document.createElement('div');
         errorDiv.className = 'form-submit-error';
-        errorDiv.style.cssText = 'margin-top:1rem;padding:1rem;background:#ff4444;color:white;border-radius:4px;';
-        errorDiv.textContent = message;
+        errorDiv.setAttribute('role', 'alert');
+        const emailLink = document.createElement('a');
+        emailLink.href = `mailto:${FALLBACK_EMAIL}`;
+        emailLink.textContent = FALLBACK_EMAIL;
+        errorDiv.append('Unable to send your message. Please email me directly at ', emailLink, '.');
         form.appendChild(errorDiv);
-
-        announceToScreenReader(message, 'assertive');
-        setTimeout(() => errorDiv.remove(), 5000);
     }
 
     // Initialize ARIA attributes

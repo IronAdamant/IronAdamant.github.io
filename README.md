@@ -13,6 +13,7 @@ Personal site for **Aron Amos** (Iron Adamant): custom software, practical AI to
 | `small-business.html` | Owner offer — one loop on rails, then handover |
 | `contact.html` | Contact form (Formspree) |
 | `projects.html` / `apps.html` | Redirect stubs → Work |
+| `card/` | Digital business card (`noindex`, not in nav) |
 
 ## Local development
 
@@ -29,7 +30,7 @@ node build.js minor    # minor bump
 node build.js --css-only
 ```
 
-`build.js` concatenates CSS → `css/bundle.css`, injects critical CSS / header / footer, renders work cards from `data/work.json`, and cache-busts asset URLs.
+`build.js` concatenates CSS → `css/bundle.css`, injects critical CSS / header / footer, renders work cards from `data/work.json`, and cache-busts asset URLs by content hash. Deploys fail if the committed output doesn't match a fresh build.
 
 ## Stack
 
