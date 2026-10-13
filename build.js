@@ -361,7 +361,7 @@ if (!cssOnly) {
 function contentHash(...absPaths) {
   const hash = crypto.createHash('sha256');
   for (const p of absPaths) {
-    hash.update(path.relative(ROOT, p));
+    hash.update(path.relative(ROOT, p).split(path.sep).join('/')); // same hash on Windows and CI
     hash.update(fs.readFileSync(p));
   }
   return hash.digest('hex').slice(0, 10);
