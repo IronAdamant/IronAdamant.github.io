@@ -96,17 +96,17 @@
       ]
     },
     {
-      "id": "grok-bevy",
-      "title": "Grok-Bevy",
+      "id": "agentcreationkit",
+      "title": "AgentCreationKit",
       "type": "oss",
       "category": "ai",
-      "summary": "MCP server + CLI so AI coding agents can doctor, scaffold, and live-control Bevy 2D/3D games — BRP query/mutate and viewport screenshots.",
-      "description": "Gives agents eyes and hands on a running Bevy app: environment doctor, 2D/3D scaffolds, live Bevy Remote Protocol control, and viewport capture. Works with Grok Build and any MCP client. Dual-licensed MIT or Apache-2.0.",
-      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Grok-Bevy/main/docs/images/crystal-drift-play.png",
-      "imageAlt": "Crystal Drift gameplay — mining drone, asteroids, score and fuel HUD",
-      "techTags": ["Rust", "Bevy", "MCP", "Game dev"],
+      "summary": "Lets AI coding agents build Fallout 4 mods: unattended FO4Edit script runs, Creation Kit GUI automation, and BA2/NIF/plugin helpers.",
+      "description": "Used to update two published Fallout 4 mods, Sandbox Room and Custom Legendary Modifications. Runs xEdit scripts unattended and only clicks dialogs it has been taught, so an unknown prompt is screenshotted and left alone. Drives the Creation Kit like a level designer: opens cells, places references exactly, positions the camera, generates navmesh, and compacts form IDs. Reads and writes plugins losslessly (byte-for-byte on Fallout4.esm's 1.5M records). Pure Python stdlib, Windows.",
+      "techTags": ["Python", "AI agents", "Win32 automation", "Game modding"],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Grok-Bevy" }
+        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AgentCreationKit" },
+        { "text": "Sandbox Room", "icon": "external-link", "url": "https://www.nexusmods.com/fallout4/mods/109995" },
+        { "text": "Custom Legendary Modifications", "icon": "external-link", "url": "https://www.nexusmods.com/fallout4/mods/5565" }
       ]
     },
     {
