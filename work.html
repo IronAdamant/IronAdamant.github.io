@@ -4,7 +4,7 @@
 <head>
     <!-- CRITICAL_CSS -->
     <style>
-        /* Critical CSS — injected by build.js. Not loaded by browsers directly. */
+        /* Critical CSS. injected by build.js. Not loaded by browsers directly. */
 
         html {
             background-color: #0c0e12 !important;
@@ -68,22 +68,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
 
-    <title>Work &amp; portfolio | Iron Adamant</title>
+    <title>Work | Iron Adamant</title>
     <meta name="description"
-        content="Portfolio of open-source tools and products by Aron Amos — AI developer tooling, web apps, automation-ready systems, and ConsistencyHub.">
+        content="Tools and products built and shipped by Aron Amos, including the testing tools Auspex and Chisel.">
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/bundle.css?v=432c9d3e42">
+    <link rel="stylesheet" href="css/bundle.css?v=64d8956583">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3d9a7a">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://ironadamant.com/work.html">
-    <meta property="og:title" content="Work &amp; portfolio | Iron Adamant">
+    <meta property="og:title" content="Work | Iron Adamant">
     <meta property="og:description"
-        content="Open-source AI tooling, web apps, and products — proof of delivery from Aron Amos.">
+        content="Tools and products Aron Amos has built and shipped, including Auspex and Chisel.">
     <meta property="og:url" content="https://ironadamant.com/work.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Iron Adamant">
@@ -91,8 +91,8 @@
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Work &amp; portfolio | Iron Adamant">
-    <meta name="twitter:description" content="Open-source tools and products by Aron Amos.">
+    <meta name="twitter:title" content="Work | Iron Adamant">
+    <meta name="twitter:description" content="Tools and products built and shipped by Aron Amos, including Auspex and Chisel.">
     <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
 
     <script type="speculationrules">
@@ -112,7 +112,6 @@
         <nav class="nav-desktop" aria-label="Main navigation">
             <a href="/" data-nav="home">Home</a>
             <a href="work.html" data-nav="work" class="active" aria-current="page">Work</a>
-            <a href="small-business.html" data-nav="owners">For owners</a>
             <a href="contact.html" data-nav="contact">Contact</a>
         </nav>
         <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -127,7 +126,6 @@
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
     <a href="/" data-nav="home">Home</a>
     <a href="work.html" data-nav="work" class="active" aria-current="page">Work</a>
-    <a href="small-business.html" data-nav="owners">For owners</a>
     <a href="contact.html" data-nav="contact">Contact</a>
 </nav>
     <!-- END_INJECT_HEADER -->
@@ -137,11 +135,14 @@
             <p class="section-label">Portfolio</p>
             <h1>Work</h1>
             <p style="max-width: 40rem; margin-bottom: 1.5rem;">
-                Open-source tools, web apps, and products. Filter by category — full technical detail lives in each repository or product site.
+                Tools and products I have built and shipped. Testing tools:
+                <a href="#auspex">Auspex</a> and <a href="#chisel">Chisel</a>.
+                Filter by category. Detail lives in each repository or product site.
             </p>
 
             <div class="filter-bar" role="group" aria-label="Filter work by category">
                 <button type="button" class="filter-btn active" data-category="all" aria-pressed="true">All</button>
+                <button type="button" class="filter-btn" data-category="testing" aria-pressed="false">Testing</button>
                 <button type="button" class="filter-btn" data-category="ai" aria-pressed="false">AI tools</button>
                 <button type="button" class="filter-btn" data-category="application" aria-pressed="false">Applications</button>
                 <button type="button" class="filter-btn" data-category="product" aria-pressed="false">Products</button>
@@ -151,9 +152,39 @@
 
             <div class="work-list" id="work-list" role="region" aria-label="Work items">
                 <!-- INJECT_WORK_LIST -->
+<article class="work-item" data-category="testing" id="auspex">
+  <div class="work-card-image">
+    <img src="https://ironadamant.com/auspex/demo/consistencyhub.png" alt="Blurred screenshot of a logged-in wiki page from an Auspex check." loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-item-body">
+    <div class="work-card-header">
+      <h2>Auspex</h2>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Auspex opens the page in a separate browser and looks for the exact words you name. It records three separate results: what the live browser saw, what a plain fetch saw, and what a second browser saw using only a saved login. Those results are kept apart.</p>
+    <div class="tag-list"><span class="tag">npm</span><span class="tag">Web testing</span><span class="tag">MCP</span></div>
+    <div class="work-links"><a href="https://ironadamant.com/auspex/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Live page</a>
+<a href="https://github.com/IronAdamant/auspex" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a></div>
+  </div>
+</article>
+<article class="work-item" data-category="testing" id="chisel">
+  <div class="work-card-image">
+    <img src="images/chisel-demo.png" alt="Chisel risk map and test impact analysis UI" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-item-body">
+    <div class="work-card-header">
+      <h2>Chisel</h2>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Chisel maps the blast radius of code changes across many languages and test frameworks. Agents get targeted test suggestions, risk scores, and ownership signals instead of guessing. CLI, HTTP, and MCP. Pure Python with SQLite.</p>
+    <div class="tag-list"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">Test intelligence</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/Chisel" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://pypi.org/project/chisel-test-impact/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#box"/></svg> PyPI</a></div>
+  </div>
+</article>
 <article class="work-item" data-category="application" id="interpres">
   <div class="work-card-image">
-    <img src="https://raw.githubusercontent.com/IronAdamant/Interpres/main/assets/screenshot-macos.png" alt="Interpres on Mac — native companion window with Live and Session caption areas" loading="lazy" decoding="async" width="640" height="400">
+    <img src="https://raw.githubusercontent.com/IronAdamant/Interpres/main/assets/screenshot-macos.png" alt="Interpres on Mac. Native companion window with Live and Session caption areas." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-item-body">
     <div class="work-card-header">
@@ -168,14 +199,14 @@
 </article>
 <article class="work-item" data-category="ai" id="agentvideoparse">
   <div class="work-card-image">
-    <img src="https://raw.githubusercontent.com/IronAdamant/AgentVideoParse/main/assets/screenshots/macos-unified.png" alt="AgentVideoParse on macOS — unified dark UI for short debug video export" loading="lazy" decoding="async" width="640" height="400">
+    <img src="https://raw.githubusercontent.com/IronAdamant/AgentVideoParse/main/assets/screenshots/macos-unified.png" alt="AgentVideoParse on macOS. Unified dark UI for short debug video export." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-item-body">
     <div class="work-card-header">
       <h2>AgentVideoParse</h2>
       <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
     </div>
-    <p>Agents read stills well but struggle with video. AgentVideoParse rejects clips over 30 seconds on purpose, samples agent-friendly JPEGs, and writes a manifest. Native macOS (SwiftUI + AVFoundation) and Windows (WPF) apps with a unified shell — no Python required for end users. Fully local, MIT.</p>
+    <p>Agents read stills well but struggle with video. AgentVideoParse rejects clips over 30 seconds on purpose, samples agent-friendly JPEGs, and writes a manifest. Native macOS (SwiftUI + AVFoundation) and Windows (WPF) apps with a unified shell. No Python required for end users. Fully local, MIT.</p>
     <div class="tag-list"><span class="tag">Swift</span><span class="tag">C#</span><span class="tag">AI agents</span><span class="tag">Desktop</span></div>
     <div class="work-links"><a href="https://github.com/IronAdamant/AgentVideoParse" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
 <a href="https://github.com/IronAdamant/AgentVideoParse/releases" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg> Releases</a></div>
@@ -183,7 +214,7 @@
 </article>
 <article class="work-item" data-category="ai" id="agentgifparse">
   <div class="work-card-image">
-    <img src="https://raw.githubusercontent.com/IronAdamant/AgentGifParse/main/assets/screenshots/macos-unified.png" alt="AgentGifParse on macOS — unified dark UI for short animated GIF export" loading="lazy" decoding="async" width="640" height="400">
+    <img src="https://raw.githubusercontent.com/IronAdamant/AgentGifParse/main/assets/screenshots/macos-unified.png" alt="AgentGifParse on macOS. Unified dark UI for short animated GIF export." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-item-body">
     <div class="work-card-header">
@@ -226,21 +257,6 @@
 <a href="https://pypi.org/project/coordinationhub/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#box"/></svg> PyPI</a></div>
   </div>
 </article>
-<article class="work-item" data-category="ai" id="chisel">
-  <div class="work-card-image">
-    <img src="images/chisel-demo.png" alt="Chisel risk map and test impact analysis UI" loading="lazy" decoding="async" width="640" height="400">
-  </div>
-  <div class="work-item-body">
-    <div class="work-card-header">
-      <h2>Chisel</h2>
-      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
-    </div>
-    <p>Chisel maps the blast radius of code changes across many languages and test frameworks. Agents get targeted test suggestions, risk scores, and ownership signals instead of guessing. CLI, HTTP, and MCP. Pure Python with SQLite.</p>
-    <div class="tag-list"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">Test intelligence</span></div>
-    <div class="work-links"><a href="https://github.com/IronAdamant/Chisel" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
-<a href="https://pypi.org/project/chisel-test-impact/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#box"/></svg> PyPI</a></div>
-  </div>
-</article>
 <article class="work-item" data-category="ai" id="agentcreationkit">
   <div class="work-card-image">
     <img src="images/agentcreationkit-ck.jpg" alt="The Creation Kit showing Sandbox Room’s new Perks &amp; Stats terminals, built by an AI agent through AgentCreationKit" loading="lazy" decoding="async" width="640" height="400">
@@ -250,7 +266,7 @@
       <h2>AgentCreationKit</h2>
       <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
     </div>
-    <p>Claude Code used it to ship Sandbox Room 1.1 hands-free — it built the new room in FO4Edit, compiled the scripts, generated the navmesh in the Creation Kit and checked every save, all before the in-game test. Built so it can’t lose your work: Creation Kit sessions always end closed without saving, xEdit runs are read-only unless asked, unknown dialogs are screenshotted and never clicked, and every save is checked for added masters, navmesh index gaps and out-of-range ESL form IDs. The agent sets it up itself (AGENTS.md, ack doctor). Also used on Custom Legendary Modifications. Pure Python stdlib, Windows, MIT.</p>
+    <p>Claude Code used it to ship Sandbox Room 1.1 hands-free. It built the new room in FO4Edit, compiled the scripts, generated the navmesh in the Creation Kit, and checked every save, all before the in-game test. Built so it cannot lose your work: Creation Kit sessions always end closed without saving, xEdit runs are read-only unless asked, unknown dialogs are screenshotted and never clicked, and every save is checked for added masters, navmesh index gaps and out-of-range ESL form IDs. The agent sets it up itself (AGENTS.md, ack doctor). Also used on Custom Legendary Modifications. Pure Python stdlib, Windows, MIT.</p>
     <div class="tag-list"><span class="tag">Python</span><span class="tag">AI agents</span><span class="tag">Win32 automation</span><span class="tag">Game modding</span></div>
     <div class="work-links"><a href="https://github.com/IronAdamant/AgentCreationKit" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
 <a href="https://x.com/Iron_Adamant/status/2110544522652549183" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg> Demo</a>
@@ -305,7 +321,7 @@
 </article>
 <article class="work-item" data-category="browser" id="checkpoint-projects">
   <div class="work-card-image">
-    <img src="images/checkpoint-today.jpg" alt="Checkpoint Today view — next, overdue, and due-today tasks in a dark local-first notebook" loading="lazy" decoding="async" width="640" height="400">
+    <img src="images/checkpoint-today.jpg" alt="Checkpoint Today view. Next, overdue, and due-today tasks in a dark local-first notebook." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-item-body">
     <div class="work-card-header">
@@ -326,7 +342,7 @@
       <h2>ConsistencyHub</h2>
       <span class="badge badge-product"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#lock"/></svg> Product</span>
     </div>
-    <p>Write chapters, keep a wiki, lay out storyline, and pin maps — all saved to your OneDrive. Heuristic continuity checks run in the browser with no AI required. Prepaid platform Grok is optional for chat, wiki fill, Imagine art, and adventure play. Import from World Anvil, Notion, or Scrivener. Sign in with a personal Microsoft account.</p>
+    <p>Write chapters, keep a wiki, lay out storyline, and pin maps. All of it is saved to your OneDrive. Heuristic continuity checks run in the browser with no AI required. Prepaid platform Grok is optional for chat, wiki fill, Imagine art, and adventure play. Import from World Anvil, Notion, or Scrivener. Sign in with a personal Microsoft account.</p>
     <div class="tag-list"><span class="tag">Web app</span><span class="tag">OneDrive</span><span class="tag">World-building</span></div>
     <div class="work-links"><a href="https://consistencyhub.io" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Website</a></div>
   </div>
@@ -340,7 +356,7 @@
       <h2>MDWord</h2>
       <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
     </div>
-    <p>Browser-based conversion between Markdown and Word documents. Useful when clients and tools disagree on format.</p>
+    <p>Browser-based conversion between Markdown and Word documents. Useful when a file has to move between the two formats.</p>
     <div class="tag-list"><span class="tag">React</span><span class="tag">Netlify</span></div>
     <div class="work-links"><a href="https://mdword.ironadamant.com/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Live app</a></div>
   </div>
@@ -361,14 +377,14 @@
 </article>
 <article class="work-item" data-category="application" id="autoclacker">
   <div class="work-card-image">
-    <img src="images/autoclacker-screenshot.png" alt="AutoClacker on macOS — mouse and keyboard automation with optional action limit" loading="lazy" decoding="async" width="640" height="400">
+    <img src="images/autoclacker-screenshot.png" alt="AutoClacker on macOS. Mouse and keyboard automation with an optional action limit." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-item-body">
     <div class="work-card-header">
       <h2>AutoClacker</h2>
       <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
     </div>
-    <p>Repeat a mouse button or a key at 10–2000 ms, with an optional action limit and a global start/stop hotkey (default F6). Official self-contained Windows x64 and Apple Silicon builds; Linux is in the tree for forks (X11/XWayland only). MIT, .NET 10.</p>
+    <p>Repeat a mouse button or a key at 10 to 2000 ms, with an optional action limit and a global start/stop hotkey (default F6). Official self-contained Windows x64 and Apple Silicon builds; Linux is in the tree for forks (X11/XWayland only). MIT, .NET 10.</p>
     <div class="tag-list"><span class="tag">C#</span><span class="tag">.NET 10</span><span class="tag">Avalonia</span></div>
     <div class="work-links"><a href="https://github.com/IronAdamant/AutoClacker" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
 <a href="https://github.com/IronAdamant/AutoClacker/releases" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg> Releases</a></div>
@@ -404,8 +420,9 @@
         <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
         <div class="footer-links">
             <a href="work.html">Work</a>
-            <a href="small-business.html">For owners</a>
             <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
             <div class="social-links">
                 <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
                 <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
@@ -419,7 +436,7 @@
     <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
     <script src="js/work-filters.js?v=76189c88a5" defer></script>
     <script src="js/image-modal.js?v=b0279ec777" defer></script>
-    <script src="js/main.js?v=de5a89bdf6" defer></script>
+    <script src="js/main.js?v=0dd472a054" defer></script>
     <script src="js/sw-register.js?v=fa4d08115b" defer></script>
 </body>
 

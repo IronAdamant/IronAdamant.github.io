@@ -37,11 +37,11 @@ jobs:
         run: |
           mkdir -p deploy
           # Explicit public web surface only
-          for f in index.html work.html contact.html small-business.html 404.html projects.html apps.html \
+          for f in index.html work.html contact.html privacy.html terms.html small-business.html 404.html projects.html apps.html \
                    sw.js manifest.json favicon.png CNAME robots.txt sitemap.xml; do
             if [ -f "$f" ]; then cp "$f" deploy/; fi
           done
-          # Digital business card at /card/ (orphan utility page — not in main nav)
+          # Digital business card at /card/ (utility page, not in the main nav)
           if [ -d card ]; then cp -r card deploy/; fi
           cp -r css js images deploy/
 

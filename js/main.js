@@ -1,5 +1,5 @@
 /**
- * Site bootstrap — init modules present on the page.
+ * Site bootstrap. Init modules present on the page.
  */
 
 function initApp() {

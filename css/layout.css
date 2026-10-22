@@ -1,4 +1,4 @@
-/* Layout — container, header, nav, hero, footer, sections */
+/* Layout. container, header, nav, hero, footer, sections */
 
 .container {
     width: min(100% - 2rem, var(--max-w));

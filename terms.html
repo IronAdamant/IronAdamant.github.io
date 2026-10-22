@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<!-- DRAFT: pending legal review. Not legal advice. A human must review this page before it is treated as final. -->
+<html lang="en">
+
+<head>
+    <!-- CRITICAL_CSS -->
+    <style>
+        /* Critical CSS. injected by build.js. Not loaded by browsers directly. */
+
+        html {
+            background-color: #0c0e12 !important;
+            color-scheme: dark;
+        }
+
+        :root {
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
+        }
+
+        .container {
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Terms | Iron Adamant</title>
+    <meta name="description"
+        content="Terms for testing and security work from Aron Amos (Iron Adamant), a sole trader in Western Sydney, NSW. Scoped plan, fixed price before work starts, written authorisation required.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bundle.css?v=64d8956583">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3d9a7a">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://ironadamant.com/terms.html">
+    <meta property="og:title" content="Terms | Iron Adamant">
+    <meta property="og:description"
+        content="Terms for web-app testing and security testing. Scope and a fixed price are agreed before work starts. You must own the system or have written authorisation.">
+    <meta property="og:url" content="https://ironadamant.com/terms.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Terms | Iron Adamant">
+    <meta name="twitter:description" content="Scope and a fixed price before testing starts. Written authorisation is required for any system to be tested.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+</head>
+
+<body>
+    <!-- INJECT_HEADER -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="brand">Iron <span>Adamant</span></a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="/" data-nav="home">Home</a>
+            <a href="work.html" data-nav="work">Work</a>
+            <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div class="nav-overlay" hidden></div>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/" data-nav="home">Home</a>
+    <a href="work.html" data-nav="work">Work</a>
+    <a href="contact.html" data-nav="contact">Contact</a>
+</nav>
+    <!-- END_INJECT_HEADER -->
+
+    <main id="main-content" class="page-main" tabindex="-1">
+        <div class="container legal">
+            <p class="section-label">Terms</p>
+            <h1>Terms of engagement</h1>
+            <p class="draft-note">Draft, pending legal review. This page is not legal advice and it is not a quote. Last updated 22 October 2026.</p>
+
+            <p>
+                These terms describe how Aron Amos, trading as Iron Adamant, offers web-app testing and security testing.
+                A paid engagement is governed by the written scope and the fixed price agreed before work starts.
+                If that written scope conflicts with this page, the written scope wins for that engagement, except where the law does not allow it.
+            </p>
+
+            <h2>Who</h2>
+            <p>
+                Aron Amos, trading as Iron Adamant, sole trader, Western Sydney, NSW, Australia.
+                ABN: [CONFIRM ABN].
+                Email: <a href="mailto:aron.amos@ironadamant.com">aron.amos@ironadamant.com</a>.
+                This is an email-only business.
+            </p>
+
+            <h2>Services</h2>
+            <p>The services are:</p>
+            <ul>
+                <li>functional and web-app QA testing</li>
+                <li>WCAG 2.2 AA checks</li>
+                <li>security penetration testing, including red-team-style testing inside an agreed scope</li>
+            </ul>
+            <p>
+                These are checks and tests against an agreed scope.
+                They are not a certificate, and they are not a guarantee that every defect or vulnerability has been found.
+            </p>
+
+            <h2>Scope, then a fixed price</h2>
+            <ol>
+                <li>I write a scoped plan: what will be tested, what is out of scope, the environment, and the report you will receive.</li>
+                <li>I then propose a fixed price for that engagement. The price is for the engagement, not an hourly rate, and not a monthly fee.</li>
+                <li>Testing does not start until you have agreed the scope and the price in writing.</li>
+                <li>Work outside that scope is a new engagement with its own written price.</li>
+            </ol>
+            <p>This website does not list dollar amounts. The price is the one in the written agreement for that engagement.</p>
+
+            <h2>You must own the system, or have written authorisation</h2>
+            <p>
+                You must own every system to be tested, or you must have written authorisation from the owner to have it tested.
+                That includes production, staging, and any third-party service the test would touch.
+                I will not test a system without that ownership or written authorisation.
+                You confirm that the test will not break a law, a contract, or another person's rights.
+            </p>
+            <p>
+                For security testing, the written scope names the targets, the time window, and what is in or out.
+                I will stop if the test would leave that authorisation.
+            </p>
+
+            <h2>Reports</h2>
+            <p>
+                You receive a written report of what was in scope, what was done, and what was found, with steps to reproduce where a finding is a defect or a vulnerability.
+                A report is a point-in-time record of the agreed test.
+                It is not a warranty that the system is free of defects, meets WCAG 2.2 AA, or is secure.
+            </p>
+
+            <h2>No warranty beyond the agreed scope</h2>
+            <p>
+                I perform the agreed test with reasonable care and skill.
+                Beyond that agreed scope, and to the extent the law allows, I give no other warranty.
+                I do not warrant that every bug or vulnerability will be found, that a fix will be available, or that the system will keep running without interruption.
+                Nothing on this website is a warranty.
+            </p>
+
+            <h2>Australian Consumer Law</h2>
+            <p>
+                Nothing in these terms excludes, restricts, or modifies a right or remedy you have under the Australian Consumer Law that cannot lawfully be excluded.
+                Where the law allows a remedy to be limited, my liability for a failure to comply with a consumer guarantee is limited to supplying the service again or paying the cost of having the service supplied again.
+            </p>
+
+            <h2>Limitation of liability</h2>
+            <p>
+                To the extent the law allows, my total liability arising out of an engagement is limited to the fees you paid me for that engagement.
+                To the extent the law allows, I am not liable for indirect or consequential loss, loss of profit, loss of data, or business interruption.
+            </p>
+            <p>
+                You are responsible for backups before testing begins, and for deciding what to change after you read the report.
+            </p>
+
+            <h2>Ownership</h2>
+            <p>
+                You keep ownership of your systems, data, and credentials.
+                I keep ownership of my methods, checklists, and tools, including tools I have published as open source under their own licences.
+                You may use the report inside your organisation.
+                Publishing a finding while the affected system is still exposed needs written agreement, so the write-up does not hand an attacker a map.
+            </p>
+
+            <h2>Confidentiality</h2>
+            <p>
+                I treat your systems, data, and the report as confidential.
+                I will not publish your name, and I will not use the engagement as a public case study, unless you agree in writing.
+                Do not send passwords in the contact form. Access for a security test is the method named in the written scope.
+            </p>
+
+            <h2>Stopping early</h2>
+            <p>
+                Either of us may stop before testing starts, with no fee unless a written agreement already says otherwise.
+                If testing has started and the written scope is silent on stopping early, we agree in writing what part of the fixed price is payable for work already done, before any further invoice. I will still hand over notes of what was done.
+            </p>
+
+            <h2>Law</h2>
+            <p>
+                These terms are governed by the laws of New South Wales, Australia.
+                The courts of New South Wales have jurisdiction. That does not limit a right a person has under the Australian Consumer Law to bring a claim in another court.
+            </p>
+
+            <h2>Contact</h2>
+            <p>
+                Questions about these terms: <a href="mailto:aron.amos@ironadamant.com">aron.amos@ironadamant.com</a>.
+                The <a href="privacy.html">privacy policy</a> explains what the contact form collects.
+            </p>
+        </div>
+    </main>
+
+    <!-- INJECT_FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="work.html">Work</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="This Iron Adamant account is not linked to other IronAdamant accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- END_INJECT_FOOTER -->
+
+    <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
+    <script src="js/main.js?v=0dd472a054" defer></script>
+    <script src="js/sw-register.js?v=fa4d08115b" defer></script>
+</body>
+
+</html>

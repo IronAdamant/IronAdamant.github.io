@@ -4,9 +4,20 @@ Guidance for AI assistants working in this repository.
 
 ## What This Is
 
-Personal site (ironadamant.com) — vanilla HTML/CSS/JS, no framework, no package.json, no tests. Deployed to GitHub Pages via GitHub Actions on push to `main` (allowlisted files only).
+Personal site (ironadamant.com). Vanilla HTML/CSS/JS, no framework, no package.json, no tests. Deployed to GitHub Pages via GitHub Actions on push to `main` (allowlisted files only).
 
-**Positioning:** dual audience. Homepage leads with small-business owners (one office job, they own the logins, you leave). Contract software / AI tooling is secondary (contact + work). Differentiator: simplify technical complexity for non-technical decision-makers; independence is the owner-facing product (fixed quote, finish date, they own the logins). Do not claim n8n or VPS services without shipped proof. Do not pitch owners with MCP, GitHub, or “you’re behind on AI.” AI stays out of the home title and H1.
+**Positioning:** QA and testing plus security penetration testing come first. The portfolio is proof he can build, not the lead offer. Homepage leads with independent web-app QA, WCAG 2.2 AA checks, and security penetration testing (including red-team-style testing inside a written scope). Shipped tools and products stay below that, and on the Work page, as proof of building and shipping. Plain language for a buyer who is not a specialist. No neon or circuit decoration.
+
+**Accuracy rules for copy:**
+
+- No em-dashes in site copy. Use separate sentences.
+- Do not invent clients, testimonials, case studies, logos, metrics, or a client base. Aron is pre-revenue on testing services and has no paid QA or testing clients yet. Do not imply a current or past paying client base.
+- WCAG work is described as "checks". Never write "compliance" for that work.
+- Location is "Western Sydney, NSW" or "Australia". Never a suburb or a street address.
+- Contact is email only: aron.amos@ironadamant.com and https://www.linkedin.com/in/aron-amos-64045582/. No phone number anywhere. Do not mention any hearing impairment anywhere on the site.
+- Pricing is a scoped plan, then a fixed price agreed before work starts, priced per engagement, not hourly. Do not invent dollar amounts. If a number is required, leave a clearly marked `[CONFIRM PRICE]` placeholder.
+- Do not claim n8n, VPS, or other services without shipped proof on this site.
+- MCP, GitHub, and AI tooling can appear on Work when they are facts about a tool. They do not lead the home title or the H1.
 
 ## Commands
 
@@ -24,28 +35,30 @@ No lint or test tooling. `scripts/verify-card.sh` checks the card page.
 
 ## Build Pipeline (`build.js`)
 
-1. Concatenates `css/base.css` + `layout.css` + `components.css` + `accessibility.css` → **`css/bundle.css`** (what pages load).
+1. Concatenates `css/base.css` + `layout.css` + `components.css` + `accessibility.css` into **`css/bundle.css`** (what pages load).
 2. Injects `css/critical.css` at `<!-- CRITICAL_CSS -->` (page-specific blocks via `/* page:filename.html */`).
 3. Injects `partials/header.html` / `partials/footer.html` between `INJECT_*` / `END_INJECT_*` markers; marks active nav.
 4. Renders work cards from **`data/work.json`** into featured / work list / products markers.
 5. Bumps `manifest.json` version + timestamp (skipped by `--css-only`).
 6. Content-hash cache busting on every build: `?v=<hash>` on local CSS/JS, and `CACHE_VERSION` in `sw.js` = version + hash of the precached assets (the SW serves them cache-first, so this must change whenever they do).
-7. Writes `sitemap.xml`; `lastmod` is each page's last git commit date (today if uncommitted).
+7. Writes `sitemap.xml`; `lastmod` is each page's last git commit date (today if uncommitted). The live Auspex URL is included with a fixed lastmod because that page is not a file in this repo.
 
 A rebuild with no source edits produces no diff. The deploy workflow relies on this: it runs `node build.js --css-only` and fails if anything changes.
 
-**Edit sources, not generated regions:** never hand-edit injected header/footer/work blocks or the inlined critical `<style>` — change partials, `critical.css`, or `data/work.json` and re-run the build.
+**Edit sources, not generated regions:** never hand-edit injected header/footer/work blocks or the inlined critical `<style>`. Change partials, `critical.css`, or `data/work.json` and re-run the build.
 
 ## Architecture
 
 ### Pages
-- `index.html` — owners-first hero (office job, write first). Software is a secondary CTA to contact. No AI in title/H1. Services without MCP. Featured work and products stay below as proof. Title/OG follow the owner lead; JSON-LD stays Person (software developer, AI in knowsAbout).
-- `work.html` — full portfolio + client-side filters (`js/work-filters.js`)
-- `small-business.html` — owner offer (plain language, own title/description, Formspree with `audience=small-business`)
-- `contact.html` — Formspree form for software/AI tooling (`js/contact-form.js`)
-- `projects.html` / `apps.html` — SEO redirect stubs → `work.html`
-- `404.html` — root-absolute assets (GitHub Pages catch-all)
-- `card/index.html` — digital business card (`noindex`). Owners first, software second. Standalone, no site nav. Update `card/aron-amos.vcf` with the same note.
+- `index.html`: testing and security hero, services, how it works (scoped plan, fixed price before work, written report), featured tools as proof, products, about. Title and Open Graph follow the testing lead. JSON-LD stays Person.
+- `work.html`: full portfolio plus client-side filters (`js/work-filters.js`). Auspex and Chisel are the testing-flavoured entries.
+- `contact.html`: Formspree form for testing and security enquiries (`js/contact-form.js`).
+- `privacy.html` / `terms.html`: draft legal pages, linked from the footer. HTML comment marks them pending legal review.
+- `projects.html` / `apps.html`: SEO redirect stubs to `work.html`.
+- `small-business.html`: redirect stub to the homepage. The old owner offer is gone. Not in the nav or the sitemap.
+- `404.html`: root-absolute assets (GitHub Pages catch-all). Nav is hardcoded, not injected.
+- `card/index.html`: digital business card (`noindex`). Testing and security first. Standalone, no site nav. Update `card/aron-amos.vcf` with the same note.
+- Auspex lives at `https://ironadamant.com/auspex/` and is not generated by this repo. Link it from Work and list it in the sitemap.
 
 ### Work content
 - Single source: `data/work.json` (`type`: `oss` | `product` | `app`, `category`, `featuredIds` on root). `app` is a browser web app, not open source and not a commercial product.
@@ -57,24 +70,24 @@ A rebuild with no source edits produces no diff. The deploy workflow relies on t
 - Do not reintroduce `@import` waterfalls for production pages.
 
 ### JS
-- `navigation.js` — mobile nav + focus trap
-- `work-filters.js` — filter `.work-item[data-category]`
-- `image-modal.js` — native `<dialog>` lightbox
-- `contact-form.js` — validation + Formspree
-- `main.js` — init orchestration
-- `sw-register.js` + `sw.js` — slim PWA shell
+- `navigation.js`: mobile nav and focus trap
+- `work-filters.js`: filter `.work-item[data-category]`
+- `image-modal.js`: native `<dialog>` lightbox
+- `contact-form.js`: validation and Formspree
+- `main.js`: init orchestration
+- `sw-register.js` + `sw.js`: slim PWA shell
 
 ### Icons
-Self-hosted sprite `images/icons.svg`. Markup:  
+Self-hosted sprite `images/icons.svg`. Markup:
 `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>`
 
 ### Nav
-Home | Work | For owners | Contact — only via `partials/header.html` (desktop + mobile). `404.html` is hardcoded with root-absolute hrefs.
+Home | Work | Contact, only via `partials/header.html` (desktop and mobile). Privacy and Terms are footer links. `404.html` is hardcoded with root-absolute hrefs. The card page stays out of the nav.
 
 ## Deploy
 
-`.github/workflows/deploy.yml` copies an **allowlist** (HTML shell, `card/`, `css/`, `js/`, `images/`, `sw.js`, manifest, CNAME, robots, sitemap). Do not rely on denylist for secrets/tooling.
+`.github/workflows/deploy.yml` copies an **allowlist** (HTML shell, `card/`, `css/`, `js/`, `images/`, `sw.js`, manifest, CNAME, robots, sitemap). Do not rely on a denylist for secrets or tooling.
 
 ## Repo hygiene
 
-Local AI tooling (`trammel.db`, `.stele*`, `.chisel/`, `wiki-local/`, etc.) must never be committed. `CNAME`, `robots.txt`, `sitemap.xml` are deployment-critical.
+Local AI tooling (`trammel.db`, `.stele*`, `.chisel/`, `wiki-local/`, and similar) must never be committed. `CNAME`, `robots.txt`, and `sitemap.xml` are deployment-critical.

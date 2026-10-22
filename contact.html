@@ -4,7 +4,7 @@
 <head>
     <!-- CRITICAL_CSS -->
     <style>
-        /* Critical CSS — injected by build.js. Not loaded by browsers directly. */
+        /* Critical CSS. injected by build.js. Not loaded by browsers directly. */
 
         html {
             background-color: #0c0e12 !important;
@@ -70,11 +70,11 @@
 
     <title>Contact | Iron Adamant</title>
     <meta name="description"
-        content="Contact Aron Amos (Iron Adamant) about custom software or practical AI tooling. Based in Australia, available remotely. Typical reply within 1–2 business days.">
+        content="Contact Aron Amos (Iron Adamant) about web-app QA or security penetration testing. Western Sydney, NSW. Remote. Email only. Typical reply within 1 to 2 business days.">
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/bundle.css?v=432c9d3e42">
+    <link rel="stylesheet" href="css/bundle.css?v=64d8956583">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3d9a7a">
@@ -83,7 +83,7 @@
     <link rel="canonical" href="https://ironadamant.com/contact.html">
     <meta property="og:title" content="Contact | Iron Adamant">
     <meta property="og:description"
-        content="Discuss a custom software or AI tooling project with Aron Amos.">
+        content="Discuss web-app QA or security penetration testing with Aron Amos.">
     <meta property="og:url" content="https://ironadamant.com/contact.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Iron Adamant">
@@ -92,7 +92,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact | Iron Adamant">
-    <meta name="twitter:description" content="Start a project: custom software or practical AI tooling.">
+    <meta name="twitter:description" content="Discuss a web-app test or a security test with Aron Amos.">
     <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
 
     <script type="speculationrules">
@@ -112,7 +112,6 @@
         <nav class="nav-desktop" aria-label="Main navigation">
             <a href="/" data-nav="home">Home</a>
             <a href="work.html" data-nav="work">Work</a>
-            <a href="small-business.html" data-nav="owners">For owners</a>
             <a href="contact.html" data-nav="contact" class="active" aria-current="page">Contact</a>
         </nav>
         <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -127,7 +126,6 @@
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
     <a href="/" data-nav="home">Home</a>
     <a href="work.html" data-nav="work">Work</a>
-    <a href="small-business.html" data-nav="owners">For owners</a>
     <a href="contact.html" data-nav="contact" class="active" aria-current="page">Contact</a>
 </nav>
     <!-- END_INJECT_HEADER -->
@@ -135,14 +133,14 @@
     <main id="main-content" class="page-main" tabindex="-1">
         <div class="container">
             <p class="section-label">Contact</p>
-            <h1>Discuss a project</h1>
+            <h1>Discuss a test</h1>
             <p style="max-width: 40rem;">
-                Tell me what you’re trying to ship: a web app, focused tool, AI-assisted workflow,
-                or something in between. I usually reply within 1–2 business days.
+                Tell me the app and what you want tested: functional testing, WCAG 2.2 AA checks, security penetration testing, or a combination.
+                I usually reply within 1 to 2 business days.
             </p>
             <p style="max-width: 40rem; margin-top: 0.75rem;">
-                If you run a small business and want help with quotes, invoices, or follow-up, start on the
-                <a href="small-business.html">small business page</a> instead.
+                Security testing needs a system you own, or written authorisation from the owner.
+                Do not put passwords in this form.
             </p>
 
             <div class="contact-grid">
@@ -154,11 +152,10 @@
                     </p>
                     <p>
                         <svg class="icon" aria-hidden="true"><use href="/images/icons.svg#location"/></svg>
-                        <span>Australia · available remotely</span>
+                        <span>Western Sydney, NSW. Remote. Email only.</span>
                     </p>
                     <p style="margin-top: 1rem;">
-                        Helpful to include: goals, timeline, stack preferences if any, and whether you need
-                        custom development, AI tooling, or both.
+                        Helpful to include: the app URL, what you want tested, the environment, timing, and whether you own the system or have written authorisation.
                     </p>
                     <div class="contact-social">
                         <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
@@ -211,7 +208,7 @@
                                 <span class="sr-only">(required)</span>
                             </label>
                             <input type="text" id="subject" name="subject" required aria-required="true"
-                                placeholder="Project overview" minlength="5" maxlength="200">
+                                placeholder="What you want tested" minlength="5" maxlength="200">
                             <div id="subject-error" class="error-message" aria-live="polite"></div>
                         </div>
                         <div class="form-group">
@@ -221,7 +218,7 @@
                                 <span class="sr-only">(required)</span>
                             </label>
                             <textarea id="message" name="message" rows="6" required aria-required="true"
-                                placeholder="What do you need built or automated?" minlength="10" maxlength="2000"></textarea>
+                                placeholder="The app, the environment, and what should be in scope." minlength="10" maxlength="2000"></textarea>
                             <div id="message-error" class="error-message" aria-live="polite"></div>
                             <div class="character-count">
                                 <span id="message-count">0</span>/2000 characters
@@ -233,7 +230,10 @@
                                 <span class="button-text">Send message</span>
                             </button>
                             <p class="form-note">
-                                <span class="required" aria-hidden="true">*</span> Required
+                                <span class="required" aria-hidden="true">*</span> Required.
+                                This form sends your name, email, subject, and message through
+                                <a href="https://formspree.io">Formspree</a> (formspree.io).
+                                <a href="privacy.html">Privacy policy</a>.
                             </p>
                         </div>
                     </form>
@@ -251,8 +251,9 @@
         <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
         <div class="footer-links">
             <a href="work.html">Work</a>
-            <a href="small-business.html">For owners</a>
             <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <a href="terms.html">Terms</a>
             <div class="social-links">
                 <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
                 <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
@@ -264,8 +265,8 @@
     <!-- END_INJECT_FOOTER -->
 
     <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
-    <script src="js/contact-form.js?v=b68ec4c325" defer></script>
-    <script src="js/main.js?v=de5a89bdf6" defer></script>
+    <script src="js/contact-form.js?v=1cc1d8ec10" defer></script>
+    <script src="js/main.js?v=0dd472a054" defer></script>
     <script src="js/sw-register.js?v=fa4d08115b" defer></script>
 </body>
 

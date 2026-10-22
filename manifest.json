@@ -1,7 +1,7 @@
 {
   "name": "Iron Adamant",
   "short_name": "Iron Adamant",
-  "description": "One office job you can run, plus custom software by Aron Amos",
+  "description": "Independent web-app QA, WCAG 2.2 AA checks, and security penetration testing by Aron Amos",
   "start_url": "/",
   "display": "standalone",
   "orientation": "any",
@@ -26,6 +26,6 @@
   ],
   "related_applications": [],
   "prefer_related_applications": false,
-  "version": "1.1.18",
-  "build_timestamp": "2026-10-15T01:42:41.734Z"
+  "version": "1.1.19",
+  "build_timestamp": "2026-10-22T19:59:00.602Z"
 }
