@@ -27,13 +27,8 @@ const VALIDATORS = {
         return '';
     },
     subject(value) {
-        const ownerForm = document.querySelector('#contactForm [name="audience"][value="small-business"]');
-        const emptyMsg = ownerForm ? 'Tell me what’s eating the week, in a few words' : 'Subject is required';
-        const shortMsg = ownerForm
-            ? `A few more words. At least ${CHAR_LIMITS.subject.min} characters`
-            : `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
-        if (!value.trim()) return emptyMsg;
-        if (value.length < CHAR_LIMITS.subject.min) return shortMsg;
+        if (!value.trim()) return 'Subject is required';
+        if (value.length < CHAR_LIMITS.subject.min) return `Subject must be at least ${CHAR_LIMITS.subject.min} characters`;
         if (value.length > CHAR_LIMITS.subject.max) return `Must be less than ${CHAR_LIMITS.subject.max} characters`;
         return '';
     },
@@ -191,17 +186,11 @@ function initContactForm() {
 
         try {
             const formData = new FormData();
-            const audienceInput = form.querySelector('[name="audience"]');
-            const audience = audienceInput ? audienceInput.value.trim() : '';
             const subjectValue = subjectInput.value.trim();
             formData.append('name', nameInput.value.trim());
             formData.append('email', emailInput.value.trim());
-            formData.append(
-                'subject',
-                audience === 'small-business' ? `[Owner] ${subjectValue}` : subjectValue
-            );
+            formData.append('subject', subjectValue);
             formData.append('message', messageInput.value.trim());
-            if (audience) formData.append('audience', audience);
 
             const response = await fetch('https://formspree.io/f/xjkrzwlq', {
                 method: 'POST',
@@ -212,7 +201,7 @@ function initContactForm() {
             if (response.ok) {
                 form.reset();
                 formSuccess.hidden = false;
-                formSuccess.innerHTML = `<p><strong>Message sent.</strong> Thanks. I’ll reply within 1 to 2 business days.</p>`;
+                formSuccess.innerHTML = `<p><strong>Message sent.</strong></p>`;
                 formSuccess.focus();
             } else {
                 throw new Error('Form submission failed');

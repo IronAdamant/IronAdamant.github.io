@@ -1,5 +1,5 @@
-// Slim service worker — network-first navigations, cache-first static assets
-const CACHE_VERSION = 'v1.1.18-e61b5989d6';
+// Slim service worker: network-first navigations, cache-first static assets
+const CACHE_VERSION = 'v1.1.22-14ccb93e37';
 const CACHE_NAME = `iron-adamant-${CACHE_VERSION}`;
 
 const PRECACHE = [
@@ -7,7 +7,6 @@ const PRECACHE = [
   '/index.html',
   '/work.html',
   '/contact.html',
-  '/small-business.html',
   '/404.html',
   '/css/bundle.css',
   '/js/navigation.js',

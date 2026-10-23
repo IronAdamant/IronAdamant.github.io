@@ -2,22 +2,95 @@
   "siteName": "Iron Adamant",
   "personName": "Aron Amos",
   "email": "aron.amos@ironadamant.com",
-  "location": "Australia (remote)",
-  "featuredIds": ["interpres", "agentvideoparse", "agentgifparse"],
+  "location": "Western Sydney, NSW, Australia",
+  "featuredIds": [
+    "auspex",
+    "chisel",
+    "interpres",
+    "agentvideoparse",
+    "agentgifparse"
+  ],
   "items": [
+    {
+      "id": "auspex",
+      "title": "Auspex",
+      "type": "oss",
+      "category": "testing",
+      "summary": "Checks that an AI agent really saw the expected words on a web page, including a page behind a login. A person signs in once. The agent never sees the password.",
+      "description": "Auspex opens the page in a separate browser and looks for the exact words you name. It records three separate results: what the live browser saw, what a plain fetch saw, and what a second browser saw using only a saved login. Those results are kept apart.",
+      "imageSrc": "https://ironadamant.com/auspex/demo/consistencyhub.png",
+      "imageAlt": "Blurred screenshot of a logged-in wiki page from an Auspex check.",
+      "techTags": [
+        "npm",
+        "Web testing",
+        "MCP"
+      ],
+      "links": [
+        {
+          "text": "Live page",
+          "icon": "external-link",
+          "url": "https://ironadamant.com/auspex/"
+        },
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/auspex"
+        }
+      ]
+    },
+    {
+      "id": "chisel",
+      "title": "Chisel",
+      "type": "oss",
+      "category": "testing",
+      "summary": "Test impact analysis for LLM agents. Maps tests to code, scores risk, and suggests what to run after a change.",
+      "description": "Chisel maps the blast radius of code changes across many languages and test frameworks. Agents get targeted test suggestions, risk scores, and ownership signals instead of guessing. CLI, HTTP, and MCP. Pure Python with SQLite.",
+      "imageSrc": "images/chisel-demo.png",
+      "imageAlt": "Chisel risk map and test impact analysis UI",
+      "techTags": [
+        "Python",
+        "MCP",
+        "Test intelligence"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/Chisel"
+        },
+        {
+          "text": "PyPI",
+          "icon": "box",
+          "url": "https://pypi.org/project/chisel-test-impact/"
+        }
+      ]
+    },
     {
       "id": "interpres",
       "title": "Interpres",
       "type": "oss",
       "category": "application",
-      "summary": "Privacy-first Live Captions companion for Deaf and hard-of-hearing users — saves what Windows and Mac Live Captions already show, fully local.",
+      "summary": "Privacy-first companion that saves what Windows and Mac Live Captions already show. Fully on the device.",
       "description": "Interpres works with OS Live Captions (not a stand-alone speech engine). Native Win32 and AppKit UIs, opt-in dated session transcripts, light/dark/system theme, and a strict zero crates.io Rust core. Portable Mac and Windows builds; no subscription or cloud account.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Interpres/main/assets/screenshot-macos.png",
-      "imageAlt": "Interpres on Mac — native companion window with Live and Session caption areas",
-      "techTags": ["Rust", "Accessibility", "macOS", "Windows"],
+      "imageAlt": "Interpres on Mac. Native companion window with Live and Session caption areas.",
+      "techTags": [
+        "Rust",
+        "Accessibility",
+        "macOS",
+        "Windows"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Interpres" },
-        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/Interpres/releases" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/Interpres"
+        },
+        {
+          "text": "Releases",
+          "icon": "download",
+          "url": "https://github.com/IronAdamant/Interpres/releases"
+        }
       ]
     },
     {
@@ -26,13 +99,26 @@
       "type": "oss",
       "category": "ai",
       "summary": "Drop a short debug video (≤30s) and get ordered frame screenshots so AI coding agents can see what was on screen.",
-      "description": "Agents read stills well but struggle with video. AgentVideoParse rejects clips over 30 seconds on purpose, samples agent-friendly JPEGs, and writes a manifest. Native macOS (SwiftUI + AVFoundation) and Windows (WPF) apps with a unified shell — no Python required for end users. Fully local, MIT.",
+      "description": "Agents read stills well but struggle with video. AgentVideoParse rejects clips over 30 seconds on purpose, samples agent-friendly JPEGs, and writes a manifest. Native macOS (SwiftUI + AVFoundation) and Windows (WPF) apps with a unified shell. No Python required for end users. Fully local, MIT.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/AgentVideoParse/main/assets/screenshots/macos-unified.png",
-      "imageAlt": "AgentVideoParse on macOS — unified dark UI for short debug video export",
-      "techTags": ["Swift", "C#", "AI agents", "Desktop"],
+      "imageAlt": "AgentVideoParse on macOS. Unified dark UI for short debug video export.",
+      "techTags": [
+        "Swift",
+        "C#",
+        "AI agents",
+        "Desktop"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AgentVideoParse" },
-        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/AgentVideoParse/releases" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/AgentVideoParse"
+        },
+        {
+          "text": "Releases",
+          "icon": "download",
+          "url": "https://github.com/IronAdamant/AgentVideoParse/releases"
+        }
       ]
     },
     {
@@ -43,11 +129,25 @@
       "summary": "Drop a short animated GIF (≤30s) and get ordered frame screenshots so AI agents can review motion without watching the loop.",
       "description": "Sibling to AgentVideoParse for GIF-only workflows. Hard 30s reject, 2 fps sampling (max 60 stills), agent-friendly JPEGs, and a manifest. Useful when short loops come from UI bugs or generative tools (Imagine-class / Seedance-style GIF and clip exports). Native macOS (SwiftUI + ImageIO) and Windows (WPF + WIC) apps; fully local, MIT.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/AgentGifParse/main/assets/screenshots/macos-unified.png",
-      "imageAlt": "AgentGifParse on macOS — unified dark UI for short animated GIF export",
-      "techTags": ["Swift", "C#", "AI agents", "GIF", "Desktop"],
+      "imageAlt": "AgentGifParse on macOS. Unified dark UI for short animated GIF export.",
+      "techTags": [
+        "Swift",
+        "C#",
+        "AI agents",
+        "GIF",
+        "Desktop"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AgentGifParse" },
-        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/AgentGifParse/releases" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/AgentGifParse"
+        },
+        {
+          "text": "Releases",
+          "icon": "download",
+          "url": "https://github.com/IronAdamant/AgentGifParse/releases"
+        }
       ]
     },
     {
@@ -55,14 +155,26 @@
       "title": "Wikifier",
       "type": "oss",
       "category": "ai",
-      "summary": "A token-efficient codebase map for AI agents — health matrix, dependency graphs, and per-file summaries so agents look things up instead of re-reading source.",
+      "summary": "A token-efficient codebase map for AI agents. Health matrix, dependency graphs, and per-file summaries so agents look things up instead of re-reading source.",
       "description": "Wikifier gives coding agents a living map of any codebase: documentation health, dependency analysis (Python and JS/TS), circular dependency detection, and MCP tools so agents query a short summary instead of ingesting whole files. Pure Python stdlib, zero runtime dependencies.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/wikifier/main/screenshot/front_page_review.png",
       "imageAlt": "Wikifier dashboard showing health matrix and dependency graph",
-      "techTags": ["Python", "MCP", "AI tooling"],
+      "techTags": [
+        "Python",
+        "MCP",
+        "AI tooling"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/wikifier" },
-        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/wikifier/" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/wikifier"
+        },
+        {
+          "text": "PyPI",
+          "icon": "box",
+          "url": "https://pypi.org/project/wikifier/"
+        }
       ]
     },
     {
@@ -70,29 +182,27 @@
       "title": "CoordinationHub",
       "type": "oss",
       "category": "ai",
-      "summary": "A shared coordination layer so multiple AI coding agents don’t overwrite each other — file locks, agent tree, tasks, and a live dashboard.",
+      "summary": "A shared coordination layer so multiple AI coding agents do not overwrite each other. File locks, agent tree, tasks, and a live dashboard.",
       "description": "CoordinationHub tracks which agents are active, who holds which files, and which tasks are blocked. TTL locks, scope boundaries, messaging, and an SVG dashboard over SSE. Built for multi-agent local workflows with MCP and Claude Code hooks. Pure Python stdlib.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/coordinationhub/main/screenshots/dashboard.png",
       "imageAlt": "CoordinationHub dashboard with agents, tasks, and file locks",
-      "techTags": ["Python", "MCP", "SQLite", "Multi-agent"],
+      "techTags": [
+        "Python",
+        "MCP",
+        "SQLite",
+        "Multi-agent"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/coordinationhub" },
-        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/coordinationhub/" }
-      ]
-    },
-    {
-      "id": "chisel",
-      "title": "Chisel",
-      "type": "oss",
-      "category": "ai",
-      "summary": "Test impact analysis for LLM agents — maps tests to code, scores risk, and suggests what to run after a change.",
-      "description": "Chisel maps the blast radius of code changes across many languages and test frameworks. Agents get targeted test suggestions, risk scores, and ownership signals instead of guessing. CLI, HTTP, and MCP. Pure Python with SQLite.",
-      "imageSrc": "images/chisel-demo.png",
-      "imageAlt": "Chisel risk map and test impact analysis UI",
-      "techTags": ["Python", "MCP", "Test intelligence"],
-      "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Chisel" },
-        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/chisel-test-impact/" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/coordinationhub"
+        },
+        {
+          "text": "PyPI",
+          "icon": "box",
+          "url": "https://pypi.org/project/coordinationhub/"
+        }
       ]
     },
     {
@@ -101,15 +211,36 @@
       "type": "oss",
       "category": "ai",
       "summary": "Lets AI coding agents build Fallout 4 mods hands-free: unattended FO4Edit runs, Creation Kit automation, Papyrus compiling, archive packing, and Mod Organizer 2 support.",
-      "description": "Claude Code used it to ship Sandbox Room 1.1 hands-free — it built the new room in FO4Edit, compiled the scripts, generated the navmesh in the Creation Kit and checked every save, all before the in-game test. Built so it can’t lose your work: Creation Kit sessions always end closed without saving, xEdit runs are read-only unless asked, unknown dialogs are screenshotted and never clicked, and every save is checked for added masters, navmesh index gaps and out-of-range ESL form IDs. The agent sets it up itself (AGENTS.md, ack doctor). Also used on Custom Legendary Modifications. Pure Python stdlib, Windows, MIT.",
+      "description": "Claude Code used it to ship Sandbox Room 1.1 hands-free. It built the new room in FO4Edit, compiled the scripts, generated the navmesh in the Creation Kit, and checked every save, all before the in-game test. Built to avoid losing your work: Creation Kit sessions always end closed without saving, xEdit runs are read-only unless asked, unknown dialogs are screenshotted and never clicked, and every save is checked for added masters, navmesh index gaps and out-of-range ESL form IDs. The agent sets it up itself (AGENTS.md, ack doctor). Also used on Custom Legendary Modifications. Pure Python stdlib, Windows, MIT.",
       "imageSrc": "images/agentcreationkit-ck.jpg",
       "imageAlt": "The Creation Kit showing Sandbox Room’s new Perks & Stats terminals, built by an AI agent through AgentCreationKit",
-      "techTags": ["Python", "AI agents", "Win32 automation", "Game modding"],
+      "techTags": [
+        "Python",
+        "AI agents",
+        "Win32 automation",
+        "Game modding"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AgentCreationKit" },
-        { "text": "Demo", "icon": "x-twitter", "url": "https://x.com/Iron_Adamant/status/2110544522652549183" },
-        { "text": "Sandbox Room", "icon": "external-link", "url": "https://www.nexusmods.com/fallout4/mods/109995" },
-        { "text": "Custom Legendary Modifications", "icon": "external-link", "url": "https://www.nexusmods.com/fallout4/mods/5565" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/AgentCreationKit"
+        },
+        {
+          "text": "Demo",
+          "icon": "x-twitter",
+          "url": "https://x.com/Iron_Adamant/status/2110544522652549183"
+        },
+        {
+          "text": "Sandbox Room",
+          "icon": "external-link",
+          "url": "https://www.nexusmods.com/fallout4/mods/109995"
+        },
+        {
+          "text": "Custom Legendary Modifications",
+          "icon": "external-link",
+          "url": "https://www.nexusmods.com/fallout4/mods/5565"
+        }
       ]
     },
     {
@@ -117,14 +248,26 @@
       "title": "stele-context",
       "type": "oss",
       "category": "ai",
-      "summary": "Local context cache for LLM agents with hybrid search, multi-agent safety, and MCP tools — runs fully offline.",
+      "summary": "Local context cache for LLM agents with hybrid search, multi-agent safety, and MCP tools. Runs fully offline.",
       "description": "stele-context caches chunked project context so agents avoid re-reading unchanged files. Hybrid vector + keyword search, symbol graph, and locking for multi-agent use. Pure Python, optional tree-sitter, 100% offline capable.",
       "imageSrc": "images/stele-context-search-demo.png",
       "imageAlt": "stele-context semantic search results",
-      "techTags": ["Python", "MCP", "Vector search"],
+      "techTags": [
+        "Python",
+        "MCP",
+        "Vector search"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/stele-context" },
-        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/stele-context/" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/stele-context"
+        },
+        {
+          "text": "PyPI",
+          "icon": "box",
+          "url": "https://pypi.org/project/stele-context/"
+        }
       ]
     },
     {
@@ -132,14 +275,26 @@
       "title": "Trammel",
       "type": "oss",
       "category": "ai",
-      "summary": "Planning and execution harness for LLM-assisted coding — dependency-aware strategies, beam search, and learned constraints.",
+      "summary": "Planning and execution harness for LLM-assisted coding. Dependency-aware strategies, beam search, and learned constraints.",
       "description": "Trammel decomposes multi-file goals into step sequences, explores strategy variants, verifies incrementally, and caches successful recipes. Designed for agents that need structure, not just chat.",
       "imageSrc": "images/trammel-demo.png",
       "imageAlt": "Trammel planning harness overview",
-      "techTags": ["Python", "MCP", "Planning"],
+      "techTags": [
+        "Python",
+        "MCP",
+        "Planning"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Trammel" },
-        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/trammel/" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/Trammel"
+        },
+        {
+          "text": "PyPI",
+          "icon": "box",
+          "url": "https://pypi.org/project/trammel/"
+        }
       ]
     },
     {
@@ -147,14 +302,26 @@
       "title": "PythonBol Translator",
       "type": "oss",
       "category": "ai",
-      "summary": "Offline COBOL-to-Python skeleton generator for legacy modernization — validated across thousands of real programs.",
+      "summary": "Offline COBOL-to-Python skeleton generator for legacy modernization. Tested on a large COBOL corpus.",
       "description": "Converts enterprise COBOL into syntactically valid Python skeletons with intrinsic functions, SQL/CICS hints, and copybook resolution. Zero runtime dependencies; includes MCP for agent workflows.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/PythonBol-Translator/main/docs/images/validation-report.png",
       "imageAlt": "PythonBol validation report across COBOL projects",
-      "techTags": ["Python", "COBOL", "Modernization"],
+      "techTags": [
+        "Python",
+        "COBOL",
+        "Modernization"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/PythonBol-Translator" },
-        { "text": "PyPI", "icon": "box", "url": "https://pypi.org/project/cobol-safe-translator/" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/PythonBol-Translator"
+        },
+        {
+          "text": "PyPI",
+          "icon": "box",
+          "url": "https://pypi.org/project/cobol-safe-translator/"
+        }
       ]
     },
     {
@@ -162,13 +329,20 @@
       "title": "Checkpoint",
       "type": "app",
       "category": "browser",
-      "summary": "Browser project book. Today is the home screen — overdue first, then due today. No account.",
+      "summary": "Browser project book. Today is the home screen. Overdue first, then due today. No account.",
       "description": "A personal project list that runs in the browser. Open a project, type the next task, tap a row to check it off. Export JSON, Markdown, CSV, todo.txt, or a calendar file if you leave. No account, no cloud, no purchase. Use it at checkpointprojects.com.",
       "imageSrc": "images/checkpoint-today.jpg",
-      "imageAlt": "Checkpoint Today view — next, overdue, and due-today tasks in a dark local-first notebook",
-      "techTags": ["Web app", "Local-first"],
+      "imageAlt": "Checkpoint Today view. Next, overdue, and due-today tasks in a dark local-first notebook.",
+      "techTags": [
+        "Web app",
+        "Local-first"
+      ],
       "links": [
-        { "text": "Open app", "icon": "external-link", "url": "https://checkpointprojects.com" }
+        {
+          "text": "Open app",
+          "icon": "external-link",
+          "url": "https://checkpointprojects.com"
+        }
       ]
     },
     {
@@ -176,13 +350,21 @@
       "title": "ConsistencyHub",
       "type": "product",
       "category": "product",
-      "summary": "World-building that catches its own mistakes. Wiki, documents, maps, and continuity checks — files stay in your OneDrive.",
-      "description": "Write chapters, keep a wiki, lay out storyline, and pin maps — all saved to your OneDrive. Heuristic continuity checks run in the browser with no AI required. Prepaid platform Grok is optional for chat, wiki fill, Imagine art, and adventure play. Import from World Anvil, Notion, or Scrivener. Sign in with a personal Microsoft account.",
+      "summary": "World-building that catches its own mistakes. Wiki, documents, maps, and continuity checks. Files stay in your OneDrive.",
+      "description": "Write chapters, keep a wiki, lay out storyline, and pin maps. All of it is saved to your OneDrive. Heuristic continuity checks run in the browser with no AI required. Prepaid platform Grok is optional for chat, wiki fill, Imagine art, and adventure play. Import from World Anvil, Notion, or Scrivener. Sign in with a personal Microsoft account.",
       "imageSrc": "images/consistencyhub-wiki.jpg",
       "imageAlt": "ConsistencyHub wiki entity grid with character portraits and letter tiles",
-      "techTags": ["Web app", "OneDrive", "World-building"],
+      "techTags": [
+        "Web app",
+        "OneDrive",
+        "World-building"
+      ],
       "links": [
-        { "text": "Website", "icon": "external-link", "url": "https://consistencyhub.io" }
+        {
+          "text": "Website",
+          "icon": "external-link",
+          "url": "https://consistencyhub.io"
+        }
       ]
     },
     {
@@ -191,12 +373,19 @@
       "type": "oss",
       "category": "application",
       "summary": "Live Markdown ↔ Word converter deployed on Netlify for quick document handoffs.",
-      "description": "Browser-based conversion between Markdown and Word documents. Useful when clients and tools disagree on format.",
+      "description": "Browser-based conversion between Markdown and Word documents. Useful when a file has to move between the two formats.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Markdown-Word-Converter/main/images/screencapture-mdword-ironadamant-2025-07-03-12_11_28.png",
       "imageAlt": "MDWord converter interface",
-      "techTags": ["React", "Netlify"],
+      "techTags": [
+        "React",
+        "Netlify"
+      ],
       "links": [
-        { "text": "Live app", "icon": "external-link", "url": "https://mdword.ironadamant.com/" }
+        {
+          "text": "Live app",
+          "icon": "external-link",
+          "url": "https://mdword.ironadamant.com/"
+        }
       ]
     },
     {
@@ -208,9 +397,16 @@
       "description": "Uses the debugger API for deep console capture, live popup monitoring, and auto-save to disk. Works on Chromium browsers under Manifest V3.",
       "imageSrc": "images/console-logger-screenshot.png",
       "imageAlt": "Console Logger extension capturing live console output",
-      "techTags": ["Chrome extension", "JavaScript"],
+      "techTags": [
+        "Chrome extension",
+        "JavaScript"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/Console-logger" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/Console-logger"
+        }
       ]
     },
     {
@@ -218,14 +414,26 @@
       "title": "AutoClacker",
       "type": "oss",
       "category": "application",
-      "summary": "Portable mouse and keyboard autoclicker for Windows and Apple Silicon — Avalonia UI, native OS APIs, no installer.",
-      "description": "Repeat a mouse button or a key at 10–2000 ms, with an optional action limit and a global start/stop hotkey (default F6). Official self-contained Windows x64 and Apple Silicon builds; Linux is in the tree for forks (X11/XWayland only). MIT, .NET 10.",
+      "summary": "Portable mouse and keyboard autoclicker for Windows and Apple Silicon. Avalonia UI, native OS APIs, no installer.",
+      "description": "Repeat a mouse button or a key at 10 to 2000 ms, with an optional action limit and a global start/stop hotkey (default F6). Official self-contained Windows x64 and Apple Silicon builds; Linux is in the tree for forks (X11/XWayland only). MIT, .NET 10.",
       "imageSrc": "images/autoclacker-screenshot.png",
-      "imageAlt": "AutoClacker on macOS — mouse and keyboard automation with optional action limit",
-      "techTags": ["C#", ".NET 10", "Avalonia"],
+      "imageAlt": "AutoClacker on macOS. Mouse and keyboard automation with an optional action limit.",
+      "techTags": [
+        "C#",
+        ".NET 10",
+        "Avalonia"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/AutoClacker" },
-        { "text": "Releases", "icon": "download", "url": "https://github.com/IronAdamant/AutoClacker/releases" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/AutoClacker"
+        },
+        {
+          "text": "Releases",
+          "icon": "download",
+          "url": "https://github.com/IronAdamant/AutoClacker/releases"
+        }
       ]
     },
     {
@@ -237,9 +445,17 @@
       "description": "Real-time WASAPI-based monitoring with process names, levels, timestamps, CSV logging, and tray support for background use.",
       "imageSrc": "https://raw.githubusercontent.com/IronAdamant/windows_sound_tracker/refs/heads/master/images/windows_sound_tracker_ui.png",
       "imageAlt": "Windows Sound Tracker interface",
-      "techTags": ["C++", "Win32", "WASAPI"],
+      "techTags": [
+        "C++",
+        "Win32",
+        "WASAPI"
+      ],
       "links": [
-        { "text": "GitHub", "icon": "github", "url": "https://github.com/IronAdamant/windows_sound_tracker" }
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/windows_sound_tracker"
+        }
       ]
     }
   ]

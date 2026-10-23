@@ -1,6 +1,18 @@
 # Iron Adamant
 
-Personal site for **Aron Amos** (Iron Adamant): custom software, practical AI tooling, open-source tools, products, and a plain-language offer for small-business owners.
+Personal site for Aron Amos (Iron Adamant), from Western Sydney, NSW.
+
+Three services.
+
+Web app testing. The parts of an app that customers touch.
+
+Accessibility checks. Automated checks against WCAG 2.2 AA plus a manual pass.
+
+An AI-assisted security review of a system you own. It isn't penetration testing. Not taking bookings yet.
+
+The tools on the Work page are proof I can build. The testing service is new.
+
+A written scope first, then a fixed price for that engagement, agreed before work starts.
 
 **Live:** [ironadamant.com](https://ironadamant.com)
 
@@ -8,12 +20,14 @@ Personal site for **Aron Amos** (Iron Adamant): custom software, practical AI to
 
 | Page | Purpose |
 |------|---------|
-| `index.html` | Home — services, owner door, selected work, products, about |
-| `work.html` | Portfolio (OSS + products) with filters |
-| `small-business.html` | Owner offer — one loop on rails, then handover |
+| `index.html` | Home: services, how an engagement works, selected work, about |
+| `work.html` | Tools and products, with filters. Includes Auspex and Chisel. |
 | `contact.html` | Contact form (Formspree) |
-| `projects.html` / `apps.html` | Redirect stubs → Work |
-| `card/` | Digital business card (`noindex`, not in nav) |
+| `projects.html` / `apps.html` | Redirect stubs to Work |
+| `small-business.html` | Redirect stub to the homepage. Not in the sitemap. |
+| `card/` | Digital business card (`noindex`, not in the nav) |
+
+Auspex also has a live page at [ironadamant.com/auspex/](https://ironadamant.com/auspex/). That page is not built from this repo. The Work page and the sitemap link to it.
 
 ## Local development
 
@@ -28,16 +42,18 @@ Before committing asset or content changes:
 node build.js          # patch version + rebuild
 node build.js minor    # minor bump
 node build.js --css-only
+bash scripts/copy-gates.sh
+bash scripts/verify-card.sh
 ```
 
-`build.js` concatenates CSS → `css/bundle.css`, injects critical CSS / header / footer, renders work cards from `data/work.json`, and cache-busts asset URLs by content hash. Deploys fail if the committed output doesn't match a fresh build.
+`build.js` concatenates CSS into `css/bundle.css`, injects critical CSS, header, and footer, renders work cards from `data/work.json`, and cache-busts asset URLs by content hash. Deploys fail if the committed output does not match a fresh build.
 
 ## Stack
 
 - Static HTML/CSS/JS (no framework, no npm runtime deps)
 - Modular CSS sources; single `bundle.css` for browsers
 - Slim service worker for offline shell
-- GitHub Actions → GitHub Pages (allowlisted deploy)
+- GitHub Actions to GitHub Pages (allowlisted deploy)
 
 ## Content
 
@@ -45,4 +61,4 @@ Edit **`data/work.json`** then run `node build.js`. Featured homepage cards use 
 
 ## Design
 
-Dark professional theme: system fonts, restrained teal accent, no circuit/neon decoration.
+Dark theme. System fonts, teal accent, no circuit or neon decoration. Short sentences. No invented history, and no price figure until one is confirmed.

@@ -100,7 +100,7 @@ if [[ "${VERIFY_CARD_HTTP:-}" == "1" ]]; then
       grep -q "$HOME_URL" "$body_file" && ok "response has home URL (attempt $i)" || bad "response missing home (attempt $i)"
       grep -q 'card-home-qr' "$body_file" && ok "response has QR markup (attempt $i)" || bad "response missing QR (attempt $i)"
     else
-      bad "HTTP $code for /card/ (attempt $i) — is the static server up?"
+      bad "HTTP $code for /card/ (attempt $i). Is the static server up?"
     fi
   done
   rm -f "$body_file"

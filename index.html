@@ -4,7 +4,7 @@
 <head>
     <!-- CRITICAL_CSS -->
     <style>
-        /* Critical CSS — injected by build.js. Not loaded by browsers directly. */
+        /* Critical CSS. injected by build.js. Not loaded by browsers directly. */
 
         html {
             background-color: #0c0e12 !important;
@@ -72,34 +72,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="format-detection" content="telephone=no">
 
-    <title>One office job. You run it. | Iron Adamant</title>
+    <title>Web app testing and accessibility checks | Iron Adamant</title>
     <meta name="description"
-        content="One repeating office job: quotes, invoices, chasing people. Your accounts, set price, you run it. Custom software when you need something built. Australia, remote, write first.">
+        content="Independent web app testing from Western Sydney, NSW, including automated checks against WCAG 2.2 AA plus a manual pass. A plain-English list of what to fix first.">
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="preload" href="css/bundle.css?v=432c9d3e42" as="style">
-    <link rel="stylesheet" href="css/bundle.css?v=432c9d3e42">
+    <link rel="preload" href="css/bundle.css?v=1d9be2f067" as="style">
+    <link rel="stylesheet" href="css/bundle.css?v=1d9be2f067">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3d9a7a">
     <meta name="robots" content="index, follow">
 
     <link rel="canonical" href="https://ironadamant.com/">
-    <meta property="og:title" content="One office job. You run it. | Iron Adamant">
+    <meta property="og:title" content="Web app testing and accessibility checks | Iron Adamant">
     <meta property="og:description"
-        content="Quotes, invoices, chasing people. Your accounts, set price, you run it. Custom software when you need something built. Australia, remote, write first.">
+        content="Independent web app testing from Western Sydney, NSW, including automated checks against WCAG 2.2 AA plus a manual pass. A plain-English list of what to fix first.">
     <meta property="og:url" content="https://ironadamant.com/">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Iron Adamant">
     <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Iron Adamant. Web app testing and accessibility checks.">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="One office job. You run it. | Iron Adamant">
+    <meta name="twitter:title" content="Web app testing and accessibility checks | Iron Adamant">
     <meta name="twitter:description"
-        content="Quotes, invoices, chasing people. Your accounts, set price, you run it. Custom software when you need something built.">
+        content="Independent web app testing from Western Sydney, NSW, including automated checks against WCAG 2.2 AA plus a manual pass. A plain-English list of what to fix first.">
     <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+    <meta name="twitter:image:alt" content="Iron Adamant. Web app testing and accessibility checks.">
 
     <script type="application/ld+json">
     {
@@ -110,9 +112,11 @@
       "url": "https://ironadamant.com/",
       "email": "aron.amos@ironadamant.com",
       "jobTitle": "Software developer",
-      "description": "Sets up one repeating office job that owners can run. Also builds custom software and practical AI tooling. Explains technical complexity in plain language. Open-source tools and shipping products.",
+      "description": "Independent web app testing from Western Sydney, NSW, including automated checks against WCAG 2.2 AA plus a manual pass. A plain-English list of what to fix first.",
       "address": {
         "@type": "PostalAddress",
+        "addressLocality": "Western Sydney",
+        "addressRegion": "NSW",
         "addressCountry": "AU"
       },
       "sameAs": [
@@ -121,10 +125,10 @@
         "https://x.com/Iron_Adamant"
       ],
       "knowsAbout": [
-        "Small business office systems",
-        "Software development",
-        "Web applications",
-        "AI developer tooling"
+        "Web app testing",
+        "Accessibility checks",
+        "Security review",
+        "Software development"
       ]
     }
     </script>
@@ -145,7 +149,6 @@
         <nav class="nav-desktop" aria-label="Main navigation">
             <a href="/" data-nav="home" class="active" aria-current="page">Home</a>
             <a href="work.html" data-nav="work">Work</a>
-            <a href="small-business.html" data-nav="owners">For owners</a>
             <a href="contact.html" data-nav="contact">Contact</a>
         </nav>
         <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -160,7 +163,6 @@
 <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
     <a href="/" data-nav="home" class="active" aria-current="page">Home</a>
     <a href="work.html" data-nav="work">Work</a>
-    <a href="small-business.html" data-nav="owners">For owners</a>
     <a href="contact.html" data-nav="contact">Contact</a>
 </nav>
     <!-- END_INJECT_HEADER -->
@@ -168,18 +170,14 @@
     <main id="main-content" tabindex="-1">
         <section class="hero">
             <div class="container">
-                <p class="section-label">Australia · Remote · Write first</p>
-                <h1 class="hero-title">One office job. Your accounts. You run it. I leave.</h1>
-                <p class="hero-subtitle">
-                    Quotes, invoices, chasing people: the bit that eats your week.
-                    Written plan, set price, about two weeks after the plan.
-                    No new package. $0 a month unless you ask.
-                </p>
+                <p class="section-label">Western Sydney, NSW. Remote. Email first.</p>
+                <h1 class="hero-title">Web app testing, in plain English.</h1>
+                <p class="hero-subtitle">I test the parts of your app that customers touch, like sign-up, login and billing. I also run automated checks against WCAG 2.2 AA plus a manual pass. You get a written list of what to fix first, in priority order.</p>
+                <p class="hero-subtitle">A written scope first, then a fixed price for that engagement, agreed before work starts.</p>
                 <div class="cta-row">
-                    <a class="btn btn-primary" href="small-business.html">Tell me what’s eating your week</a>
-                    <a class="btn btn-secondary" href="contact.html">I need something built</a>
+                    <a class="btn btn-primary" href="contact.html">Ask about a test</a>
+                    <a class="btn btn-secondary" href="work.html">See what I've built</a>
                 </div>
-                <p class="hero-aside"><a href="work.html">View shipped work</a></p>
             </div>
         </section>
 
@@ -187,41 +185,101 @@
             <div class="container">
                 <div class="section-header">
                     <p class="section-label">Services</p>
-                    <h2 id="services-heading">What I can help with</h2>
-                    <p>One office job you can run. Custom software when you need something built.</p>
+                    <h2 id="services-heading">What I do</h2>
+                    <p>Three services. Each one ends with a written, plain-English list, in priority order.</p>
                 </div>
                 <div class="service-grid">
                     <article class="service-card">
-                        <h3>The office job</h3>
-                        <p>Quotes, invoices, follow-up in the accounts you already have. Written plan, set price, you run it.</p>
+                        <h3>Web app testing</h3>
+                        <p>I go through the parts of your app that customers use, like sign-up, login, billing and the everyday tasks it's built for. I use it the way a new customer would. You get a list of what's broken or rough, and what to fix first.</p>
                     </article>
                     <article class="service-card">
-                        <h3>Custom software</h3>
-                        <p>Web apps, focused tools, and the wiring between systems you already pay for.</p>
+                        <h3>Accessibility checks</h3>
+                        <p>I run automated checks against WCAG 2.2 AA plus a manual pass, on the pages and journeys we agree. You get a list of what I found and what to fix first. It covers the pages I checked. It isn't a sign-off for the whole app.</p>
+                    </article>
+                    <article class="service-card">
+                        <p class="section-label">Not taking bookings yet</p>
+                        <h3>Security review</h3>
+                        <p>An AI-assisted review of a system you own: sign-up and login, billing, how keys and secrets are handled, configuration, and user roles. You get a plain-English list of hardening steps, in priority order. It isn't penetration testing.</p>
                     </article>
                 </div>
+            </div>
+        </section>
+
+        <section class="section" id="how" aria-labelledby="how-heading">
+            <div class="container">
+                <div class="section-header">
+                    <p class="section-label">How it works</p>
+                    <h2 id="how-heading">Scope, then a fixed price, then the list</h2>
+                    <p>A written scope first, then a fixed price for that engagement, agreed before work starts. Then I do the work and send you the list.</p>
+                </div>
+                <ol class="step-list">
+                    <li>
+                        <h3>Scope</h3>
+                        <p>You tell me what you want covered. I write down which app, which parts, and what's out.</p>
+                    </li>
+                    <li>
+                        <h3>Fixed price</h3>
+                        <p>I quote one price for that engagement. Not hourly. Not monthly. Nothing starts until you've agreed to the scope and the price in writing.</p>
+                    </li>
+                    <li>
+                        <h3>Written list</h3>
+                        <p>A plain-English list of what I found and what to fix first. It's a snapshot of what I saw on the day, within the scope.</p>
+                    </li>
+                </ol>
+                <p class="callout">I only test or review systems you own, and only after you've given me the go-ahead in writing. I don't test services you use but don't own, like Stripe, Clerk, Google, Firebase, your hosting provider or AI model providers. Where your app connects to one of them, I only look at your side of it.</p>
             </div>
         </section>
 
         <section class="section" id="selected-work" aria-labelledby="work-heading">
             <div class="container">
                 <div class="section-header">
-                    <p class="section-label">Selected work</p>
-                    <h2 id="work-heading">Shipped tools</h2>
-                    <p>Proof I can build. Not the owner offer. Full list on Work.</p>
+                    <p class="section-label">Proof I can build</p>
+                    <h2 id="work-heading">Tools I build and ship</h2>
+                    <p>Auspex and Chisel are testing tools. The rest is other software I've built and shipped. The full list is on Work.</p>
                 </div>
                 <div class="work-grid">
                     <!-- INJECT_FEATURED_WORK -->
+<article class="work-card" data-category="testing" id="auspex">
+  <div class="work-card-image">
+    <img src="https://ironadamant.com/auspex/demo/consistencyhub.png" alt="Blurred screenshot of a logged-in wiki page from an Auspex check." loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>Auspex</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Checks that an AI agent really saw the expected words on a web page, including a page behind a login. A person signs in once. The agent never sees the password.</p>
+    <div class="tag-list"><span class="tag">npm</span><span class="tag">Web testing</span><span class="tag">MCP</span></div>
+    <div class="work-links"><a href="https://ironadamant.com/auspex/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Live page</a>
+<a href="https://github.com/IronAdamant/auspex" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a></div>
+  </div>
+</article>
+<article class="work-card" data-category="testing" id="chisel">
+  <div class="work-card-image">
+    <img src="images/chisel-demo.png" alt="Chisel risk map and test impact analysis UI" loading="lazy" decoding="async" width="640" height="400">
+  </div>
+  <div class="work-card-body">
+    <div class="work-card-header">
+      <h3>Chisel</h3>
+      <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
+    </div>
+    <p>Test impact analysis for LLM agents. Maps tests to code, scores risk, and suggests what to run after a change.</p>
+    <div class="tag-list"><span class="tag">Python</span><span class="tag">MCP</span><span class="tag">Test intelligence</span></div>
+    <div class="work-links"><a href="https://github.com/IronAdamant/Chisel" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
+<a href="https://pypi.org/project/chisel-test-impact/" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#box"/></svg> PyPI</a></div>
+  </div>
+</article>
 <article class="work-card" data-category="application" id="interpres">
   <div class="work-card-image">
-    <img src="https://raw.githubusercontent.com/IronAdamant/Interpres/main/assets/screenshot-macos.png" alt="Interpres on Mac — native companion window with Live and Session caption areas" loading="lazy" decoding="async" width="640" height="400">
+    <img src="https://raw.githubusercontent.com/IronAdamant/Interpres/main/assets/screenshot-macos.png" alt="Interpres on Mac. Native companion window with Live and Session caption areas." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-card-body">
     <div class="work-card-header">
       <h3>Interpres</h3>
       <span class="badge badge-oss"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> Open source</span>
     </div>
-    <p>Privacy-first Live Captions companion for Deaf and hard-of-hearing users — saves what Windows and Mac Live Captions already show, fully local.</p>
+    <p>Privacy-first companion that saves what Windows and Mac Live Captions already show. Fully on the device.</p>
     <div class="tag-list"><span class="tag">Rust</span><span class="tag">Accessibility</span><span class="tag">macOS</span><span class="tag">Windows</span></div>
     <div class="work-links"><a href="https://github.com/IronAdamant/Interpres" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg> GitHub</a>
 <a href="https://github.com/IronAdamant/Interpres/releases" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#download"/></svg> Releases</a></div>
@@ -229,7 +287,7 @@
 </article>
 <article class="work-card" data-category="ai" id="agentvideoparse">
   <div class="work-card-image">
-    <img src="https://raw.githubusercontent.com/IronAdamant/AgentVideoParse/main/assets/screenshots/macos-unified.png" alt="AgentVideoParse on macOS — unified dark UI for short debug video export" loading="lazy" decoding="async" width="640" height="400">
+    <img src="https://raw.githubusercontent.com/IronAdamant/AgentVideoParse/main/assets/screenshots/macos-unified.png" alt="AgentVideoParse on macOS. Unified dark UI for short debug video export." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-card-body">
     <div class="work-card-header">
@@ -244,7 +302,7 @@
 </article>
 <article class="work-card" data-category="ai" id="agentgifparse">
   <div class="work-card-image">
-    <img src="https://raw.githubusercontent.com/IronAdamant/AgentGifParse/main/assets/screenshots/macos-unified.png" alt="AgentGifParse on macOS — unified dark UI for short animated GIF export" loading="lazy" decoding="async" width="640" height="400">
+    <img src="https://raw.githubusercontent.com/IronAdamant/AgentGifParse/main/assets/screenshots/macos-unified.png" alt="AgentGifParse on macOS. Unified dark UI for short animated GIF export." loading="lazy" decoding="async" width="640" height="400">
   </div>
   <div class="work-card-body">
     <div class="work-card-header">
@@ -260,7 +318,7 @@
     <!-- END_INJECT_FEATURED_WORK -->
                 </div>
                 <p style="margin-top: 1.25rem;">
-                    <a href="work.html">See all work →</a>
+                    <a href="work.html">See all work</a>
                 </p>
             </div>
         </section>
@@ -283,7 +341,7 @@
       <h3>ConsistencyHub</h3>
       <span class="badge badge-product"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#lock"/></svg> Product</span>
     </div>
-    <p>World-building that catches its own mistakes. Wiki, documents, maps, and continuity checks — files stay in your OneDrive.</p>
+    <p>World-building that catches its own mistakes. Wiki, documents, maps, and continuity checks. Files stay in your OneDrive.</p>
     <div class="tag-list"><span class="tag">Web app</span><span class="tag">OneDrive</span><span class="tag">World-building</span></div>
     <div class="work-links"><a href="https://consistencyhub.io" class="btn btn-link" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Website</a></div>
   </div>
@@ -300,24 +358,15 @@
                     <h2 id="about-heading">About Aron</h2>
                 </div>
                 <div class="about-block">
-                    <p>
-                        I’m Aron Amos (Iron Adamant), based in Australia and working remotely.
-                        For owners I set up one repeating office job in the accounts they already have.
-                        They run it. I leave. I also build custom software when someone needs something shipped.
-                    </p>
-                    <p>
-                        A lot of that work has sat next to non-technical stakeholders.
-                        Years of that taught me how to take complicated detail and simplify it until people can actually use it to decide.
-                        Multi-party commercial and ops messes sit behind the software work, so I plan in layers and chase bottlenecks instead of polishing slides.
-                        Alongside client work I ship open-source tooling and my own products.
-                        If you need something built or made clearer, get in touch.
-                    </p>
+                    <p>I'm Aron Amos. I run Iron Adamant from Western Sydney, NSW, and work remotely. I'm a software developer. I build and ship my own tools and products, and many of them are open source on GitHub.</p>
+                    <p>Two of them are testing tools. Auspex checks that an AI agent really saw the expected words on a web page. Chisel suggests which tests to run after a code change. That's my proof I can build. The testing service is new. The tools on the Work page are what I can show you so far.</p>
+                    <p>I write what I find for the person who has to decide what to fix, not just the developer.</p>
                 </div>
                 <div class="cta-band" style="margin-top: 1.5rem;">
-                    <p>What’s eating the week, or what do you need built?</p>
+                    <p>What would you like checked?</p>
                     <div class="cta-row">
-                        <a href="small-business.html" class="btn btn-primary">Tell me what’s eating your week</a>
-                        <a href="contact.html" class="btn btn-secondary">Start a project</a>
+                        <a href="contact.html" class="btn btn-primary">Ask about a test</a>
+                        <a href="work.html" class="btn btn-secondary">See what I've built</a>
                     </div>
                 </div>
             </div>
@@ -329,8 +378,8 @@
     <div class="container">
         <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
         <div class="footer-links">
+            <a href="/">Home</a>
             <a href="work.html">Work</a>
-            <a href="small-business.html">For owners</a>
             <a href="contact.html">Contact</a>
             <div class="social-links">
                 <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
@@ -344,7 +393,7 @@
 
     <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
     <script src="js/image-modal.js?v=b0279ec777" defer></script>
-    <script src="js/main.js?v=de5a89bdf6" defer></script>
+    <script src="js/main.js?v=0dd472a054" defer></script>
     <script src="js/sw-register.js?v=fa4d08115b" defer></script>
 </body>
 

@@ -1,4 +1,4 @@
-/* Layout — container, header, nav, hero, footer, sections */
+/* Layout. container, header, nav, hero, footer, sections */
 
 .container {
     width: min(100% - 2rem, var(--max-w));
@@ -211,6 +211,10 @@ main {
     max-width: 40rem;
     margin-bottom: 1.75rem;
     line-height: 1.7;
+}
+
+.hero-subtitle + .hero-subtitle {
+    margin-top: -1rem;
 }
 
 .cta-row {
