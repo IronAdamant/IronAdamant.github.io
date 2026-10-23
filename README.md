@@ -8,7 +8,7 @@ Web app testing. The parts of an app that customers touch.
 
 Accessibility checks. Automated checks against WCAG 2.2 AA plus a manual pass.
 
-An AI-assisted security review of a system you own. It isn't penetration testing.
+An AI-assisted security review of a system you own. It isn't penetration testing. Not taking bookings yet.
 
 The tools on the Work page are proof I can build. The testing service is new.
 
