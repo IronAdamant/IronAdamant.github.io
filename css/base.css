@@ -74,6 +74,10 @@ a {
     transition: color var(--transition);
 }
 
+p a:not(.btn), li a:not(.btn) {
+    text-decoration: underline;
+}
+
 a:hover {
     color: var(--accent-hover);
 }

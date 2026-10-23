@@ -77,6 +77,10 @@ a {
     transition: color var(--transition);
 }
 
+p a:not(.btn), li a:not(.btn) {
+    text-decoration: underline;
+}
+
 a:hover {
     color: var(--accent-hover);
 }
@@ -858,7 +862,7 @@ main {
 }
 
 .badge-oss {
-    color: var(--accent);
+    color: #45a585;
     border-color: rgba(61, 154, 122, 0.4);
     background: var(--accent-subtle);
 }
