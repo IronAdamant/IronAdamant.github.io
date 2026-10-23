@@ -201,7 +201,7 @@ function initContactForm() {
             if (response.ok) {
                 form.reset();
                 formSuccess.hidden = false;
-                formSuccess.innerHTML = `<p><strong>Message sent.</strong> Thanks. I’ll reply within 1 to 2 business days.</p>`;
+                formSuccess.innerHTML = `<p><strong>Message sent.</strong></p>`;
                 formSuccess.focus();
             } else {
                 throw new Error('Form submission failed');

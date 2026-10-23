@@ -2,18 +2,19 @@
 <!--
   Open Graph wordmark for ironadamant.com.
   Solid background, no neon, no circuit art.
-  Render to images/social-card.png at 1200x630, for example:
-  google-chrome --headless --disable-gpu --hide-scrollbars --force-device-scale-factor=1 --window-size=1200,630 --screenshot=images/social-card.png images/social-card.svg
+  Render to images/social-card.png at 1200x630.
+  Headless Chrome, device scale 1, window 1200 by 630, screenshot this SVG.
+  Do not put a double hyphen in this comment. Chrome parses the SVG as XML and rejects it.
 -->
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
   <title id="title">Iron Adamant</title>
-  <desc id="desc">Iron Adamant wordmark. Web-app QA and security testing.</desc>
+  <desc id="desc">Iron Adamant wordmark. Web app testing and accessibility checks.</desc>
   <rect width="1200" height="630" fill="#0c0e12"/>
   <g fill="none" stroke="#3d9a7a" stroke-width="3">
     <rect x="552" y="148" width="96" height="96" rx="16"/>
   </g>
   <text x="600" y="208" text-anchor="middle" font-family="Inter, Liberation Sans, Arial, sans-serif" font-size="40" font-weight="700" fill="#3d9a7a">IA</text>
   <text x="600" y="332" text-anchor="middle" font-family="Inter, Liberation Sans, Arial, sans-serif" font-size="68" font-weight="700" fill="#e8eaed">Iron Adamant</text>
-  <text x="600" y="392" text-anchor="middle" font-family="Inter, Liberation Sans, Arial, sans-serif" font-size="28" font-weight="500" fill="#9aa3b2">Web-app QA and security testing</text>
+  <text x="600" y="392" text-anchor="middle" font-family="Inter, Liberation Sans, Arial, sans-serif" font-size="28" font-weight="500" fill="#9aa3b2">Web app testing and accessibility checks</text>
   <text x="600" y="470" text-anchor="middle" font-family="Inter, Liberation Sans, Arial, sans-serif" font-size="20" font-weight="600" fill="#3d9a7a" letter-spacing="1.5">ironadamant.com</text>
 </svg>

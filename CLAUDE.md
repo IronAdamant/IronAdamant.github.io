@@ -6,18 +6,15 @@ Guidance for AI assistants working in this repository.
 
 Personal site (ironadamant.com). Vanilla HTML/CSS/JS, no framework, no package.json, no tests. Deployed to GitHub Pages via GitHub Actions on push to `main` (allowlisted files only).
 
-**Positioning:** QA and testing plus security penetration testing come first. The portfolio is proof he can build, not the lead offer. Homepage leads with independent web-app QA, WCAG 2.2 AA checks, and security penetration testing (including red-team-style testing inside a written scope). Shipped tools and products stay below that, and on the Work page, as proof of building and shipping. Plain language for a buyer who is not a specialist. No neon or circuit decoration.
+**Positioning:** The public offer is independent web app testing, accessibility checks, and an AI-assisted security review of a system the visitor owns. The Work page is proof of building, not a list of clients. Plain language. No neon or circuit decoration.
 
-**Accuracy rules for copy:**
+**Offer rules (keep this block):**
 
-- No em-dashes in site copy. Use separate sentences.
-- Do not invent clients, testimonials, case studies, logos, metrics, or a client base. Aron is pre-revenue on testing services and has no paid QA or testing clients yet. Do not imply a current or past paying client base.
-- WCAG work is described as "checks". Never write "compliance" for that work.
-- Location is "Western Sydney, NSW" or "Australia". Never a suburb or a street address.
-- Contact is email only: aron.amos@ironadamant.com and https://www.linkedin.com/in/aron-amos-64045582/. No phone number anywhere. Do not mention any hearing impairment anywhere on the site.
-- Pricing is a scoped plan, then a fixed price agreed before work starts, priced per engagement, not hourly. Do not invent dollar amounts. If a number is required, leave a clearly marked `[CONFIRM PRICE]` placeholder.
-- Do not claim n8n, VPS, or other services without shipped proof on this site.
-- MCP, GitHub, and AI tooling can appear on Work when they are facts about a tool. They do not lead the home title or the H1.
+Offer: web app testing; accessibility as "automated checks against WCAG 2.2 AA plus a manual pass" (checks, never compliance); AI-assisted security review of systems the client owns, always with "It isn't penetration testing." Never: secure, compliant, compliance, certified, guaranteed, penetration testing (except that one sentence), pentest, red-team, attacker, audit, authorisation. No em or en dashes anywhere. Only systems the client owns, only with their written go-ahead, never third-party providers. No invented clients, testimonials, metrics, history or reply-time promises. Tools are "proof I can build". Western Sydney, NSW or Australia only. No phone. No hearing-impairment line on the site. No dollar figures until Aron confirms one. Pricing line: "a written scope first, then a fixed price for that engagement, agreed before work starts". Voice: plain, short sentences, contractions, no hype. "web app" with no hyphen. AI stays out of the title and H1.
+
+Do not add these lines until Aron confirms them: "Not taking bookings yet.", any sentence naming which AI tools are used and what they see, "or a security review" on the contact intro, and the Formspree privacy note (reply-only use, and delete on request). Do not add an ABN line until the business-name registration is confirmed for the footer.
+
+`bash scripts/copy-gates.sh` checks public copy. It does not scan this file, because this file lists the banned words. Do not add this file to that script, and do not delete rules from this file to make the script pass.
 
 ## Commands
 
@@ -29,9 +26,12 @@ node build.js minor          # minor bump + rebuild
 node build.js major          # major bump + rebuild
 node build.js 1.2.3          # set explicit version
 node build.js --css-only     # full rebuild, no manifest version bump
+
+bash scripts/copy-gates.sh   # public-copy gates
+bash scripts/verify-card.sh  # card page
 ```
 
-No lint or test tooling. `scripts/verify-card.sh` checks the card page.
+No lint or test tooling.
 
 ## Build Pipeline (`build.js`)
 
@@ -39,7 +39,7 @@ No lint or test tooling. `scripts/verify-card.sh` checks the card page.
 2. Injects `css/critical.css` at `<!-- CRITICAL_CSS -->` (page-specific blocks via `/* page:filename.html */`).
 3. Injects `partials/header.html` / `partials/footer.html` between `INJECT_*` / `END_INJECT_*` markers; marks active nav.
 4. Renders work cards from **`data/work.json`** into featured / work list / products markers.
-5. Bumps `manifest.json` version + timestamp (skipped by `--css-only`).
+5. Bumps `manifest.json` version + timestamp (skipped by `--css-only`). The manifest description is set in this script and overwrites `manifest.json` on a full build.
 6. Content-hash cache busting on every build: `?v=<hash>` on local CSS/JS, and `CACHE_VERSION` in `sw.js` = version + hash of the precached assets (the SW serves them cache-first, so this must change whenever they do).
 7. Writes `sitemap.xml`; `lastmod` is each page's last git commit date (today if uncommitted). The live Auspex URL is included with a fixed lastmod because that page is not a file in this repo.
 
@@ -50,15 +50,16 @@ A rebuild with no source edits produces no diff. The deploy workflow relies on t
 ## Architecture
 
 ### Pages
-- `index.html`: testing and security hero, services, how it works (scoped plan, fixed price before work, written report), featured tools as proof, products, about. Title and Open Graph follow the testing lead. JSON-LD stays Person.
-- `work.html`: full portfolio plus client-side filters (`js/work-filters.js`). Auspex and Chisel are the testing-flavoured entries.
-- `contact.html`: Formspree form for testing and security enquiries (`js/contact-form.js`).
-- `privacy.html` / `terms.html`: draft legal pages, linked from the footer. HTML comment marks them pending legal review.
+- `index.html`: hero, three services, how it works, guardrail, featured tools as proof, products, about. Title and H1 do not contain "AI". JSON-LD stays Person, with no telephone.
+- `work.html`: full portfolio plus category filters (`js/work-filters.js`), including a Testing filter. Auspex and Chisel are the testing tools.
+- `contact.html`: Formspree form (`js/contact-form.js`). Same ownership guardrail as the homepage. No reply-time promise.
 - `projects.html` / `apps.html`: SEO redirect stubs to `work.html`.
-- `small-business.html`: redirect stub to the homepage. The old owner offer is gone. Not in the nav or the sitemap.
-- `404.html`: root-absolute assets (GitHub Pages catch-all). Nav is hardcoded, not injected.
-- `card/index.html`: digital business card (`noindex`). Testing and security first. Standalone, no site nav. Update `card/aron-amos.vcf` with the same note.
-- Auspex lives at `https://ironadamant.com/auspex/` and is not generated by this repo. Link it from Work and list it in the sitemap.
+- `small-business.html`: noindex redirect stub to the homepage. Kept for old links. Not in the nav or the sitemap.
+- `404.html`: root-absolute assets (GitHub Pages catch-all). Nav and footer are hardcoded, not injected. Home, Work, Contact only.
+- `card/index.html`: digital business card (`noindex`). Standalone, no site nav. `build.js` does not process it. Update `card/aron-amos.vcf` with the same note, and do not add a TEL line.
+- Auspex lives at `https://ironadamant.com/auspex/` and is not generated by this repo. Do not add an `auspex/` directory here. Link it from Work and keep the fixed-date sitemap entry.
+
+There is no privacy page and no terms page. Do not add either until a lawyer has reviewed the text.
 
 ### Work content
 - Single source: `data/work.json` (`type`: `oss` | `product` | `app`, `category`, `featuredIds` on root). `app` is a browser web app, not open source and not a commercial product.
@@ -82,11 +83,11 @@ Self-hosted sprite `images/icons.svg`. Markup:
 `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>`
 
 ### Nav
-Home | Work | Contact, only via `partials/header.html` (desktop and mobile). Privacy and Terms are footer links. `404.html` is hardcoded with root-absolute hrefs. The card page stays out of the nav.
+Home | Work | Contact, only via `partials/header.html` (desktop and mobile). `404.html` is hardcoded with root-absolute hrefs. The card page stays out of the nav.
 
 ## Deploy
 
-`.github/workflows/deploy.yml` copies an **allowlist** (HTML shell, `card/`, `css/`, `js/`, `images/`, `sw.js`, manifest, CNAME, robots, sitemap). Do not rely on a denylist for secrets or tooling.
+`.github/workflows/deploy.yml` copies an **allowlist** (HTML shell, `card/`, `css/`, `js/`, `images/`, `sw.js`, manifest, CNAME, robots, sitemap). Do not rely on a denylist for secrets or tooling. A new HTML page must be registered in the file itself, `PRIMARY_HTML`, `navKeyFor` if it is in the nav, the sitemap list, `PRECACHE` in `sw.js`, and the deploy allowlist. A file missing from the allowlist is silently skipped.
 
 ## Repo hygiene
 

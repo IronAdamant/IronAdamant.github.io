@@ -213,6 +213,10 @@ main {
     line-height: 1.7;
 }
 
+.hero-subtitle + .hero-subtitle {
+    margin-top: -1rem;
+}
+
 .cta-row {
     display: flex;
     flex-wrap: wrap;
