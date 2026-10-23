@@ -346,7 +346,7 @@ if (!cssOnly) {
   manifest.name = 'Iron Adamant';
   manifest.short_name = 'Iron Adamant';
   manifest.description =
-    'Independent web app testing from Western Sydney, NSW, including automated checks against WCAG 2.2 AA plus a manual pass. An AI-assisted security review of a system you own. It isn\'t penetration testing. Not taking bookings yet.';
+    'Independent web app testing from Western Sydney, NSW, including automated checks against WCAG 2.2 AA plus a manual pass. A plain-English list of what to fix first.';
   manifest.theme_color = '#3d9a7a';
   manifest.background_color = '#0c0e12';
   manifest.orientation = 'any';

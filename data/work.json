@@ -211,7 +211,7 @@
       "type": "oss",
       "category": "ai",
       "summary": "Lets AI coding agents build Fallout 4 mods hands-free: unattended FO4Edit runs, Creation Kit automation, Papyrus compiling, archive packing, and Mod Organizer 2 support.",
-      "description": "Claude Code used it to ship Sandbox Room 1.1 hands-free. It built the new room in FO4Edit, compiled the scripts, generated the navmesh in the Creation Kit, and checked every save, all before the in-game test. Built so it cannot lose your work: Creation Kit sessions always end closed without saving, xEdit runs are read-only unless asked, unknown dialogs are screenshotted and never clicked, and every save is checked for added masters, navmesh index gaps and out-of-range ESL form IDs. The agent sets it up itself (AGENTS.md, ack doctor). Also used on Custom Legendary Modifications. Pure Python stdlib, Windows, MIT.",
+      "description": "Claude Code used it to ship Sandbox Room 1.1 hands-free. It built the new room in FO4Edit, compiled the scripts, generated the navmesh in the Creation Kit, and checked every save, all before the in-game test. Built to avoid losing your work: Creation Kit sessions always end closed without saving, xEdit runs are read-only unless asked, unknown dialogs are screenshotted and never clicked, and every save is checked for added masters, navmesh index gaps and out-of-range ESL form IDs. The agent sets it up itself (AGENTS.md, ack doctor). Also used on Custom Legendary Modifications. Pure Python stdlib, Windows, MIT.",
       "imageSrc": "images/agentcreationkit-ck.jpg",
       "imageAlt": "The Creation Kit showing Sandbox Room’s new Perks & Stats terminals, built by an AI agent through AgentCreationKit",
       "techTags": [
