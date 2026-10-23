@@ -99,6 +99,12 @@
             padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
         }
 
+        main {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+
         .card {
             width: min(100%, 22rem);
             background: var(--surface);
@@ -270,7 +276,6 @@
 
         .qr-caption a {
             color: var(--accent);
-            text-decoration: none;
         }
 
         .qr-caption a:hover,
@@ -296,6 +301,7 @@
 </head>
 
 <body>
+    <main>
     <article class="card h-card" aria-label="Digital business card">
         <p class="brand p-org">Iron <span>Adamant</span></p>
         <h1 class="p-name">Aron Amos</h1>
@@ -344,6 +350,7 @@
             </p>
         </div>
     </article>
+    </main>
 
     <script>
         (function () {
