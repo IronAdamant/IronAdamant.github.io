@@ -10,7 +10,7 @@ Personal site (ironadamant.com). Vanilla HTML/CSS/JS, no framework, no package.j
 
 **Offer rules (keep this block):**
 
-Offer: web app testing; accessibility as "automated checks against WCAG 2.2 AA plus a manual pass" (checks, never compliance); AI-assisted security review of systems the client owns, always with "It isn't penetration testing." Never: secure, compliant, compliance, certified, guaranteed, penetration testing (except that one sentence), pentest, red-team, attacker, audit, authorisation. No em or en dashes anywhere. Only systems the client owns, only with their written go-ahead, never third-party providers. No invented clients, testimonials, metrics, history or reply-time promises. Tools are "proof I can build". Western Sydney, NSW or Australia only. No phone. No hearing-impairment line on the site. No dollar figures until Aron confirms one. Pricing line: "a written scope first, then a fixed price for that engagement, agreed before work starts". Voice: plain, short sentences, contractions, no hype. "web app" with no hyphen. AI stays out of the title and H1.
+Offer: web app testing; accessibility as "automated checks against WCAG 2.2 AA plus a manual pass" (checks, never compliance); AI-assisted security review of systems the client owns, always with "It isn't penetration testing." Never: secure, compliant, compliance, certified, guaranteed, penetration testing (except that one sentence), pentest, red-team, attacker, audit, authorisation. No em or en dashes anywhere. Only systems the client owns, only with their written go-ahead, never third-party providers. No invented clients, testimonials, metrics, history or reply-time promises. The approved DOER case study on case-study.html is the only exception. Do not add any other client, testimonial, or case study. Tools are "proof I can build". Western Sydney, NSW or Australia only. No phone. No hearing-impairment line on the site. No dollar figures until Aron confirms one. Pricing line: "a written scope first, then a fixed price for that engagement, agreed before work starts". Voice: plain, short sentences, contractions, no hype. "web app" with no hyphen. AI stays out of the title and H1.
 
 The security review says "Not taking bookings yet." Leave that sentence in place. Do not name which AI tools are used or what they see. Do not add "or a security review" on the contact intro while bookings are closed. Do not add the Formspree privacy note until Aron confirms both promises are true: reply-only use, and delete on request. Do not add an ABN line until the business-name registration is confirmed for the footer. Keep the Interpres description neutral. Do not add a hearing line.
 
@@ -51,7 +51,8 @@ A rebuild with no source edits produces no diff. The deploy workflow relies on t
 
 ### Pages
 - `index.html`: hero, three services, how it works, guardrail, featured tools as proof, products, about. Title and H1 do not contain "AI". JSON-LD stays Person, with no telephone.
-- `work.html`: full portfolio plus category filters (`js/work-filters.js`), including a Testing filter. Auspex and Chisel are the testing tools.
+- `work.html`: full portfolio plus category filters (`js/work-filters.js`), including a Testing filter. Auspex and Chisel are the testing tools. A link points to the DOER case study.
+- `case-study.html`: approved DOER case study. In the nav. Use the approved copy only.
 - `contact.html`: Formspree form (`js/contact-form.js`). Same ownership guardrail as the homepage. No reply-time promise.
 - `projects.html` / `apps.html`: SEO redirect stubs to `work.html`.
 - `small-business.html`: noindex redirect stub to the homepage. Kept for old links. Not in the nav or the sitemap.
@@ -83,7 +84,7 @@ Self-hosted sprite `images/icons.svg`. Markup:
 `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>`
 
 ### Nav
-Home | Work | Contact, only via `partials/header.html` (desktop and mobile). `404.html` is hardcoded with root-absolute hrefs. The card page stays out of the nav.
+Home | Work | Case study | Contact, via `partials/header.html` (desktop and mobile). `404.html` is hardcoded with root-absolute hrefs. The card page stays out of the nav.
 
 ## Deploy
 
