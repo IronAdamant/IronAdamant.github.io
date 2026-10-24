@@ -4,7 +4,7 @@
 # CLAUDE.md is left out on purpose: it lists the banned words.
 shopt -s nullglob
 COPY=(
-  index.html work.html contact.html 404.html small-business.html projects.html apps.html
+  index.html work.html case-study.html contact.html 404.html small-business.html projects.html apps.html
   card/index.html card/aron-amos.vcf
   data/work.json manifest.json
   partials/*.html images/*.svg
@@ -19,7 +19,11 @@ rg -q "It isn['’]t penetration testing." index.html || hit "required sentence 
 rg -n -P '[\x{2013}\x{2014}]' "${TEXT[@]}" && hit "em or en dash"
 rg -n 'WCAG' "${COPY[@]}" | rg -v 'automated checks against WCAG 2.2 AA plus a manual pass' && hit "WCAG outside the exact phrase"
 rg -n '\$ ?[0-9]' "${COPY[@]}" && hit "dollar figure"
-rg -n -i 'tel:|"telephone"|\+61|deaf|hearing|clients?\b|client work|testimonial|trusted by|years of|track record|case stud|business days' "${COPY[@]}" && hit "phone, hearing line, history claim or reply-time promise"
+rg -n -i 'tel:|"telephone"|\+61|deaf|hearing|clients?\b|client work|testimonial|trusted by|years of|track record|business days' "${COPY[@]}" && hit "phone, hearing line, history claim or reply-time promise"
+# Approved DOER case study only: the heading "Case study: DOER", and the nav label "Case study".
+if rg -n -i 'case stud' "${COPY[@]}" | rg -v 'Case study: DOER' | rg -v '>Case study</a>'; then
+  hit "case study outside the approved DOER heading or nav label"
+fi
 
 [ "$fail" = 0 ] && echo "copy gates passed"
 exit "$fail"

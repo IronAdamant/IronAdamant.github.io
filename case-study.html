@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CRITICAL_CSS -->
+    <style>
+        /* Critical CSS. injected by build.js. Not loaded by browsers directly. */
+
+        html {
+            background-color: #0c0e12 !important;
+            color-scheme: dark;
+        }
+
+        :root {
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
+        }
+
+        .container {
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Case study: DOER | Iron Adamant</title>
+    <meta name="description"
+        content="DOER is an Australian professional network where people connect, learn, earn and build. Iron Adamant carried out an outside check of the new-member experience: sign-up, the Market, the courses, and accessibility across those journeys.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bundle.css?v=a90cbfb442">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3d9a7a">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://ironadamant.com/case-study.html">
+    <meta property="og:title" content="Case study: DOER | Iron Adamant">
+    <meta property="og:description"
+        content="DOER is an Australian professional network where people connect, learn, earn and build. Iron Adamant carried out an outside check of the new-member experience: sign-up, the Market, the courses, and accessibility across those journeys.">
+    <meta property="og:url" content="https://ironadamant.com/case-study.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Case study: DOER | Iron Adamant">
+    <meta name="twitter:description" content="DOER is an Australian professional network where people connect, learn, earn and build. Iron Adamant carried out an outside check of the new-member experience: sign-up, the Market, the courses, and accessibility across those journeys.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+
+    <script type="speculationrules">
+    {
+        "prefetch": [{ "where": { "href_matches": "/*" }, "eagerness": "moderate" }]
+    }
+    </script>
+</head>
+
+<body>
+    <!-- INJECT_HEADER -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="brand">Iron <span>Adamant</span></a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="/" data-nav="home">Home</a>
+            <a href="work.html" data-nav="work">Work</a>
+            <a href="case-study.html" data-nav="case-study" class="active" aria-current="page">Case study</a>
+            <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div class="nav-overlay" hidden></div>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/" data-nav="home">Home</a>
+    <a href="work.html" data-nav="work">Work</a>
+    <a href="case-study.html" data-nav="case-study" class="active" aria-current="page">Case study</a>
+    <a href="contact.html" data-nav="contact">Contact</a>
+</nav>
+    <!-- END_INJECT_HEADER -->
+
+    <main id="main-content" class="page-main" tabindex="-1">
+        <div class="container">
+            <article class="case-study">
+                <h1>Case study: DOER</h1>
+                <p>DOER is an Australian professional network where people connect, learn, earn and build. Iron Adamant carried out an outside check of the new-member experience: sign-up, the Market, the courses, and accessibility across those journeys.</p>
+                <p>The work was delivered as a clear, organised findings report. Every issue raised was real and worth acting on, and the DOER team implemented the fixes.</p>
+                <blockquote class="case-quote">
+                    <p>Aron contacted us offering an outside check of DOER. He signed up as a new member and worked through sign up, the Market, courses and accessibility, then sent us a clear, well organised report. His communication was clear from his first email, and every finding he raised was real and worth acting on. I'm looking forward to communicating with Aron more.</p>
+                    <footer>Scott Barker, Founder, DOER</footer>
+                </blockquote>
+                <p><a class="btn btn-link" href="https://itsadoerthing.com" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#external-link"/></svg> Visit DOER</a></p>
+            </article>
+        </div>
+    </main>
+
+    <!-- INJECT_FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="work.html">Work</a>
+            <a href="case-study.html">Case study</a>
+            <a href="contact.html">Contact</a>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
+                <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="This Iron Adamant account is not linked to other IronAdamant accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+            </div>
+        </div>
+    </div>
+</footer>
+    <!-- END_INJECT_FOOTER -->
+
+    <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
+    <script src="js/main.js?v=0dd472a054" defer></script>
+    <script src="js/sw-register.js?v=fa4d08115b" defer></script>
+</body>
+
+</html>

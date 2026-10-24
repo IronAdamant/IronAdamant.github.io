@@ -575,6 +575,40 @@
     color: var(--text-muted);
 }
 
+.case-study {
+    max-width: 40rem;
+}
+
+.case-quote {
+    margin: 1.5rem 0;
+    padding: 1.1rem 1.25rem;
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--accent);
+    border-radius: var(--radius);
+}
+
+.case-quote p {
+    margin: 0;
+    color: var(--text);
+}
+
+.case-quote footer {
+    margin-top: 0.85rem;
+    color: var(--text-muted);
+    font-size: 0.95rem;
+}
+
+.section-header h2 a {
+    color: var(--text);
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+}
+
+.section-header h2 a:hover {
+    color: var(--accent);
+}
+
 .legal {
     max-width: 42rem;
 }
