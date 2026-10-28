@@ -410,6 +410,32 @@
       ]
     },
     {
+      "id": "tab-noise-tracker",
+      "title": "Tab Noise Tracker",
+      "type": "oss",
+      "category": "browser",
+      "summary": "Chrome extension that shows which tab is making sound, so you can mute, focus, or close it in one click.",
+      "description": "Lists every noisy tab, flashes its tab icon so the source is easy to spot, and has a Focus mode that keeps one tab unmuted. Runs locally with no network requests. The browser-tab sibling of Windows Sound Tracker. Manifest V3, zero dependencies, MIT.",
+      "imageSrc": "images/tab-noise-tracker-popup.jpg",
+      "imageAlt": "Tab Noise Tracker popup showing five tabs producing sound, with the Visual alerts switch on",
+      "techTags": [
+        "Chrome extension",
+        "JavaScript"
+      ],
+      "links": [
+        {
+          "text": "Chrome Web Store",
+          "icon": "external-link",
+          "url": "https://chromewebstore.google.com/detail/tab-noise-tracker/kobbcpmekekmdpjichchfnicgbbbphmg"
+        },
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/tab-noise-tracker"
+        }
+      ]
+    },
+    {
       "id": "autoclacker",
       "title": "AutoClacker",
       "type": "oss",
