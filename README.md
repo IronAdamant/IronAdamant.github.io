@@ -23,6 +23,7 @@ A written scope first, then a fixed price for that engagement, agreed before wor
 | `index.html` | Home: services, how an engagement works, selected work, about |
 | `work.html` | Tools and products, with filters. Includes Auspex and Chisel. |
 | `case-study.html` | Case study: DOER |
+| `atlas-workshop.html` | Atlas Workshop public-site notes. Not in the nav. |
 | `contact.html` | Contact form (Formspree) |
 | `projects.html` / `apps.html` | Redirect stubs to Work |
 | `small-business.html` | Redirect stub to the homepage. Not in the sitemap. |

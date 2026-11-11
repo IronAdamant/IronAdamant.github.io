@@ -4,7 +4,7 @@
 # CLAUDE.md is left out on purpose: it lists the banned words.
 shopt -s nullglob
 COPY=(
-  index.html work.html case-study.html contact.html 404.html small-business.html projects.html apps.html
+  index.html work.html case-study.html atlas-workshop.html contact.html 404.html small-business.html projects.html apps.html
   card/index.html card/aron-amos.vcf
   data/work.json manifest.json
   partials/*.html images/*.svg
