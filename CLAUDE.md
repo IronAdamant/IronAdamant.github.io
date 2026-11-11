@@ -10,7 +10,7 @@ Personal site (ironadamant.com). Vanilla HTML/CSS/JS, no framework, no package.j
 
 **Offer rules (keep this block):**
 
-Offer: web app testing; accessibility as "automated checks against WCAG 2.2 AA plus a manual pass" (checks, never compliance); AI-assisted security review of systems the client owns, always with "It isn't penetration testing." Never: secure, compliant, compliance, certified, guaranteed, penetration testing (except that one sentence), pentest, red-team, attacker, audit, authorisation. No em or en dashes anywhere. Only systems the client owns, only with their written go-ahead, never third-party providers. No invented clients, testimonials, metrics, history or reply-time promises. The approved DOER case study on case-study.html is the only exception. Do not add any other client, testimonial, or case study. atlas-workshop.html is approved public-site notes for Atlas Workshop, using only the heading and two paragraphs Rick Burgess agreed on 11 November 2026. It is not a case study and not a testimonial, and it stays out of the nav. Tools are "proof I can build". Western Sydney, NSW or Australia only. No phone. No hearing-impairment line on the site. No dollar figures until Aron confirms one. Pricing line: "a written scope first, then a fixed price for that engagement, agreed before work starts". Voice: plain, short sentences, contractions, no hype. "web app" with no hyphen. AI stays out of the title and H1.
+Offer: web app testing; accessibility as "automated checks against WCAG 2.2 AA plus a manual pass" (checks, never compliance); AI-assisted security review of systems the client owns, always with "It isn't penetration testing." Never: secure, compliant, compliance, certified, guaranteed, penetration testing (except that one sentence), pentest, red-team, attacker, audit, authorisation. No em or en dashes anywhere. Only systems the client owns, only with their written go-ahead, never third-party providers. No invented clients, testimonials, metrics, history or reply-time promises. The approved DOER case study on case-study.html uses its approved copy only. atlas-workshop.html is approved public-site notes for Atlas Workshop, using only the heading and two paragraphs Rick Burgess agreed on 11 November 2026. It is not a testimonial. Do not add quotes, findings, results, prices, or wording that says the Atlas look was paid work. Do not describe that accessibility work as a VPAT, an ACR, or a compliance sign-off. case-studies.html lists both pieces with their existing titles and one-line summaries. The nav and footer say Case studies and link there. Do not add a third piece or a testimonial. Tools are "proof I can build". Western Sydney, NSW or Australia only. No phone. No hearing-impairment line on the site. No dollar figures until Aron confirms one. Pricing line: "a written scope first, then a fixed price for that engagement, agreed before work starts". Voice: plain, short sentences, contractions, no hype. "web app" with no hyphen. AI stays out of the title and H1.
 
 The security review says "Not taking bookings yet." Leave that sentence in place. Do not name which AI tools are used or what they see. Do not add "or a security review" on the contact intro while bookings are closed. Do not add the Formspree privacy note until Aron confirms both promises are true: reply-only use, and delete on request. Do not add an ABN line until the business-name registration is confirmed for the footer. Keep the Interpres description neutral. Do not add a hearing line.
 
@@ -50,10 +50,11 @@ A rebuild with no source edits produces no diff. The deploy workflow relies on t
 ## Architecture
 
 ### Pages
-- `index.html`: hero, three services, how it works, guardrail, featured tools as proof, products, about. Title and H1 do not contain "AI". JSON-LD stays Person, with no telephone.
-- `work.html`: full portfolio plus category filters (`js/work-filters.js`), including a Testing filter. Auspex and Chisel are the testing tools. A link points to the DOER case study. A second note links to the Atlas Workshop public-site notes.
-- `case-study.html`: approved DOER case study. In the nav. Use the approved copy only.
-- `atlas-workshop.html`: approved Atlas Workshop public-site notes. Not in the nav. Use the approved heading and two paragraphs only. No quote, no findings list, and no claim that fixes were implemented.
+- `index.html`: hero, three services, how it works, guardrail, case studies (DOER and Atlas Workshop), featured tools as proof, products, about. Title and H1 do not contain "AI". JSON-LD stays Person, with no telephone.
+- `work.html`: full portfolio plus category filters (`js/work-filters.js`), including a Testing filter. Auspex and Chisel are the testing tools. A note points to the DOER case study. A second note links to the Atlas Workshop public-site notes.
+- `case-studies.html`: list of both pieces. Each card uses the existing title, the existing one-line summary, and a link to that page. In the nav.
+- `case-study.html`: approved DOER case study. Kept at this URL. Use the approved copy only.
+- `atlas-workshop.html`: approved Atlas Workshop public-site notes. Kept at this URL. Use the approved heading and two paragraphs only. No quote, no findings list, and no claim that fixes were implemented.
 - `contact.html`: Formspree form (`js/contact-form.js`). Same ownership guardrail as the homepage. No reply-time promise.
 - `projects.html` / `apps.html`: SEO redirect stubs to `work.html`.
 - `small-business.html`: noindex redirect stub to the homepage. Kept for old links. Not in the nav or the sitemap.
@@ -85,7 +86,7 @@ Self-hosted sprite `images/icons.svg`. Markup:
 `<svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg>`
 
 ### Nav
-Home | Work | Case study | Contact, via `partials/header.html` (desktop and mobile). `404.html` is hardcoded with root-absolute hrefs. The card page stays out of the nav.
+Home | Work | Case studies | Contact, via `partials/header.html` (desktop and mobile). The Case studies item points at `case-studies.html`. `case-study.html` and `atlas-workshop.html` mark that nav item active. `404.html` is hardcoded with root-absolute hrefs. The card page stays out of the nav.
 
 ## Deploy
 

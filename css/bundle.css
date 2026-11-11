@@ -656,6 +656,26 @@ main {
     gap: 1rem;
 }
 
+.case-studies-page > .container > h1 {
+    margin-top: 2rem;
+}
+
+.case-study-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+}
+
+.case-study-grid > .service-card {
+    min-width: 0;
+}
+
+@media (min-width: 769px) {
+    .case-study-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
 .service-card {
     background: var(--bg-elevated);
     border: 1px solid var(--border);
@@ -668,6 +688,7 @@ main {
     border-color: rgba(61, 154, 122, 0.45);
 }
 
+.service-card h2,
 .service-card h3 {
     font-size: 1.05rem;
     margin-bottom: 0.45rem;
@@ -676,6 +697,11 @@ main {
 .service-card p {
     font-size: 0.95rem;
     margin: 0;
+    overflow-wrap: anywhere;
+}
+
+.service-card p + p {
+    margin-top: 0.75rem;
 }
 
 /* Work / project cards */

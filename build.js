@@ -36,7 +36,7 @@ const CSS_SOURCES = [
   'css/accessibility.css'
 ];
 
-const PRIMARY_HTML = ['index.html', 'work.html', 'case-study.html', 'atlas-workshop.html', 'contact.html', '404.html'];
+const PRIMARY_HTML = ['index.html', 'work.html', 'case-studies.html', 'case-study.html', 'atlas-workshop.html', 'contact.html', '404.html'];
 const ALL_HTML = [...PRIMARY_HTML, 'projects.html', 'apps.html', 'small-business.html'];
 
 const MARKERS = {
@@ -199,7 +199,7 @@ const workList = workData.items;
 function navKeyFor(file) {
   if (file === 'index.html') return 'home';
   if (file === 'work.html') return 'work';
-  if (file === 'case-study.html') return 'case-study';
+  if (file === 'case-studies.html' || file === 'case-study.html' || file === 'atlas-workshop.html') return 'case-studies';
   if (file === 'contact.html') return 'contact';
   return '';
 }
@@ -255,6 +255,7 @@ function writeSitemap() {
   const urls = [
     { loc: 'https://ironadamant.com/', file: 'index.html', changefreq: 'weekly', priority: '1.0' },
     { loc: 'https://ironadamant.com/work.html', file: 'work.html', changefreq: 'weekly', priority: '0.9' },
+    { loc: 'https://ironadamant.com/case-studies.html', file: 'case-studies.html', changefreq: 'monthly', priority: '0.8' },
     { loc: 'https://ironadamant.com/case-study.html', file: 'case-study.html', changefreq: 'monthly', priority: '0.8' },
     { loc: 'https://ironadamant.com/atlas-workshop.html', file: 'atlas-workshop.html', changefreq: 'monthly', priority: '0.7' },
     { loc: 'https://ironadamant.com/contact.html', file: 'contact.html', changefreq: 'monthly', priority: '0.8' },
