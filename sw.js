@@ -7,6 +7,7 @@ const PRECACHE = [
   '/index.html',
   '/work.html',
   '/case-study.html',
+  '/atlas-workshop.html',
   '/contact.html',
   '/404.html',
   '/css/bundle.css',

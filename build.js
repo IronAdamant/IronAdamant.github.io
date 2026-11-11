@@ -36,7 +36,7 @@ const CSS_SOURCES = [
   'css/accessibility.css'
 ];
 
-const PRIMARY_HTML = ['index.html', 'work.html', 'case-study.html', 'contact.html', '404.html'];
+const PRIMARY_HTML = ['index.html', 'work.html', 'case-study.html', 'atlas-workshop.html', 'contact.html', '404.html'];
 const ALL_HTML = [...PRIMARY_HTML, 'projects.html', 'apps.html', 'small-business.html'];
 
 const MARKERS = {
@@ -256,6 +256,7 @@ function writeSitemap() {
     { loc: 'https://ironadamant.com/', file: 'index.html', changefreq: 'weekly', priority: '1.0' },
     { loc: 'https://ironadamant.com/work.html', file: 'work.html', changefreq: 'weekly', priority: '0.9' },
     { loc: 'https://ironadamant.com/case-study.html', file: 'case-study.html', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://ironadamant.com/atlas-workshop.html', file: 'atlas-workshop.html', changefreq: 'monthly', priority: '0.7' },
     { loc: 'https://ironadamant.com/contact.html', file: 'contact.html', changefreq: 'monthly', priority: '0.8' },
     // Live tool page, not generated from a file in this repo. Fixed lastmod so rebuilds stay stable.
     { loc: 'https://ironadamant.com/auspex/', lastmod: '2026-10-01', changefreq: 'monthly', priority: '0.5' }
