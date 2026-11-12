@@ -3,7 +3,7 @@
  */
 
 // ====== CONSTANTS & VALIDATORS (file scope) ======
-const FALLBACK_EMAIL = 'aron.amos@ironadamant.com';
+const FALLBACK_EMAIL = 'info@ironadamant.com';
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const NAME_REGEX = /^[\p{L}\p{M}\s'’ʼ.-]+$/u; // ’ = iOS smart apostrophe
 const CHAR_LIMITS = {

@@ -12,8 +12,8 @@ PRINT_QR="$ROOT/images/card-page-qr.svg"
 OG="$ROOT/images/card-og.png"
 HOME_URL="https://ironadamant.com/"
 CARD_URL="https://ironadamant.com/card/"
-MAILTO="mailto:aron.amos@ironadamant.com"
-EMAIL="aron.amos@ironadamant.com"
+MAILTO="mailto:info@ironadamant.com"
+EMAIL="info@ironadamant.com"
 FAIL=0
 
 ok() { echo "OK  $*"; }
