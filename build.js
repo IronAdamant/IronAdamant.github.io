@@ -36,7 +36,7 @@ const CSS_SOURCES = [
   'css/accessibility.css'
 ];
 
-const PRIMARY_HTML = ['index.html', 'work.html', 'case-studies.html', 'case-study.html', 'atlas-workshop.html', 'contact.html', '404.html'];
+const PRIMARY_HTML = ['index.html', 'work.html', 'case-studies.html', 'case-study.html', 'atlas-workshop.html', 'contact.html', 'checklist.html', 'sample-report.html', 'privacy.html', '404.html'];
 const ALL_HTML = [...PRIMARY_HTML, 'projects.html', 'apps.html', 'small-business.html'];
 
 const MARKERS = {
@@ -200,6 +200,7 @@ function navKeyFor(file) {
   if (file === 'index.html') return 'home';
   if (file === 'work.html') return 'work';
   if (file === 'case-studies.html' || file === 'case-study.html' || file === 'atlas-workshop.html') return 'case-studies';
+  if (file === 'checklist.html') return 'checklist';
   if (file === 'contact.html') return 'contact';
   return '';
 }
@@ -259,6 +260,9 @@ function writeSitemap() {
     { loc: 'https://ironadamant.com/case-study.html', file: 'case-study.html', changefreq: 'monthly', priority: '0.8' },
     { loc: 'https://ironadamant.com/atlas-workshop.html', file: 'atlas-workshop.html', changefreq: 'monthly', priority: '0.7' },
     { loc: 'https://ironadamant.com/contact.html', file: 'contact.html', changefreq: 'monthly', priority: '0.8' },
+    { loc: 'https://ironadamant.com/checklist.html', file: 'checklist.html', changefreq: 'monthly', priority: '0.7' },
+    { loc: 'https://ironadamant.com/sample-report.html', file: 'sample-report.html', changefreq: 'monthly', priority: '0.6' },
+    { loc: 'https://ironadamant.com/privacy.html', file: 'privacy.html', changefreq: 'yearly', priority: '0.3' },
     // Live tool page, not generated from a file in this repo. Fixed lastmod so rebuilds stay stable.
     { loc: 'https://ironadamant.com/auspex/', lastmod: '2026-10-01', changefreq: 'monthly', priority: '0.5' }
   ];
@@ -350,7 +354,7 @@ if (!cssOnly) {
   manifest.name = 'Iron Adamant';
   manifest.short_name = 'Iron Adamant';
   manifest.description =
-    'Independent web app testing from Western Sydney, NSW, including automated checks against WCAG 2.2 AA plus a manual pass. A plain-English list of what to fix first.';
+    'QA for websites and apps built with AI tools. Free first look: one customer journey and your top 5 fixes. Western Sydney, NSW.';
   manifest.theme_color = '#3d9a7a';
   manifest.background_color = '#0c0e12';
   manifest.orientation = 'any';

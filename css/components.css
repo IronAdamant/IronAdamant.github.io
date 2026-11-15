@@ -58,6 +58,19 @@
     background: var(--accent-subtle);
 }
 
+.cta-row .text-link {
+    align-self: center;
+    color: var(--text-muted);
+    font-weight: 500;
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    padding: 0.35rem 0.15rem;
+}
+
+.cta-row .text-link:hover {
+    color: var(--accent);
+}
+
 /* Service cards */
 .service-grid {
     display: grid;
@@ -680,6 +693,23 @@
 
 .legal a {
     color: var(--accent);
+}
+
+.check-list {
+    display: grid;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+}
+
+.check-list article {
+    border-top: 1px solid var(--border);
+    padding-top: 1rem;
+    margin-top: 0.75rem;
+}
+
+.check-list h2 {
+    font-size: 1.1rem;
+    margin-bottom: 0.35rem;
 }
 
 /* Responsive work list */

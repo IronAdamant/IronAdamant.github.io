@@ -253,5 +253,147 @@ function initContactForm() {
     });
 }
 
+function normalizedLink(value) {
+    const trimmed = value.trim();
+    return /^https?:\/\//i.test(trimmed) ? trimmed : `https://${trimmed}`;
+}
+
+function linkFieldError(value) {
+    const trimmed = value.trim();
+    if (!trimmed) return 'Add a link to the website or app';
+    if (/\s/.test(trimmed)) return 'Use a link with no spaces';
+    try {
+        const url = new URL(normalizedLink(trimmed));
+        if (!url.hostname || !url.hostname.includes('.')) return 'Add a full link, like https://example.com';
+        if (url.protocol !== 'http:' && url.protocol !== 'https:') return 'Use an http or https link';
+    } catch {
+        return 'Add a full link, like https://example.com';
+    }
+    return '';
+}
+
+function initFirstLookForm() {
+    const form = document.getElementById('firstLookForm');
+    if (!form) return;
+
+    const linkInput = document.getElementById('firstlook-link');
+    const emailInput = document.getElementById('firstlook-email');
+    const submitButton = form.querySelector('button[type="submit"]');
+    const buttonText = submitButton ? submitButton.querySelector('.button-text') : null;
+    const formSuccess = document.getElementById('firstlook-success');
+    const formLoadTime = performance.now();
+    const idleLabel = 'Ask for a free first look';
+
+    function showFieldError(input, message) {
+        const errorElement = document.getElementById(`${input.id}-error`);
+        input.classList.add('error');
+        input.setAttribute('aria-invalid', 'true');
+        if (errorElement) errorElement.textContent = message;
+    }
+
+    function clearFieldError(input) {
+        const errorElement = document.getElementById(`${input.id}-error`);
+        input.classList.remove('error');
+        input.setAttribute('aria-invalid', 'false');
+        if (errorElement) errorElement.textContent = '';
+    }
+
+    function validateLink() {
+        const message = linkFieldError(linkInput.value);
+        if (message) {
+            showFieldError(linkInput, message);
+            return false;
+        }
+        clearFieldError(linkInput);
+        return true;
+    }
+
+    function validateEmail() {
+        const message = VALIDATORS.email(emailInput.value);
+        if (message) {
+            showFieldError(emailInput, message);
+            return false;
+        }
+        clearFieldError(emailInput);
+        return true;
+    }
+
+    linkInput.addEventListener('blur', () => setTimeout(validateLink, 200));
+    emailInput.addEventListener('blur', () => setTimeout(validateEmail, 200));
+    linkInput.addEventListener('input', () => clearFieldError(linkInput));
+    emailInput.addEventListener('input', () => clearFieldError(emailInput));
+    linkInput.setAttribute('aria-describedby', 'firstlook-link-error');
+    emailInput.setAttribute('aria-describedby', 'firstlook-email-error');
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const linkOk = validateLink();
+        const emailOk = validateEmail();
+        if (!linkOk || !emailOk) {
+            const firstError = form.querySelector('.error');
+            if (firstError) {
+                firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                firstError.focus({ preventScroll: true });
+            }
+            return;
+        }
+
+        const timeTaken = performance.now() - formLoadTime;
+        if (timeTaken < 3000) {
+            await new Promise(resolve => setTimeout(resolve, 2000));
+        }
+
+        const honeypot = document.getElementById('firstlook-gotcha');
+        if (honeypot && honeypot.value !== '') {
+            await new Promise(resolve => setTimeout(resolve, 3000));
+            form.reset();
+            return;
+        }
+
+        const previousError = form.querySelector('.form-submit-error');
+        if (previousError) previousError.remove();
+
+        submitButton.disabled = true;
+        submitButton.setAttribute('aria-busy', 'true');
+        if (buttonText) buttonText.textContent = submitButton.getAttribute('data-loading-text');
+
+        try {
+            const formData = new FormData();
+            formData.append('email', emailInput.value.trim());
+            formData.append('link', normalizedLink(linkInput.value));
+            formData.append('subject', 'Free first look');
+            formData.append('_subject', 'Free first look');
+
+            const response = await fetch('https://formspree.io/f/xjkrzwlq', {
+                method: 'POST',
+                body: formData,
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (!response.ok) throw new Error('Form submission failed');
+
+            form.reset();
+            formSuccess.hidden = false;
+            formSuccess.innerHTML = '<p><strong>Message sent.</strong> I have the link.</p>';
+            formSuccess.focus();
+        } catch (error) {
+            console.error('Form submission error:', error);
+            const errorDiv = document.createElement('div');
+            errorDiv.className = 'form-submit-error';
+            errorDiv.setAttribute('role', 'alert');
+            const emailLink = document.createElement('a');
+            emailLink.href = `mailto:${FALLBACK_EMAIL}`;
+            emailLink.textContent = FALLBACK_EMAIL;
+            errorDiv.append('Unable to send your message. Please email me directly at ', emailLink, '.');
+            form.appendChild(errorDiv);
+        } finally {
+            submitButton.disabled = false;
+            submitButton.removeAttribute('aria-busy');
+            if (buttonText) buttonText.textContent = idleLabel;
+        }
+    });
+}
+
 // Export for use in main.js
 window.initContactForm = initContactForm;
+window.initFirstLookForm = initFirstLookForm;

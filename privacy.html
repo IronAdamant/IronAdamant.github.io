@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CRITICAL_CSS -->
+    <style>
+        /* Critical CSS. injected by build.js. Not loaded by browsers directly. */
+
+        html {
+            background-color: #0c0e12 !important;
+            color-scheme: dark;
+        }
+
+        :root {
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
+        }
+
+        .container {
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Privacy | Iron Adamant</title>
+    <meta name="description"
+        content="How Iron Adamant handles contact form messages and site analytics. Used only to reply. Not sold or shared.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bundle.css?v=6981e80146">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3d9a7a">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://ironadamant.com/privacy.html">
+    <meta property="og:title" content="Privacy | Iron Adamant">
+    <meta property="og:description"
+        content="How Iron Adamant handles contact form messages and site analytics. Used only to reply. Not sold or shared.">
+    <meta property="og:url" content="https://ironadamant.com/privacy.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Privacy | Iron Adamant">
+    <meta name="twitter:description"
+        content="How Iron Adamant handles contact form messages and site analytics. Used only to reply. Not sold or shared.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+</head>
+
+<body>
+    <!-- INJECT_HEADER -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="brand">Iron <span>Adamant</span></a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="/" data-nav="home">Home</a>
+            <a href="work.html" data-nav="work">Work</a>
+            <a href="case-studies.html" data-nav="case-studies">Case studies</a>
+            <a href="checklist.html" data-nav="checklist">Checklist</a>
+            <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div class="nav-overlay" hidden></div>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/" data-nav="home">Home</a>
+    <a href="work.html" data-nav="work">Work</a>
+    <a href="case-studies.html" data-nav="case-studies">Case studies</a>
+    <a href="checklist.html" data-nav="checklist">Checklist</a>
+    <a href="contact.html" data-nav="contact">Contact</a>
+</nav>
+    <!-- END_INJECT_HEADER -->
+
+    <main id="main-content" class="page-main" tabindex="-1">
+        <div class="container legal">
+            <h1>Privacy</h1>
+            <p>This is a short note about information you send through ironadamant.com. It is not a long legal policy.</p>
+
+            <h2>Contact forms</h2>
+            <p>The contact forms send your name, email, and message to Aron Amos through <a href="https://formspree.io">Formspree</a>. The free first look form sends your email and a link to your website or app, with the subject Free first look.</p>
+            <p>Aron uses that information only to reply to you. It is not sold or shared.</p>
+            <p>To ask for a message to be deleted, email <a href="mailto:aron.amos@ironadamant.com">aron.amos@ironadamant.com</a>.</p>
+
+            <h2>Analytics</h2>
+            <p>Site analytics, if enabled, are cookie-free and aggregate. They do not identify you.</p>
+        </div>
+    </main>
+
+    <!-- INJECT_FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="work.html">Work</a>
+            <a href="case-studies.html">Case studies</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="sample-report.html">Example report</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
+                <a href="https://www.linkedin.com/in/aronamos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="This Iron Adamant account is not linked to other IronAdamant accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <!-- Cloudflare Web Analytics is off until a site token is set.
+         TODO: paste the site token from the Cloudflare Web Analytics dashboard into the token below, then remove this comment so the script can load.
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": ""}'></script>
+    -->
+</footer>
+    <!-- END_INJECT_FOOTER -->
+
+    <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
+    <script src="js/main.js?v=5fe027122c" defer></script>
+    <script src="js/sw-register.js?v=fa4d08115b" defer></script>
+</body>
+
+</html>

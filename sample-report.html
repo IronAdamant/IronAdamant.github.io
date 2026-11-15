@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- CRITICAL_CSS -->
+    <style>
+        /* Critical CSS. injected by build.js. Not loaded by browsers directly. */
+
+        html {
+            background-color: #0c0e12 !important;
+            color-scheme: dark;
+        }
+
+        :root {
+            --bg: #0c0e12;
+            --bg-elevated: #141820;
+            --surface: #1a1f2a;
+            --border: #2a3140;
+            --text: #e8eaed;
+            --text-muted: #9aa3b2;
+            --accent: #3d9a7a;
+            --header-h: 64px;
+            --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            --max-w: 1100px
+        }
+
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: var(--font);
+            background-color: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.65
+        }
+
+        .site-header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            height: var(--header-h);
+            background: rgba(12, 14, 18, .92);
+            border-bottom: 1px solid var(--border);
+            z-index: 1000
+        }
+
+        .container {
+            width: min(100% - 2rem, var(--max-w));
+            margin-inline: auto
+        }
+
+        main {
+            padding-top: var(--header-h)
+        }
+
+        img {
+            max-width: 100%;
+            height: auto
+        }
+    </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no">
+
+    <title>Example report | Iron Adamant</title>
+    <meta name="description"
+        content="An example of the free first look report format. Illustrative only, using a made-up app called Example App.">
+
+    <link rel="icon" type="image/png" href="/favicon.png">
+    <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+    <link rel="stylesheet" href="css/bundle.css?v=6981e80146">
+
+    <link rel="manifest" href="/manifest.json">
+    <meta name="theme-color" content="#3d9a7a">
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://ironadamant.com/sample-report.html">
+    <meta property="og:title" content="Example report | Iron Adamant">
+    <meta property="og:description"
+        content="An example of the free first look report format. Illustrative only, using a made-up app called Example App.">
+    <meta property="og:url" content="https://ironadamant.com/sample-report.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Iron Adamant">
+    <meta property="og:image" content="https://ironadamant.com/images/social-card.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Example report | Iron Adamant">
+    <meta name="twitter:description"
+        content="An example of the free first look report format. Illustrative only, using a made-up app called Example App.">
+    <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
+</head>
+
+<body>
+    <!-- INJECT_HEADER -->
+<a href="#main-content" class="skip-link">Skip to main content</a>
+
+<header class="site-header">
+    <div class="container">
+        <a href="/" class="brand">Iron <span>Adamant</span></a>
+        <nav class="nav-desktop" aria-label="Main navigation">
+            <a href="/" data-nav="home">Home</a>
+            <a href="work.html" data-nav="work">Work</a>
+            <a href="case-studies.html" data-nav="case-studies">Case studies</a>
+            <a href="checklist.html" data-nav="checklist">Checklist</a>
+            <a href="contact.html" data-nav="contact">Contact</a>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    </div>
+</header>
+
+<div class="nav-overlay" hidden></div>
+<nav id="mobile-nav" class="mobile-nav" aria-label="Mobile navigation">
+    <a href="/" data-nav="home">Home</a>
+    <a href="work.html" data-nav="work">Work</a>
+    <a href="case-studies.html" data-nav="case-studies">Case studies</a>
+    <a href="checklist.html" data-nav="checklist">Checklist</a>
+    <a href="contact.html" data-nav="contact">Contact</a>
+</nav>
+    <!-- END_INJECT_HEADER -->
+
+    <main id="main-content" class="page-main" tabindex="-1">
+        <div class="container legal">
+            <p class="draft-note" role="note"><strong>Example report: illustrative format, not a real client.</strong> Example App is a made-up app. Nothing on this page is a finding from a real product.</p>
+            <h1>Example report: Example App</h1>
+            <p>This is the shape of the note I send after a free first look. One journey. The top 5 fixes. Plain English for each one.</p>
+
+            <h2>Summary</h2>
+            <p>Example App lets someone book a desk for a day. I walked through it as a new person: create an account, then try to book a desk for tomorrow. The account looked created, and the booking page opened. Two of the five items below would stop that person finishing. The other three make the same journey harder to trust.</p>
+
+            <h2>Journey walked</h2>
+            <ol class="step-list">
+                <li>
+                    <h3>Open the home page</h3>
+                    <p>The page loaded, and Create account was the first action on the screen.</p>
+                </li>
+                <li>
+                    <h3>Create an account</h3>
+                    <p>I entered a name, left the email blank, and chose a password. Example App said the account was created.</p>
+                </li>
+                <li>
+                    <h3>Land on the booking page</h3>
+                    <p>The page listed desks for tomorrow. The date field had no visible name.</p>
+                </li>
+                <li>
+                    <h3>Try to book a desk</h3>
+                    <p>I chose a desk and confirmed. The page went blank, with no message about whether the desk was booked.</p>
+                </li>
+            </ol>
+
+            <h2>Top 5 fixes</h2>
+            <ol class="step-list">
+                <li>
+                    <h3>High. Sign-up accepts a blank email</h3>
+                    <p>What this means: the person thinks they have an account, then cannot sign in, because there is no email to send a confirmation to.</p>
+                </li>
+                <li>
+                    <h3>High. The account route returns bookings with no one signed in</h3>
+                    <p>What this means: a private list of desk bookings can be read without an account. The route should refuse that request.</p>
+                </li>
+                <li>
+                    <h3>Medium. Password reset does not fit a phone</h3>
+                    <p>What this means: the reset link opens a wide page. The person cannot reach the save button on the phone they use for email, so they cannot finish the reset.</p>
+                </li>
+                <li>
+                    <h3>Medium. A failed booking leaves a blank page</h3>
+                    <p>What this means: the person does not know whether the desk was booked. They may book it twice, or give up.</p>
+                </li>
+                <li>
+                    <h3>Low. The date field has no visible name</h3>
+                    <p>What this means: the box is on the page, but nothing next to it says it is the date. Someone using a screen reader hears an unlabelled box.</p>
+                </li>
+            </ol>
+
+            <h2>Next steps</h2>
+            <p>On a real free first look, this is the whole note: what I walked, the top 5 fixes, and what each one means. I do not start paid work from this page.</p>
+            <p>Paid testing: written scope, fixed price agreed before work starts. Authorised security checks: bookings opening soon.</p>
+
+            <div class="cta-band">
+                <p>Want this format on your own website or app?</p>
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="contact.html#free-first-look">Ask for a free first look</a>
+                    <a class="text-link" href="checklist.html">Read the checklist</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- INJECT_FOOTER -->
+<footer class="site-footer">
+    <div class="container">
+        <p>&copy; 2026 Iron Adamant. All rights reserved.</p>
+        <div class="footer-links">
+            <a href="/">Home</a>
+            <a href="work.html">Work</a>
+            <a href="case-studies.html">Case studies</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="sample-report.html">Example report</a>
+            <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
+            <div class="social-links">
+                <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
+                <a href="https://www.linkedin.com/in/aronamos" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
+                <a href="https://x.com/Iron_Adamant" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)" title="This Iron Adamant account is not linked to other IronAdamant accounts"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#x-twitter"/></svg></a>
+            </div>
+        </div>
+    </div>
+    <!-- Cloudflare Web Analytics is off until a site token is set.
+         TODO: paste the site token from the Cloudflare Web Analytics dashboard into the token below, then remove this comment so the script can load.
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": ""}'></script>
+    -->
+</footer>
+    <!-- END_INJECT_FOOTER -->
+
+    <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
+    <script src="js/main.js?v=5fe027122c" defer></script>
+    <script src="js/sw-register.js?v=fa4d08115b" defer></script>
+</body>
+
+</html>

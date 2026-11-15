@@ -2,17 +2,19 @@
 
 Personal site for Aron Amos (Iron Adamant), from Western Sydney, NSW.
 
+QA for websites and apps built with AI tools. Free first look: one customer journey and the top 5 fixes.
+
 Three services.
 
 Web app testing. The parts of an app that customers touch.
 
 Accessibility checks. Automated checks against WCAG 2.2 AA plus a manual pass.
 
-An AI-assisted security review of a system you own. It isn't penetration testing. Not taking bookings yet.
+Authorised security checks: bookings opening soon. It isn't penetration testing.
 
-The tools on the Work page are proof I can build. The testing service is new.
+The tools on the Work page are proof I can build.
 
-A written scope first, then a fixed price for that engagement, agreed before work starts.
+Paid testing: written scope, fixed price agreed before work starts.
 
 **Live:** [ironadamant.com](https://ironadamant.com)
 
@@ -25,7 +27,11 @@ A written scope first, then a fixed price for that engagement, agreed before wor
 | `case-studies.html` | Case studies list: DOER and Atlas Workshop |
 | `case-study.html` | Case study: DOER |
 | `atlas-workshop.html` | Atlas Workshop public-site notes |
-| `contact.html` | Contact form (Formspree) |
+| `contact.html` | Free first look form, then the full contact form (Formspree) |
+| `checklist.html` | Common holes in AI-built apps |
+| `sample-report.html` | Illustrative example report |
+| `privacy.html` | Short privacy note |
+| `llms.txt` | Short factual summary of the offer |
 | `projects.html` / `apps.html` | Redirect stubs to Work |
 | `small-business.html` | Redirect stub to the homepage. Not in the sitemap. |
 | `card/` | Digital business card (`noindex`, not in the nav) |
