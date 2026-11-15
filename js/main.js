@@ -5,6 +5,7 @@
 function initApp() {
     if (typeof initMobileNav === 'function') initMobileNav();
     if (typeof initContactForm === 'function') initContactForm();
+    if (typeof initFirstLookForm === 'function') initFirstLookForm();
     if (typeof initWorkFilters === 'function') initWorkFilters();
     if (typeof initImageExpansion === 'function') initImageExpansion();
 }

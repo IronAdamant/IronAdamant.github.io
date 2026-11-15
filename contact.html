@@ -70,11 +70,11 @@
 
     <title>Contact | Iron Adamant</title>
     <meta name="description"
-        content="Ask about web app testing or accessibility checks. Western Sydney, NSW. Remote. Email first.">
+        content="Ask for a free first look: one customer journey and your top 5 fixes. Western Sydney, NSW. Email first.">
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/bundle.css?v=479551d9e3">
+    <link rel="stylesheet" href="css/bundle.css?v=6981e80146">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3d9a7a">
@@ -83,7 +83,7 @@
     <link rel="canonical" href="https://ironadamant.com/contact.html">
     <meta property="og:title" content="Contact | Iron Adamant">
     <meta property="og:description"
-        content="Ask about web app testing or accessibility checks. Western Sydney, NSW. Remote. Email first.">
+        content="Ask for a free first look: one customer journey and your top 5 fixes. Western Sydney, NSW. Email first.">
     <meta property="og:url" content="https://ironadamant.com/contact.html">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Iron Adamant">
@@ -92,7 +92,7 @@
     <meta property="og:image:height" content="630">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Contact | Iron Adamant">
-    <meta name="twitter:description" content="Ask about web app testing or accessibility checks. Western Sydney, NSW. Remote. Email first.">
+    <meta name="twitter:description" content="Ask for a free first look: one customer journey and your top 5 fixes. Western Sydney, NSW. Email first.">
     <meta name="twitter:image" content="https://ironadamant.com/images/social-card.png">
 
     <script type="speculationrules">
@@ -113,6 +113,7 @@
             <a href="/" data-nav="home">Home</a>
             <a href="work.html" data-nav="work">Work</a>
             <a href="case-studies.html" data-nav="case-studies">Case studies</a>
+            <a href="checklist.html" data-nav="checklist">Checklist</a>
             <a href="contact.html" data-nav="contact" class="active" aria-current="page">Contact</a>
         </nav>
         <button class="hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-nav">
@@ -128,6 +129,7 @@
     <a href="/" data-nav="home">Home</a>
     <a href="work.html" data-nav="work">Work</a>
     <a href="case-studies.html" data-nav="case-studies">Case studies</a>
+    <a href="checklist.html" data-nav="checklist">Checklist</a>
     <a href="contact.html" data-nav="contact" class="active" aria-current="page">Contact</a>
 </nav>
     <!-- END_INJECT_HEADER -->
@@ -135,14 +137,74 @@
     <main id="main-content" class="page-main" tabindex="-1">
         <div class="container">
             <p class="section-label">Contact</p>
-            <h1>Ask about a test</h1>
+            <h1>Ask for a free first look</h1>
             <p style="max-width: 40rem;">
-                Tell me about your app and what you'd like checked: testing, accessibility, or both.
+                Free first look: if you built a website or app with AI tools, I walk one customer journey and send you the top 5 fixes.
             </p>
             <p style="max-width: 40rem; margin-top: 0.75rem;">
-                Helpful to include: a link to the app, the parts that matter most to you, and any timing. Please don't put passwords, keys or customer data in this form.
+                No brief needed. Send a link and I'll take it from there.
             </p>
             <p class="callout">I only test or review systems you own, and only after you've given me the go-ahead in writing. I don't test services you use but don't own, like Stripe, Clerk, Google, Firebase, your hosting provider or AI model providers. Where your app connects to one of them, I only look at your side of it.</p>
+
+            <section id="free-first-look" class="form-panel" aria-labelledby="free-first-look-heading">
+                <h2 id="free-first-look-heading">Free first look</h2>
+                <form id="firstLookForm" action="https://formspree.io/f/xjkrzwlq" method="POST" novalidate>
+                    <div class="sr-only" aria-hidden="true">
+                        <label for="firstlook-gotcha">Leave this blank</label>
+                        <input type="text" id="firstlook-gotcha" name="_gotcha" tabindex="-1" autocomplete="off">
+                    </div>
+                    <input type="hidden" name="subject" value="Free first look">
+                    <input type="hidden" name="_subject" value="Free first look">
+
+                    <div class="form-group">
+                        <label for="firstlook-link">
+                            Website or app link
+                            <span class="required" aria-hidden="true">*</span>
+                            <span class="sr-only">(required)</span>
+                        </label>
+                        <input type="text" id="firstlook-link" name="link" required aria-required="true"
+                            inputmode="url" autocomplete="url" placeholder="https://example.com" maxlength="500">
+                        <div id="firstlook-link-error" class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="firstlook-email">
+                            Email
+                            <span class="required" aria-hidden="true">*</span>
+                            <span class="sr-only">(required)</span>
+                        </label>
+                        <input type="email" id="firstlook-email" name="email" required aria-required="true"
+                            autocomplete="email" placeholder="you@example.com" maxlength="100">
+                        <div id="firstlook-email-error" class="error-message" aria-live="polite"></div>
+                    </div>
+                    <div class="form-footer">
+                        <button type="submit" class="btn btn-primary" data-loading-text="Sending…">
+                            <span class="button-text">Ask for a free first look</span>
+                        </button>
+                        <p class="form-note">
+                            <span class="required" aria-hidden="true">*</span> Required.
+                            This form sends your email and the link through
+                            <a href="https://formspree.io">Formspree</a>.
+                            Please don't put passwords, keys or customer data in it.
+                        </p>
+                    </div>
+                </form>
+                <div id="firstlook-success" class="success-message" tabindex="-1" hidden>
+                    <p>Message sent.</p>
+                </div>
+                <p style="margin-top: 1rem;">
+                    <a href="sample-report.html">See an example report</a> for the format you get back.
+                    <a href="checklist.html">Common holes in AI-built apps</a> is a public checklist.
+                </p>
+            </section>
+
+            <section class="follow-block" aria-labelledby="other-enquiries-heading">
+                <h2 id="other-enquiries-heading">Other enquiries</h2>
+                <p style="max-width: 40rem;">
+                    Tell me about your app and what you'd like checked: testing, accessibility, or both.
+                    Helpful to include: a link to the app, the parts that matter most to you, and any timing.
+                    Please don't put passwords, keys or customer data in this form.
+                </p>
+            </section>
 
             <div class="contact-grid">
                 <div class="contact-meta">
@@ -250,7 +312,10 @@
             <a href="/">Home</a>
             <a href="work.html">Work</a>
             <a href="case-studies.html">Case studies</a>
+            <a href="checklist.html">Checklist</a>
+            <a href="sample-report.html">Example report</a>
             <a href="contact.html">Contact</a>
+            <a href="privacy.html">Privacy</a>
             <div class="social-links">
                 <a href="https://github.com/IronAdamant" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#github"/></svg></a>
                 <a href="https://www.linkedin.com/in/aron-amos-64045582/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="/images/icons.svg#linkedin"/></svg></a>
@@ -258,12 +323,16 @@
             </div>
         </div>
     </div>
+    <!-- Cloudflare Web Analytics is off until a site token is set.
+         TODO: paste the site token from the Cloudflare Web Analytics dashboard into the token below, then remove this comment so the script can load.
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": ""}'></script>
+    -->
 </footer>
     <!-- END_INJECT_FOOTER -->
 
     <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
-    <script src="js/contact-form.js?v=dc5f2e81ab" defer></script>
-    <script src="js/main.js?v=0dd472a054" defer></script>
+    <script src="js/contact-form.js?v=a72fd543d6" defer></script>
+    <script src="js/main.js?v=5fe027122c" defer></script>
     <script src="js/sw-register.js?v=fa4d08115b" defer></script>
 </body>
 
