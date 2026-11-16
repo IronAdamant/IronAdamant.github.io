@@ -74,7 +74,7 @@
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/bundle.css?v=6981e80146">
+    <link rel="stylesheet" href="css/bundle.css?v=dfd4e369a3">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3d9a7a">
@@ -176,6 +176,16 @@
                             autocomplete="email" placeholder="you@example.com" maxlength="100">
                         <div id="firstlook-email-error" class="error-message" aria-live="polite"></div>
                     </div>
+                    <div class="form-group checkbox-group">
+                        <input type="checkbox" id="firstlook-owner" name="owner_confirmed" required aria-required="true"
+                            value="Yes: this is my website or app, and I am happy for you to look at it">
+                        <label for="firstlook-owner">
+                            This is my website or app, and I'm happy for you to look at it.
+                            <span class="required" aria-hidden="true">*</span>
+                            <span class="sr-only">(required)</span>
+                        </label>
+                        <div id="firstlook-owner-error" class="error-message" aria-live="polite"></div>
+                    </div>
                     <div class="form-footer">
                         <button type="submit" class="btn btn-primary" data-loading-text="Sending…">
                             <span class="button-text">Ask for a free first look</span>
@@ -185,11 +195,12 @@
                             This form sends your email and the link through
                             <a href="https://formspree.io">Formspree</a>.
                             Please don't put passwords, keys or customer data in it.
+                            Here's <a href="privacy.html">what happens to your message</a>.
                         </p>
                     </div>
                 </form>
                 <div id="firstlook-success" class="success-message" tabindex="-1" hidden>
-                    <p>Message sent.</p>
+                    <p><strong>Thanks, it's with me.</strong> I'll reply by email.</p>
                 </div>
                 <p style="margin-top: 1rem;">
                     <a href="sample-report.html">See an example report</a> for the format you get back.
@@ -200,7 +211,7 @@
             <section class="follow-block" aria-labelledby="other-enquiries-heading">
                 <h2 id="other-enquiries-heading">Other enquiries</h2>
                 <p style="max-width: 40rem;">
-                    Tell me about your app and what you'd like checked: testing, accessibility, or both.
+                    Tell me about your app and what you'd like checked: testing, accessibility, security, or a mix.
                     Helpful to include: a link to the app, the parts that matter most to you, and any timing.
                     Please don't put passwords, keys or customer data in this form.
                 </p>
@@ -293,11 +304,12 @@
                                 <span class="required" aria-hidden="true">*</span> Required.
                                 This form sends your name, email, subject, and message through
                                 <a href="https://formspree.io">Formspree</a>.
+                                Here's <a href="privacy.html">what happens to your message</a>.
                             </p>
                         </div>
                     </form>
                     <div id="form-success" class="success-message" tabindex="-1" hidden>
-                        <p>Message sent.</p>
+                        <p><strong>Thanks, it's with me.</strong> I'll reply by email.</p>
                     </div>
                 </div>
             </div>
@@ -328,7 +340,7 @@
     <!-- END_INJECT_FOOTER -->
 
     <script src="js/navigation.js?v=ee7bb22f7f" defer></script>
-    <script src="js/contact-form.js?v=a72fd543d6" defer></script>
+    <script src="js/contact-form.js?v=839ed4238e" defer></script>
     <script src="js/main.js?v=5fe027122c" defer></script>
     <script src="js/sw-register.js?v=fa4d08115b" defer></script>
 </body>

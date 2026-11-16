@@ -201,7 +201,7 @@ function initContactForm() {
             if (response.ok) {
                 form.reset();
                 formSuccess.hidden = false;
-                formSuccess.innerHTML = `<p><strong>Message sent.</strong></p>`;
+                formSuccess.innerHTML = `<p><strong>Thanks, it's with me.</strong> I'll reply by email.</p>`;
                 formSuccess.focus();
             } else {
                 throw new Error('Form submission failed');
@@ -223,7 +223,7 @@ function initContactForm() {
 
         const fakeSuccess = document.createElement('div');
         fakeSuccess.className = 'success-message';
-        fakeSuccess.textContent = 'Message sent successfully!';
+        fakeSuccess.textContent = "Thanks, it's with me. I'll reply by email.";
         form.appendChild(fakeSuccess);
         form.reset();
         setTimeout(() => fakeSuccess.remove(), 3000);
@@ -278,6 +278,7 @@ function initFirstLookForm() {
 
     const linkInput = document.getElementById('firstlook-link');
     const emailInput = document.getElementById('firstlook-email');
+    const ownerInput = document.getElementById('firstlook-owner');
     const submitButton = form.querySelector('button[type="submit"]');
     const buttonText = submitButton ? submitButton.querySelector('.button-text') : null;
     const formSuccess = document.getElementById('firstlook-success');
@@ -318,18 +319,33 @@ function initFirstLookForm() {
         return true;
     }
 
+    function validateOwner() {
+        if (!ownerInput) return true;
+        if (!ownerInput.checked) {
+            showFieldError(ownerInput, 'Tick this box to confirm it is your website or app');
+            return false;
+        }
+        clearFieldError(ownerInput);
+        return true;
+    }
+
     linkInput.addEventListener('blur', () => setTimeout(validateLink, 200));
     emailInput.addEventListener('blur', () => setTimeout(validateEmail, 200));
     linkInput.addEventListener('input', () => clearFieldError(linkInput));
     emailInput.addEventListener('input', () => clearFieldError(emailInput));
     linkInput.setAttribute('aria-describedby', 'firstlook-link-error');
     emailInput.setAttribute('aria-describedby', 'firstlook-email-error');
+    if (ownerInput) {
+        ownerInput.addEventListener('change', validateOwner);
+        ownerInput.setAttribute('aria-describedby', 'firstlook-owner-error');
+    }
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
         const linkOk = validateLink();
         const emailOk = validateEmail();
-        if (!linkOk || !emailOk) {
+        const ownerOk = validateOwner();
+        if (!linkOk || !emailOk || !ownerOk) {
             const firstError = form.querySelector('.error');
             if (firstError) {
                 firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
@@ -361,6 +377,7 @@ function initFirstLookForm() {
             const formData = new FormData();
             formData.append('email', emailInput.value.trim());
             formData.append('link', normalizedLink(linkInput.value));
+            formData.append('owner_confirmed', 'Yes: this is my website or app, and I am happy for you to look at it');
             formData.append('subject', 'Free first look');
             formData.append('_subject', 'Free first look');
 
@@ -374,7 +391,7 @@ function initFirstLookForm() {
 
             form.reset();
             formSuccess.hidden = false;
-            formSuccess.innerHTML = '<p><strong>Message sent.</strong> I have the link.</p>';
+            formSuccess.innerHTML = `<p><strong>Thanks, it's with me.</strong> I'll reply by email.</p>`;
             formSuccess.focus();
         } catch (error) {
             console.error('Form submission error:', error);

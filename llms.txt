@@ -2,12 +2,13 @@
 
 > Iron Adamant does QA for websites and apps built with AI tools, including a free first look: one customer journey and the top 5 fixes.
 
-Aron Amos runs Iron Adamant as a sole trader from Western Sydney, NSW, Australia, and works remotely by email. He tests websites and apps the way a customer uses them, and writes what to fix first in plain English. Paid testing: written scope, fixed price agreed before work starts. Authorised security checks: bookings opening soon. He only tests or reviews systems the owner owns, and only with written go-ahead. The tools on the Work page are proof he can build.
+Aron Amos runs Iron Adamant as a sole trader from Western Sydney, NSW, Australia, and works remotely by email. He tests websites and apps the way a customer uses them, and writes what to fix first in plain English. Paid testing: written scope, fixed price agreed before work starts. Packages are priced in US dollars, with no GST added (not registered for GST): Quick Check US$165, Standard Review US$330, Full Review US$650. Security checks are open for booking, for systems the owner owns. It isn't penetration testing. He only tests or reviews systems the owner owns, and only with written go-ahead. The tools on the Work page are proof he can build.
 
 ## Services
 
 - [Free first look](https://ironadamant.com/contact.html#free-first-look): One customer journey and the top 5 fixes. No brief needed. Send a link.
-- [Home](https://ironadamant.com/): Web app testing, accessibility checks, and the free first look.
+- [Home](https://ironadamant.com/): Web app testing, accessibility checks, security checks, and the free first look.
+- [Prices](https://ironadamant.com/#prices): Quick Check US$165, Standard Review US$330, Full Review US$650.
 - [DOER listing](https://itsadoerthing.com/aron-amos-172753/iron-adamant): Iron Adamant on DOER.
 - [Free first look on DOER](https://itsadoerthing.com/aron-amos-172753/free-first-look-one-journey-and-your-top-5-fixes): The same free first look, listed on DOER.
 - [Paid testing on DOER](https://itsadoerthing.com/aron-amos-172753/website-and-app-qa-security-review-for-vibe-coded): The paid website and app QA listing on DOER.
