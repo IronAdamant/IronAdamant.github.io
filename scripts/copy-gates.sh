@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Copy gates for ironadamant.com. Run from the repo root. Exits 1 on any hit.
-# Globs cover partials, SVG, CSS, and JS. The dollar check matches "$" plus a number.
+# Globs cover partials, SVG, CSS, and JS. The dollar check allows only the approved package prices.
 # CLAUDE.md is left out on purpose: it lists the banned words.
 shopt -s nullglob
 COPY=(
@@ -18,7 +18,8 @@ rg -n -i 'penetration' "${COPY[@]}" | rg -v "It isn['’]t penetration testing."
 rg -q "It isn['’]t penetration testing." index.html || hit "required sentence missing from index.html"
 rg -n -P '[\x{2013}\x{2014}]' "${TEXT[@]}" && hit "em or en dash"
 rg -n 'WCAG' "${COPY[@]}" | rg -v 'automated checks against WCAG 2.2 AA plus a manual pass' && hit "WCAG outside the exact phrase"
-rg -n '\$ ?[0-9]' "${COPY[@]}" && hit "dollar figure"
+# Only the approved package prices may appear: US$165, US$330, US$650.
+rg -n -o -P '(US)?\$ ?[0-9]+(?:[.,][0-9]+)*' "${COPY[@]}" | rg -v ':US\$(165|330|650)$' && hit "dollar figure other than the approved prices"
 rg -n -i 'tel:|"telephone"|\+61|deaf|hearing|clients?\b|client work|testimonial|trusted by|years of|track record|business days' "${COPY[@]}" \
   | rg -v 'Example report: illustrative format, not a real client' \
   && hit "phone, hearing line, history claim or reply-time promise"

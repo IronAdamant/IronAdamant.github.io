@@ -691,8 +691,27 @@
     margin-bottom: 0.4rem;
 }
 
-.legal a {
+/* Buttons keep their own colours inside text pages */
+.legal a:not(.btn) {
     color: var(--accent);
+}
+
+/* Cards and bands inside text pages keep their own spacing */
+.legal .step-list {
+    margin: 0.5rem 0 1rem;
+}
+
+.legal .step-list li {
+    margin-bottom: 0;
+}
+
+.legal .step-list p,
+.legal .cta-band p {
+    margin-bottom: 0;
+}
+
+.legal .cta-band {
+    margin: 1.5rem 0;
 }
 
 .check-list {
@@ -721,4 +740,65 @@
     .cta-row .btn {
         flex: 1 1 auto;
     }
+}
+
+/* Price packages */
+.price-card .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text);
+    margin: 0.25rem 0 0.75rem;
+}
+
+.price-card .price span {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 400;
+    color: var(--text-muted);
+}
+
+.price-card ul {
+    display: grid;
+    gap: 0.4rem;
+    font-size: 0.95rem;
+}
+
+.price-card li {
+    position: relative;
+    padding-left: 1.1rem;
+}
+
+.price-card li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 0.4rem;
+    height: 0.4rem;
+    border-radius: 999px;
+    background: var(--accent);
+}
+
+/* Required checkbox with its label beside it */
+.checkbox-group {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    column-gap: 0.6rem;
+    align-items: start;
+}
+
+.form-group.checkbox-group input[type="checkbox"] {
+    width: 1.15rem;
+    height: 1.15rem;
+    padding: 0;
+    margin-top: 0.15rem;
+    accent-color: var(--accent);
+}
+
+.form-group.checkbox-group label {
+    margin-bottom: 0;
+}
+
+.checkbox-group .error-message {
+    grid-column: 1 / -1;
 }

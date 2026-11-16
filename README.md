@@ -10,7 +10,7 @@ Web app testing. The parts of an app that customers touch.
 
 Accessibility checks. Automated checks against WCAG 2.2 AA plus a manual pass.
 
-Authorised security checks: bookings opening soon. It isn't penetration testing.
+Security checks are open for booking. It isn't penetration testing.
 
 The tools on the Work page are proof I can build.
 

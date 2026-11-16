@@ -74,7 +74,7 @@
 
     <link rel="icon" type="image/png" href="/favicon.png">
     <link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/bundle.css?v=6981e80146">
+    <link rel="stylesheet" href="css/bundle.css?v=dfd4e369a3">
 
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#3d9a7a">
@@ -146,7 +146,7 @@
                 </li>
                 <li>
                     <h3>Create an account</h3>
-                    <p>I entered a name, left the email blank, and chose a password. Example App said the account was created.</p>
+                    <p>I entered a name, left the email blank, and chose a short password. The password was turned down, and only then did the rules appear. My second password worked, and Example App said the account was created, with no email.</p>
                 </li>
                 <li>
                     <h3>Land on the booking page</h3>
@@ -154,7 +154,7 @@
                 </li>
                 <li>
                     <h3>Try to book a desk</h3>
-                    <p>I chose a desk and confirmed. The page went blank, with no message about whether the desk was booked.</p>
+                    <p>I tried to choose a desk with the keyboard only, and couldn't reach the Book button. With a mouse, I chose a desk and confirmed. The page went blank, with no message about whether the desk was booked.</p>
                 </li>
             </ol>
 
@@ -165,16 +165,16 @@
                     <p>What this means: the person thinks they have an account, then cannot sign in, because there is no email to send a confirmation to.</p>
                 </li>
                 <li>
-                    <h3>High. The account route returns bookings with no one signed in</h3>
-                    <p>What this means: a private list of desk bookings can be read without an account. The route should refuse that request.</p>
-                </li>
-                <li>
-                    <h3>Medium. Password reset does not fit a phone</h3>
-                    <p>What this means: the reset link opens a wide page. The person cannot reach the save button on the phone they use for email, so they cannot finish the reset.</p>
-                </li>
-                <li>
-                    <h3>Medium. A failed booking leaves a blank page</h3>
+                    <h3>High. A failed booking leaves a blank page</h3>
                     <p>What this means: the person does not know whether the desk was booked. They may book it twice, or give up.</p>
+                </li>
+                <li>
+                    <h3>Medium. Password rules only appear after a wrong try</h3>
+                    <p>What this means: the person has to guess, fail, then start again. Some people give up at sign-up instead.</p>
+                </li>
+                <li>
+                    <h3>Medium. The Book button can't be reached with the keyboard</h3>
+                    <p>What this means: someone who uses a keyboard instead of a mouse can see the desks but can't book one.</p>
                 </li>
                 <li>
                     <h3>Low. The date field has no visible name</h3>
@@ -184,7 +184,7 @@
 
             <h2>Next steps</h2>
             <p>On a real free first look, this is the whole note: what I walked, the top 5 fixes, and what each one means. I do not start paid work from this page.</p>
-            <p>Paid testing: written scope, fixed price agreed before work starts. Authorised security checks: bookings opening soon.</p>
+            <p>Paid testing: written scope, fixed price agreed before work starts. Packages start at US$165, and the <a href="/#prices">prices are on the homepage</a>.</p>
 
             <div class="cta-band">
                 <p>Want this format on your own website or app?</p>
