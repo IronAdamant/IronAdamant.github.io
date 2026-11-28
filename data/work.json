@@ -298,6 +298,86 @@
       ]
     },
     {
+      "id": "mem-harness",
+      "title": "Mem-Harness",
+      "type": "oss",
+      "category": "ai",
+      "summary": "One MCP server and one set of Claude Code hooks in front of nine of my agent tools. Rules, claims, notes and the task board come back as one brief after every compaction.",
+      "description": "Mem-Harness puts Probatio, CoordinationHub, Wikifier, stele-context, Adsertio, Libellus, Chisel, Trammel and Relatum behind one server. Each shared feature has one owner, so the agent never sees two tools doing the same job. Before a compaction it asks the summary to list anything not yet saved, then saves those lines as notes. A project's own config can't run commands or hide tools. Rust, standard library only, MIT. Builds for Linux, macOS and Windows.",
+      "techTags": [
+        "Rust",
+        "MCP",
+        "Claude Code",
+        "AI agents"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/Mem-Harness"
+        },
+        {
+          "text": "Releases",
+          "icon": "download",
+          "url": "https://github.com/IronAdamant/Mem-Harness/releases"
+        }
+      ]
+    },
+    {
+      "id": "libellus",
+      "title": "Libellus",
+      "type": "oss",
+      "category": "ai",
+      "summary": "A private notepad, cost ledger and shared task board for AI agents, so open questions, decisions and dead ends survive compaction.",
+      "description": "Each agent keeps its own short notes and a ledger of the tokens and cost it reports. A main agent and its sub-agents share one task board, which people read as a page. After compaction, one command gives back a short brief to paste into the session. No model calls, no account, plain files on disk. Rust, standard library only, CLI and MCP server, MIT.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Libellus/main/docs/images/board-dark.png",
+      "imageAlt": "Libellus board page for a demo project. Progress bars and a kanban of tasks shared by a main agent and two sub-agents.",
+      "techTags": [
+        "Rust",
+        "MCP",
+        "AI agents"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/Libellus"
+        },
+        {
+          "text": "Releases",
+          "icon": "download",
+          "url": "https://github.com/IronAdamant/Libellus/releases"
+        }
+      ]
+    },
+    {
+      "id": "adsertio",
+      "title": "Adsertio",
+      "type": "oss",
+      "category": "testing",
+      "summary": "Checks an AI agent's claims against proof already on disk. Each claim is verified, refuted or unverified, worked out fresh every time.",
+      "description": "An agent says \"the retry change passes\". Adsertio ties that claim to pointers into what Trammel, Chisel, Probatio and Relatum already wrote, and reads them again on every view. The verdict is never stored, and a file it doesn't understand never counts as proof. No model calls, and it never writes into other tools' folders. Rust, standard library only, CLI and MCP server, MIT.",
+      "imageSrc": "https://raw.githubusercontent.com/IronAdamant/Adsertio/main/docs/images/claims.png",
+      "imageAlt": "Adsertio in a terminal. A malformed pointer refused with a suggested fix, then six claims judged verified, refuted or unverified.",
+      "techTags": [
+        "Rust",
+        "MCP",
+        "Test evidence"
+      ],
+      "links": [
+        {
+          "text": "GitHub",
+          "icon": "github",
+          "url": "https://github.com/IronAdamant/Adsertio"
+        },
+        {
+          "text": "Releases",
+          "icon": "download",
+          "url": "https://github.com/IronAdamant/Adsertio/releases"
+        }
+      ]
+    },
+    {
       "id": "pythonbol",
       "title": "PythonBol Translator",
       "type": "oss",
